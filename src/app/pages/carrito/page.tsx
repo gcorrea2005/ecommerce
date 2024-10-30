@@ -6,6 +6,7 @@ const Inicio: React.FC = () => {
     <div>
       <h1>Bienvenido a Aseo Total</h1>
       <p>Explora nuestros productos de limpieza.</p>
+      <h2>Implementar Carrito de compras</h2>
     </div>
   );
 };

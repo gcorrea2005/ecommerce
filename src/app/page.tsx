@@ -1,60 +1,137 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { FaCheckCircle } from "react-icons/fa"; // Asegúrate de tener react-icons instalado
-import Link from "next/link"; // Importa el componente Link
+import { FaCheckCircle } from "react-icons/fa";
+import Link from "next/link";
+import { Box, Typography, Grid, Button, Paper, Container } from "@mui/material";
 
 const Inicio: React.FC = () => {
   return (
-    <section className="bg-gradient-to-r from-green-200 to-green-300 text-white p-10 rounded-lg shadow-xl mt-6 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
-        <Image
-          src="/background.jpg" // Ruta de la imagen en la carpeta pública
-          alt="Background"
-          layout="fill" // Asegura que la imagen cubra todo el contenedor
-          objectFit="cover" // Mantiene la proporción de la imagen
-          className="w-full h-full"
-        />
-      </div>
-      <div className="relative z-10 text-center">
-        <h2 className="text-4xl font-bold mb-4 text-gray-800">
-          ¡Bienvenido a Aseo Total!
-        </h2>
-        <p className="mt-2 text-lg max-w-3xl mx-auto mb-6 text-gray-800">
-          Descubre nuestra amplia gama de productos de aseo ecológicos y efectivos. Desde detergentes hasta limpiadores multiusos, tenemos todo lo que necesitas para mantener tu hogar limpio y fresco.
-        </p>
-        <p className="mt-6 font-semibold text-lg text-gray-800">
-          🌟 **¡Ofertas especiales este mes!** 🌟
-        </p>
+    <Container maxWidth="lg" sx={{ mt: 6 }}>
+      <Box
+        position="relative"
+        p={4}
+        borderRadius={2}
+        boxShadow={3}
+        sx={{
+          bgcolor: "linear-gradient(to right, #A8D5BA, #ADE1C3)",
+          overflow: "hidden",
+        }}
+      >
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          width="100%"
+          height="100%"
+          sx={{
+            opacity: 0.2,
+            zIndex: 1,
+          }}
+        >
+          <Image
+            src="/background.jpg"
+            alt="Background"
+            layout="fill"
+            objectFit="cover"
+            style={{ width: "100%", height: "100%" }}
+          />
+        </Box>
 
-        <h3 className="text-3xl font-semibold mb-6 text-gray-800">
-          ¿Por qué elegir productos ecológicos?
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div className="bg-white text-black p-6 rounded-lg shadow-lg">
-            <FaCheckCircle className="text-green-500 text-3xl mb-4" />
-            <h4 className="text-lg font-semibold text-green-700">Seguridad</h4>
-            <p className="text-gray-700">Libres de químicos dañinos, ideales para tu familia y mascotas.</p>
-          </div>
-          <div className="bg-white text-black p-6 rounded-lg shadow-lg">
-            <FaCheckCircle className="text-green-500 text-3xl mb-4" />
-            <h4 className="text-lg font-semibold text-green-700">Efectividad</h4>
-            <p className="text-gray-700">Limpieza profunda sin comprometer el medio ambiente.</p>
-          </div>
-          <div className="bg-white text-black p-6 rounded-lg shadow-lg">
-            <FaCheckCircle className="text-green-500 text-3xl mb-4" />
-            <h4 className="text-lg font-semibold text-green-700">Sostenibilidad</h4>
-            <p className="text-gray-700">Productos biodegradables en envases reciclables.</p>
-          </div>
-        </div>
+        <Box position="relative" zIndex={2} textAlign="center">
+          <Typography
+            variant="h2"
+            fontWeight="bold"
+            gutterBottom
+            color="text.primary"
+          >
+            ¡Bienvenido a Aseo Total!
+          </Typography>
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            sx={{ maxWidth: 720, mx: "auto", mb: 4 }}
+          >
+            Descubre nuestra amplia gama de productos de aseo ecológicos y
+            efectivos. Desde detergentes hasta limpiadores multiusos, tenemos
+            todo lo que necesitas para mantener tu hogar limpio y fresco.
+          </Typography>
 
-        <div className="flex justify-center mt-8">
-          <Link href="/pages/products" className="bg-blue-600 text-white font-bold p-4 rounded-lg shadow-lg hover:bg-blue-500 transition duration-300 ease-in-out transform hover:scale-105">
-            Explora nuestros productos
-          </Link>
-        </div>
-      </div>
-    </section>
+          <Typography
+            variant="h5"
+            fontWeight="medium"
+            color="text.primary"
+            gutterBottom
+          >
+            🌟 ¡Ofertas especiales este mes! 🌟
+          </Typography>
+
+          <Typography
+            variant="h3"
+            fontWeight="bold"
+            color="text.primary"
+            gutterBottom
+          >
+            ¿Por qué elegir productos ecológicos?
+          </Typography>
+
+          <Grid container spacing={4} justifyContent="center" sx={{ mt: 4 }}>
+            {[
+              {
+                title: "Seguridad",
+                description:
+                  "Libres de químicos dañinos, ideales para tu familia y mascotas.",
+              },
+              {
+                title: "Efectividad",
+                description:
+                  "Limpieza profunda sin comprometer el medio ambiente.",
+              },
+              {
+                title: "Sostenibilidad",
+                description: "Productos biodegradables en envases reciclables.",
+              },
+            ].map((item, index) => (
+              <Grid item xs={12} md={4} key={index}>
+                <Paper
+                  elevation={3}
+                  sx={{ p: 3, borderRadius: 2, textAlign: "center" }}
+                >
+                  <FaCheckCircle
+                    size={32}
+                    style={{ color: "#4CAF50", marginBottom: 8 }}
+                  />
+                  <Typography variant="h6" color="primary" fontWeight="bold">
+                    {item.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {item.description}
+                  </Typography>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+
+          <Box mt={4}>
+            <Button
+              component={Link}
+              href="/pages/productos"
+              variant="contained"
+              color="primary"
+              size="large"
+              sx={{
+                fontWeight: "bold",
+                boxShadow: 3,
+                transition: "transform 0.3s",
+                ":hover": { transform: "scale(1.05)" },
+              }}
+            >
+              Explora nuestros productos
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+    </Container>
   );
 };
 

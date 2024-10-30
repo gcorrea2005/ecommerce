@@ -1,103 +1,8 @@
-// import { NextResponse } from "next/server";
-// import { prisma } from "@/libs/prisma";
-// import { Prisma } from "@prisma/client";
+Claro, aquí tienes un archivo completo que incluye la implementación de las operaciones CRUD para manejar productos en SQLite, MySQL y DynamoDB. Este archivo se colocaría en la ruta /app/api/products/[id]/route.js.
 
-// interface Params {
-//   params: { id: string };
-// }
-
-// export async function GET(request: Request, { params }: Params) {
-//   try {
-//     const product = await prisma.product.findUnique({
-//       where: {
-//         id: Number(params.id),
-//       },
-//     });
-//     if (!product) {
-//       return NextResponse.json(
-//         { message: "Product not found" },
-//         { status: 404 }
-//       );
-//     }
-//     return NextResponse.json(product);
-//   } catch (error) {
-//     if (error instanceof Error) {
-//       return NextResponse.json(
-//         {
-//           message: error.message,
-//         },
-//         { status: 500 }
-//       );
-//     }
-//   }
-// }
-
-// export async function DELETE(request: Request, { params }: Params) {
-//   try {
-//     const deleteProduct = await prisma.product.delete({
-//       where: {
-//         id: Number(params.id),
-//       },
-//     });
-//     if (!deleteProduct) {
-//       return NextResponse.json(
-//         { message: "Product not found" },
-//         { status: 404 }
-//       );
-//     }
-//     return NextResponse.json(deleteProduct);
-//   } catch (error) {
-//     if (error instanceof Prisma.PrismaClientKnownRequestError) {
-//       if (error.code === "P2025") {
-//         return NextResponse.json(
-//           { message: "Product not found" },
-//           { status: 404 }
-//         );
-//       }
-//       return NextResponse.json(
-//         {
-//           message: error.message,
-//         },
-//         { status: 500 }
-//       );
-//     }
-//   }
-// }
-
-// export async function PUT(request: Request, { params }: Params) {
-//   try {
-//     const { name, price, stock, image } = await request.json();
-//     const updateProduct = await prisma.product.update({
-//       where: {
-//         id: Number(params.id),
-//       },
-//       data: {
-//         name,
-//         price,
-//         stock,
-//         image,
-//       },
-//     });
-//     return NextResponse.json(updateProduct);
-//   } catch (error) {
-//     if (error instanceof Prisma.PrismaClientKnownRequestError) {
-//       if (error.code === "P2025") {
-//         return NextResponse.json(
-//           { message: "Product not found" },
-//           { status: 404 }
-//         );
-//       }
-//       return NextResponse.json(
-//         {
-//           message: error.message,
-//         },
-//         { status: 500 }
-//       );
-//     }
-//   }
-// }
-
-
+Archivo Completo: app/api/products/[id]/route.js
+javascript
+Copiar código
 import { prisma as sqlitePrisma } from "@/libs/prisma/sqlite"; // Prisma para SQLite
 import { prisma as mysqlPrisma } from "@/libs/prisma/mysql"; // Prisma para MySQL
 import { DynamoDBClient, PutItemCommand, GetItemCommand, UpdateItemCommand, DeleteItemCommand } from "@aws-sdk/client-dynamodb"; // AWS SDK para DynamoDB
@@ -277,4 +182,61 @@ function handleError(error) {
     { status: 500 }
   );
 }
+Descripción de las Funciones CRUD
+GET: Obtiene un producto específico por su ID de la base de datos seleccionada (SQLite, MySQL o DynamoDB).
 
+POST: Agrega un nuevo producto a la base de datos seleccionada.
+
+PUT: Actualiza un producto existente por su ID en la base de datos seleccionada.
+
+DELETE: Elimina un producto existente por su ID en la base de datos seleccionada.
+
+Consideraciones Adicionales
+Prisma: Asegúrate de que tus modelos en Prisma estén correctamente configurados para SQLite y MySQL. La tabla en DynamoDB también debe estar configurada con los atributos apropiados.
+
+Configuración de AWS: Verifica que tu entorno esté configurado con las credenciales de AWS necesarias para acceder a DynamoDB.
+
+Validaciones: Considera agregar validaciones para la entrada de datos, especialmente para los campos requeridos.
+
+Manejo de Errores: El manejo de errores es básico; puedes mejorarlo según las necesidades de tu aplicación.
+
+Ejemplo de Solicitudes
+Obtener un Producto:
+
+http
+Copiar código
+GET /api/products/123?db=sqlite
+Agregar un Producto:
+
+http
+Copiar código
+POST /api/products
+Content-Type: application/json
+
+{
+  "db": "mysql",
+  "name": "Product Name",
+  "price": 100,
+  "stock": 50,
+  "image": "image-url"
+}
+Actualizar un Producto:
+
+http
+Copiar código
+PUT /api/products/123
+Content-Type: application/json
+
+{
+  "db": "dynamodb",
+  "name": "Updated Product Name",
+  "price": 120,
+  "stock": 60,
+  "image": "updated-image-url"
+}
+Eliminar un Producto:
+
+http
+Copiar código
+DELETE /api/products/123?db=sqlite
+Con este archivo, tienes una API completa que puede manejar productos en tres bases de datos diferentes. ¡Buena suerte con tu desarrollo!
