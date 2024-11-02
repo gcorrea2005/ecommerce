@@ -1,4 +1,4 @@
-Claro, aquí tienes un archivo completo que incluye la implementación de las operaciones CRUD para manejar productos en SQLite, MySQL y DynamoDB. Este archivo se colocaría en la ruta /app/api/products/[id]/route.js.
+Archivo completo que incluye la implementación de las operaciones CRUD para manejar productos en SQLite, MySQL y DynamoDB. Este archivo se colocaría en la ruta /app/api/products/[id]/route.js.
 
 Archivo Completo: app/api/products/[id]/route.js
 javascript

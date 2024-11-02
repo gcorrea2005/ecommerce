@@ -1,6 +1,6 @@
 "use client";
-import { Container } from "@mui/material";
 import React from "react";
+import { Container } from "@mui/material";
 
 interface MainContentProps {
   children: React.ReactNode;

@@ -12,9 +12,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleDrawer }) => {
     <Drawer anchor="left" open={isOpen} onClose={toggleDrawer}>
       <List>
         {["Inicio", "Productos", "Carrito"].map((text, index) => (
-          <ListItem button key={index} onClick={toggleDrawer}>
-            <Link href={`/${text.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <ListItemText primary={text} />
+          <ListItem key={index} onClick={toggleDrawer}>
+            <Link href={`/${text.toLowerCase()}`} passHref legacyBehavior>
+              <a style={{ textDecoration: 'none', color: 'inherit' }}>
+                <ListItemText primary={text} />
+              </a>
             </Link>
           </ListItem>
         ))}

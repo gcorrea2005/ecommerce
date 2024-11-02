@@ -115,7 +115,7 @@ const Inicio: React.FC = () => {
           <Box mt={4}>
             <Button
               component={Link}
-              href="/pages/productos"
+              href="/productos"
               variant="contained"
               color="primary"
               size="large"
