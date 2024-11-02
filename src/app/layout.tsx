@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
-import Navbar from       "@/app/components/Navbar";
-import Sidebar from      "@/app/components/Sidebar";
+import Box from     "@mui/material/Box";
+import Navbar from  "@/app/components/Navbar";
+import Sidebar from "@/app/components/Sidebar";
 import MainContent from "@/app/components/MainContent";
-import Footer from "@/app/components/Footer";
+import Footer from  "@/app/components/Footer";
 
 interface RootLayoutProps {
   children: React.ReactNode;

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Card, CardMedia, CardContent, Typography, Button, Grid } from "@mui/material";
 
-const inicio = 5;
+const inicio = 15;
 
 const products = Array.from({ length: 5 }, (_, index) => ({
   id: inicio + index + 1,
@@ -29,7 +29,7 @@ const Inicio: React.FC = () => {
       </Button>
       
       <Typography variant="h4" component="h1" align="center" gutterBottom>
-        Desinfectantes ecológicos
+        Limpiadores Multiusos
       </Typography>
       
       <Grid container spacing={3}>

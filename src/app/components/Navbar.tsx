@@ -9,21 +9,20 @@ import {
   Menu,
   MenuItem,
   TextField,
+  useMediaQuery,
 } from "@mui/material";
 import {
   Menu as MenuIcon,
-  LocalLaundryService as EcoIcon, // Icono para Detergentes Ecológicos
-  CleaningServices as CleaningIcon, // Limpiadores Multiusos
-  Sanitizer as SanitizerIcon, // Desinfectantes
-  Face as FaceIcon, // Cuidado Personal
+  HomeRepairService as GeneralCleaningIcon, // Icono para Aseo General
+  Bathroom as PersonalCleaningIcon, // Icono para Aseo Personal
   ShoppingCart as ShoppingCartIcon, // Carrito
   AccountCircle as AccountCircleIcon, // Mi Cuenta
   Search as SearchIcon, // Icono de Búsqueda
-  Category as CategoryIcon, // Icono para Productos
+  Category as CategoryIcon, // Icono para Categorías
 } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
-import favicon from "@/app/assets/logo.png"; // Asegúrate de que esta ruta sea correcta
+import favicon from "@/app/assets/logo.png";
 import { useState } from "react";
 
 interface NavbarProps {
@@ -31,22 +30,37 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ toggleDrawer }) => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [productMenuAnchorEl, setProductMenuAnchorEl] =
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
+  const [anchorElHamburger, setAnchorElHamburger] = useState<null | HTMLElement>(null);
+  const [generalCleaningMenuAnchorEl, setGeneralCleaningMenuAnchorEl] =
+    useState<null | HTMLElement>(null);
+  const [personalCleaningMenuAnchorEl, setPersonalCleaningMenuAnchorEl] =
+    useState<null | HTMLElement>(null);
+  const [disposablesMenuAnchorEl, setDisposablesMenuAnchorEl] =
     useState<null | HTMLElement>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handleMenuClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
+  const handleHamburgerMenuClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElHamburger(event.currentTarget);
   };
 
-  const handleProductMenuClick = (event: React.MouseEvent<HTMLElement>) => {
-    setProductMenuAnchorEl(event.currentTarget);
+  const handleGeneralCleaningMenuClick = (event: React.MouseEvent<HTMLElement>) => {
+    setGeneralCleaningMenuAnchorEl(event.currentTarget);
+  };
+
+  const handlePersonalCleaningMenuClick = (event: React.MouseEvent<HTMLElement>) => {
+    setPersonalCleaningMenuAnchorEl(event.currentTarget);
+  };
+
+  const handleDisposablesMenuClick = (event: React.MouseEvent<HTMLElement>) => {
+    setDisposablesMenuAnchorEl(event.currentTarget);
   };
 
   const handleMenuClose = () => {
-    setAnchorEl(null);
-    setProductMenuAnchorEl(null);
+    setAnchorElHamburger(null);
+    setGeneralCleaningMenuAnchorEl(null);
+    setPersonalCleaningMenuAnchorEl(null);
+    setDisposablesMenuAnchorEl(null);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,21 +69,25 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDrawer }) => {
 
   const handleSearchSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Aquí puedes manejar la búsqueda, por ejemplo, redirigir a una página de resultados de búsqueda
     console.log("Buscar:", searchQuery);
   };
 
   return (
     <AppBar position="static">
       <Toolbar>
-        <Image src={favicon} alt="Favicon" width={64} height={64} />
+        {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 2 }}>
-            Aseo Total
-          </Typography>
+          <Box display="flex" alignItems="center" sx={{ mr: 2 }}>
+            <Image src={favicon} alt="Favicon" width={48} height={48} />
+            {!isSmallScreen && (
+              <Typography variant="h6" component="div" sx={{ ml: 2 }}>
+                LimTech
+              </Typography>
+            )}
+          </Box>
         </Link>
 
-        {/* Campo de búsqueda con botón estilizado */}
+        {/* Campo de búsqueda */}
         <form
           onSubmit={handleSearchSubmit}
           style={{
@@ -89,11 +107,9 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDrawer }) => {
             sx={{
               mr: 1,
               flexGrow: 1,
-              bgcolor: "white", // Fondo blanco
+              bgcolor: "white",
               borderRadius: "4px",
-              "& input": {
-                padding: "8px", // Espaciado interno
-              },
+              "& input": { padding: "8px" },
             }}
           />
           <IconButton type="submit" color="inherit">
@@ -101,112 +117,163 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDrawer }) => {
           </IconButton>
         </form>
 
-        {/* IconButton for mobile menu */}
-        <IconButton
-          color="inherit"
-          edge="end"
-          onClick={handleMenuClick}
-          sx={{ display: { xs: "block", md: "none" }, ml: "auto" }}
-        >
-          <MenuIcon />
-        </IconButton>
-
-        {/* Dropdown menu for mobile */}
+        {/* Menu de Aseo General */}
+        {!isSmallScreen && (
+          <Button color="inherit" onClick={handleGeneralCleaningMenuClick}>
+            <GeneralCleaningIcon sx={{ mr: 1 }} /> Aseo General
+          </Button>
+        )}
         <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
+          anchorEl={generalCleaningMenuAnchorEl}
+          open={Boolean(generalCleaningMenuAnchorEl)}
           onClose={handleMenuClose}
-          anchorOrigin={{ vertical: "top", horizontal: "right" }}
-          transformOrigin={{ vertical: "top", horizontal: "right" }}
-          sx={{ display: { xs: "block", md: "none" } }}
+          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+          transformOrigin={{ vertical: "top", horizontal: "left" }}
         >
           <MenuItem
             component={Link}
-            href="/productos/cat01"
+            href="/productos/aseo-general/accesorios"
             onClick={handleMenuClose}
           >
-            <EcoIcon sx={{ mr: 1 }} /> Detergentes Ecológicos
+            Accesorios de Limpieza
           </MenuItem>
           <MenuItem
             component={Link}
-            href="/productos/cat02"
+            href="/productos/aseo-general/productos"
             onClick={handleMenuClose}
           >
-            <SanitizerIcon sx={{ mr: 1 }} /> Desinfectantes
-          </MenuItem>
-          <MenuItem
-            component={Link}
-            href="/productos/cat03"
-            onClick={handleMenuClose}
-          >
-            <FaceIcon sx={{ mr: 1 }} /> Cuidado Personal
-          </MenuItem>
-          <MenuItem
-            component={Link}
-            href="/productos/cat04"
-            onClick={handleMenuClose}
-          >
-            <CleaningIcon sx={{ mr: 1 }} /> Limpiadores Multiusos
-          </MenuItem>
-          <MenuItem component={Link} href="/carrito" onClick={handleMenuClose}>
-            <ShoppingCartIcon sx={{ mr: 1 }} /> Carrito
-          </MenuItem>
-          <MenuItem component={Link} href="/account" onClick={handleMenuClose}>
-            <AccountCircleIcon sx={{ mr: 1 }} /> Mi Cuenta
+            Productos de Limpieza
           </MenuItem>
         </Menu>
 
-        {/* Desktop menu */}
-        <Box sx={{ display: { xs: "none", md: "flex" }, ml: "auto" }}>
-          <Button color="inherit" onClick={handleProductMenuClick}>
-            <CategoryIcon sx={{ mr: 1 }} /> Productos
+        {/* Menu de Aseo Personal */}
+        {!isSmallScreen && (
+          <Button color="inherit" onClick={handlePersonalCleaningMenuClick}>
+            <PersonalCleaningIcon sx={{ mr: 1 }} /> Aseo Personal
           </Button>
-
-          {/* Dropdown menu for Products */}
-          <Menu
-            anchorEl={productMenuAnchorEl}
-            open={Boolean(productMenuAnchorEl)}
-            onClose={handleMenuClose}
-            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-            transformOrigin={{ vertical: "top", horizontal: "left" }}
+        )}
+        <Menu
+          anchorEl={personalCleaningMenuAnchorEl}
+          open={Boolean(personalCleaningMenuAnchorEl)}
+          onClose={handleMenuClose}
+          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+          transformOrigin={{ vertical: "top", horizontal: "left" }}
+        >
+          <MenuItem
+            component={Link}
+            href="/productos/aseo-personal/accesorios"
+            onClick={handleMenuClose}
           >
-            <MenuItem
-              component={Link}
-              href="/productos/cat01"
-              onClick={handleMenuClose}
-            >
-              <EcoIcon sx={{ mr: 1 }} /> Detergentes Ecológicos
-            </MenuItem>
-            <MenuItem
-              component={Link}
-              href="/productos/cat02"
-              onClick={handleMenuClose}
-            >
-              <SanitizerIcon sx={{ mr: 1 }} /> Desinfectantes
-            </MenuItem>
-            <MenuItem
-              component={Link}
-              href="/productos/cat03"
-              onClick={handleMenuClose}
-            >
-              <FaceIcon sx={{ mr: 1 }} /> Cuidado Personal
-            </MenuItem>
-            <MenuItem
-              component={Link}
-              href="/productos/cat04"
-              onClick={handleMenuClose}
-            >
-              <CleaningIcon sx={{ mr: 1 }} /> Limpiadores Multiusos
-            </MenuItem>
-          </Menu>
+            Accesorios de Uso Personal
+          </MenuItem>
+          <MenuItem
+            component={Link}
+            href="/productos/aseo-personal/dispensadores"
+            onClick={handleMenuClose}
+          >
+            Dispensadores
+          </MenuItem>
+          <MenuItem
+            component={Link}
+            href="/productos/aseo-personal/productos"
+            onClick={handleMenuClose}
+          >
+            Productos de Aseo Personal
+          </MenuItem>
+        </Menu>
 
-          <Button color="inherit" component={Link} href="/carrito">
-            <ShoppingCartIcon sx={{ mr: 1 }} /> Carrito
+        {/* Menu de Desechables */}
+        {!isSmallScreen && (
+          <Button color="inherit" onClick={handleDisposablesMenuClick}>
+            <CategoryIcon sx={{ mr: 1 }} /> Desechables
           </Button>
-          <Button color="inherit" component={Link} href="/account">
-            <AccountCircleIcon sx={{ mr: 1 }} /> Mi Cuenta
-          </Button>
+        )}
+        <Menu
+          anchorEl={disposablesMenuAnchorEl}
+          open={Boolean(disposablesMenuAnchorEl)}
+          onClose={handleMenuClose}
+          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+          transformOrigin={{ vertical: "top", horizontal: "left" }}
+        >
+          <MenuItem
+            component={Link}
+            href="/productos/desechables/empaques"
+            onClick={handleMenuClose}
+          >
+            Desechables para Empacar
+          </MenuItem>
+          <MenuItem
+            component={Link}
+            href="/productos/desechables/envolver"
+            onClick={handleMenuClose}
+          >
+            Desechables para Envolver
+          </MenuItem>
+          <MenuItem
+            component={Link}
+            href="/productos/desechables/mesa"
+            onClick={handleMenuClose}
+          >
+            Desechables para la Mesa
+          </MenuItem>
+        </Menu>
+
+        {/* Carrito y Cuenta */}
+        <Box sx={{ display: "flex", alignItems: "center", ml: "auto" }}>
+          <IconButton color="inherit" component={Link} href="/carrito">
+            <ShoppingCartIcon />
+          </IconButton>
+          <IconButton color="inherit" component={Link} href="/account">
+            <AccountCircleIcon />
+          </IconButton>
+
+          {/* Botón de menú para pantallas pequeñas */}
+          {isSmallScreen && (
+            <IconButton color="inherit" onClick={handleHamburgerMenuClick}>
+              <MenuIcon />
+            </IconButton>
+          )}
         </Box>
+
+        {/* Menú hamburguesa */}
+        <Menu
+          anchorEl={anchorElHamburger}
+          open={Boolean(anchorElHamburger)}
+          onClose={handleMenuClose}
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+          transformOrigin={{ vertical: "top", horizontal: "right" }}
+        >
+          <MenuItem component={Link} href="/productos/aseo-general/limpieza" onClick={handleMenuClose}>
+            Productos de Limpieza
+          </MenuItem>
+          <MenuItem component={Link} href="/productos/aseo-general/accesorios-limpieza" onClick={handleMenuClose}>
+            Accesorios de Limpieza
+          </MenuItem>
+          <MenuItem component={Link} href="/productos/aseo-personal/uso-personal" onClick={handleMenuClose}>
+            Productos de Uso Personal
+          </MenuItem>
+          <MenuItem component={Link} href="/productos/aseo-personal/accesorios-aseo-personal" onClick={handleMenuClose}>
+            Accesorios Aseo Personal
+          </MenuItem>
+          <MenuItem component={Link} href="/productos/aseo-personal/dispensadores-aseo-personal" onClick={handleMenuClose}>
+            Dispensadores Aseo Personal
+          </MenuItem>
+          <MenuItem component={Link} href="/productos/desechables/mesa" onClick={handleMenuClose}>
+            Desechables para la Mesa
+          </MenuItem>
+          <MenuItem component={Link} href="/productos/desechables/empaques" onClick={handleMenuClose}>
+            Desechables para Empacar
+          </MenuItem>
+          <MenuItem component={Link} href="/productos/desechables/envolver" onClick={handleMenuClose}>
+            Desechables para Envolver
+          </MenuItem>
+          <MenuItem component={Link} href="/carrito" onClick={handleMenuClose}>
+            Carrito
+          </MenuItem>
+          <MenuItem component={Link} href="/account" onClick={handleMenuClose}>
+            Mi Cuenta
+          </MenuItem>
+        </Menu>
       </Toolbar>
     </AppBar>
   );
