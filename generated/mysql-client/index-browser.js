@@ -116,17 +116,51 @@ Prisma.NullTypes = {
  */
 
 exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
+  ReadUncommitted: 'ReadUncommitted',
+  ReadCommitted: 'ReadCommitted',
+  RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
 });
 
-exports.Prisma.ProductScalarFieldEnum = {
+exports.Prisma.GroupScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  price: 'price',
-  stock: 'stock',
+  group: 'group',
+  description: 'description',
   image: 'image',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SubgroupScalarFieldEnum = {
+  id: 'id',
+  subgroup: 'subgroup',
+  description: 'description',
+  image: 'image',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  groupId: 'groupId'
+};
+
+exports.Prisma.CategoryScalarFieldEnum = {
+  id: 'id',
+  category: 'category',
+  description: 'description',
+  image: 'image',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  subgroupId: 'subgroupId'
+};
+
+exports.Prisma.ProductScalarFieldEnum = {
+  id: 'id',
+  product: 'product',
+  price: 'price',
+  stock: 'stock',
+  unit: 'unit',
+  image: 'image',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  categoryId: 'categoryId'
 };
 
 exports.Prisma.OrderScalarFieldEnum = {
@@ -156,6 +190,9 @@ exports.Prisma.SortOrder = {
 
 
 exports.Prisma.ModelName = {
+  group: 'group',
+  subgroup: 'subgroup',
+  category: 'category',
   product: 'product',
   order: 'order',
   user: 'user'

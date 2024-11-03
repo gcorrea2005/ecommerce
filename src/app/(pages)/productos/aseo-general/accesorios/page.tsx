@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Card, CardMedia, CardContent, Typography, Button, Grid } from "@mui/material";
 
-const inicio = 15;
+const inicio = 0;
 
 const products = Array.from({ length: 5 }, (_, index) => ({
   id: inicio + index + 1,
@@ -19,17 +19,9 @@ const Inicio: React.FC = () => {
 
   return (
     <section style={{ padding: "2rem" }}>
-      <Button
-        variant="outlined"
-        color="primary"
-        onClick={() => router.push("/productos")}
-        style={{ marginBottom: "1rem" }}
-      >
-        Volver a Productos
-      </Button>
       
       <Typography variant="h4" component="h1" align="center" gutterBottom>
-        Limpiadores Multiusos
+        Accesorios de Limpieza
       </Typography>
       
       <Grid container spacing={3}>

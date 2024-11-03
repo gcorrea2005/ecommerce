@@ -8,12 +8,12 @@ const Footer: React.FC = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <Typography variant="body2">
-             LimTech &copy; 2024. Todos los derechos reservados.
+            LimTech SAS &copy; 2024. Todos los derechos reservados.
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="body2">
-            Calle 4 A # 21-79, Local 2, Barrio El Recreo, La Mesa - Cundinamarca, 
+            Calle 4 A # 21-79, Local 2, Barrio El Recreo, La Mesa - Cundinamarca
           </Typography>
         </Grid>
       </Grid>

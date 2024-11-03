@@ -19,17 +19,9 @@ const Inicio: React.FC = () => {
 
   return (
     <section style={{ padding: "2rem" }}>
-      <Button
-        variant="outlined"
-        color="primary"
-        onClick={() => router.push("/productos")}
-        style={{ marginBottom: "1rem" }}
-      >
-        Volver a Productos
-      </Button>
       
       <Typography variant="h4" component="h1" align="center" gutterBottom>
-        Limpiadores Multiusos
+        Dispensadores
       </Typography>
       
       <Grid container spacing={3}>

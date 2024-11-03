@@ -1,10 +1,11 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../../generated/mysql-client"
 }
 
-datasource sqlite {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL_MYSQL")
 }
 
 model group {
@@ -37,16 +38,16 @@ model category {
 }
 
 model product {
-  id        Int      @id @default(autoincrement())
-  product   String
-  price     Float
-  stock     Int
-  unit      String
-  image     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         Int      @id @default(autoincrement())
+  product    String
+  price      Float
+  stock      Int
+  unit       String
+  image      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
   categoryId Int
-} 
+}
 
 model order {
   id        Int      @id @default(autoincrement())
@@ -55,7 +56,7 @@ model order {
   quantity  Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  user user[]
+  user      user[]
 }
 
 model user {
@@ -68,4 +69,4 @@ model user {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   orders    order[]
-} 
+}
