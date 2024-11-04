@@ -122,7 +122,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.GroupScalarFieldEnum = {
+exports.Prisma.TblgroupScalarFieldEnum = {
   id: 'id',
   group: 'group',
   description: 'description',
@@ -131,7 +131,7 @@ exports.Prisma.GroupScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.SubgroupScalarFieldEnum = {
+exports.Prisma.TblsubgroupScalarFieldEnum = {
   id: 'id',
   subgroup: 'subgroup',
   description: 'description',
@@ -141,7 +141,7 @@ exports.Prisma.SubgroupScalarFieldEnum = {
   groupId: 'groupId'
 };
 
-exports.Prisma.CategoryScalarFieldEnum = {
+exports.Prisma.TblcategoryScalarFieldEnum = {
   id: 'id',
   category: 'category',
   description: 'description',
@@ -151,9 +151,10 @@ exports.Prisma.CategoryScalarFieldEnum = {
   subgroupId: 'subgroupId'
 };
 
-exports.Prisma.ProductScalarFieldEnum = {
+exports.Prisma.TblproductScalarFieldEnum = {
   id: 'id',
   product: 'product',
+  description: 'description',
   price: 'price',
   stock: 'stock',
   unit: 'unit',
@@ -163,16 +164,16 @@ exports.Prisma.ProductScalarFieldEnum = {
   categoryId: 'categoryId'
 };
 
-exports.Prisma.OrderScalarFieldEnum = {
+exports.Prisma.TblroleScalarFieldEnum = {
   id: 'id',
-  userId: 'userId',
-  productId: 'productId',
-  quantity: 'quantity',
+  role: 'role',
+  description: 'description',
+  image: 'image',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.UserScalarFieldEnum = {
+exports.Prisma.TbluserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   password: 'password',
@@ -180,7 +181,17 @@ exports.Prisma.UserScalarFieldEnum = {
   direccion: 'direccion',
   email: 'email',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  roleId: 'roleId'
+};
+
+exports.Prisma.TblorderScalarFieldEnum = {
+  id: 'id',
+  quantity: 'quantity',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  userId: 'userId',
+  productId: 'productId'
 };
 
 exports.Prisma.SortOrder = {
@@ -188,14 +199,20 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
-  group: 'group',
-  subgroup: 'subgroup',
-  category: 'category',
-  product: 'product',
-  order: 'order',
-  user: 'user'
+  tblgroup: 'tblgroup',
+  tblsubgroup: 'tblsubgroup',
+  tblcategory: 'tblcategory',
+  tblproduct: 'tblproduct',
+  tblrole: 'tblrole',
+  tbluser: 'tbluser',
+  tblorder: 'tblorder'
 };
 
 /**

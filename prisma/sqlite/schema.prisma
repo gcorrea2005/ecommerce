@@ -1,71 +1,101 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../../generated/sqlite-client"
 }
 
 datasource sqlite {
   provider = "sqlite"
-  url      = "file:./dev.db"
+  url      = env("DATABASE_URL_SQLITE")
 }
 
-model group {
-  id          Int      @id @default(autoincrement())
+model tblgroup {
+  id          Int         @id @default(autoincrement())
   group       String
   description String
   image       String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  subgroups   tblsubgroup[]
 }
 
-model subgroup {
-  id          Int      @id @default(autoincrement())
+model tblsubgroup {
+  id          Int         @id @default(autoincrement())
   subgroup    String
   description String
   image       String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
   groupId     Int
+  group       tblgroup    @relation(fields: [groupId], references: [id])
+
+  categories  tblcategory[]
 }
 
-model category {
-  id          Int      @id @default(autoincrement())
+model tblcategory {
+  id          Int         @id @default(autoincrement())
   category    String
   description String
   image       String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
   subgroupId  Int
+  subgroup    tblsubgroup @relation(fields: [subgroupId], references: [id])
+
+  products    tblproduct[]
 }
 
-model product {
-  id        Int      @id @default(autoincrement())
-  product   String
-  price     Float
-  stock     Int
-  unit      String
-  image     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  categoryId Int
-} 
+model tblproduct {
+  id          Int         @id @default(autoincrement())
+  product     String
+  price       Float
+  stock       Int
+  unit        String
+  image       String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 
-model order {
-  id        Int      @id @default(autoincrement())
-  userId    Int
-  productId Int
-  quantity  Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user user[]
+  categoryId  Int
+  category    tblcategory @relation(fields: [categoryId], references: [id])
+
+  orders      tblorder[]
 }
 
-model user {
-  id        Int      @id @default(autoincrement())
-  name      String
-  password  String
-  telefono  String
-  direccion String
-  email     String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  orders    order[]
-} 
+model tblrole {
+  id          Int         @id @default(autoincrement())
+  role        String
+  description String
+  image       String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  users       tbluser[]
+}
+
+model tbluser {
+  id          Int         @id @default(autoincrement())
+  name        String
+  password    String
+  telefono    String
+  direccion   String
+  email       String      @unique
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  roleId     Int
+  role       tblrole    @relation(fields: [roleId], references: [id])
+  orders     tblorder[]
+}
+
+model tblorder {
+  id          Int         @id @default(autoincrement())
+  quantity    Int
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  userId      Int
+  productId   Int
+  user        tbluser     @relation(fields: [userId], references: [id])
+  product     tblproduct  @relation(fields: [productId], references: [id])
+}

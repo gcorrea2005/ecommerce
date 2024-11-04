@@ -14,35 +14,40 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model group
+ * Model tblgroup
  * 
  */
-export type group = $Result.DefaultSelection<Prisma.$groupPayload>
+export type tblgroup = $Result.DefaultSelection<Prisma.$tblgroupPayload>
 /**
- * Model subgroup
+ * Model tblsubgroup
  * 
  */
-export type subgroup = $Result.DefaultSelection<Prisma.$subgroupPayload>
+export type tblsubgroup = $Result.DefaultSelection<Prisma.$tblsubgroupPayload>
 /**
- * Model category
+ * Model tblcategory
  * 
  */
-export type category = $Result.DefaultSelection<Prisma.$categoryPayload>
+export type tblcategory = $Result.DefaultSelection<Prisma.$tblcategoryPayload>
 /**
- * Model product
+ * Model tblproduct
  * 
  */
-export type product = $Result.DefaultSelection<Prisma.$productPayload>
+export type tblproduct = $Result.DefaultSelection<Prisma.$tblproductPayload>
 /**
- * Model order
+ * Model tblrole
  * 
  */
-export type order = $Result.DefaultSelection<Prisma.$orderPayload>
+export type tblrole = $Result.DefaultSelection<Prisma.$tblrolePayload>
 /**
- * Model user
+ * Model tbluser
  * 
  */
-export type user = $Result.DefaultSelection<Prisma.$userPayload>
+export type tbluser = $Result.DefaultSelection<Prisma.$tbluserPayload>
+/**
+ * Model tblorder
+ * 
+ */
+export type tblorder = $Result.DefaultSelection<Prisma.$tblorderPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -51,8 +56,8 @@ export type user = $Result.DefaultSelection<Prisma.$userPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Groups
- * const groups = await prisma.group.findMany()
+ * // Fetch zero or more Tblgroups
+ * const tblgroups = await prisma.tblgroup.findMany()
  * ```
  *
  * 
@@ -72,8 +77,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Groups
-   * const groups = await prisma.group.findMany()
+   * // Fetch zero or more Tblgroups
+   * const tblgroups = await prisma.tblgroup.findMany()
    * ```
    *
    * 
@@ -168,64 +173,74 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<"extends", Prisma.TypeMapCb, ExtArgs>
 
       /**
-   * `prisma.group`: Exposes CRUD operations for the **group** model.
+   * `prisma.tblgroup`: Exposes CRUD operations for the **tblgroup** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Groups
-    * const groups = await prisma.group.findMany()
+    * // Fetch zero or more Tblgroups
+    * const tblgroups = await prisma.tblgroup.findMany()
     * ```
     */
-  get group(): Prisma.groupDelegate<ExtArgs>;
+  get tblgroup(): Prisma.tblgroupDelegate<ExtArgs>;
 
   /**
-   * `prisma.subgroup`: Exposes CRUD operations for the **subgroup** model.
+   * `prisma.tblsubgroup`: Exposes CRUD operations for the **tblsubgroup** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Subgroups
-    * const subgroups = await prisma.subgroup.findMany()
+    * // Fetch zero or more Tblsubgroups
+    * const tblsubgroups = await prisma.tblsubgroup.findMany()
     * ```
     */
-  get subgroup(): Prisma.subgroupDelegate<ExtArgs>;
+  get tblsubgroup(): Prisma.tblsubgroupDelegate<ExtArgs>;
 
   /**
-   * `prisma.category`: Exposes CRUD operations for the **category** model.
+   * `prisma.tblcategory`: Exposes CRUD operations for the **tblcategory** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Categories
-    * const categories = await prisma.category.findMany()
+    * // Fetch zero or more Tblcategories
+    * const tblcategories = await prisma.tblcategory.findMany()
     * ```
     */
-  get category(): Prisma.categoryDelegate<ExtArgs>;
+  get tblcategory(): Prisma.tblcategoryDelegate<ExtArgs>;
 
   /**
-   * `prisma.product`: Exposes CRUD operations for the **product** model.
+   * `prisma.tblproduct`: Exposes CRUD operations for the **tblproduct** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Products
-    * const products = await prisma.product.findMany()
+    * // Fetch zero or more Tblproducts
+    * const tblproducts = await prisma.tblproduct.findMany()
     * ```
     */
-  get product(): Prisma.productDelegate<ExtArgs>;
+  get tblproduct(): Prisma.tblproductDelegate<ExtArgs>;
 
   /**
-   * `prisma.order`: Exposes CRUD operations for the **order** model.
+   * `prisma.tblrole`: Exposes CRUD operations for the **tblrole** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Orders
-    * const orders = await prisma.order.findMany()
+    * // Fetch zero or more Tblroles
+    * const tblroles = await prisma.tblrole.findMany()
     * ```
     */
-  get order(): Prisma.orderDelegate<ExtArgs>;
+  get tblrole(): Prisma.tblroleDelegate<ExtArgs>;
 
   /**
-   * `prisma.user`: Exposes CRUD operations for the **user** model.
+   * `prisma.tbluser`: Exposes CRUD operations for the **tbluser** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Users
-    * const users = await prisma.user.findMany()
+    * // Fetch zero or more Tblusers
+    * const tblusers = await prisma.tbluser.findMany()
     * ```
     */
-  get user(): Prisma.userDelegate<ExtArgs>;
+  get tbluser(): Prisma.tbluserDelegate<ExtArgs>;
+
+  /**
+   * `prisma.tblorder`: Exposes CRUD operations for the **tblorder** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tblorders
+    * const tblorders = await prisma.tblorder.findMany()
+    * ```
+    */
+  get tblorder(): Prisma.tblorderDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -667,12 +682,13 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    group: 'group',
-    subgroup: 'subgroup',
-    category: 'category',
-    product: 'product',
-    order: 'order',
-    user: 'user'
+    tblgroup: 'tblgroup',
+    tblsubgroup: 'tblsubgroup',
+    tblcategory: 'tblcategory',
+    tblproduct: 'tblproduct',
+    tblrole: 'tblrole',
+    tbluser: 'tbluser',
+    tblorder: 'tblorder'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -688,403 +704,469 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "group" | "subgroup" | "category" | "product" | "order" | "user"
+      modelProps: "tblgroup" | "tblsubgroup" | "tblcategory" | "tblproduct" | "tblrole" | "tbluser" | "tblorder"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      group: {
-        payload: Prisma.$groupPayload<ExtArgs>
-        fields: Prisma.groupFieldRefs
+      tblgroup: {
+        payload: Prisma.$tblgroupPayload<ExtArgs>
+        fields: Prisma.tblgroupFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.groupFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$groupPayload> | null
+            args: Prisma.tblgroupFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblgroupPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.groupFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$groupPayload>
+            args: Prisma.tblgroupFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblgroupPayload>
           }
           findFirst: {
-            args: Prisma.groupFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$groupPayload> | null
+            args: Prisma.tblgroupFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblgroupPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.groupFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$groupPayload>
+            args: Prisma.tblgroupFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblgroupPayload>
           }
           findMany: {
-            args: Prisma.groupFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$groupPayload>[]
+            args: Prisma.tblgroupFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblgroupPayload>[]
           }
           create: {
-            args: Prisma.groupCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$groupPayload>
+            args: Prisma.tblgroupCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblgroupPayload>
           }
           createMany: {
-            args: Prisma.groupCreateManyArgs<ExtArgs>
+            args: Prisma.tblgroupCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.groupDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$groupPayload>
+            args: Prisma.tblgroupDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblgroupPayload>
           }
           update: {
-            args: Prisma.groupUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$groupPayload>
+            args: Prisma.tblgroupUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblgroupPayload>
           }
           deleteMany: {
-            args: Prisma.groupDeleteManyArgs<ExtArgs>
+            args: Prisma.tblgroupDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.groupUpdateManyArgs<ExtArgs>
+            args: Prisma.tblgroupUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.groupUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$groupPayload>
+            args: Prisma.tblgroupUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblgroupPayload>
           }
           aggregate: {
-            args: Prisma.GroupAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateGroup>
+            args: Prisma.TblgroupAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTblgroup>
           }
           groupBy: {
-            args: Prisma.groupGroupByArgs<ExtArgs>
-            result: $Utils.Optional<GroupGroupByOutputType>[]
+            args: Prisma.tblgroupGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TblgroupGroupByOutputType>[]
           }
           count: {
-            args: Prisma.groupCountArgs<ExtArgs>
-            result: $Utils.Optional<GroupCountAggregateOutputType> | number
+            args: Prisma.tblgroupCountArgs<ExtArgs>
+            result: $Utils.Optional<TblgroupCountAggregateOutputType> | number
           }
         }
       }
-      subgroup: {
-        payload: Prisma.$subgroupPayload<ExtArgs>
-        fields: Prisma.subgroupFieldRefs
+      tblsubgroup: {
+        payload: Prisma.$tblsubgroupPayload<ExtArgs>
+        fields: Prisma.tblsubgroupFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.subgroupFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$subgroupPayload> | null
+            args: Prisma.tblsubgroupFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblsubgroupPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.subgroupFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$subgroupPayload>
+            args: Prisma.tblsubgroupFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblsubgroupPayload>
           }
           findFirst: {
-            args: Prisma.subgroupFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$subgroupPayload> | null
+            args: Prisma.tblsubgroupFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblsubgroupPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.subgroupFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$subgroupPayload>
+            args: Prisma.tblsubgroupFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblsubgroupPayload>
           }
           findMany: {
-            args: Prisma.subgroupFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$subgroupPayload>[]
+            args: Prisma.tblsubgroupFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblsubgroupPayload>[]
           }
           create: {
-            args: Prisma.subgroupCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$subgroupPayload>
+            args: Prisma.tblsubgroupCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblsubgroupPayload>
           }
           createMany: {
-            args: Prisma.subgroupCreateManyArgs<ExtArgs>
+            args: Prisma.tblsubgroupCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.subgroupDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$subgroupPayload>
+            args: Prisma.tblsubgroupDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblsubgroupPayload>
           }
           update: {
-            args: Prisma.subgroupUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$subgroupPayload>
+            args: Prisma.tblsubgroupUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblsubgroupPayload>
           }
           deleteMany: {
-            args: Prisma.subgroupDeleteManyArgs<ExtArgs>
+            args: Prisma.tblsubgroupDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.subgroupUpdateManyArgs<ExtArgs>
+            args: Prisma.tblsubgroupUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.subgroupUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$subgroupPayload>
+            args: Prisma.tblsubgroupUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblsubgroupPayload>
           }
           aggregate: {
-            args: Prisma.SubgroupAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateSubgroup>
+            args: Prisma.TblsubgroupAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTblsubgroup>
           }
           groupBy: {
-            args: Prisma.subgroupGroupByArgs<ExtArgs>
-            result: $Utils.Optional<SubgroupGroupByOutputType>[]
+            args: Prisma.tblsubgroupGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TblsubgroupGroupByOutputType>[]
           }
           count: {
-            args: Prisma.subgroupCountArgs<ExtArgs>
-            result: $Utils.Optional<SubgroupCountAggregateOutputType> | number
+            args: Prisma.tblsubgroupCountArgs<ExtArgs>
+            result: $Utils.Optional<TblsubgroupCountAggregateOutputType> | number
           }
         }
       }
-      category: {
-        payload: Prisma.$categoryPayload<ExtArgs>
-        fields: Prisma.categoryFieldRefs
+      tblcategory: {
+        payload: Prisma.$tblcategoryPayload<ExtArgs>
+        fields: Prisma.tblcategoryFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.categoryFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$categoryPayload> | null
+            args: Prisma.tblcategoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblcategoryPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.categoryFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$categoryPayload>
+            args: Prisma.tblcategoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblcategoryPayload>
           }
           findFirst: {
-            args: Prisma.categoryFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$categoryPayload> | null
+            args: Prisma.tblcategoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblcategoryPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.categoryFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$categoryPayload>
+            args: Prisma.tblcategoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblcategoryPayload>
           }
           findMany: {
-            args: Prisma.categoryFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$categoryPayload>[]
+            args: Prisma.tblcategoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblcategoryPayload>[]
           }
           create: {
-            args: Prisma.categoryCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$categoryPayload>
+            args: Prisma.tblcategoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblcategoryPayload>
           }
           createMany: {
-            args: Prisma.categoryCreateManyArgs<ExtArgs>
+            args: Prisma.tblcategoryCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.categoryDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$categoryPayload>
+            args: Prisma.tblcategoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblcategoryPayload>
           }
           update: {
-            args: Prisma.categoryUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$categoryPayload>
+            args: Prisma.tblcategoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblcategoryPayload>
           }
           deleteMany: {
-            args: Prisma.categoryDeleteManyArgs<ExtArgs>
+            args: Prisma.tblcategoryDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.categoryUpdateManyArgs<ExtArgs>
+            args: Prisma.tblcategoryUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.categoryUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$categoryPayload>
+            args: Prisma.tblcategoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblcategoryPayload>
           }
           aggregate: {
-            args: Prisma.CategoryAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCategory>
+            args: Prisma.TblcategoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTblcategory>
           }
           groupBy: {
-            args: Prisma.categoryGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CategoryGroupByOutputType>[]
+            args: Prisma.tblcategoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TblcategoryGroupByOutputType>[]
           }
           count: {
-            args: Prisma.categoryCountArgs<ExtArgs>
-            result: $Utils.Optional<CategoryCountAggregateOutputType> | number
+            args: Prisma.tblcategoryCountArgs<ExtArgs>
+            result: $Utils.Optional<TblcategoryCountAggregateOutputType> | number
           }
         }
       }
-      product: {
-        payload: Prisma.$productPayload<ExtArgs>
-        fields: Prisma.productFieldRefs
+      tblproduct: {
+        payload: Prisma.$tblproductPayload<ExtArgs>
+        fields: Prisma.tblproductFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.productFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$productPayload> | null
+            args: Prisma.tblproductFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblproductPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.productFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$productPayload>
+            args: Prisma.tblproductFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblproductPayload>
           }
           findFirst: {
-            args: Prisma.productFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$productPayload> | null
+            args: Prisma.tblproductFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblproductPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.productFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$productPayload>
+            args: Prisma.tblproductFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblproductPayload>
           }
           findMany: {
-            args: Prisma.productFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$productPayload>[]
+            args: Prisma.tblproductFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblproductPayload>[]
           }
           create: {
-            args: Prisma.productCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$productPayload>
+            args: Prisma.tblproductCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblproductPayload>
           }
           createMany: {
-            args: Prisma.productCreateManyArgs<ExtArgs>
+            args: Prisma.tblproductCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.productDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$productPayload>
+            args: Prisma.tblproductDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblproductPayload>
           }
           update: {
-            args: Prisma.productUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$productPayload>
+            args: Prisma.tblproductUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblproductPayload>
           }
           deleteMany: {
-            args: Prisma.productDeleteManyArgs<ExtArgs>
+            args: Prisma.tblproductDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.productUpdateManyArgs<ExtArgs>
+            args: Prisma.tblproductUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.productUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$productPayload>
+            args: Prisma.tblproductUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblproductPayload>
           }
           aggregate: {
-            args: Prisma.ProductAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateProduct>
+            args: Prisma.TblproductAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTblproduct>
           }
           groupBy: {
-            args: Prisma.productGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ProductGroupByOutputType>[]
+            args: Prisma.tblproductGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TblproductGroupByOutputType>[]
           }
           count: {
-            args: Prisma.productCountArgs<ExtArgs>
-            result: $Utils.Optional<ProductCountAggregateOutputType> | number
+            args: Prisma.tblproductCountArgs<ExtArgs>
+            result: $Utils.Optional<TblproductCountAggregateOutputType> | number
           }
         }
       }
-      order: {
-        payload: Prisma.$orderPayload<ExtArgs>
-        fields: Prisma.orderFieldRefs
+      tblrole: {
+        payload: Prisma.$tblrolePayload<ExtArgs>
+        fields: Prisma.tblroleFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.orderFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$orderPayload> | null
+            args: Prisma.tblroleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblrolePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.orderFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$orderPayload>
+            args: Prisma.tblroleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblrolePayload>
           }
           findFirst: {
-            args: Prisma.orderFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$orderPayload> | null
+            args: Prisma.tblroleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblrolePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.orderFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$orderPayload>
+            args: Prisma.tblroleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblrolePayload>
           }
           findMany: {
-            args: Prisma.orderFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$orderPayload>[]
+            args: Prisma.tblroleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblrolePayload>[]
           }
           create: {
-            args: Prisma.orderCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$orderPayload>
+            args: Prisma.tblroleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblrolePayload>
           }
           createMany: {
-            args: Prisma.orderCreateManyArgs<ExtArgs>
+            args: Prisma.tblroleCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.orderDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$orderPayload>
+            args: Prisma.tblroleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblrolePayload>
           }
           update: {
-            args: Prisma.orderUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$orderPayload>
+            args: Prisma.tblroleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblrolePayload>
           }
           deleteMany: {
-            args: Prisma.orderDeleteManyArgs<ExtArgs>
+            args: Prisma.tblroleDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.orderUpdateManyArgs<ExtArgs>
+            args: Prisma.tblroleUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.orderUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$orderPayload>
+            args: Prisma.tblroleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblrolePayload>
           }
           aggregate: {
-            args: Prisma.OrderAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateOrder>
+            args: Prisma.TblroleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTblrole>
           }
           groupBy: {
-            args: Prisma.orderGroupByArgs<ExtArgs>
-            result: $Utils.Optional<OrderGroupByOutputType>[]
+            args: Prisma.tblroleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TblroleGroupByOutputType>[]
           }
           count: {
-            args: Prisma.orderCountArgs<ExtArgs>
-            result: $Utils.Optional<OrderCountAggregateOutputType> | number
+            args: Prisma.tblroleCountArgs<ExtArgs>
+            result: $Utils.Optional<TblroleCountAggregateOutputType> | number
           }
         }
       }
-      user: {
-        payload: Prisma.$userPayload<ExtArgs>
-        fields: Prisma.userFieldRefs
+      tbluser: {
+        payload: Prisma.$tbluserPayload<ExtArgs>
+        fields: Prisma.tbluserFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.userFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$userPayload> | null
+            args: Prisma.tbluserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbluserPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.userFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$userPayload>
+            args: Prisma.tbluserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbluserPayload>
           }
           findFirst: {
-            args: Prisma.userFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$userPayload> | null
+            args: Prisma.tbluserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbluserPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.userFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$userPayload>
+            args: Prisma.tbluserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbluserPayload>
           }
           findMany: {
-            args: Prisma.userFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$userPayload>[]
+            args: Prisma.tbluserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbluserPayload>[]
           }
           create: {
-            args: Prisma.userCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$userPayload>
+            args: Prisma.tbluserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbluserPayload>
           }
           createMany: {
-            args: Prisma.userCreateManyArgs<ExtArgs>
+            args: Prisma.tbluserCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.userDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$userPayload>
+            args: Prisma.tbluserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbluserPayload>
           }
           update: {
-            args: Prisma.userUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$userPayload>
+            args: Prisma.tbluserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbluserPayload>
           }
           deleteMany: {
-            args: Prisma.userDeleteManyArgs<ExtArgs>
+            args: Prisma.tbluserDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.userUpdateManyArgs<ExtArgs>
+            args: Prisma.tbluserUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.userUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$userPayload>
+            args: Prisma.tbluserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbluserPayload>
           }
           aggregate: {
-            args: Prisma.UserAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateUser>
+            args: Prisma.TbluserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTbluser>
           }
           groupBy: {
-            args: Prisma.userGroupByArgs<ExtArgs>
-            result: $Utils.Optional<UserGroupByOutputType>[]
+            args: Prisma.tbluserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TbluserGroupByOutputType>[]
           }
           count: {
-            args: Prisma.userCountArgs<ExtArgs>
-            result: $Utils.Optional<UserCountAggregateOutputType> | number
+            args: Prisma.tbluserCountArgs<ExtArgs>
+            result: $Utils.Optional<TbluserCountAggregateOutputType> | number
+          }
+        }
+      }
+      tblorder: {
+        payload: Prisma.$tblorderPayload<ExtArgs>
+        fields: Prisma.tblorderFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.tblorderFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblorderPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.tblorderFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblorderPayload>
+          }
+          findFirst: {
+            args: Prisma.tblorderFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblorderPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.tblorderFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblorderPayload>
+          }
+          findMany: {
+            args: Prisma.tblorderFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblorderPayload>[]
+          }
+          create: {
+            args: Prisma.tblorderCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblorderPayload>
+          }
+          createMany: {
+            args: Prisma.tblorderCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.tblorderDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblorderPayload>
+          }
+          update: {
+            args: Prisma.tblorderUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblorderPayload>
+          }
+          deleteMany: {
+            args: Prisma.tblorderDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.tblorderUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.tblorderUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tblorderPayload>
+          }
+          aggregate: {
+            args: Prisma.TblorderAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTblorder>
+          }
+          groupBy: {
+            args: Prisma.tblorderGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TblorderGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.tblorderCountArgs<ExtArgs>
+            result: $Utils.Optional<TblorderCountAggregateOutputType> | number
           }
         }
       }
@@ -1245,64 +1327,188 @@ export namespace Prisma {
 
 
   /**
-   * Count Type OrderCountOutputType
+   * Count Type TblgroupCountOutputType
    */
 
-  export type OrderCountOutputType = {
-    user: number
+  export type TblgroupCountOutputType = {
+    subgroups: number
   }
 
-  export type OrderCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | OrderCountOutputTypeCountUserArgs
+  export type TblgroupCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subgroups?: boolean | TblgroupCountOutputTypeCountSubgroupsArgs
   }
 
   // Custom InputTypes
   /**
-   * OrderCountOutputType without action
+   * TblgroupCountOutputType without action
    */
-  export type OrderCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TblgroupCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OrderCountOutputType
+     * Select specific fields to fetch from the TblgroupCountOutputType
      */
-    select?: OrderCountOutputTypeSelect<ExtArgs> | null
+    select?: TblgroupCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * OrderCountOutputType without action
+   * TblgroupCountOutputType without action
    */
-  export type OrderCountOutputTypeCountUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: userWhereInput
+  export type TblgroupCountOutputTypeCountSubgroupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tblsubgroupWhereInput
   }
 
 
   /**
-   * Count Type UserCountOutputType
+   * Count Type TblsubgroupCountOutputType
    */
 
-  export type UserCountOutputType = {
+  export type TblsubgroupCountOutputType = {
+    categories: number
+  }
+
+  export type TblsubgroupCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categories?: boolean | TblsubgroupCountOutputTypeCountCategoriesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TblsubgroupCountOutputType without action
+   */
+  export type TblsubgroupCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TblsubgroupCountOutputType
+     */
+    select?: TblsubgroupCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TblsubgroupCountOutputType without action
+   */
+  export type TblsubgroupCountOutputTypeCountCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tblcategoryWhereInput
+  }
+
+
+  /**
+   * Count Type TblcategoryCountOutputType
+   */
+
+  export type TblcategoryCountOutputType = {
+    products: number
+  }
+
+  export type TblcategoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    products?: boolean | TblcategoryCountOutputTypeCountProductsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TblcategoryCountOutputType without action
+   */
+  export type TblcategoryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TblcategoryCountOutputType
+     */
+    select?: TblcategoryCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TblcategoryCountOutputType without action
+   */
+  export type TblcategoryCountOutputTypeCountProductsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tblproductWhereInput
+  }
+
+
+  /**
+   * Count Type TblproductCountOutputType
+   */
+
+  export type TblproductCountOutputType = {
     orders: number
   }
 
-  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    orders?: boolean | UserCountOutputTypeCountOrdersArgs
+  export type TblproductCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    orders?: boolean | TblproductCountOutputTypeCountOrdersArgs
   }
 
   // Custom InputTypes
   /**
-   * UserCountOutputType without action
+   * TblproductCountOutputType without action
    */
-  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TblproductCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the UserCountOutputType
+     * Select specific fields to fetch from the TblproductCountOutputType
      */
-    select?: UserCountOutputTypeSelect<ExtArgs> | null
+    select?: TblproductCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * UserCountOutputType without action
+   * TblproductCountOutputType without action
    */
-  export type UserCountOutputTypeCountOrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: orderWhereInput
+  export type TblproductCountOutputTypeCountOrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tblorderWhereInput
+  }
+
+
+  /**
+   * Count Type TblroleCountOutputType
+   */
+
+  export type TblroleCountOutputType = {
+    subgroups: number
+  }
+
+  export type TblroleCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subgroups?: boolean | TblroleCountOutputTypeCountSubgroupsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TblroleCountOutputType without action
+   */
+  export type TblroleCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TblroleCountOutputType
+     */
+    select?: TblroleCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TblroleCountOutputType without action
+   */
+  export type TblroleCountOutputTypeCountSubgroupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tbluserWhereInput
+  }
+
+
+  /**
+   * Count Type TbluserCountOutputType
+   */
+
+  export type TbluserCountOutputType = {
+    categories: number
+  }
+
+  export type TbluserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categories?: boolean | TbluserCountOutputTypeCountCategoriesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TbluserCountOutputType without action
+   */
+  export type TbluserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TbluserCountOutputType
+     */
+    select?: TbluserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TbluserCountOutputType without action
+   */
+  export type TbluserCountOutputTypeCountCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tblorderWhereInput
   }
 
 
@@ -1311,35 +1517,26 @@ export namespace Prisma {
    */
 
   /**
-   * Model group
+   * Model tblgroup
    */
 
-  export type AggregateGroup = {
-    _count: GroupCountAggregateOutputType | null
-    _avg: GroupAvgAggregateOutputType | null
-    _sum: GroupSumAggregateOutputType | null
-    _min: GroupMinAggregateOutputType | null
-    _max: GroupMaxAggregateOutputType | null
+  export type AggregateTblgroup = {
+    _count: TblgroupCountAggregateOutputType | null
+    _avg: TblgroupAvgAggregateOutputType | null
+    _sum: TblgroupSumAggregateOutputType | null
+    _min: TblgroupMinAggregateOutputType | null
+    _max: TblgroupMaxAggregateOutputType | null
   }
 
-  export type GroupAvgAggregateOutputType = {
+  export type TblgroupAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type GroupSumAggregateOutputType = {
+  export type TblgroupSumAggregateOutputType = {
     id: number | null
   }
 
-  export type GroupMinAggregateOutputType = {
-    id: number | null
-    group: string | null
-    description: string | null
-    image: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type GroupMaxAggregateOutputType = {
+  export type TblgroupMinAggregateOutputType = {
     id: number | null
     group: string | null
     description: string | null
@@ -1348,7 +1545,16 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type GroupCountAggregateOutputType = {
+  export type TblgroupMaxAggregateOutputType = {
+    id: number | null
+    group: string | null
+    description: string | null
+    image: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TblgroupCountAggregateOutputType = {
     id: number
     group: number
     description: number
@@ -1359,24 +1565,15 @@ export namespace Prisma {
   }
 
 
-  export type GroupAvgAggregateInputType = {
+  export type TblgroupAvgAggregateInputType = {
     id?: true
   }
 
-  export type GroupSumAggregateInputType = {
+  export type TblgroupSumAggregateInputType = {
     id?: true
   }
 
-  export type GroupMinAggregateInputType = {
-    id?: true
-    group?: true
-    description?: true
-    image?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type GroupMaxAggregateInputType = {
+  export type TblgroupMinAggregateInputType = {
     id?: true
     group?: true
     description?: true
@@ -1385,7 +1582,16 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type GroupCountAggregateInputType = {
+  export type TblgroupMaxAggregateInputType = {
+    id?: true
+    group?: true
+    description?: true
+    image?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TblgroupCountAggregateInputType = {
     id?: true
     group?: true
     description?: true
@@ -1395,131 +1601,133 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type GroupAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TblgroupAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which group to aggregate.
+     * Filter which tblgroup to aggregate.
      */
-    where?: groupWhereInput
+    where?: tblgroupWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of groups to fetch.
+     * Determine the order of tblgroups to fetch.
      */
-    orderBy?: groupOrderByWithRelationInput | groupOrderByWithRelationInput[]
+    orderBy?: tblgroupOrderByWithRelationInput | tblgroupOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: groupWhereUniqueInput
+    cursor?: tblgroupWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` groups from the position of the cursor.
+     * Take `±n` tblgroups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` groups.
+     * Skip the first `n` tblgroups.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned groups
+     * Count returned tblgroups
     **/
-    _count?: true | GroupCountAggregateInputType
+    _count?: true | TblgroupCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: GroupAvgAggregateInputType
+    _avg?: TblgroupAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: GroupSumAggregateInputType
+    _sum?: TblgroupSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: GroupMinAggregateInputType
+    _min?: TblgroupMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: GroupMaxAggregateInputType
+    _max?: TblgroupMaxAggregateInputType
   }
 
-  export type GetGroupAggregateType<T extends GroupAggregateArgs> = {
-        [P in keyof T & keyof AggregateGroup]: P extends '_count' | 'count'
+  export type GetTblgroupAggregateType<T extends TblgroupAggregateArgs> = {
+        [P in keyof T & keyof AggregateTblgroup]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateGroup[P]>
-      : GetScalarType<T[P], AggregateGroup[P]>
+        : GetScalarType<T[P], AggregateTblgroup[P]>
+      : GetScalarType<T[P], AggregateTblgroup[P]>
   }
 
 
 
 
-  export type groupGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: groupWhereInput
-    orderBy?: groupOrderByWithAggregationInput | groupOrderByWithAggregationInput[]
-    by: GroupScalarFieldEnum[] | GroupScalarFieldEnum
-    having?: groupScalarWhereWithAggregatesInput
+  export type tblgroupGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tblgroupWhereInput
+    orderBy?: tblgroupOrderByWithAggregationInput | tblgroupOrderByWithAggregationInput[]
+    by: TblgroupScalarFieldEnum[] | TblgroupScalarFieldEnum
+    having?: tblgroupScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: GroupCountAggregateInputType | true
-    _avg?: GroupAvgAggregateInputType
-    _sum?: GroupSumAggregateInputType
-    _min?: GroupMinAggregateInputType
-    _max?: GroupMaxAggregateInputType
+    _count?: TblgroupCountAggregateInputType | true
+    _avg?: TblgroupAvgAggregateInputType
+    _sum?: TblgroupSumAggregateInputType
+    _min?: TblgroupMinAggregateInputType
+    _max?: TblgroupMaxAggregateInputType
   }
 
-  export type GroupGroupByOutputType = {
+  export type TblgroupGroupByOutputType = {
     id: number
     group: string
-    description: string
+    description: string | null
     image: string
     createdAt: Date
     updatedAt: Date
-    _count: GroupCountAggregateOutputType | null
-    _avg: GroupAvgAggregateOutputType | null
-    _sum: GroupSumAggregateOutputType | null
-    _min: GroupMinAggregateOutputType | null
-    _max: GroupMaxAggregateOutputType | null
+    _count: TblgroupCountAggregateOutputType | null
+    _avg: TblgroupAvgAggregateOutputType | null
+    _sum: TblgroupSumAggregateOutputType | null
+    _min: TblgroupMinAggregateOutputType | null
+    _max: TblgroupMaxAggregateOutputType | null
   }
 
-  type GetGroupGroupByPayload<T extends groupGroupByArgs> = Prisma.PrismaPromise<
+  type GetTblgroupGroupByPayload<T extends tblgroupGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<GroupGroupByOutputType, T['by']> &
+      PickEnumerable<TblgroupGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof GroupGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof TblgroupGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], GroupGroupByOutputType[P]>
-            : GetScalarType<T[P], GroupGroupByOutputType[P]>
+              : GetScalarType<T[P], TblgroupGroupByOutputType[P]>
+            : GetScalarType<T[P], TblgroupGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type groupSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type tblgroupSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     group?: boolean
     description?: boolean
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["group"]>
+    subgroups?: boolean | tblgroup$subgroupsArgs<ExtArgs>
+    _count?: boolean | TblgroupCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tblgroup"]>
 
 
-  export type groupSelectScalar = {
+  export type tblgroupSelectScalar = {
     id?: boolean
     group?: boolean
     description?: boolean
@@ -1528,154 +1736,160 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
+  export type tblgroupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subgroups?: boolean | tblgroup$subgroupsArgs<ExtArgs>
+    _count?: boolean | TblgroupCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
-  export type $groupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "group"
-    objects: {}
+  export type $tblgroupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tblgroup"
+    objects: {
+      subgroups: Prisma.$tblsubgroupPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       group: string
-      description: string
+      description: string | null
       image: string
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["group"]>
+    }, ExtArgs["result"]["tblgroup"]>
     composites: {}
   }
 
-  type groupGetPayload<S extends boolean | null | undefined | groupDefaultArgs> = $Result.GetResult<Prisma.$groupPayload, S>
+  type tblgroupGetPayload<S extends boolean | null | undefined | tblgroupDefaultArgs> = $Result.GetResult<Prisma.$tblgroupPayload, S>
 
-  type groupCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<groupFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: GroupCountAggregateInputType | true
+  type tblgroupCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<tblgroupFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TblgroupCountAggregateInputType | true
     }
 
-  export interface groupDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['group'], meta: { name: 'group' } }
+  export interface tblgroupDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tblgroup'], meta: { name: 'tblgroup' } }
     /**
-     * Find zero or one Group that matches the filter.
-     * @param {groupFindUniqueArgs} args - Arguments to find a Group
+     * Find zero or one Tblgroup that matches the filter.
+     * @param {tblgroupFindUniqueArgs} args - Arguments to find a Tblgroup
      * @example
-     * // Get one Group
-     * const group = await prisma.group.findUnique({
+     * // Get one Tblgroup
+     * const tblgroup = await prisma.tblgroup.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends groupFindUniqueArgs>(args: SelectSubset<T, groupFindUniqueArgs<ExtArgs>>): Prisma__groupClient<$Result.GetResult<Prisma.$groupPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+    findUnique<T extends tblgroupFindUniqueArgs>(args: SelectSubset<T, tblgroupFindUniqueArgs<ExtArgs>>): Prisma__tblgroupClient<$Result.GetResult<Prisma.$tblgroupPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one Group that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one Tblgroup that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {groupFindUniqueOrThrowArgs} args - Arguments to find a Group
+     * @param {tblgroupFindUniqueOrThrowArgs} args - Arguments to find a Tblgroup
      * @example
-     * // Get one Group
-     * const group = await prisma.group.findUniqueOrThrow({
+     * // Get one Tblgroup
+     * const tblgroup = await prisma.tblgroup.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends groupFindUniqueOrThrowArgs>(args: SelectSubset<T, groupFindUniqueOrThrowArgs<ExtArgs>>): Prisma__groupClient<$Result.GetResult<Prisma.$groupPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+    findUniqueOrThrow<T extends tblgroupFindUniqueOrThrowArgs>(args: SelectSubset<T, tblgroupFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tblgroupClient<$Result.GetResult<Prisma.$tblgroupPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
-     * Find the first Group that matches the filter.
+     * Find the first Tblgroup that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {groupFindFirstArgs} args - Arguments to find a Group
+     * @param {tblgroupFindFirstArgs} args - Arguments to find a Tblgroup
      * @example
-     * // Get one Group
-     * const group = await prisma.group.findFirst({
+     * // Get one Tblgroup
+     * const tblgroup = await prisma.tblgroup.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends groupFindFirstArgs>(args?: SelectSubset<T, groupFindFirstArgs<ExtArgs>>): Prisma__groupClient<$Result.GetResult<Prisma.$groupPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+    findFirst<T extends tblgroupFindFirstArgs>(args?: SelectSubset<T, tblgroupFindFirstArgs<ExtArgs>>): Prisma__tblgroupClient<$Result.GetResult<Prisma.$tblgroupPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
-     * Find the first Group that matches the filter or
+     * Find the first Tblgroup that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {groupFindFirstOrThrowArgs} args - Arguments to find a Group
+     * @param {tblgroupFindFirstOrThrowArgs} args - Arguments to find a Tblgroup
      * @example
-     * // Get one Group
-     * const group = await prisma.group.findFirstOrThrow({
+     * // Get one Tblgroup
+     * const tblgroup = await prisma.tblgroup.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends groupFindFirstOrThrowArgs>(args?: SelectSubset<T, groupFindFirstOrThrowArgs<ExtArgs>>): Prisma__groupClient<$Result.GetResult<Prisma.$groupPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+    findFirstOrThrow<T extends tblgroupFindFirstOrThrowArgs>(args?: SelectSubset<T, tblgroupFindFirstOrThrowArgs<ExtArgs>>): Prisma__tblgroupClient<$Result.GetResult<Prisma.$tblgroupPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
-     * Find zero or more Groups that matches the filter.
+     * Find zero or more Tblgroups that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {groupFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {tblgroupFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Groups
-     * const groups = await prisma.group.findMany()
+     * // Get all Tblgroups
+     * const tblgroups = await prisma.tblgroup.findMany()
      * 
-     * // Get first 10 Groups
-     * const groups = await prisma.group.findMany({ take: 10 })
+     * // Get first 10 Tblgroups
+     * const tblgroups = await prisma.tblgroup.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const groupWithIdOnly = await prisma.group.findMany({ select: { id: true } })
+     * const tblgroupWithIdOnly = await prisma.tblgroup.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends groupFindManyArgs>(args?: SelectSubset<T, groupFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$groupPayload<ExtArgs>, T, "findMany">>
+    findMany<T extends tblgroupFindManyArgs>(args?: SelectSubset<T, tblgroupFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tblgroupPayload<ExtArgs>, T, "findMany">>
 
     /**
-     * Create a Group.
-     * @param {groupCreateArgs} args - Arguments to create a Group.
+     * Create a Tblgroup.
+     * @param {tblgroupCreateArgs} args - Arguments to create a Tblgroup.
      * @example
-     * // Create one Group
-     * const Group = await prisma.group.create({
+     * // Create one Tblgroup
+     * const Tblgroup = await prisma.tblgroup.create({
      *   data: {
-     *     // ... data to create a Group
+     *     // ... data to create a Tblgroup
      *   }
      * })
      * 
      */
-    create<T extends groupCreateArgs>(args: SelectSubset<T, groupCreateArgs<ExtArgs>>): Prisma__groupClient<$Result.GetResult<Prisma.$groupPayload<ExtArgs>, T, "create">, never, ExtArgs>
+    create<T extends tblgroupCreateArgs>(args: SelectSubset<T, tblgroupCreateArgs<ExtArgs>>): Prisma__tblgroupClient<$Result.GetResult<Prisma.$tblgroupPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
-     * Create many Groups.
-     * @param {groupCreateManyArgs} args - Arguments to create many Groups.
+     * Create many Tblgroups.
+     * @param {tblgroupCreateManyArgs} args - Arguments to create many Tblgroups.
      * @example
-     * // Create many Groups
-     * const group = await prisma.group.createMany({
+     * // Create many Tblgroups
+     * const tblgroup = await prisma.tblgroup.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends groupCreateManyArgs>(args?: SelectSubset<T, groupCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends tblgroupCreateManyArgs>(args?: SelectSubset<T, tblgroupCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Group.
-     * @param {groupDeleteArgs} args - Arguments to delete one Group.
+     * Delete a Tblgroup.
+     * @param {tblgroupDeleteArgs} args - Arguments to delete one Tblgroup.
      * @example
-     * // Delete one Group
-     * const Group = await prisma.group.delete({
+     * // Delete one Tblgroup
+     * const Tblgroup = await prisma.tblgroup.delete({
      *   where: {
-     *     // ... filter to delete one Group
+     *     // ... filter to delete one Tblgroup
      *   }
      * })
      * 
      */
-    delete<T extends groupDeleteArgs>(args: SelectSubset<T, groupDeleteArgs<ExtArgs>>): Prisma__groupClient<$Result.GetResult<Prisma.$groupPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+    delete<T extends tblgroupDeleteArgs>(args: SelectSubset<T, tblgroupDeleteArgs<ExtArgs>>): Prisma__tblgroupClient<$Result.GetResult<Prisma.$tblgroupPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
-     * Update one Group.
-     * @param {groupUpdateArgs} args - Arguments to update one Group.
+     * Update one Tblgroup.
+     * @param {tblgroupUpdateArgs} args - Arguments to update one Tblgroup.
      * @example
-     * // Update one Group
-     * const group = await prisma.group.update({
+     * // Update one Tblgroup
+     * const tblgroup = await prisma.tblgroup.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1685,30 +1899,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends groupUpdateArgs>(args: SelectSubset<T, groupUpdateArgs<ExtArgs>>): Prisma__groupClient<$Result.GetResult<Prisma.$groupPayload<ExtArgs>, T, "update">, never, ExtArgs>
+    update<T extends tblgroupUpdateArgs>(args: SelectSubset<T, tblgroupUpdateArgs<ExtArgs>>): Prisma__tblgroupClient<$Result.GetResult<Prisma.$tblgroupPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
-     * Delete zero or more Groups.
-     * @param {groupDeleteManyArgs} args - Arguments to filter Groups to delete.
+     * Delete zero or more Tblgroups.
+     * @param {tblgroupDeleteManyArgs} args - Arguments to filter Tblgroups to delete.
      * @example
-     * // Delete a few Groups
-     * const { count } = await prisma.group.deleteMany({
+     * // Delete a few Tblgroups
+     * const { count } = await prisma.tblgroup.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends groupDeleteManyArgs>(args?: SelectSubset<T, groupDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends tblgroupDeleteManyArgs>(args?: SelectSubset<T, tblgroupDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Groups.
+     * Update zero or more Tblgroups.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {groupUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {tblgroupUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Groups
-     * const group = await prisma.group.updateMany({
+     * // Update many Tblgroups
+     * const tblgroup = await prisma.tblgroup.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1718,56 +1932,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends groupUpdateManyArgs>(args: SelectSubset<T, groupUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends tblgroupUpdateManyArgs>(args: SelectSubset<T, tblgroupUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Group.
-     * @param {groupUpsertArgs} args - Arguments to update or create a Group.
+     * Create or update one Tblgroup.
+     * @param {tblgroupUpsertArgs} args - Arguments to update or create a Tblgroup.
      * @example
-     * // Update or create a Group
-     * const group = await prisma.group.upsert({
+     * // Update or create a Tblgroup
+     * const tblgroup = await prisma.tblgroup.upsert({
      *   create: {
-     *     // ... data to create a Group
+     *     // ... data to create a Tblgroup
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Group we want to update
+     *     // ... the filter for the Tblgroup we want to update
      *   }
      * })
      */
-    upsert<T extends groupUpsertArgs>(args: SelectSubset<T, groupUpsertArgs<ExtArgs>>): Prisma__groupClient<$Result.GetResult<Prisma.$groupPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+    upsert<T extends tblgroupUpsertArgs>(args: SelectSubset<T, tblgroupUpsertArgs<ExtArgs>>): Prisma__tblgroupClient<$Result.GetResult<Prisma.$tblgroupPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
-     * Count the number of Groups.
+     * Count the number of Tblgroups.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {groupCountArgs} args - Arguments to filter Groups to count.
+     * @param {tblgroupCountArgs} args - Arguments to filter Tblgroups to count.
      * @example
-     * // Count the number of Groups
-     * const count = await prisma.group.count({
+     * // Count the number of Tblgroups
+     * const count = await prisma.tblgroup.count({
      *   where: {
-     *     // ... the filter for the Groups we want to count
+     *     // ... the filter for the Tblgroups we want to count
      *   }
      * })
     **/
-    count<T extends groupCountArgs>(
-      args?: Subset<T, groupCountArgs>,
+    count<T extends tblgroupCountArgs>(
+      args?: Subset<T, tblgroupCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], GroupCountAggregateOutputType>
+          : GetScalarType<T['select'], TblgroupCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Group.
+     * Allows you to perform aggregations operations on a Tblgroup.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroupAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {TblgroupAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1787,13 +2001,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends GroupAggregateArgs>(args: Subset<T, GroupAggregateArgs>): Prisma.PrismaPromise<GetGroupAggregateType<T>>
+    aggregate<T extends TblgroupAggregateArgs>(args: Subset<T, TblgroupAggregateArgs>): Prisma.PrismaPromise<GetTblgroupAggregateType<T>>
 
     /**
-     * Group by Group.
+     * Group by Tblgroup.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {groupGroupByArgs} args - Group by arguments.
+     * @param {tblgroupGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1808,14 +2022,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends groupGroupByArgs,
+      T extends tblgroupGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: groupGroupByArgs['orderBy'] }
-        : { orderBy?: groupGroupByArgs['orderBy'] },
+        ? { orderBy: tblgroupGroupByArgs['orderBy'] }
+        : { orderBy?: tblgroupGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1864,21 +2078,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, groupGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGroupGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, tblgroupGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTblgroupGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the group model
+   * Fields of the tblgroup model
    */
-  readonly fields: groupFieldRefs;
+  readonly fields: tblgroupFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for group.
+   * The delegate class that acts as a "Promise-like" for tblgroup.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__groupClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__tblgroupClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    subgroups<T extends tblgroup$subgroupsArgs<ExtArgs> = {}>(args?: Subset<T, tblgroup$subgroupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tblsubgroupPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1905,311 +2120,371 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the group model
+   * Fields of the tblgroup model
    */ 
-  interface groupFieldRefs {
-    readonly id: FieldRef<"group", 'Int'>
-    readonly group: FieldRef<"group", 'String'>
-    readonly description: FieldRef<"group", 'String'>
-    readonly image: FieldRef<"group", 'String'>
-    readonly createdAt: FieldRef<"group", 'DateTime'>
-    readonly updatedAt: FieldRef<"group", 'DateTime'>
+  interface tblgroupFieldRefs {
+    readonly id: FieldRef<"tblgroup", 'Int'>
+    readonly group: FieldRef<"tblgroup", 'String'>
+    readonly description: FieldRef<"tblgroup", 'String'>
+    readonly image: FieldRef<"tblgroup", 'String'>
+    readonly createdAt: FieldRef<"tblgroup", 'DateTime'>
+    readonly updatedAt: FieldRef<"tblgroup", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * group findUnique
+   * tblgroup findUnique
    */
-  export type groupFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the group
+     * Select specific fields to fetch from the tblgroup
      */
-    select?: groupSelect<ExtArgs> | null
+    select?: tblgroupSelect<ExtArgs> | null
     /**
-     * Filter, which group to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: groupWhereUniqueInput
+    include?: tblgroupInclude<ExtArgs> | null
+    /**
+     * Filter, which tblgroup to fetch.
+     */
+    where: tblgroupWhereUniqueInput
   }
 
   /**
-   * group findUniqueOrThrow
+   * tblgroup findUniqueOrThrow
    */
-  export type groupFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the group
+     * Select specific fields to fetch from the tblgroup
      */
-    select?: groupSelect<ExtArgs> | null
+    select?: tblgroupSelect<ExtArgs> | null
     /**
-     * Filter, which group to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: groupWhereUniqueInput
+    include?: tblgroupInclude<ExtArgs> | null
+    /**
+     * Filter, which tblgroup to fetch.
+     */
+    where: tblgroupWhereUniqueInput
   }
 
   /**
-   * group findFirst
+   * tblgroup findFirst
    */
-  export type groupFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the group
+     * Select specific fields to fetch from the tblgroup
      */
-    select?: groupSelect<ExtArgs> | null
+    select?: tblgroupSelect<ExtArgs> | null
     /**
-     * Filter, which group to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: groupWhereInput
+    include?: tblgroupInclude<ExtArgs> | null
+    /**
+     * Filter, which tblgroup to fetch.
+     */
+    where?: tblgroupWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of groups to fetch.
+     * Determine the order of tblgroups to fetch.
      */
-    orderBy?: groupOrderByWithRelationInput | groupOrderByWithRelationInput[]
+    orderBy?: tblgroupOrderByWithRelationInput | tblgroupOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for groups.
+     * Sets the position for searching for tblgroups.
      */
-    cursor?: groupWhereUniqueInput
+    cursor?: tblgroupWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` groups from the position of the cursor.
+     * Take `±n` tblgroups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` groups.
+     * Skip the first `n` tblgroups.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of groups.
+     * Filter by unique combinations of tblgroups.
      */
-    distinct?: GroupScalarFieldEnum | GroupScalarFieldEnum[]
+    distinct?: TblgroupScalarFieldEnum | TblgroupScalarFieldEnum[]
   }
 
   /**
-   * group findFirstOrThrow
+   * tblgroup findFirstOrThrow
    */
-  export type groupFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the group
+     * Select specific fields to fetch from the tblgroup
      */
-    select?: groupSelect<ExtArgs> | null
+    select?: tblgroupSelect<ExtArgs> | null
     /**
-     * Filter, which group to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: groupWhereInput
+    include?: tblgroupInclude<ExtArgs> | null
+    /**
+     * Filter, which tblgroup to fetch.
+     */
+    where?: tblgroupWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of groups to fetch.
+     * Determine the order of tblgroups to fetch.
      */
-    orderBy?: groupOrderByWithRelationInput | groupOrderByWithRelationInput[]
+    orderBy?: tblgroupOrderByWithRelationInput | tblgroupOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for groups.
+     * Sets the position for searching for tblgroups.
      */
-    cursor?: groupWhereUniqueInput
+    cursor?: tblgroupWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` groups from the position of the cursor.
+     * Take `±n` tblgroups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` groups.
+     * Skip the first `n` tblgroups.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of groups.
+     * Filter by unique combinations of tblgroups.
      */
-    distinct?: GroupScalarFieldEnum | GroupScalarFieldEnum[]
+    distinct?: TblgroupScalarFieldEnum | TblgroupScalarFieldEnum[]
   }
 
   /**
-   * group findMany
+   * tblgroup findMany
    */
-  export type groupFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the group
+     * Select specific fields to fetch from the tblgroup
      */
-    select?: groupSelect<ExtArgs> | null
+    select?: tblgroupSelect<ExtArgs> | null
     /**
-     * Filter, which groups to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: groupWhereInput
+    include?: tblgroupInclude<ExtArgs> | null
+    /**
+     * Filter, which tblgroups to fetch.
+     */
+    where?: tblgroupWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of groups to fetch.
+     * Determine the order of tblgroups to fetch.
      */
-    orderBy?: groupOrderByWithRelationInput | groupOrderByWithRelationInput[]
+    orderBy?: tblgroupOrderByWithRelationInput | tblgroupOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing groups.
+     * Sets the position for listing tblgroups.
      */
-    cursor?: groupWhereUniqueInput
+    cursor?: tblgroupWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` groups from the position of the cursor.
+     * Take `±n` tblgroups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` groups.
+     * Skip the first `n` tblgroups.
      */
     skip?: number
-    distinct?: GroupScalarFieldEnum | GroupScalarFieldEnum[]
+    distinct?: TblgroupScalarFieldEnum | TblgroupScalarFieldEnum[]
   }
 
   /**
-   * group create
+   * tblgroup create
    */
-  export type groupCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the group
+     * Select specific fields to fetch from the tblgroup
      */
-    select?: groupSelect<ExtArgs> | null
+    select?: tblgroupSelect<ExtArgs> | null
     /**
-     * The data needed to create a group.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<groupCreateInput, groupUncheckedCreateInput>
+    include?: tblgroupInclude<ExtArgs> | null
+    /**
+     * The data needed to create a tblgroup.
+     */
+    data: XOR<tblgroupCreateInput, tblgroupUncheckedCreateInput>
   }
 
   /**
-   * group createMany
+   * tblgroup createMany
    */
-  export type groupCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many groups.
+     * The data used to create many tblgroups.
      */
-    data: groupCreateManyInput | groupCreateManyInput[]
+    data: tblgroupCreateManyInput | tblgroupCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * group update
+   * tblgroup update
    */
-  export type groupUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the group
+     * Select specific fields to fetch from the tblgroup
      */
-    select?: groupSelect<ExtArgs> | null
+    select?: tblgroupSelect<ExtArgs> | null
     /**
-     * The data needed to update a group.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<groupUpdateInput, groupUncheckedUpdateInput>
+    include?: tblgroupInclude<ExtArgs> | null
     /**
-     * Choose, which group to update.
+     * The data needed to update a tblgroup.
      */
-    where: groupWhereUniqueInput
+    data: XOR<tblgroupUpdateInput, tblgroupUncheckedUpdateInput>
+    /**
+     * Choose, which tblgroup to update.
+     */
+    where: tblgroupWhereUniqueInput
   }
 
   /**
-   * group updateMany
+   * tblgroup updateMany
    */
-  export type groupUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update groups.
+     * The data used to update tblgroups.
      */
-    data: XOR<groupUpdateManyMutationInput, groupUncheckedUpdateManyInput>
+    data: XOR<tblgroupUpdateManyMutationInput, tblgroupUncheckedUpdateManyInput>
     /**
-     * Filter which groups to update
+     * Filter which tblgroups to update
      */
-    where?: groupWhereInput
+    where?: tblgroupWhereInput
   }
 
   /**
-   * group upsert
+   * tblgroup upsert
    */
-  export type groupUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the group
+     * Select specific fields to fetch from the tblgroup
      */
-    select?: groupSelect<ExtArgs> | null
+    select?: tblgroupSelect<ExtArgs> | null
     /**
-     * The filter to search for the group to update in case it exists.
+     * Choose, which related nodes to fetch as well
      */
-    where: groupWhereUniqueInput
+    include?: tblgroupInclude<ExtArgs> | null
     /**
-     * In case the group found by the `where` argument doesn't exist, create a new group with this data.
+     * The filter to search for the tblgroup to update in case it exists.
      */
-    create: XOR<groupCreateInput, groupUncheckedCreateInput>
+    where: tblgroupWhereUniqueInput
     /**
-     * In case the group was found with the provided `where` argument, update it with this data.
+     * In case the tblgroup found by the `where` argument doesn't exist, create a new tblgroup with this data.
      */
-    update: XOR<groupUpdateInput, groupUncheckedUpdateInput>
+    create: XOR<tblgroupCreateInput, tblgroupUncheckedCreateInput>
+    /**
+     * In case the tblgroup was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<tblgroupUpdateInput, tblgroupUncheckedUpdateInput>
   }
 
   /**
-   * group delete
+   * tblgroup delete
    */
-  export type groupDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the group
+     * Select specific fields to fetch from the tblgroup
      */
-    select?: groupSelect<ExtArgs> | null
+    select?: tblgroupSelect<ExtArgs> | null
     /**
-     * Filter which group to delete.
+     * Choose, which related nodes to fetch as well
      */
-    where: groupWhereUniqueInput
+    include?: tblgroupInclude<ExtArgs> | null
+    /**
+     * Filter which tblgroup to delete.
+     */
+    where: tblgroupWhereUniqueInput
   }
 
   /**
-   * group deleteMany
+   * tblgroup deleteMany
    */
-  export type groupDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroupDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which groups to delete
+     * Filter which tblgroups to delete
      */
-    where?: groupWhereInput
+    where?: tblgroupWhereInput
   }
 
   /**
-   * group without action
+   * tblgroup.subgroups
    */
-  export type groupDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblgroup$subgroupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the group
+     * Select specific fields to fetch from the tblsubgroup
      */
-    select?: groupSelect<ExtArgs> | null
+    select?: tblsubgroupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblsubgroupInclude<ExtArgs> | null
+    where?: tblsubgroupWhereInput
+    orderBy?: tblsubgroupOrderByWithRelationInput | tblsubgroupOrderByWithRelationInput[]
+    cursor?: tblsubgroupWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TblsubgroupScalarFieldEnum | TblsubgroupScalarFieldEnum[]
+  }
+
+  /**
+   * tblgroup without action
+   */
+  export type tblgroupDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblgroup
+     */
+    select?: tblgroupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblgroupInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model subgroup
+   * Model tblsubgroup
    */
 
-  export type AggregateSubgroup = {
-    _count: SubgroupCountAggregateOutputType | null
-    _avg: SubgroupAvgAggregateOutputType | null
-    _sum: SubgroupSumAggregateOutputType | null
-    _min: SubgroupMinAggregateOutputType | null
-    _max: SubgroupMaxAggregateOutputType | null
+  export type AggregateTblsubgroup = {
+    _count: TblsubgroupCountAggregateOutputType | null
+    _avg: TblsubgroupAvgAggregateOutputType | null
+    _sum: TblsubgroupSumAggregateOutputType | null
+    _min: TblsubgroupMinAggregateOutputType | null
+    _max: TblsubgroupMaxAggregateOutputType | null
   }
 
-  export type SubgroupAvgAggregateOutputType = {
+  export type TblsubgroupAvgAggregateOutputType = {
     id: number | null
     groupId: number | null
   }
 
-  export type SubgroupSumAggregateOutputType = {
+  export type TblsubgroupSumAggregateOutputType = {
     id: number | null
     groupId: number | null
   }
 
-  export type SubgroupMinAggregateOutputType = {
+  export type TblsubgroupMinAggregateOutputType = {
     id: number | null
     subgroup: string | null
     description: string | null
@@ -2219,7 +2494,7 @@ export namespace Prisma {
     groupId: number | null
   }
 
-  export type SubgroupMaxAggregateOutputType = {
+  export type TblsubgroupMaxAggregateOutputType = {
     id: number | null
     subgroup: string | null
     description: string | null
@@ -2229,7 +2504,7 @@ export namespace Prisma {
     groupId: number | null
   }
 
-  export type SubgroupCountAggregateOutputType = {
+  export type TblsubgroupCountAggregateOutputType = {
     id: number
     subgroup: number
     description: number
@@ -2241,27 +2516,17 @@ export namespace Prisma {
   }
 
 
-  export type SubgroupAvgAggregateInputType = {
+  export type TblsubgroupAvgAggregateInputType = {
     id?: true
     groupId?: true
   }
 
-  export type SubgroupSumAggregateInputType = {
+  export type TblsubgroupSumAggregateInputType = {
     id?: true
     groupId?: true
   }
 
-  export type SubgroupMinAggregateInputType = {
-    id?: true
-    subgroup?: true
-    description?: true
-    image?: true
-    createdAt?: true
-    updatedAt?: true
-    groupId?: true
-  }
-
-  export type SubgroupMaxAggregateInputType = {
+  export type TblsubgroupMinAggregateInputType = {
     id?: true
     subgroup?: true
     description?: true
@@ -2271,7 +2536,17 @@ export namespace Prisma {
     groupId?: true
   }
 
-  export type SubgroupCountAggregateInputType = {
+  export type TblsubgroupMaxAggregateInputType = {
+    id?: true
+    subgroup?: true
+    description?: true
+    image?: true
+    createdAt?: true
+    updatedAt?: true
+    groupId?: true
+  }
+
+  export type TblsubgroupCountAggregateInputType = {
     id?: true
     subgroup?: true
     description?: true
@@ -2282,122 +2557,122 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type SubgroupAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TblsubgroupAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which subgroup to aggregate.
+     * Filter which tblsubgroup to aggregate.
      */
-    where?: subgroupWhereInput
+    where?: tblsubgroupWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of subgroups to fetch.
+     * Determine the order of tblsubgroups to fetch.
      */
-    orderBy?: subgroupOrderByWithRelationInput | subgroupOrderByWithRelationInput[]
+    orderBy?: tblsubgroupOrderByWithRelationInput | tblsubgroupOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: subgroupWhereUniqueInput
+    cursor?: tblsubgroupWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` subgroups from the position of the cursor.
+     * Take `±n` tblsubgroups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` subgroups.
+     * Skip the first `n` tblsubgroups.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned subgroups
+     * Count returned tblsubgroups
     **/
-    _count?: true | SubgroupCountAggregateInputType
+    _count?: true | TblsubgroupCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: SubgroupAvgAggregateInputType
+    _avg?: TblsubgroupAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: SubgroupSumAggregateInputType
+    _sum?: TblsubgroupSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: SubgroupMinAggregateInputType
+    _min?: TblsubgroupMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: SubgroupMaxAggregateInputType
+    _max?: TblsubgroupMaxAggregateInputType
   }
 
-  export type GetSubgroupAggregateType<T extends SubgroupAggregateArgs> = {
-        [P in keyof T & keyof AggregateSubgroup]: P extends '_count' | 'count'
+  export type GetTblsubgroupAggregateType<T extends TblsubgroupAggregateArgs> = {
+        [P in keyof T & keyof AggregateTblsubgroup]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateSubgroup[P]>
-      : GetScalarType<T[P], AggregateSubgroup[P]>
+        : GetScalarType<T[P], AggregateTblsubgroup[P]>
+      : GetScalarType<T[P], AggregateTblsubgroup[P]>
   }
 
 
 
 
-  export type subgroupGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: subgroupWhereInput
-    orderBy?: subgroupOrderByWithAggregationInput | subgroupOrderByWithAggregationInput[]
-    by: SubgroupScalarFieldEnum[] | SubgroupScalarFieldEnum
-    having?: subgroupScalarWhereWithAggregatesInput
+  export type tblsubgroupGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tblsubgroupWhereInput
+    orderBy?: tblsubgroupOrderByWithAggregationInput | tblsubgroupOrderByWithAggregationInput[]
+    by: TblsubgroupScalarFieldEnum[] | TblsubgroupScalarFieldEnum
+    having?: tblsubgroupScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: SubgroupCountAggregateInputType | true
-    _avg?: SubgroupAvgAggregateInputType
-    _sum?: SubgroupSumAggregateInputType
-    _min?: SubgroupMinAggregateInputType
-    _max?: SubgroupMaxAggregateInputType
+    _count?: TblsubgroupCountAggregateInputType | true
+    _avg?: TblsubgroupAvgAggregateInputType
+    _sum?: TblsubgroupSumAggregateInputType
+    _min?: TblsubgroupMinAggregateInputType
+    _max?: TblsubgroupMaxAggregateInputType
   }
 
-  export type SubgroupGroupByOutputType = {
+  export type TblsubgroupGroupByOutputType = {
     id: number
     subgroup: string
-    description: string
+    description: string | null
     image: string
     createdAt: Date
     updatedAt: Date
     groupId: number
-    _count: SubgroupCountAggregateOutputType | null
-    _avg: SubgroupAvgAggregateOutputType | null
-    _sum: SubgroupSumAggregateOutputType | null
-    _min: SubgroupMinAggregateOutputType | null
-    _max: SubgroupMaxAggregateOutputType | null
+    _count: TblsubgroupCountAggregateOutputType | null
+    _avg: TblsubgroupAvgAggregateOutputType | null
+    _sum: TblsubgroupSumAggregateOutputType | null
+    _min: TblsubgroupMinAggregateOutputType | null
+    _max: TblsubgroupMaxAggregateOutputType | null
   }
 
-  type GetSubgroupGroupByPayload<T extends subgroupGroupByArgs> = Prisma.PrismaPromise<
+  type GetTblsubgroupGroupByPayload<T extends tblsubgroupGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<SubgroupGroupByOutputType, T['by']> &
+      PickEnumerable<TblsubgroupGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof SubgroupGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof TblsubgroupGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], SubgroupGroupByOutputType[P]>
-            : GetScalarType<T[P], SubgroupGroupByOutputType[P]>
+              : GetScalarType<T[P], TblsubgroupGroupByOutputType[P]>
+            : GetScalarType<T[P], TblsubgroupGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type subgroupSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type tblsubgroupSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     subgroup?: boolean
     description?: boolean
@@ -2405,10 +2680,13 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     groupId?: boolean
-  }, ExtArgs["result"]["subgroup"]>
+    group?: boolean | tblgroupDefaultArgs<ExtArgs>
+    categories?: boolean | tblsubgroup$categoriesArgs<ExtArgs>
+    _count?: boolean | TblsubgroupCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tblsubgroup"]>
 
 
-  export type subgroupSelectScalar = {
+  export type tblsubgroupSelectScalar = {
     id?: boolean
     subgroup?: boolean
     description?: boolean
@@ -2418,155 +2696,163 @@ export namespace Prisma {
     groupId?: boolean
   }
 
+  export type tblsubgroupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    group?: boolean | tblgroupDefaultArgs<ExtArgs>
+    categories?: boolean | tblsubgroup$categoriesArgs<ExtArgs>
+    _count?: boolean | TblsubgroupCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
-  export type $subgroupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "subgroup"
-    objects: {}
+  export type $tblsubgroupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tblsubgroup"
+    objects: {
+      group: Prisma.$tblgroupPayload<ExtArgs>
+      categories: Prisma.$tblcategoryPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       subgroup: string
-      description: string
+      description: string | null
       image: string
       createdAt: Date
       updatedAt: Date
       groupId: number
-    }, ExtArgs["result"]["subgroup"]>
+    }, ExtArgs["result"]["tblsubgroup"]>
     composites: {}
   }
 
-  type subgroupGetPayload<S extends boolean | null | undefined | subgroupDefaultArgs> = $Result.GetResult<Prisma.$subgroupPayload, S>
+  type tblsubgroupGetPayload<S extends boolean | null | undefined | tblsubgroupDefaultArgs> = $Result.GetResult<Prisma.$tblsubgroupPayload, S>
 
-  type subgroupCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<subgroupFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: SubgroupCountAggregateInputType | true
+  type tblsubgroupCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<tblsubgroupFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TblsubgroupCountAggregateInputType | true
     }
 
-  export interface subgroupDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['subgroup'], meta: { name: 'subgroup' } }
+  export interface tblsubgroupDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tblsubgroup'], meta: { name: 'tblsubgroup' } }
     /**
-     * Find zero or one Subgroup that matches the filter.
-     * @param {subgroupFindUniqueArgs} args - Arguments to find a Subgroup
+     * Find zero or one Tblsubgroup that matches the filter.
+     * @param {tblsubgroupFindUniqueArgs} args - Arguments to find a Tblsubgroup
      * @example
-     * // Get one Subgroup
-     * const subgroup = await prisma.subgroup.findUnique({
+     * // Get one Tblsubgroup
+     * const tblsubgroup = await prisma.tblsubgroup.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends subgroupFindUniqueArgs>(args: SelectSubset<T, subgroupFindUniqueArgs<ExtArgs>>): Prisma__subgroupClient<$Result.GetResult<Prisma.$subgroupPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+    findUnique<T extends tblsubgroupFindUniqueArgs>(args: SelectSubset<T, tblsubgroupFindUniqueArgs<ExtArgs>>): Prisma__tblsubgroupClient<$Result.GetResult<Prisma.$tblsubgroupPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one Subgroup that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one Tblsubgroup that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {subgroupFindUniqueOrThrowArgs} args - Arguments to find a Subgroup
+     * @param {tblsubgroupFindUniqueOrThrowArgs} args - Arguments to find a Tblsubgroup
      * @example
-     * // Get one Subgroup
-     * const subgroup = await prisma.subgroup.findUniqueOrThrow({
+     * // Get one Tblsubgroup
+     * const tblsubgroup = await prisma.tblsubgroup.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends subgroupFindUniqueOrThrowArgs>(args: SelectSubset<T, subgroupFindUniqueOrThrowArgs<ExtArgs>>): Prisma__subgroupClient<$Result.GetResult<Prisma.$subgroupPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+    findUniqueOrThrow<T extends tblsubgroupFindUniqueOrThrowArgs>(args: SelectSubset<T, tblsubgroupFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tblsubgroupClient<$Result.GetResult<Prisma.$tblsubgroupPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
-     * Find the first Subgroup that matches the filter.
+     * Find the first Tblsubgroup that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {subgroupFindFirstArgs} args - Arguments to find a Subgroup
+     * @param {tblsubgroupFindFirstArgs} args - Arguments to find a Tblsubgroup
      * @example
-     * // Get one Subgroup
-     * const subgroup = await prisma.subgroup.findFirst({
+     * // Get one Tblsubgroup
+     * const tblsubgroup = await prisma.tblsubgroup.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends subgroupFindFirstArgs>(args?: SelectSubset<T, subgroupFindFirstArgs<ExtArgs>>): Prisma__subgroupClient<$Result.GetResult<Prisma.$subgroupPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+    findFirst<T extends tblsubgroupFindFirstArgs>(args?: SelectSubset<T, tblsubgroupFindFirstArgs<ExtArgs>>): Prisma__tblsubgroupClient<$Result.GetResult<Prisma.$tblsubgroupPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
-     * Find the first Subgroup that matches the filter or
+     * Find the first Tblsubgroup that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {subgroupFindFirstOrThrowArgs} args - Arguments to find a Subgroup
+     * @param {tblsubgroupFindFirstOrThrowArgs} args - Arguments to find a Tblsubgroup
      * @example
-     * // Get one Subgroup
-     * const subgroup = await prisma.subgroup.findFirstOrThrow({
+     * // Get one Tblsubgroup
+     * const tblsubgroup = await prisma.tblsubgroup.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends subgroupFindFirstOrThrowArgs>(args?: SelectSubset<T, subgroupFindFirstOrThrowArgs<ExtArgs>>): Prisma__subgroupClient<$Result.GetResult<Prisma.$subgroupPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+    findFirstOrThrow<T extends tblsubgroupFindFirstOrThrowArgs>(args?: SelectSubset<T, tblsubgroupFindFirstOrThrowArgs<ExtArgs>>): Prisma__tblsubgroupClient<$Result.GetResult<Prisma.$tblsubgroupPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
-     * Find zero or more Subgroups that matches the filter.
+     * Find zero or more Tblsubgroups that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {subgroupFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {tblsubgroupFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Subgroups
-     * const subgroups = await prisma.subgroup.findMany()
+     * // Get all Tblsubgroups
+     * const tblsubgroups = await prisma.tblsubgroup.findMany()
      * 
-     * // Get first 10 Subgroups
-     * const subgroups = await prisma.subgroup.findMany({ take: 10 })
+     * // Get first 10 Tblsubgroups
+     * const tblsubgroups = await prisma.tblsubgroup.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const subgroupWithIdOnly = await prisma.subgroup.findMany({ select: { id: true } })
+     * const tblsubgroupWithIdOnly = await prisma.tblsubgroup.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends subgroupFindManyArgs>(args?: SelectSubset<T, subgroupFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$subgroupPayload<ExtArgs>, T, "findMany">>
+    findMany<T extends tblsubgroupFindManyArgs>(args?: SelectSubset<T, tblsubgroupFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tblsubgroupPayload<ExtArgs>, T, "findMany">>
 
     /**
-     * Create a Subgroup.
-     * @param {subgroupCreateArgs} args - Arguments to create a Subgroup.
+     * Create a Tblsubgroup.
+     * @param {tblsubgroupCreateArgs} args - Arguments to create a Tblsubgroup.
      * @example
-     * // Create one Subgroup
-     * const Subgroup = await prisma.subgroup.create({
+     * // Create one Tblsubgroup
+     * const Tblsubgroup = await prisma.tblsubgroup.create({
      *   data: {
-     *     // ... data to create a Subgroup
+     *     // ... data to create a Tblsubgroup
      *   }
      * })
      * 
      */
-    create<T extends subgroupCreateArgs>(args: SelectSubset<T, subgroupCreateArgs<ExtArgs>>): Prisma__subgroupClient<$Result.GetResult<Prisma.$subgroupPayload<ExtArgs>, T, "create">, never, ExtArgs>
+    create<T extends tblsubgroupCreateArgs>(args: SelectSubset<T, tblsubgroupCreateArgs<ExtArgs>>): Prisma__tblsubgroupClient<$Result.GetResult<Prisma.$tblsubgroupPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
-     * Create many Subgroups.
-     * @param {subgroupCreateManyArgs} args - Arguments to create many Subgroups.
+     * Create many Tblsubgroups.
+     * @param {tblsubgroupCreateManyArgs} args - Arguments to create many Tblsubgroups.
      * @example
-     * // Create many Subgroups
-     * const subgroup = await prisma.subgroup.createMany({
+     * // Create many Tblsubgroups
+     * const tblsubgroup = await prisma.tblsubgroup.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends subgroupCreateManyArgs>(args?: SelectSubset<T, subgroupCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends tblsubgroupCreateManyArgs>(args?: SelectSubset<T, tblsubgroupCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Subgroup.
-     * @param {subgroupDeleteArgs} args - Arguments to delete one Subgroup.
+     * Delete a Tblsubgroup.
+     * @param {tblsubgroupDeleteArgs} args - Arguments to delete one Tblsubgroup.
      * @example
-     * // Delete one Subgroup
-     * const Subgroup = await prisma.subgroup.delete({
+     * // Delete one Tblsubgroup
+     * const Tblsubgroup = await prisma.tblsubgroup.delete({
      *   where: {
-     *     // ... filter to delete one Subgroup
+     *     // ... filter to delete one Tblsubgroup
      *   }
      * })
      * 
      */
-    delete<T extends subgroupDeleteArgs>(args: SelectSubset<T, subgroupDeleteArgs<ExtArgs>>): Prisma__subgroupClient<$Result.GetResult<Prisma.$subgroupPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+    delete<T extends tblsubgroupDeleteArgs>(args: SelectSubset<T, tblsubgroupDeleteArgs<ExtArgs>>): Prisma__tblsubgroupClient<$Result.GetResult<Prisma.$tblsubgroupPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
-     * Update one Subgroup.
-     * @param {subgroupUpdateArgs} args - Arguments to update one Subgroup.
+     * Update one Tblsubgroup.
+     * @param {tblsubgroupUpdateArgs} args - Arguments to update one Tblsubgroup.
      * @example
-     * // Update one Subgroup
-     * const subgroup = await prisma.subgroup.update({
+     * // Update one Tblsubgroup
+     * const tblsubgroup = await prisma.tblsubgroup.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2576,30 +2862,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends subgroupUpdateArgs>(args: SelectSubset<T, subgroupUpdateArgs<ExtArgs>>): Prisma__subgroupClient<$Result.GetResult<Prisma.$subgroupPayload<ExtArgs>, T, "update">, never, ExtArgs>
+    update<T extends tblsubgroupUpdateArgs>(args: SelectSubset<T, tblsubgroupUpdateArgs<ExtArgs>>): Prisma__tblsubgroupClient<$Result.GetResult<Prisma.$tblsubgroupPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
-     * Delete zero or more Subgroups.
-     * @param {subgroupDeleteManyArgs} args - Arguments to filter Subgroups to delete.
+     * Delete zero or more Tblsubgroups.
+     * @param {tblsubgroupDeleteManyArgs} args - Arguments to filter Tblsubgroups to delete.
      * @example
-     * // Delete a few Subgroups
-     * const { count } = await prisma.subgroup.deleteMany({
+     * // Delete a few Tblsubgroups
+     * const { count } = await prisma.tblsubgroup.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends subgroupDeleteManyArgs>(args?: SelectSubset<T, subgroupDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends tblsubgroupDeleteManyArgs>(args?: SelectSubset<T, tblsubgroupDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Subgroups.
+     * Update zero or more Tblsubgroups.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {subgroupUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {tblsubgroupUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Subgroups
-     * const subgroup = await prisma.subgroup.updateMany({
+     * // Update many Tblsubgroups
+     * const tblsubgroup = await prisma.tblsubgroup.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2609,56 +2895,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends subgroupUpdateManyArgs>(args: SelectSubset<T, subgroupUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends tblsubgroupUpdateManyArgs>(args: SelectSubset<T, tblsubgroupUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Subgroup.
-     * @param {subgroupUpsertArgs} args - Arguments to update or create a Subgroup.
+     * Create or update one Tblsubgroup.
+     * @param {tblsubgroupUpsertArgs} args - Arguments to update or create a Tblsubgroup.
      * @example
-     * // Update or create a Subgroup
-     * const subgroup = await prisma.subgroup.upsert({
+     * // Update or create a Tblsubgroup
+     * const tblsubgroup = await prisma.tblsubgroup.upsert({
      *   create: {
-     *     // ... data to create a Subgroup
+     *     // ... data to create a Tblsubgroup
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Subgroup we want to update
+     *     // ... the filter for the Tblsubgroup we want to update
      *   }
      * })
      */
-    upsert<T extends subgroupUpsertArgs>(args: SelectSubset<T, subgroupUpsertArgs<ExtArgs>>): Prisma__subgroupClient<$Result.GetResult<Prisma.$subgroupPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+    upsert<T extends tblsubgroupUpsertArgs>(args: SelectSubset<T, tblsubgroupUpsertArgs<ExtArgs>>): Prisma__tblsubgroupClient<$Result.GetResult<Prisma.$tblsubgroupPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
-     * Count the number of Subgroups.
+     * Count the number of Tblsubgroups.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {subgroupCountArgs} args - Arguments to filter Subgroups to count.
+     * @param {tblsubgroupCountArgs} args - Arguments to filter Tblsubgroups to count.
      * @example
-     * // Count the number of Subgroups
-     * const count = await prisma.subgroup.count({
+     * // Count the number of Tblsubgroups
+     * const count = await prisma.tblsubgroup.count({
      *   where: {
-     *     // ... the filter for the Subgroups we want to count
+     *     // ... the filter for the Tblsubgroups we want to count
      *   }
      * })
     **/
-    count<T extends subgroupCountArgs>(
-      args?: Subset<T, subgroupCountArgs>,
+    count<T extends tblsubgroupCountArgs>(
+      args?: Subset<T, tblsubgroupCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], SubgroupCountAggregateOutputType>
+          : GetScalarType<T['select'], TblsubgroupCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Subgroup.
+     * Allows you to perform aggregations operations on a Tblsubgroup.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SubgroupAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {TblsubgroupAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2678,13 +2964,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends SubgroupAggregateArgs>(args: Subset<T, SubgroupAggregateArgs>): Prisma.PrismaPromise<GetSubgroupAggregateType<T>>
+    aggregate<T extends TblsubgroupAggregateArgs>(args: Subset<T, TblsubgroupAggregateArgs>): Prisma.PrismaPromise<GetTblsubgroupAggregateType<T>>
 
     /**
-     * Group by Subgroup.
+     * Group by Tblsubgroup.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {subgroupGroupByArgs} args - Group by arguments.
+     * @param {tblsubgroupGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2699,14 +2985,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends subgroupGroupByArgs,
+      T extends tblsubgroupGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: subgroupGroupByArgs['orderBy'] }
-        : { orderBy?: subgroupGroupByArgs['orderBy'] },
+        ? { orderBy: tblsubgroupGroupByArgs['orderBy'] }
+        : { orderBy?: tblsubgroupGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2755,21 +3041,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, subgroupGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSubgroupGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, tblsubgroupGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTblsubgroupGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the subgroup model
+   * Fields of the tblsubgroup model
    */
-  readonly fields: subgroupFieldRefs;
+  readonly fields: tblsubgroupFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for subgroup.
+   * The delegate class that acts as a "Promise-like" for tblsubgroup.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__subgroupClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__tblsubgroupClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    group<T extends tblgroupDefaultArgs<ExtArgs> = {}>(args?: Subset<T, tblgroupDefaultArgs<ExtArgs>>): Prisma__tblgroupClient<$Result.GetResult<Prisma.$tblgroupPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    categories<T extends tblsubgroup$categoriesArgs<ExtArgs> = {}>(args?: Subset<T, tblsubgroup$categoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tblcategoryPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2796,312 +3084,372 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the subgroup model
+   * Fields of the tblsubgroup model
    */ 
-  interface subgroupFieldRefs {
-    readonly id: FieldRef<"subgroup", 'Int'>
-    readonly subgroup: FieldRef<"subgroup", 'String'>
-    readonly description: FieldRef<"subgroup", 'String'>
-    readonly image: FieldRef<"subgroup", 'String'>
-    readonly createdAt: FieldRef<"subgroup", 'DateTime'>
-    readonly updatedAt: FieldRef<"subgroup", 'DateTime'>
-    readonly groupId: FieldRef<"subgroup", 'Int'>
+  interface tblsubgroupFieldRefs {
+    readonly id: FieldRef<"tblsubgroup", 'Int'>
+    readonly subgroup: FieldRef<"tblsubgroup", 'String'>
+    readonly description: FieldRef<"tblsubgroup", 'String'>
+    readonly image: FieldRef<"tblsubgroup", 'String'>
+    readonly createdAt: FieldRef<"tblsubgroup", 'DateTime'>
+    readonly updatedAt: FieldRef<"tblsubgroup", 'DateTime'>
+    readonly groupId: FieldRef<"tblsubgroup", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * subgroup findUnique
+   * tblsubgroup findUnique
    */
-  export type subgroupFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the subgroup
+     * Select specific fields to fetch from the tblsubgroup
      */
-    select?: subgroupSelect<ExtArgs> | null
+    select?: tblsubgroupSelect<ExtArgs> | null
     /**
-     * Filter, which subgroup to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: subgroupWhereUniqueInput
+    include?: tblsubgroupInclude<ExtArgs> | null
+    /**
+     * Filter, which tblsubgroup to fetch.
+     */
+    where: tblsubgroupWhereUniqueInput
   }
 
   /**
-   * subgroup findUniqueOrThrow
+   * tblsubgroup findUniqueOrThrow
    */
-  export type subgroupFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the subgroup
+     * Select specific fields to fetch from the tblsubgroup
      */
-    select?: subgroupSelect<ExtArgs> | null
+    select?: tblsubgroupSelect<ExtArgs> | null
     /**
-     * Filter, which subgroup to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: subgroupWhereUniqueInput
+    include?: tblsubgroupInclude<ExtArgs> | null
+    /**
+     * Filter, which tblsubgroup to fetch.
+     */
+    where: tblsubgroupWhereUniqueInput
   }
 
   /**
-   * subgroup findFirst
+   * tblsubgroup findFirst
    */
-  export type subgroupFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the subgroup
+     * Select specific fields to fetch from the tblsubgroup
      */
-    select?: subgroupSelect<ExtArgs> | null
+    select?: tblsubgroupSelect<ExtArgs> | null
     /**
-     * Filter, which subgroup to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: subgroupWhereInput
+    include?: tblsubgroupInclude<ExtArgs> | null
+    /**
+     * Filter, which tblsubgroup to fetch.
+     */
+    where?: tblsubgroupWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of subgroups to fetch.
+     * Determine the order of tblsubgroups to fetch.
      */
-    orderBy?: subgroupOrderByWithRelationInput | subgroupOrderByWithRelationInput[]
+    orderBy?: tblsubgroupOrderByWithRelationInput | tblsubgroupOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for subgroups.
+     * Sets the position for searching for tblsubgroups.
      */
-    cursor?: subgroupWhereUniqueInput
+    cursor?: tblsubgroupWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` subgroups from the position of the cursor.
+     * Take `±n` tblsubgroups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` subgroups.
+     * Skip the first `n` tblsubgroups.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of subgroups.
+     * Filter by unique combinations of tblsubgroups.
      */
-    distinct?: SubgroupScalarFieldEnum | SubgroupScalarFieldEnum[]
+    distinct?: TblsubgroupScalarFieldEnum | TblsubgroupScalarFieldEnum[]
   }
 
   /**
-   * subgroup findFirstOrThrow
+   * tblsubgroup findFirstOrThrow
    */
-  export type subgroupFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the subgroup
+     * Select specific fields to fetch from the tblsubgroup
      */
-    select?: subgroupSelect<ExtArgs> | null
+    select?: tblsubgroupSelect<ExtArgs> | null
     /**
-     * Filter, which subgroup to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: subgroupWhereInput
+    include?: tblsubgroupInclude<ExtArgs> | null
+    /**
+     * Filter, which tblsubgroup to fetch.
+     */
+    where?: tblsubgroupWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of subgroups to fetch.
+     * Determine the order of tblsubgroups to fetch.
      */
-    orderBy?: subgroupOrderByWithRelationInput | subgroupOrderByWithRelationInput[]
+    orderBy?: tblsubgroupOrderByWithRelationInput | tblsubgroupOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for subgroups.
+     * Sets the position for searching for tblsubgroups.
      */
-    cursor?: subgroupWhereUniqueInput
+    cursor?: tblsubgroupWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` subgroups from the position of the cursor.
+     * Take `±n` tblsubgroups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` subgroups.
+     * Skip the first `n` tblsubgroups.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of subgroups.
+     * Filter by unique combinations of tblsubgroups.
      */
-    distinct?: SubgroupScalarFieldEnum | SubgroupScalarFieldEnum[]
+    distinct?: TblsubgroupScalarFieldEnum | TblsubgroupScalarFieldEnum[]
   }
 
   /**
-   * subgroup findMany
+   * tblsubgroup findMany
    */
-  export type subgroupFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the subgroup
+     * Select specific fields to fetch from the tblsubgroup
      */
-    select?: subgroupSelect<ExtArgs> | null
+    select?: tblsubgroupSelect<ExtArgs> | null
     /**
-     * Filter, which subgroups to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: subgroupWhereInput
+    include?: tblsubgroupInclude<ExtArgs> | null
+    /**
+     * Filter, which tblsubgroups to fetch.
+     */
+    where?: tblsubgroupWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of subgroups to fetch.
+     * Determine the order of tblsubgroups to fetch.
      */
-    orderBy?: subgroupOrderByWithRelationInput | subgroupOrderByWithRelationInput[]
+    orderBy?: tblsubgroupOrderByWithRelationInput | tblsubgroupOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing subgroups.
+     * Sets the position for listing tblsubgroups.
      */
-    cursor?: subgroupWhereUniqueInput
+    cursor?: tblsubgroupWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` subgroups from the position of the cursor.
+     * Take `±n` tblsubgroups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` subgroups.
+     * Skip the first `n` tblsubgroups.
      */
     skip?: number
-    distinct?: SubgroupScalarFieldEnum | SubgroupScalarFieldEnum[]
+    distinct?: TblsubgroupScalarFieldEnum | TblsubgroupScalarFieldEnum[]
   }
 
   /**
-   * subgroup create
+   * tblsubgroup create
    */
-  export type subgroupCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the subgroup
+     * Select specific fields to fetch from the tblsubgroup
      */
-    select?: subgroupSelect<ExtArgs> | null
+    select?: tblsubgroupSelect<ExtArgs> | null
     /**
-     * The data needed to create a subgroup.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<subgroupCreateInput, subgroupUncheckedCreateInput>
+    include?: tblsubgroupInclude<ExtArgs> | null
+    /**
+     * The data needed to create a tblsubgroup.
+     */
+    data: XOR<tblsubgroupCreateInput, tblsubgroupUncheckedCreateInput>
   }
 
   /**
-   * subgroup createMany
+   * tblsubgroup createMany
    */
-  export type subgroupCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many subgroups.
+     * The data used to create many tblsubgroups.
      */
-    data: subgroupCreateManyInput | subgroupCreateManyInput[]
+    data: tblsubgroupCreateManyInput | tblsubgroupCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * subgroup update
+   * tblsubgroup update
    */
-  export type subgroupUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the subgroup
+     * Select specific fields to fetch from the tblsubgroup
      */
-    select?: subgroupSelect<ExtArgs> | null
+    select?: tblsubgroupSelect<ExtArgs> | null
     /**
-     * The data needed to update a subgroup.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<subgroupUpdateInput, subgroupUncheckedUpdateInput>
+    include?: tblsubgroupInclude<ExtArgs> | null
     /**
-     * Choose, which subgroup to update.
+     * The data needed to update a tblsubgroup.
      */
-    where: subgroupWhereUniqueInput
+    data: XOR<tblsubgroupUpdateInput, tblsubgroupUncheckedUpdateInput>
+    /**
+     * Choose, which tblsubgroup to update.
+     */
+    where: tblsubgroupWhereUniqueInput
   }
 
   /**
-   * subgroup updateMany
+   * tblsubgroup updateMany
    */
-  export type subgroupUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update subgroups.
+     * The data used to update tblsubgroups.
      */
-    data: XOR<subgroupUpdateManyMutationInput, subgroupUncheckedUpdateManyInput>
+    data: XOR<tblsubgroupUpdateManyMutationInput, tblsubgroupUncheckedUpdateManyInput>
     /**
-     * Filter which subgroups to update
+     * Filter which tblsubgroups to update
      */
-    where?: subgroupWhereInput
+    where?: tblsubgroupWhereInput
   }
 
   /**
-   * subgroup upsert
+   * tblsubgroup upsert
    */
-  export type subgroupUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the subgroup
+     * Select specific fields to fetch from the tblsubgroup
      */
-    select?: subgroupSelect<ExtArgs> | null
+    select?: tblsubgroupSelect<ExtArgs> | null
     /**
-     * The filter to search for the subgroup to update in case it exists.
+     * Choose, which related nodes to fetch as well
      */
-    where: subgroupWhereUniqueInput
+    include?: tblsubgroupInclude<ExtArgs> | null
     /**
-     * In case the subgroup found by the `where` argument doesn't exist, create a new subgroup with this data.
+     * The filter to search for the tblsubgroup to update in case it exists.
      */
-    create: XOR<subgroupCreateInput, subgroupUncheckedCreateInput>
+    where: tblsubgroupWhereUniqueInput
     /**
-     * In case the subgroup was found with the provided `where` argument, update it with this data.
+     * In case the tblsubgroup found by the `where` argument doesn't exist, create a new tblsubgroup with this data.
      */
-    update: XOR<subgroupUpdateInput, subgroupUncheckedUpdateInput>
+    create: XOR<tblsubgroupCreateInput, tblsubgroupUncheckedCreateInput>
+    /**
+     * In case the tblsubgroup was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<tblsubgroupUpdateInput, tblsubgroupUncheckedUpdateInput>
   }
 
   /**
-   * subgroup delete
+   * tblsubgroup delete
    */
-  export type subgroupDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the subgroup
+     * Select specific fields to fetch from the tblsubgroup
      */
-    select?: subgroupSelect<ExtArgs> | null
+    select?: tblsubgroupSelect<ExtArgs> | null
     /**
-     * Filter which subgroup to delete.
+     * Choose, which related nodes to fetch as well
      */
-    where: subgroupWhereUniqueInput
+    include?: tblsubgroupInclude<ExtArgs> | null
+    /**
+     * Filter which tblsubgroup to delete.
+     */
+    where: tblsubgroupWhereUniqueInput
   }
 
   /**
-   * subgroup deleteMany
+   * tblsubgroup deleteMany
    */
-  export type subgroupDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroupDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which subgroups to delete
+     * Filter which tblsubgroups to delete
      */
-    where?: subgroupWhereInput
+    where?: tblsubgroupWhereInput
   }
 
   /**
-   * subgroup without action
+   * tblsubgroup.categories
    */
-  export type subgroupDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblsubgroup$categoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the subgroup
+     * Select specific fields to fetch from the tblcategory
      */
-    select?: subgroupSelect<ExtArgs> | null
+    select?: tblcategorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblcategoryInclude<ExtArgs> | null
+    where?: tblcategoryWhereInput
+    orderBy?: tblcategoryOrderByWithRelationInput | tblcategoryOrderByWithRelationInput[]
+    cursor?: tblcategoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TblcategoryScalarFieldEnum | TblcategoryScalarFieldEnum[]
+  }
+
+  /**
+   * tblsubgroup without action
+   */
+  export type tblsubgroupDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblsubgroup
+     */
+    select?: tblsubgroupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblsubgroupInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model category
+   * Model tblcategory
    */
 
-  export type AggregateCategory = {
-    _count: CategoryCountAggregateOutputType | null
-    _avg: CategoryAvgAggregateOutputType | null
-    _sum: CategorySumAggregateOutputType | null
-    _min: CategoryMinAggregateOutputType | null
-    _max: CategoryMaxAggregateOutputType | null
+  export type AggregateTblcategory = {
+    _count: TblcategoryCountAggregateOutputType | null
+    _avg: TblcategoryAvgAggregateOutputType | null
+    _sum: TblcategorySumAggregateOutputType | null
+    _min: TblcategoryMinAggregateOutputType | null
+    _max: TblcategoryMaxAggregateOutputType | null
   }
 
-  export type CategoryAvgAggregateOutputType = {
+  export type TblcategoryAvgAggregateOutputType = {
     id: number | null
     subgroupId: number | null
   }
 
-  export type CategorySumAggregateOutputType = {
+  export type TblcategorySumAggregateOutputType = {
     id: number | null
     subgroupId: number | null
   }
 
-  export type CategoryMinAggregateOutputType = {
+  export type TblcategoryMinAggregateOutputType = {
     id: number | null
     category: string | null
     description: string | null
@@ -3111,7 +3459,7 @@ export namespace Prisma {
     subgroupId: number | null
   }
 
-  export type CategoryMaxAggregateOutputType = {
+  export type TblcategoryMaxAggregateOutputType = {
     id: number | null
     category: string | null
     description: string | null
@@ -3121,7 +3469,7 @@ export namespace Prisma {
     subgroupId: number | null
   }
 
-  export type CategoryCountAggregateOutputType = {
+  export type TblcategoryCountAggregateOutputType = {
     id: number
     category: number
     description: number
@@ -3133,27 +3481,17 @@ export namespace Prisma {
   }
 
 
-  export type CategoryAvgAggregateInputType = {
+  export type TblcategoryAvgAggregateInputType = {
     id?: true
     subgroupId?: true
   }
 
-  export type CategorySumAggregateInputType = {
+  export type TblcategorySumAggregateInputType = {
     id?: true
     subgroupId?: true
   }
 
-  export type CategoryMinAggregateInputType = {
-    id?: true
-    category?: true
-    description?: true
-    image?: true
-    createdAt?: true
-    updatedAt?: true
-    subgroupId?: true
-  }
-
-  export type CategoryMaxAggregateInputType = {
+  export type TblcategoryMinAggregateInputType = {
     id?: true
     category?: true
     description?: true
@@ -3163,7 +3501,17 @@ export namespace Prisma {
     subgroupId?: true
   }
 
-  export type CategoryCountAggregateInputType = {
+  export type TblcategoryMaxAggregateInputType = {
+    id?: true
+    category?: true
+    description?: true
+    image?: true
+    createdAt?: true
+    updatedAt?: true
+    subgroupId?: true
+  }
+
+  export type TblcategoryCountAggregateInputType = {
     id?: true
     category?: true
     description?: true
@@ -3174,122 +3522,122 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type CategoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TblcategoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which category to aggregate.
+     * Filter which tblcategory to aggregate.
      */
-    where?: categoryWhereInput
+    where?: tblcategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of categories to fetch.
+     * Determine the order of tblcategories to fetch.
      */
-    orderBy?: categoryOrderByWithRelationInput | categoryOrderByWithRelationInput[]
+    orderBy?: tblcategoryOrderByWithRelationInput | tblcategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: categoryWhereUniqueInput
+    cursor?: tblcategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` categories from the position of the cursor.
+     * Take `±n` tblcategories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` categories.
+     * Skip the first `n` tblcategories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned categories
+     * Count returned tblcategories
     **/
-    _count?: true | CategoryCountAggregateInputType
+    _count?: true | TblcategoryCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: CategoryAvgAggregateInputType
+    _avg?: TblcategoryAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: CategorySumAggregateInputType
+    _sum?: TblcategorySumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CategoryMinAggregateInputType
+    _min?: TblcategoryMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CategoryMaxAggregateInputType
+    _max?: TblcategoryMaxAggregateInputType
   }
 
-  export type GetCategoryAggregateType<T extends CategoryAggregateArgs> = {
-        [P in keyof T & keyof AggregateCategory]: P extends '_count' | 'count'
+  export type GetTblcategoryAggregateType<T extends TblcategoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateTblcategory]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCategory[P]>
-      : GetScalarType<T[P], AggregateCategory[P]>
+        : GetScalarType<T[P], AggregateTblcategory[P]>
+      : GetScalarType<T[P], AggregateTblcategory[P]>
   }
 
 
 
 
-  export type categoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: categoryWhereInput
-    orderBy?: categoryOrderByWithAggregationInput | categoryOrderByWithAggregationInput[]
-    by: CategoryScalarFieldEnum[] | CategoryScalarFieldEnum
-    having?: categoryScalarWhereWithAggregatesInput
+  export type tblcategoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tblcategoryWhereInput
+    orderBy?: tblcategoryOrderByWithAggregationInput | tblcategoryOrderByWithAggregationInput[]
+    by: TblcategoryScalarFieldEnum[] | TblcategoryScalarFieldEnum
+    having?: tblcategoryScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CategoryCountAggregateInputType | true
-    _avg?: CategoryAvgAggregateInputType
-    _sum?: CategorySumAggregateInputType
-    _min?: CategoryMinAggregateInputType
-    _max?: CategoryMaxAggregateInputType
+    _count?: TblcategoryCountAggregateInputType | true
+    _avg?: TblcategoryAvgAggregateInputType
+    _sum?: TblcategorySumAggregateInputType
+    _min?: TblcategoryMinAggregateInputType
+    _max?: TblcategoryMaxAggregateInputType
   }
 
-  export type CategoryGroupByOutputType = {
+  export type TblcategoryGroupByOutputType = {
     id: number
     category: string
-    description: string
+    description: string | null
     image: string
     createdAt: Date
     updatedAt: Date
     subgroupId: number
-    _count: CategoryCountAggregateOutputType | null
-    _avg: CategoryAvgAggregateOutputType | null
-    _sum: CategorySumAggregateOutputType | null
-    _min: CategoryMinAggregateOutputType | null
-    _max: CategoryMaxAggregateOutputType | null
+    _count: TblcategoryCountAggregateOutputType | null
+    _avg: TblcategoryAvgAggregateOutputType | null
+    _sum: TblcategorySumAggregateOutputType | null
+    _min: TblcategoryMinAggregateOutputType | null
+    _max: TblcategoryMaxAggregateOutputType | null
   }
 
-  type GetCategoryGroupByPayload<T extends categoryGroupByArgs> = Prisma.PrismaPromise<
+  type GetTblcategoryGroupByPayload<T extends tblcategoryGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CategoryGroupByOutputType, T['by']> &
+      PickEnumerable<TblcategoryGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CategoryGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof TblcategoryGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CategoryGroupByOutputType[P]>
-            : GetScalarType<T[P], CategoryGroupByOutputType[P]>
+              : GetScalarType<T[P], TblcategoryGroupByOutputType[P]>
+            : GetScalarType<T[P], TblcategoryGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type categorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type tblcategorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     category?: boolean
     description?: boolean
@@ -3297,10 +3645,13 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     subgroupId?: boolean
-  }, ExtArgs["result"]["category"]>
+    subgroup?: boolean | tblsubgroupDefaultArgs<ExtArgs>
+    products?: boolean | tblcategory$productsArgs<ExtArgs>
+    _count?: boolean | TblcategoryCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tblcategory"]>
 
 
-  export type categorySelectScalar = {
+  export type tblcategorySelectScalar = {
     id?: boolean
     category?: boolean
     description?: boolean
@@ -3310,155 +3661,163 @@ export namespace Prisma {
     subgroupId?: boolean
   }
 
+  export type tblcategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subgroup?: boolean | tblsubgroupDefaultArgs<ExtArgs>
+    products?: boolean | tblcategory$productsArgs<ExtArgs>
+    _count?: boolean | TblcategoryCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
-  export type $categoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "category"
-    objects: {}
+  export type $tblcategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tblcategory"
+    objects: {
+      subgroup: Prisma.$tblsubgroupPayload<ExtArgs>
+      products: Prisma.$tblproductPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       category: string
-      description: string
+      description: string | null
       image: string
       createdAt: Date
       updatedAt: Date
       subgroupId: number
-    }, ExtArgs["result"]["category"]>
+    }, ExtArgs["result"]["tblcategory"]>
     composites: {}
   }
 
-  type categoryGetPayload<S extends boolean | null | undefined | categoryDefaultArgs> = $Result.GetResult<Prisma.$categoryPayload, S>
+  type tblcategoryGetPayload<S extends boolean | null | undefined | tblcategoryDefaultArgs> = $Result.GetResult<Prisma.$tblcategoryPayload, S>
 
-  type categoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<categoryFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: CategoryCountAggregateInputType | true
+  type tblcategoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<tblcategoryFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TblcategoryCountAggregateInputType | true
     }
 
-  export interface categoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['category'], meta: { name: 'category' } }
+  export interface tblcategoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tblcategory'], meta: { name: 'tblcategory' } }
     /**
-     * Find zero or one Category that matches the filter.
-     * @param {categoryFindUniqueArgs} args - Arguments to find a Category
+     * Find zero or one Tblcategory that matches the filter.
+     * @param {tblcategoryFindUniqueArgs} args - Arguments to find a Tblcategory
      * @example
-     * // Get one Category
-     * const category = await prisma.category.findUnique({
+     * // Get one Tblcategory
+     * const tblcategory = await prisma.tblcategory.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends categoryFindUniqueArgs>(args: SelectSubset<T, categoryFindUniqueArgs<ExtArgs>>): Prisma__categoryClient<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+    findUnique<T extends tblcategoryFindUniqueArgs>(args: SelectSubset<T, tblcategoryFindUniqueArgs<ExtArgs>>): Prisma__tblcategoryClient<$Result.GetResult<Prisma.$tblcategoryPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one Category that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one Tblcategory that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {categoryFindUniqueOrThrowArgs} args - Arguments to find a Category
+     * @param {tblcategoryFindUniqueOrThrowArgs} args - Arguments to find a Tblcategory
      * @example
-     * // Get one Category
-     * const category = await prisma.category.findUniqueOrThrow({
+     * // Get one Tblcategory
+     * const tblcategory = await prisma.tblcategory.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends categoryFindUniqueOrThrowArgs>(args: SelectSubset<T, categoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__categoryClient<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+    findUniqueOrThrow<T extends tblcategoryFindUniqueOrThrowArgs>(args: SelectSubset<T, tblcategoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tblcategoryClient<$Result.GetResult<Prisma.$tblcategoryPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
-     * Find the first Category that matches the filter.
+     * Find the first Tblcategory that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {categoryFindFirstArgs} args - Arguments to find a Category
+     * @param {tblcategoryFindFirstArgs} args - Arguments to find a Tblcategory
      * @example
-     * // Get one Category
-     * const category = await prisma.category.findFirst({
+     * // Get one Tblcategory
+     * const tblcategory = await prisma.tblcategory.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends categoryFindFirstArgs>(args?: SelectSubset<T, categoryFindFirstArgs<ExtArgs>>): Prisma__categoryClient<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+    findFirst<T extends tblcategoryFindFirstArgs>(args?: SelectSubset<T, tblcategoryFindFirstArgs<ExtArgs>>): Prisma__tblcategoryClient<$Result.GetResult<Prisma.$tblcategoryPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
-     * Find the first Category that matches the filter or
+     * Find the first Tblcategory that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {categoryFindFirstOrThrowArgs} args - Arguments to find a Category
+     * @param {tblcategoryFindFirstOrThrowArgs} args - Arguments to find a Tblcategory
      * @example
-     * // Get one Category
-     * const category = await prisma.category.findFirstOrThrow({
+     * // Get one Tblcategory
+     * const tblcategory = await prisma.tblcategory.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends categoryFindFirstOrThrowArgs>(args?: SelectSubset<T, categoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__categoryClient<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+    findFirstOrThrow<T extends tblcategoryFindFirstOrThrowArgs>(args?: SelectSubset<T, tblcategoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__tblcategoryClient<$Result.GetResult<Prisma.$tblcategoryPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
-     * Find zero or more Categories that matches the filter.
+     * Find zero or more Tblcategories that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {categoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {tblcategoryFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Categories
-     * const categories = await prisma.category.findMany()
+     * // Get all Tblcategories
+     * const tblcategories = await prisma.tblcategory.findMany()
      * 
-     * // Get first 10 Categories
-     * const categories = await prisma.category.findMany({ take: 10 })
+     * // Get first 10 Tblcategories
+     * const tblcategories = await prisma.tblcategory.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const categoryWithIdOnly = await prisma.category.findMany({ select: { id: true } })
+     * const tblcategoryWithIdOnly = await prisma.tblcategory.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends categoryFindManyArgs>(args?: SelectSubset<T, categoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "findMany">>
+    findMany<T extends tblcategoryFindManyArgs>(args?: SelectSubset<T, tblcategoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tblcategoryPayload<ExtArgs>, T, "findMany">>
 
     /**
-     * Create a Category.
-     * @param {categoryCreateArgs} args - Arguments to create a Category.
+     * Create a Tblcategory.
+     * @param {tblcategoryCreateArgs} args - Arguments to create a Tblcategory.
      * @example
-     * // Create one Category
-     * const Category = await prisma.category.create({
+     * // Create one Tblcategory
+     * const Tblcategory = await prisma.tblcategory.create({
      *   data: {
-     *     // ... data to create a Category
+     *     // ... data to create a Tblcategory
      *   }
      * })
      * 
      */
-    create<T extends categoryCreateArgs>(args: SelectSubset<T, categoryCreateArgs<ExtArgs>>): Prisma__categoryClient<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "create">, never, ExtArgs>
+    create<T extends tblcategoryCreateArgs>(args: SelectSubset<T, tblcategoryCreateArgs<ExtArgs>>): Prisma__tblcategoryClient<$Result.GetResult<Prisma.$tblcategoryPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
-     * Create many Categories.
-     * @param {categoryCreateManyArgs} args - Arguments to create many Categories.
+     * Create many Tblcategories.
+     * @param {tblcategoryCreateManyArgs} args - Arguments to create many Tblcategories.
      * @example
-     * // Create many Categories
-     * const category = await prisma.category.createMany({
+     * // Create many Tblcategories
+     * const tblcategory = await prisma.tblcategory.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends categoryCreateManyArgs>(args?: SelectSubset<T, categoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends tblcategoryCreateManyArgs>(args?: SelectSubset<T, tblcategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Category.
-     * @param {categoryDeleteArgs} args - Arguments to delete one Category.
+     * Delete a Tblcategory.
+     * @param {tblcategoryDeleteArgs} args - Arguments to delete one Tblcategory.
      * @example
-     * // Delete one Category
-     * const Category = await prisma.category.delete({
+     * // Delete one Tblcategory
+     * const Tblcategory = await prisma.tblcategory.delete({
      *   where: {
-     *     // ... filter to delete one Category
+     *     // ... filter to delete one Tblcategory
      *   }
      * })
      * 
      */
-    delete<T extends categoryDeleteArgs>(args: SelectSubset<T, categoryDeleteArgs<ExtArgs>>): Prisma__categoryClient<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+    delete<T extends tblcategoryDeleteArgs>(args: SelectSubset<T, tblcategoryDeleteArgs<ExtArgs>>): Prisma__tblcategoryClient<$Result.GetResult<Prisma.$tblcategoryPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
-     * Update one Category.
-     * @param {categoryUpdateArgs} args - Arguments to update one Category.
+     * Update one Tblcategory.
+     * @param {tblcategoryUpdateArgs} args - Arguments to update one Tblcategory.
      * @example
-     * // Update one Category
-     * const category = await prisma.category.update({
+     * // Update one Tblcategory
+     * const tblcategory = await prisma.tblcategory.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3468,30 +3827,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends categoryUpdateArgs>(args: SelectSubset<T, categoryUpdateArgs<ExtArgs>>): Prisma__categoryClient<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "update">, never, ExtArgs>
+    update<T extends tblcategoryUpdateArgs>(args: SelectSubset<T, tblcategoryUpdateArgs<ExtArgs>>): Prisma__tblcategoryClient<$Result.GetResult<Prisma.$tblcategoryPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
-     * Delete zero or more Categories.
-     * @param {categoryDeleteManyArgs} args - Arguments to filter Categories to delete.
+     * Delete zero or more Tblcategories.
+     * @param {tblcategoryDeleteManyArgs} args - Arguments to filter Tblcategories to delete.
      * @example
-     * // Delete a few Categories
-     * const { count } = await prisma.category.deleteMany({
+     * // Delete a few Tblcategories
+     * const { count } = await prisma.tblcategory.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends categoryDeleteManyArgs>(args?: SelectSubset<T, categoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends tblcategoryDeleteManyArgs>(args?: SelectSubset<T, tblcategoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Categories.
+     * Update zero or more Tblcategories.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {categoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {tblcategoryUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Categories
-     * const category = await prisma.category.updateMany({
+     * // Update many Tblcategories
+     * const tblcategory = await prisma.tblcategory.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3501,56 +3860,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends categoryUpdateManyArgs>(args: SelectSubset<T, categoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends tblcategoryUpdateManyArgs>(args: SelectSubset<T, tblcategoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Category.
-     * @param {categoryUpsertArgs} args - Arguments to update or create a Category.
+     * Create or update one Tblcategory.
+     * @param {tblcategoryUpsertArgs} args - Arguments to update or create a Tblcategory.
      * @example
-     * // Update or create a Category
-     * const category = await prisma.category.upsert({
+     * // Update or create a Tblcategory
+     * const tblcategory = await prisma.tblcategory.upsert({
      *   create: {
-     *     // ... data to create a Category
+     *     // ... data to create a Tblcategory
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Category we want to update
+     *     // ... the filter for the Tblcategory we want to update
      *   }
      * })
      */
-    upsert<T extends categoryUpsertArgs>(args: SelectSubset<T, categoryUpsertArgs<ExtArgs>>): Prisma__categoryClient<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+    upsert<T extends tblcategoryUpsertArgs>(args: SelectSubset<T, tblcategoryUpsertArgs<ExtArgs>>): Prisma__tblcategoryClient<$Result.GetResult<Prisma.$tblcategoryPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
-     * Count the number of Categories.
+     * Count the number of Tblcategories.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {categoryCountArgs} args - Arguments to filter Categories to count.
+     * @param {tblcategoryCountArgs} args - Arguments to filter Tblcategories to count.
      * @example
-     * // Count the number of Categories
-     * const count = await prisma.category.count({
+     * // Count the number of Tblcategories
+     * const count = await prisma.tblcategory.count({
      *   where: {
-     *     // ... the filter for the Categories we want to count
+     *     // ... the filter for the Tblcategories we want to count
      *   }
      * })
     **/
-    count<T extends categoryCountArgs>(
-      args?: Subset<T, categoryCountArgs>,
+    count<T extends tblcategoryCountArgs>(
+      args?: Subset<T, tblcategoryCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CategoryCountAggregateOutputType>
+          : GetScalarType<T['select'], TblcategoryCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Category.
+     * Allows you to perform aggregations operations on a Tblcategory.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {TblcategoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3570,13 +3929,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CategoryAggregateArgs>(args: Subset<T, CategoryAggregateArgs>): Prisma.PrismaPromise<GetCategoryAggregateType<T>>
+    aggregate<T extends TblcategoryAggregateArgs>(args: Subset<T, TblcategoryAggregateArgs>): Prisma.PrismaPromise<GetTblcategoryAggregateType<T>>
 
     /**
-     * Group by Category.
+     * Group by Tblcategory.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {categoryGroupByArgs} args - Group by arguments.
+     * @param {tblcategoryGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3591,14 +3950,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends categoryGroupByArgs,
+      T extends tblcategoryGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: categoryGroupByArgs['orderBy'] }
-        : { orderBy?: categoryGroupByArgs['orderBy'] },
+        ? { orderBy: tblcategoryGroupByArgs['orderBy'] }
+        : { orderBy?: tblcategoryGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3647,21 +4006,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, categoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCategoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, tblcategoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTblcategoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the category model
+   * Fields of the tblcategory model
    */
-  readonly fields: categoryFieldRefs;
+  readonly fields: tblcategoryFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for category.
+   * The delegate class that acts as a "Promise-like" for tblcategory.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__categoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__tblcategoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    subgroup<T extends tblsubgroupDefaultArgs<ExtArgs> = {}>(args?: Subset<T, tblsubgroupDefaultArgs<ExtArgs>>): Prisma__tblsubgroupClient<$Result.GetResult<Prisma.$tblsubgroupPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    products<T extends tblcategory$productsArgs<ExtArgs> = {}>(args?: Subset<T, tblcategory$productsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tblproductPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3688,318 +4049,379 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the category model
+   * Fields of the tblcategory model
    */ 
-  interface categoryFieldRefs {
-    readonly id: FieldRef<"category", 'Int'>
-    readonly category: FieldRef<"category", 'String'>
-    readonly description: FieldRef<"category", 'String'>
-    readonly image: FieldRef<"category", 'String'>
-    readonly createdAt: FieldRef<"category", 'DateTime'>
-    readonly updatedAt: FieldRef<"category", 'DateTime'>
-    readonly subgroupId: FieldRef<"category", 'Int'>
+  interface tblcategoryFieldRefs {
+    readonly id: FieldRef<"tblcategory", 'Int'>
+    readonly category: FieldRef<"tblcategory", 'String'>
+    readonly description: FieldRef<"tblcategory", 'String'>
+    readonly image: FieldRef<"tblcategory", 'String'>
+    readonly createdAt: FieldRef<"tblcategory", 'DateTime'>
+    readonly updatedAt: FieldRef<"tblcategory", 'DateTime'>
+    readonly subgroupId: FieldRef<"tblcategory", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * category findUnique
+   * tblcategory findUnique
    */
-  export type categoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the category
+     * Select specific fields to fetch from the tblcategory
      */
-    select?: categorySelect<ExtArgs> | null
+    select?: tblcategorySelect<ExtArgs> | null
     /**
-     * Filter, which category to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: categoryWhereUniqueInput
+    include?: tblcategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which tblcategory to fetch.
+     */
+    where: tblcategoryWhereUniqueInput
   }
 
   /**
-   * category findUniqueOrThrow
+   * tblcategory findUniqueOrThrow
    */
-  export type categoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the category
+     * Select specific fields to fetch from the tblcategory
      */
-    select?: categorySelect<ExtArgs> | null
+    select?: tblcategorySelect<ExtArgs> | null
     /**
-     * Filter, which category to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: categoryWhereUniqueInput
+    include?: tblcategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which tblcategory to fetch.
+     */
+    where: tblcategoryWhereUniqueInput
   }
 
   /**
-   * category findFirst
+   * tblcategory findFirst
    */
-  export type categoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the category
+     * Select specific fields to fetch from the tblcategory
      */
-    select?: categorySelect<ExtArgs> | null
+    select?: tblcategorySelect<ExtArgs> | null
     /**
-     * Filter, which category to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: categoryWhereInput
+    include?: tblcategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which tblcategory to fetch.
+     */
+    where?: tblcategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of categories to fetch.
+     * Determine the order of tblcategories to fetch.
      */
-    orderBy?: categoryOrderByWithRelationInput | categoryOrderByWithRelationInput[]
+    orderBy?: tblcategoryOrderByWithRelationInput | tblcategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for categories.
+     * Sets the position for searching for tblcategories.
      */
-    cursor?: categoryWhereUniqueInput
+    cursor?: tblcategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` categories from the position of the cursor.
+     * Take `±n` tblcategories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` categories.
+     * Skip the first `n` tblcategories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of categories.
+     * Filter by unique combinations of tblcategories.
      */
-    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
+    distinct?: TblcategoryScalarFieldEnum | TblcategoryScalarFieldEnum[]
   }
 
   /**
-   * category findFirstOrThrow
+   * tblcategory findFirstOrThrow
    */
-  export type categoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the category
+     * Select specific fields to fetch from the tblcategory
      */
-    select?: categorySelect<ExtArgs> | null
+    select?: tblcategorySelect<ExtArgs> | null
     /**
-     * Filter, which category to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: categoryWhereInput
+    include?: tblcategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which tblcategory to fetch.
+     */
+    where?: tblcategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of categories to fetch.
+     * Determine the order of tblcategories to fetch.
      */
-    orderBy?: categoryOrderByWithRelationInput | categoryOrderByWithRelationInput[]
+    orderBy?: tblcategoryOrderByWithRelationInput | tblcategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for categories.
+     * Sets the position for searching for tblcategories.
      */
-    cursor?: categoryWhereUniqueInput
+    cursor?: tblcategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` categories from the position of the cursor.
+     * Take `±n` tblcategories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` categories.
+     * Skip the first `n` tblcategories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of categories.
+     * Filter by unique combinations of tblcategories.
      */
-    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
+    distinct?: TblcategoryScalarFieldEnum | TblcategoryScalarFieldEnum[]
   }
 
   /**
-   * category findMany
+   * tblcategory findMany
    */
-  export type categoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the category
+     * Select specific fields to fetch from the tblcategory
      */
-    select?: categorySelect<ExtArgs> | null
+    select?: tblcategorySelect<ExtArgs> | null
     /**
-     * Filter, which categories to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: categoryWhereInput
+    include?: tblcategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which tblcategories to fetch.
+     */
+    where?: tblcategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of categories to fetch.
+     * Determine the order of tblcategories to fetch.
      */
-    orderBy?: categoryOrderByWithRelationInput | categoryOrderByWithRelationInput[]
+    orderBy?: tblcategoryOrderByWithRelationInput | tblcategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing categories.
+     * Sets the position for listing tblcategories.
      */
-    cursor?: categoryWhereUniqueInput
+    cursor?: tblcategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` categories from the position of the cursor.
+     * Take `±n` tblcategories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` categories.
+     * Skip the first `n` tblcategories.
      */
     skip?: number
-    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
+    distinct?: TblcategoryScalarFieldEnum | TblcategoryScalarFieldEnum[]
   }
 
   /**
-   * category create
+   * tblcategory create
    */
-  export type categoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the category
+     * Select specific fields to fetch from the tblcategory
      */
-    select?: categorySelect<ExtArgs> | null
+    select?: tblcategorySelect<ExtArgs> | null
     /**
-     * The data needed to create a category.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<categoryCreateInput, categoryUncheckedCreateInput>
+    include?: tblcategoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a tblcategory.
+     */
+    data: XOR<tblcategoryCreateInput, tblcategoryUncheckedCreateInput>
   }
 
   /**
-   * category createMany
+   * tblcategory createMany
    */
-  export type categoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many categories.
+     * The data used to create many tblcategories.
      */
-    data: categoryCreateManyInput | categoryCreateManyInput[]
+    data: tblcategoryCreateManyInput | tblcategoryCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * category update
+   * tblcategory update
    */
-  export type categoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the category
+     * Select specific fields to fetch from the tblcategory
      */
-    select?: categorySelect<ExtArgs> | null
+    select?: tblcategorySelect<ExtArgs> | null
     /**
-     * The data needed to update a category.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<categoryUpdateInput, categoryUncheckedUpdateInput>
+    include?: tblcategoryInclude<ExtArgs> | null
     /**
-     * Choose, which category to update.
+     * The data needed to update a tblcategory.
      */
-    where: categoryWhereUniqueInput
+    data: XOR<tblcategoryUpdateInput, tblcategoryUncheckedUpdateInput>
+    /**
+     * Choose, which tblcategory to update.
+     */
+    where: tblcategoryWhereUniqueInput
   }
 
   /**
-   * category updateMany
+   * tblcategory updateMany
    */
-  export type categoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update categories.
+     * The data used to update tblcategories.
      */
-    data: XOR<categoryUpdateManyMutationInput, categoryUncheckedUpdateManyInput>
+    data: XOR<tblcategoryUpdateManyMutationInput, tblcategoryUncheckedUpdateManyInput>
     /**
-     * Filter which categories to update
+     * Filter which tblcategories to update
      */
-    where?: categoryWhereInput
+    where?: tblcategoryWhereInput
   }
 
   /**
-   * category upsert
+   * tblcategory upsert
    */
-  export type categoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the category
+     * Select specific fields to fetch from the tblcategory
      */
-    select?: categorySelect<ExtArgs> | null
+    select?: tblcategorySelect<ExtArgs> | null
     /**
-     * The filter to search for the category to update in case it exists.
+     * Choose, which related nodes to fetch as well
      */
-    where: categoryWhereUniqueInput
+    include?: tblcategoryInclude<ExtArgs> | null
     /**
-     * In case the category found by the `where` argument doesn't exist, create a new category with this data.
+     * The filter to search for the tblcategory to update in case it exists.
      */
-    create: XOR<categoryCreateInput, categoryUncheckedCreateInput>
+    where: tblcategoryWhereUniqueInput
     /**
-     * In case the category was found with the provided `where` argument, update it with this data.
+     * In case the tblcategory found by the `where` argument doesn't exist, create a new tblcategory with this data.
      */
-    update: XOR<categoryUpdateInput, categoryUncheckedUpdateInput>
+    create: XOR<tblcategoryCreateInput, tblcategoryUncheckedCreateInput>
+    /**
+     * In case the tblcategory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<tblcategoryUpdateInput, tblcategoryUncheckedUpdateInput>
   }
 
   /**
-   * category delete
+   * tblcategory delete
    */
-  export type categoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the category
+     * Select specific fields to fetch from the tblcategory
      */
-    select?: categorySelect<ExtArgs> | null
+    select?: tblcategorySelect<ExtArgs> | null
     /**
-     * Filter which category to delete.
+     * Choose, which related nodes to fetch as well
      */
-    where: categoryWhereUniqueInput
+    include?: tblcategoryInclude<ExtArgs> | null
+    /**
+     * Filter which tblcategory to delete.
+     */
+    where: tblcategoryWhereUniqueInput
   }
 
   /**
-   * category deleteMany
+   * tblcategory deleteMany
    */
-  export type categoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which categories to delete
+     * Filter which tblcategories to delete
      */
-    where?: categoryWhereInput
+    where?: tblcategoryWhereInput
   }
 
   /**
-   * category without action
+   * tblcategory.products
    */
-  export type categoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblcategory$productsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the category
+     * Select specific fields to fetch from the tblproduct
      */
-    select?: categorySelect<ExtArgs> | null
+    select?: tblproductSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblproductInclude<ExtArgs> | null
+    where?: tblproductWhereInput
+    orderBy?: tblproductOrderByWithRelationInput | tblproductOrderByWithRelationInput[]
+    cursor?: tblproductWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TblproductScalarFieldEnum | TblproductScalarFieldEnum[]
+  }
+
+  /**
+   * tblcategory without action
+   */
+  export type tblcategoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblcategory
+     */
+    select?: tblcategorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblcategoryInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model product
+   * Model tblproduct
    */
 
-  export type AggregateProduct = {
-    _count: ProductCountAggregateOutputType | null
-    _avg: ProductAvgAggregateOutputType | null
-    _sum: ProductSumAggregateOutputType | null
-    _min: ProductMinAggregateOutputType | null
-    _max: ProductMaxAggregateOutputType | null
+  export type AggregateTblproduct = {
+    _count: TblproductCountAggregateOutputType | null
+    _avg: TblproductAvgAggregateOutputType | null
+    _sum: TblproductSumAggregateOutputType | null
+    _min: TblproductMinAggregateOutputType | null
+    _max: TblproductMaxAggregateOutputType | null
   }
 
-  export type ProductAvgAggregateOutputType = {
+  export type TblproductAvgAggregateOutputType = {
     id: number | null
     price: number | null
     stock: number | null
     categoryId: number | null
   }
 
-  export type ProductSumAggregateOutputType = {
+  export type TblproductSumAggregateOutputType = {
     id: number | null
     price: number | null
     stock: number | null
     categoryId: number | null
   }
 
-  export type ProductMinAggregateOutputType = {
+  export type TblproductMinAggregateOutputType = {
     id: number | null
     product: string | null
+    description: string | null
     price: number | null
     stock: number | null
     unit: string | null
@@ -4009,9 +4431,10 @@ export namespace Prisma {
     categoryId: number | null
   }
 
-  export type ProductMaxAggregateOutputType = {
+  export type TblproductMaxAggregateOutputType = {
     id: number | null
     product: string | null
+    description: string | null
     price: number | null
     stock: number | null
     unit: string | null
@@ -4021,9 +4444,10 @@ export namespace Prisma {
     categoryId: number | null
   }
 
-  export type ProductCountAggregateOutputType = {
+  export type TblproductCountAggregateOutputType = {
     id: number
     product: number
+    description: number
     price: number
     stock: number
     unit: number
@@ -4035,23 +4459,24 @@ export namespace Prisma {
   }
 
 
-  export type ProductAvgAggregateInputType = {
+  export type TblproductAvgAggregateInputType = {
     id?: true
     price?: true
     stock?: true
     categoryId?: true
   }
 
-  export type ProductSumAggregateInputType = {
+  export type TblproductSumAggregateInputType = {
     id?: true
     price?: true
     stock?: true
     categoryId?: true
   }
 
-  export type ProductMinAggregateInputType = {
+  export type TblproductMinAggregateInputType = {
     id?: true
     product?: true
+    description?: true
     price?: true
     stock?: true
     unit?: true
@@ -4061,9 +4486,10 @@ export namespace Prisma {
     categoryId?: true
   }
 
-  export type ProductMaxAggregateInputType = {
+  export type TblproductMaxAggregateInputType = {
     id?: true
     product?: true
+    description?: true
     price?: true
     stock?: true
     unit?: true
@@ -4073,9 +4499,10 @@ export namespace Prisma {
     categoryId?: true
   }
 
-  export type ProductCountAggregateInputType = {
+  export type TblproductCountAggregateInputType = {
     id?: true
     product?: true
+    description?: true
     price?: true
     stock?: true
     unit?: true
@@ -4086,95 +4513,96 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type ProductAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TblproductAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which product to aggregate.
+     * Filter which tblproduct to aggregate.
      */
-    where?: productWhereInput
+    where?: tblproductWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of products to fetch.
+     * Determine the order of tblproducts to fetch.
      */
-    orderBy?: productOrderByWithRelationInput | productOrderByWithRelationInput[]
+    orderBy?: tblproductOrderByWithRelationInput | tblproductOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: productWhereUniqueInput
+    cursor?: tblproductWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` products from the position of the cursor.
+     * Take `±n` tblproducts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` products.
+     * Skip the first `n` tblproducts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned products
+     * Count returned tblproducts
     **/
-    _count?: true | ProductCountAggregateInputType
+    _count?: true | TblproductCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: ProductAvgAggregateInputType
+    _avg?: TblproductAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: ProductSumAggregateInputType
+    _sum?: TblproductSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ProductMinAggregateInputType
+    _min?: TblproductMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ProductMaxAggregateInputType
+    _max?: TblproductMaxAggregateInputType
   }
 
-  export type GetProductAggregateType<T extends ProductAggregateArgs> = {
-        [P in keyof T & keyof AggregateProduct]: P extends '_count' | 'count'
+  export type GetTblproductAggregateType<T extends TblproductAggregateArgs> = {
+        [P in keyof T & keyof AggregateTblproduct]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateProduct[P]>
-      : GetScalarType<T[P], AggregateProduct[P]>
+        : GetScalarType<T[P], AggregateTblproduct[P]>
+      : GetScalarType<T[P], AggregateTblproduct[P]>
   }
 
 
 
 
-  export type productGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: productWhereInput
-    orderBy?: productOrderByWithAggregationInput | productOrderByWithAggregationInput[]
-    by: ProductScalarFieldEnum[] | ProductScalarFieldEnum
-    having?: productScalarWhereWithAggregatesInput
+  export type tblproductGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tblproductWhereInput
+    orderBy?: tblproductOrderByWithAggregationInput | tblproductOrderByWithAggregationInput[]
+    by: TblproductScalarFieldEnum[] | TblproductScalarFieldEnum
+    having?: tblproductScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ProductCountAggregateInputType | true
-    _avg?: ProductAvgAggregateInputType
-    _sum?: ProductSumAggregateInputType
-    _min?: ProductMinAggregateInputType
-    _max?: ProductMaxAggregateInputType
+    _count?: TblproductCountAggregateInputType | true
+    _avg?: TblproductAvgAggregateInputType
+    _sum?: TblproductSumAggregateInputType
+    _min?: TblproductMinAggregateInputType
+    _max?: TblproductMaxAggregateInputType
   }
 
-  export type ProductGroupByOutputType = {
+  export type TblproductGroupByOutputType = {
     id: number
     product: string
+    description: string | null
     price: number
     stock: number
     unit: string
@@ -4182,30 +4610,31 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     categoryId: number
-    _count: ProductCountAggregateOutputType | null
-    _avg: ProductAvgAggregateOutputType | null
-    _sum: ProductSumAggregateOutputType | null
-    _min: ProductMinAggregateOutputType | null
-    _max: ProductMaxAggregateOutputType | null
+    _count: TblproductCountAggregateOutputType | null
+    _avg: TblproductAvgAggregateOutputType | null
+    _sum: TblproductSumAggregateOutputType | null
+    _min: TblproductMinAggregateOutputType | null
+    _max: TblproductMaxAggregateOutputType | null
   }
 
-  type GetProductGroupByPayload<T extends productGroupByArgs> = Prisma.PrismaPromise<
+  type GetTblproductGroupByPayload<T extends tblproductGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ProductGroupByOutputType, T['by']> &
+      PickEnumerable<TblproductGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ProductGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof TblproductGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ProductGroupByOutputType[P]>
-            : GetScalarType<T[P], ProductGroupByOutputType[P]>
+              : GetScalarType<T[P], TblproductGroupByOutputType[P]>
+            : GetScalarType<T[P], TblproductGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type productSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type tblproductSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     product?: boolean
+    description?: boolean
     price?: boolean
     stock?: boolean
     unit?: boolean
@@ -4213,12 +4642,16 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     categoryId?: boolean
-  }, ExtArgs["result"]["product"]>
+    category?: boolean | tblcategoryDefaultArgs<ExtArgs>
+    orders?: boolean | tblproduct$ordersArgs<ExtArgs>
+    _count?: boolean | TblproductCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tblproduct"]>
 
 
-  export type productSelectScalar = {
+  export type tblproductSelectScalar = {
     id?: boolean
     product?: boolean
+    description?: boolean
     price?: boolean
     stock?: boolean
     unit?: boolean
@@ -4228,13 +4661,22 @@ export namespace Prisma {
     categoryId?: boolean
   }
 
+  export type tblproductInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | tblcategoryDefaultArgs<ExtArgs>
+    orders?: boolean | tblproduct$ordersArgs<ExtArgs>
+    _count?: boolean | TblproductCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
-  export type $productPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "product"
-    objects: {}
+  export type $tblproductPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tblproduct"
+    objects: {
+      category: Prisma.$tblcategoryPayload<ExtArgs>
+      orders: Prisma.$tblorderPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       product: string
+      description: string | null
       price: number
       stock: number
       unit: string
@@ -4242,143 +4684,143 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       categoryId: number
-    }, ExtArgs["result"]["product"]>
+    }, ExtArgs["result"]["tblproduct"]>
     composites: {}
   }
 
-  type productGetPayload<S extends boolean | null | undefined | productDefaultArgs> = $Result.GetResult<Prisma.$productPayload, S>
+  type tblproductGetPayload<S extends boolean | null | undefined | tblproductDefaultArgs> = $Result.GetResult<Prisma.$tblproductPayload, S>
 
-  type productCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<productFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: ProductCountAggregateInputType | true
+  type tblproductCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<tblproductFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TblproductCountAggregateInputType | true
     }
 
-  export interface productDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['product'], meta: { name: 'product' } }
+  export interface tblproductDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tblproduct'], meta: { name: 'tblproduct' } }
     /**
-     * Find zero or one Product that matches the filter.
-     * @param {productFindUniqueArgs} args - Arguments to find a Product
+     * Find zero or one Tblproduct that matches the filter.
+     * @param {tblproductFindUniqueArgs} args - Arguments to find a Tblproduct
      * @example
-     * // Get one Product
-     * const product = await prisma.product.findUnique({
+     * // Get one Tblproduct
+     * const tblproduct = await prisma.tblproduct.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends productFindUniqueArgs>(args: SelectSubset<T, productFindUniqueArgs<ExtArgs>>): Prisma__productClient<$Result.GetResult<Prisma.$productPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+    findUnique<T extends tblproductFindUniqueArgs>(args: SelectSubset<T, tblproductFindUniqueArgs<ExtArgs>>): Prisma__tblproductClient<$Result.GetResult<Prisma.$tblproductPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one Product that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one Tblproduct that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {productFindUniqueOrThrowArgs} args - Arguments to find a Product
+     * @param {tblproductFindUniqueOrThrowArgs} args - Arguments to find a Tblproduct
      * @example
-     * // Get one Product
-     * const product = await prisma.product.findUniqueOrThrow({
+     * // Get one Tblproduct
+     * const tblproduct = await prisma.tblproduct.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends productFindUniqueOrThrowArgs>(args: SelectSubset<T, productFindUniqueOrThrowArgs<ExtArgs>>): Prisma__productClient<$Result.GetResult<Prisma.$productPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+    findUniqueOrThrow<T extends tblproductFindUniqueOrThrowArgs>(args: SelectSubset<T, tblproductFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tblproductClient<$Result.GetResult<Prisma.$tblproductPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
-     * Find the first Product that matches the filter.
+     * Find the first Tblproduct that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {productFindFirstArgs} args - Arguments to find a Product
+     * @param {tblproductFindFirstArgs} args - Arguments to find a Tblproduct
      * @example
-     * // Get one Product
-     * const product = await prisma.product.findFirst({
+     * // Get one Tblproduct
+     * const tblproduct = await prisma.tblproduct.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends productFindFirstArgs>(args?: SelectSubset<T, productFindFirstArgs<ExtArgs>>): Prisma__productClient<$Result.GetResult<Prisma.$productPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+    findFirst<T extends tblproductFindFirstArgs>(args?: SelectSubset<T, tblproductFindFirstArgs<ExtArgs>>): Prisma__tblproductClient<$Result.GetResult<Prisma.$tblproductPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
-     * Find the first Product that matches the filter or
+     * Find the first Tblproduct that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {productFindFirstOrThrowArgs} args - Arguments to find a Product
+     * @param {tblproductFindFirstOrThrowArgs} args - Arguments to find a Tblproduct
      * @example
-     * // Get one Product
-     * const product = await prisma.product.findFirstOrThrow({
+     * // Get one Tblproduct
+     * const tblproduct = await prisma.tblproduct.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends productFindFirstOrThrowArgs>(args?: SelectSubset<T, productFindFirstOrThrowArgs<ExtArgs>>): Prisma__productClient<$Result.GetResult<Prisma.$productPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+    findFirstOrThrow<T extends tblproductFindFirstOrThrowArgs>(args?: SelectSubset<T, tblproductFindFirstOrThrowArgs<ExtArgs>>): Prisma__tblproductClient<$Result.GetResult<Prisma.$tblproductPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
-     * Find zero or more Products that matches the filter.
+     * Find zero or more Tblproducts that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {productFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {tblproductFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Products
-     * const products = await prisma.product.findMany()
+     * // Get all Tblproducts
+     * const tblproducts = await prisma.tblproduct.findMany()
      * 
-     * // Get first 10 Products
-     * const products = await prisma.product.findMany({ take: 10 })
+     * // Get first 10 Tblproducts
+     * const tblproducts = await prisma.tblproduct.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const productWithIdOnly = await prisma.product.findMany({ select: { id: true } })
+     * const tblproductWithIdOnly = await prisma.tblproduct.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends productFindManyArgs>(args?: SelectSubset<T, productFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$productPayload<ExtArgs>, T, "findMany">>
+    findMany<T extends tblproductFindManyArgs>(args?: SelectSubset<T, tblproductFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tblproductPayload<ExtArgs>, T, "findMany">>
 
     /**
-     * Create a Product.
-     * @param {productCreateArgs} args - Arguments to create a Product.
+     * Create a Tblproduct.
+     * @param {tblproductCreateArgs} args - Arguments to create a Tblproduct.
      * @example
-     * // Create one Product
-     * const Product = await prisma.product.create({
+     * // Create one Tblproduct
+     * const Tblproduct = await prisma.tblproduct.create({
      *   data: {
-     *     // ... data to create a Product
+     *     // ... data to create a Tblproduct
      *   }
      * })
      * 
      */
-    create<T extends productCreateArgs>(args: SelectSubset<T, productCreateArgs<ExtArgs>>): Prisma__productClient<$Result.GetResult<Prisma.$productPayload<ExtArgs>, T, "create">, never, ExtArgs>
+    create<T extends tblproductCreateArgs>(args: SelectSubset<T, tblproductCreateArgs<ExtArgs>>): Prisma__tblproductClient<$Result.GetResult<Prisma.$tblproductPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
-     * Create many Products.
-     * @param {productCreateManyArgs} args - Arguments to create many Products.
+     * Create many Tblproducts.
+     * @param {tblproductCreateManyArgs} args - Arguments to create many Tblproducts.
      * @example
-     * // Create many Products
-     * const product = await prisma.product.createMany({
+     * // Create many Tblproducts
+     * const tblproduct = await prisma.tblproduct.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends productCreateManyArgs>(args?: SelectSubset<T, productCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends tblproductCreateManyArgs>(args?: SelectSubset<T, tblproductCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Product.
-     * @param {productDeleteArgs} args - Arguments to delete one Product.
+     * Delete a Tblproduct.
+     * @param {tblproductDeleteArgs} args - Arguments to delete one Tblproduct.
      * @example
-     * // Delete one Product
-     * const Product = await prisma.product.delete({
+     * // Delete one Tblproduct
+     * const Tblproduct = await prisma.tblproduct.delete({
      *   where: {
-     *     // ... filter to delete one Product
+     *     // ... filter to delete one Tblproduct
      *   }
      * })
      * 
      */
-    delete<T extends productDeleteArgs>(args: SelectSubset<T, productDeleteArgs<ExtArgs>>): Prisma__productClient<$Result.GetResult<Prisma.$productPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+    delete<T extends tblproductDeleteArgs>(args: SelectSubset<T, tblproductDeleteArgs<ExtArgs>>): Prisma__tblproductClient<$Result.GetResult<Prisma.$tblproductPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
-     * Update one Product.
-     * @param {productUpdateArgs} args - Arguments to update one Product.
+     * Update one Tblproduct.
+     * @param {tblproductUpdateArgs} args - Arguments to update one Tblproduct.
      * @example
-     * // Update one Product
-     * const product = await prisma.product.update({
+     * // Update one Tblproduct
+     * const tblproduct = await prisma.tblproduct.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4388,30 +4830,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends productUpdateArgs>(args: SelectSubset<T, productUpdateArgs<ExtArgs>>): Prisma__productClient<$Result.GetResult<Prisma.$productPayload<ExtArgs>, T, "update">, never, ExtArgs>
+    update<T extends tblproductUpdateArgs>(args: SelectSubset<T, tblproductUpdateArgs<ExtArgs>>): Prisma__tblproductClient<$Result.GetResult<Prisma.$tblproductPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
-     * Delete zero or more Products.
-     * @param {productDeleteManyArgs} args - Arguments to filter Products to delete.
+     * Delete zero or more Tblproducts.
+     * @param {tblproductDeleteManyArgs} args - Arguments to filter Tblproducts to delete.
      * @example
-     * // Delete a few Products
-     * const { count } = await prisma.product.deleteMany({
+     * // Delete a few Tblproducts
+     * const { count } = await prisma.tblproduct.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends productDeleteManyArgs>(args?: SelectSubset<T, productDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends tblproductDeleteManyArgs>(args?: SelectSubset<T, tblproductDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Products.
+     * Update zero or more Tblproducts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {productUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {tblproductUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Products
-     * const product = await prisma.product.updateMany({
+     * // Update many Tblproducts
+     * const tblproduct = await prisma.tblproduct.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4421,56 +4863,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends productUpdateManyArgs>(args: SelectSubset<T, productUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends tblproductUpdateManyArgs>(args: SelectSubset<T, tblproductUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Product.
-     * @param {productUpsertArgs} args - Arguments to update or create a Product.
+     * Create or update one Tblproduct.
+     * @param {tblproductUpsertArgs} args - Arguments to update or create a Tblproduct.
      * @example
-     * // Update or create a Product
-     * const product = await prisma.product.upsert({
+     * // Update or create a Tblproduct
+     * const tblproduct = await prisma.tblproduct.upsert({
      *   create: {
-     *     // ... data to create a Product
+     *     // ... data to create a Tblproduct
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Product we want to update
+     *     // ... the filter for the Tblproduct we want to update
      *   }
      * })
      */
-    upsert<T extends productUpsertArgs>(args: SelectSubset<T, productUpsertArgs<ExtArgs>>): Prisma__productClient<$Result.GetResult<Prisma.$productPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+    upsert<T extends tblproductUpsertArgs>(args: SelectSubset<T, tblproductUpsertArgs<ExtArgs>>): Prisma__tblproductClient<$Result.GetResult<Prisma.$tblproductPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
-     * Count the number of Products.
+     * Count the number of Tblproducts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {productCountArgs} args - Arguments to filter Products to count.
+     * @param {tblproductCountArgs} args - Arguments to filter Tblproducts to count.
      * @example
-     * // Count the number of Products
-     * const count = await prisma.product.count({
+     * // Count the number of Tblproducts
+     * const count = await prisma.tblproduct.count({
      *   where: {
-     *     // ... the filter for the Products we want to count
+     *     // ... the filter for the Tblproducts we want to count
      *   }
      * })
     **/
-    count<T extends productCountArgs>(
-      args?: Subset<T, productCountArgs>,
+    count<T extends tblproductCountArgs>(
+      args?: Subset<T, tblproductCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ProductCountAggregateOutputType>
+          : GetScalarType<T['select'], TblproductCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Product.
+     * Allows you to perform aggregations operations on a Tblproduct.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProductAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {TblproductAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -4490,13 +4932,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ProductAggregateArgs>(args: Subset<T, ProductAggregateArgs>): Prisma.PrismaPromise<GetProductAggregateType<T>>
+    aggregate<T extends TblproductAggregateArgs>(args: Subset<T, TblproductAggregateArgs>): Prisma.PrismaPromise<GetTblproductAggregateType<T>>
 
     /**
-     * Group by Product.
+     * Group by Tblproduct.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {productGroupByArgs} args - Group by arguments.
+     * @param {tblproductGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -4511,14 +4953,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends productGroupByArgs,
+      T extends tblproductGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: productGroupByArgs['orderBy'] }
-        : { orderBy?: productGroupByArgs['orderBy'] },
+        ? { orderBy: tblproductGroupByArgs['orderBy'] }
+        : { orderBy?: tblproductGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -4567,21 +5009,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, productGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProductGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, tblproductGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTblproductGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the product model
+   * Fields of the tblproduct model
    */
-  readonly fields: productFieldRefs;
+  readonly fields: tblproductFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for product.
+   * The delegate class that acts as a "Promise-like" for tblproduct.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__productClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__tblproductClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    category<T extends tblcategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, tblcategoryDefaultArgs<ExtArgs>>): Prisma__tblcategoryClient<$Result.GetResult<Prisma.$tblcategoryPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    orders<T extends tblproduct$ordersArgs<ExtArgs> = {}>(args?: Subset<T, tblproduct$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tblorderPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4608,677 +5052,726 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the product model
+   * Fields of the tblproduct model
    */ 
-  interface productFieldRefs {
-    readonly id: FieldRef<"product", 'Int'>
-    readonly product: FieldRef<"product", 'String'>
-    readonly price: FieldRef<"product", 'Float'>
-    readonly stock: FieldRef<"product", 'Int'>
-    readonly unit: FieldRef<"product", 'String'>
-    readonly image: FieldRef<"product", 'String'>
-    readonly createdAt: FieldRef<"product", 'DateTime'>
-    readonly updatedAt: FieldRef<"product", 'DateTime'>
-    readonly categoryId: FieldRef<"product", 'Int'>
+  interface tblproductFieldRefs {
+    readonly id: FieldRef<"tblproduct", 'Int'>
+    readonly product: FieldRef<"tblproduct", 'String'>
+    readonly description: FieldRef<"tblproduct", 'String'>
+    readonly price: FieldRef<"tblproduct", 'Float'>
+    readonly stock: FieldRef<"tblproduct", 'Int'>
+    readonly unit: FieldRef<"tblproduct", 'String'>
+    readonly image: FieldRef<"tblproduct", 'String'>
+    readonly createdAt: FieldRef<"tblproduct", 'DateTime'>
+    readonly updatedAt: FieldRef<"tblproduct", 'DateTime'>
+    readonly categoryId: FieldRef<"tblproduct", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * product findUnique
+   * tblproduct findUnique
    */
-  export type productFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the product
+     * Select specific fields to fetch from the tblproduct
      */
-    select?: productSelect<ExtArgs> | null
+    select?: tblproductSelect<ExtArgs> | null
     /**
-     * Filter, which product to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: productWhereUniqueInput
+    include?: tblproductInclude<ExtArgs> | null
+    /**
+     * Filter, which tblproduct to fetch.
+     */
+    where: tblproductWhereUniqueInput
   }
 
   /**
-   * product findUniqueOrThrow
+   * tblproduct findUniqueOrThrow
    */
-  export type productFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the product
+     * Select specific fields to fetch from the tblproduct
      */
-    select?: productSelect<ExtArgs> | null
+    select?: tblproductSelect<ExtArgs> | null
     /**
-     * Filter, which product to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: productWhereUniqueInput
+    include?: tblproductInclude<ExtArgs> | null
+    /**
+     * Filter, which tblproduct to fetch.
+     */
+    where: tblproductWhereUniqueInput
   }
 
   /**
-   * product findFirst
+   * tblproduct findFirst
    */
-  export type productFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the product
+     * Select specific fields to fetch from the tblproduct
      */
-    select?: productSelect<ExtArgs> | null
+    select?: tblproductSelect<ExtArgs> | null
     /**
-     * Filter, which product to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: productWhereInput
+    include?: tblproductInclude<ExtArgs> | null
+    /**
+     * Filter, which tblproduct to fetch.
+     */
+    where?: tblproductWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of products to fetch.
+     * Determine the order of tblproducts to fetch.
      */
-    orderBy?: productOrderByWithRelationInput | productOrderByWithRelationInput[]
+    orderBy?: tblproductOrderByWithRelationInput | tblproductOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for products.
+     * Sets the position for searching for tblproducts.
      */
-    cursor?: productWhereUniqueInput
+    cursor?: tblproductWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` products from the position of the cursor.
+     * Take `±n` tblproducts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` products.
+     * Skip the first `n` tblproducts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of products.
+     * Filter by unique combinations of tblproducts.
      */
-    distinct?: ProductScalarFieldEnum | ProductScalarFieldEnum[]
+    distinct?: TblproductScalarFieldEnum | TblproductScalarFieldEnum[]
   }
 
   /**
-   * product findFirstOrThrow
+   * tblproduct findFirstOrThrow
    */
-  export type productFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the product
+     * Select specific fields to fetch from the tblproduct
      */
-    select?: productSelect<ExtArgs> | null
+    select?: tblproductSelect<ExtArgs> | null
     /**
-     * Filter, which product to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: productWhereInput
+    include?: tblproductInclude<ExtArgs> | null
+    /**
+     * Filter, which tblproduct to fetch.
+     */
+    where?: tblproductWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of products to fetch.
+     * Determine the order of tblproducts to fetch.
      */
-    orderBy?: productOrderByWithRelationInput | productOrderByWithRelationInput[]
+    orderBy?: tblproductOrderByWithRelationInput | tblproductOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for products.
+     * Sets the position for searching for tblproducts.
      */
-    cursor?: productWhereUniqueInput
+    cursor?: tblproductWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` products from the position of the cursor.
+     * Take `±n` tblproducts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` products.
+     * Skip the first `n` tblproducts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of products.
+     * Filter by unique combinations of tblproducts.
      */
-    distinct?: ProductScalarFieldEnum | ProductScalarFieldEnum[]
+    distinct?: TblproductScalarFieldEnum | TblproductScalarFieldEnum[]
   }
 
   /**
-   * product findMany
+   * tblproduct findMany
    */
-  export type productFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the product
+     * Select specific fields to fetch from the tblproduct
      */
-    select?: productSelect<ExtArgs> | null
+    select?: tblproductSelect<ExtArgs> | null
     /**
-     * Filter, which products to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: productWhereInput
+    include?: tblproductInclude<ExtArgs> | null
+    /**
+     * Filter, which tblproducts to fetch.
+     */
+    where?: tblproductWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of products to fetch.
+     * Determine the order of tblproducts to fetch.
      */
-    orderBy?: productOrderByWithRelationInput | productOrderByWithRelationInput[]
+    orderBy?: tblproductOrderByWithRelationInput | tblproductOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing products.
+     * Sets the position for listing tblproducts.
      */
-    cursor?: productWhereUniqueInput
+    cursor?: tblproductWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` products from the position of the cursor.
+     * Take `±n` tblproducts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` products.
+     * Skip the first `n` tblproducts.
      */
     skip?: number
-    distinct?: ProductScalarFieldEnum | ProductScalarFieldEnum[]
+    distinct?: TblproductScalarFieldEnum | TblproductScalarFieldEnum[]
   }
 
   /**
-   * product create
+   * tblproduct create
    */
-  export type productCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the product
+     * Select specific fields to fetch from the tblproduct
      */
-    select?: productSelect<ExtArgs> | null
+    select?: tblproductSelect<ExtArgs> | null
     /**
-     * The data needed to create a product.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<productCreateInput, productUncheckedCreateInput>
+    include?: tblproductInclude<ExtArgs> | null
+    /**
+     * The data needed to create a tblproduct.
+     */
+    data: XOR<tblproductCreateInput, tblproductUncheckedCreateInput>
   }
 
   /**
-   * product createMany
+   * tblproduct createMany
    */
-  export type productCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many products.
+     * The data used to create many tblproducts.
      */
-    data: productCreateManyInput | productCreateManyInput[]
+    data: tblproductCreateManyInput | tblproductCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * product update
+   * tblproduct update
    */
-  export type productUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the product
+     * Select specific fields to fetch from the tblproduct
      */
-    select?: productSelect<ExtArgs> | null
+    select?: tblproductSelect<ExtArgs> | null
     /**
-     * The data needed to update a product.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<productUpdateInput, productUncheckedUpdateInput>
+    include?: tblproductInclude<ExtArgs> | null
     /**
-     * Choose, which product to update.
+     * The data needed to update a tblproduct.
      */
-    where: productWhereUniqueInput
+    data: XOR<tblproductUpdateInput, tblproductUncheckedUpdateInput>
+    /**
+     * Choose, which tblproduct to update.
+     */
+    where: tblproductWhereUniqueInput
   }
 
   /**
-   * product updateMany
+   * tblproduct updateMany
    */
-  export type productUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update products.
+     * The data used to update tblproducts.
      */
-    data: XOR<productUpdateManyMutationInput, productUncheckedUpdateManyInput>
+    data: XOR<tblproductUpdateManyMutationInput, tblproductUncheckedUpdateManyInput>
     /**
-     * Filter which products to update
+     * Filter which tblproducts to update
      */
-    where?: productWhereInput
+    where?: tblproductWhereInput
   }
 
   /**
-   * product upsert
+   * tblproduct upsert
    */
-  export type productUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the product
+     * Select specific fields to fetch from the tblproduct
      */
-    select?: productSelect<ExtArgs> | null
+    select?: tblproductSelect<ExtArgs> | null
     /**
-     * The filter to search for the product to update in case it exists.
+     * Choose, which related nodes to fetch as well
      */
-    where: productWhereUniqueInput
+    include?: tblproductInclude<ExtArgs> | null
     /**
-     * In case the product found by the `where` argument doesn't exist, create a new product with this data.
+     * The filter to search for the tblproduct to update in case it exists.
      */
-    create: XOR<productCreateInput, productUncheckedCreateInput>
+    where: tblproductWhereUniqueInput
     /**
-     * In case the product was found with the provided `where` argument, update it with this data.
+     * In case the tblproduct found by the `where` argument doesn't exist, create a new tblproduct with this data.
      */
-    update: XOR<productUpdateInput, productUncheckedUpdateInput>
+    create: XOR<tblproductCreateInput, tblproductUncheckedCreateInput>
+    /**
+     * In case the tblproduct was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<tblproductUpdateInput, tblproductUncheckedUpdateInput>
   }
 
   /**
-   * product delete
+   * tblproduct delete
    */
-  export type productDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the product
+     * Select specific fields to fetch from the tblproduct
      */
-    select?: productSelect<ExtArgs> | null
+    select?: tblproductSelect<ExtArgs> | null
     /**
-     * Filter which product to delete.
+     * Choose, which related nodes to fetch as well
      */
-    where: productWhereUniqueInput
+    include?: tblproductInclude<ExtArgs> | null
+    /**
+     * Filter which tblproduct to delete.
+     */
+    where: tblproductWhereUniqueInput
   }
 
   /**
-   * product deleteMany
+   * tblproduct deleteMany
    */
-  export type productDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproductDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which products to delete
+     * Filter which tblproducts to delete
      */
-    where?: productWhereInput
+    where?: tblproductWhereInput
   }
 
   /**
-   * product without action
+   * tblproduct.orders
    */
-  export type productDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblproduct$ordersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the product
+     * Select specific fields to fetch from the tblorder
      */
-    select?: productSelect<ExtArgs> | null
+    select?: tblorderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblorderInclude<ExtArgs> | null
+    where?: tblorderWhereInput
+    orderBy?: tblorderOrderByWithRelationInput | tblorderOrderByWithRelationInput[]
+    cursor?: tblorderWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TblorderScalarFieldEnum | TblorderScalarFieldEnum[]
+  }
+
+  /**
+   * tblproduct without action
+   */
+  export type tblproductDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblproduct
+     */
+    select?: tblproductSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblproductInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model order
+   * Model tblrole
    */
 
-  export type AggregateOrder = {
-    _count: OrderCountAggregateOutputType | null
-    _avg: OrderAvgAggregateOutputType | null
-    _sum: OrderSumAggregateOutputType | null
-    _min: OrderMinAggregateOutputType | null
-    _max: OrderMaxAggregateOutputType | null
+  export type AggregateTblrole = {
+    _count: TblroleCountAggregateOutputType | null
+    _avg: TblroleAvgAggregateOutputType | null
+    _sum: TblroleSumAggregateOutputType | null
+    _min: TblroleMinAggregateOutputType | null
+    _max: TblroleMaxAggregateOutputType | null
   }
 
-  export type OrderAvgAggregateOutputType = {
+  export type TblroleAvgAggregateOutputType = {
     id: number | null
-    userId: number | null
-    productId: number | null
-    quantity: number | null
   }
 
-  export type OrderSumAggregateOutputType = {
+  export type TblroleSumAggregateOutputType = {
     id: number | null
-    userId: number | null
-    productId: number | null
-    quantity: number | null
   }
 
-  export type OrderMinAggregateOutputType = {
+  export type TblroleMinAggregateOutputType = {
     id: number | null
-    userId: number | null
-    productId: number | null
-    quantity: number | null
+    role: string | null
+    description: string | null
+    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type OrderMaxAggregateOutputType = {
+  export type TblroleMaxAggregateOutputType = {
     id: number | null
-    userId: number | null
-    productId: number | null
-    quantity: number | null
+    role: string | null
+    description: string | null
+    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type OrderCountAggregateOutputType = {
+  export type TblroleCountAggregateOutputType = {
     id: number
-    userId: number
-    productId: number
-    quantity: number
+    role: number
+    description: number
+    image: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
-  export type OrderAvgAggregateInputType = {
+  export type TblroleAvgAggregateInputType = {
     id?: true
-    userId?: true
-    productId?: true
-    quantity?: true
   }
 
-  export type OrderSumAggregateInputType = {
+  export type TblroleSumAggregateInputType = {
     id?: true
-    userId?: true
-    productId?: true
-    quantity?: true
   }
 
-  export type OrderMinAggregateInputType = {
+  export type TblroleMinAggregateInputType = {
     id?: true
-    userId?: true
-    productId?: true
-    quantity?: true
+    role?: true
+    description?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type OrderMaxAggregateInputType = {
+  export type TblroleMaxAggregateInputType = {
     id?: true
-    userId?: true
-    productId?: true
-    quantity?: true
+    role?: true
+    description?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type OrderCountAggregateInputType = {
+  export type TblroleCountAggregateInputType = {
     id?: true
-    userId?: true
-    productId?: true
-    quantity?: true
+    role?: true
+    description?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
   }
 
-  export type OrderAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TblroleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which order to aggregate.
+     * Filter which tblrole to aggregate.
      */
-    where?: orderWhereInput
+    where?: tblroleWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of orders to fetch.
+     * Determine the order of tblroles to fetch.
      */
-    orderBy?: orderOrderByWithRelationInput | orderOrderByWithRelationInput[]
+    orderBy?: tblroleOrderByWithRelationInput | tblroleOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: orderWhereUniqueInput
+    cursor?: tblroleWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` orders from the position of the cursor.
+     * Take `±n` tblroles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` orders.
+     * Skip the first `n` tblroles.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned orders
+     * Count returned tblroles
     **/
-    _count?: true | OrderCountAggregateInputType
+    _count?: true | TblroleCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: OrderAvgAggregateInputType
+    _avg?: TblroleAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: OrderSumAggregateInputType
+    _sum?: TblroleSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: OrderMinAggregateInputType
+    _min?: TblroleMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: OrderMaxAggregateInputType
+    _max?: TblroleMaxAggregateInputType
   }
 
-  export type GetOrderAggregateType<T extends OrderAggregateArgs> = {
-        [P in keyof T & keyof AggregateOrder]: P extends '_count' | 'count'
+  export type GetTblroleAggregateType<T extends TblroleAggregateArgs> = {
+        [P in keyof T & keyof AggregateTblrole]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateOrder[P]>
-      : GetScalarType<T[P], AggregateOrder[P]>
+        : GetScalarType<T[P], AggregateTblrole[P]>
+      : GetScalarType<T[P], AggregateTblrole[P]>
   }
 
 
 
 
-  export type orderGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: orderWhereInput
-    orderBy?: orderOrderByWithAggregationInput | orderOrderByWithAggregationInput[]
-    by: OrderScalarFieldEnum[] | OrderScalarFieldEnum
-    having?: orderScalarWhereWithAggregatesInput
+  export type tblroleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tblroleWhereInput
+    orderBy?: tblroleOrderByWithAggregationInput | tblroleOrderByWithAggregationInput[]
+    by: TblroleScalarFieldEnum[] | TblroleScalarFieldEnum
+    having?: tblroleScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: OrderCountAggregateInputType | true
-    _avg?: OrderAvgAggregateInputType
-    _sum?: OrderSumAggregateInputType
-    _min?: OrderMinAggregateInputType
-    _max?: OrderMaxAggregateInputType
+    _count?: TblroleCountAggregateInputType | true
+    _avg?: TblroleAvgAggregateInputType
+    _sum?: TblroleSumAggregateInputType
+    _min?: TblroleMinAggregateInputType
+    _max?: TblroleMaxAggregateInputType
   }
 
-  export type OrderGroupByOutputType = {
+  export type TblroleGroupByOutputType = {
     id: number
-    userId: number
-    productId: number
-    quantity: number
+    role: string
+    description: string
+    image: string
     createdAt: Date
     updatedAt: Date
-    _count: OrderCountAggregateOutputType | null
-    _avg: OrderAvgAggregateOutputType | null
-    _sum: OrderSumAggregateOutputType | null
-    _min: OrderMinAggregateOutputType | null
-    _max: OrderMaxAggregateOutputType | null
+    _count: TblroleCountAggregateOutputType | null
+    _avg: TblroleAvgAggregateOutputType | null
+    _sum: TblroleSumAggregateOutputType | null
+    _min: TblroleMinAggregateOutputType | null
+    _max: TblroleMaxAggregateOutputType | null
   }
 
-  type GetOrderGroupByPayload<T extends orderGroupByArgs> = Prisma.PrismaPromise<
+  type GetTblroleGroupByPayload<T extends tblroleGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<OrderGroupByOutputType, T['by']> &
+      PickEnumerable<TblroleGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof OrderGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof TblroleGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], OrderGroupByOutputType[P]>
-            : GetScalarType<T[P], OrderGroupByOutputType[P]>
+              : GetScalarType<T[P], TblroleGroupByOutputType[P]>
+            : GetScalarType<T[P], TblroleGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type orderSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type tblroleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    userId?: boolean
-    productId?: boolean
-    quantity?: boolean
+    role?: boolean
+    description?: boolean
+    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | order$userArgs<ExtArgs>
-    _count?: boolean | OrderCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["order"]>
+    subgroups?: boolean | tblrole$subgroupsArgs<ExtArgs>
+    _count?: boolean | TblroleCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tblrole"]>
 
 
-  export type orderSelectScalar = {
+  export type tblroleSelectScalar = {
     id?: boolean
-    userId?: boolean
-    productId?: boolean
-    quantity?: boolean
+    role?: boolean
+    description?: boolean
+    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type orderInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | order$userArgs<ExtArgs>
-    _count?: boolean | OrderCountOutputTypeDefaultArgs<ExtArgs>
+  export type tblroleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subgroups?: boolean | tblrole$subgroupsArgs<ExtArgs>
+    _count?: boolean | TblroleCountOutputTypeDefaultArgs<ExtArgs>
   }
 
-  export type $orderPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "order"
+  export type $tblrolePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tblrole"
     objects: {
-      user: Prisma.$userPayload<ExtArgs>[]
+      subgroups: Prisma.$tbluserPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      userId: number
-      productId: number
-      quantity: number
+      role: string
+      description: string
+      image: string
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["order"]>
+    }, ExtArgs["result"]["tblrole"]>
     composites: {}
   }
 
-  type orderGetPayload<S extends boolean | null | undefined | orderDefaultArgs> = $Result.GetResult<Prisma.$orderPayload, S>
+  type tblroleGetPayload<S extends boolean | null | undefined | tblroleDefaultArgs> = $Result.GetResult<Prisma.$tblrolePayload, S>
 
-  type orderCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<orderFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: OrderCountAggregateInputType | true
+  type tblroleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<tblroleFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TblroleCountAggregateInputType | true
     }
 
-  export interface orderDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['order'], meta: { name: 'order' } }
+  export interface tblroleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tblrole'], meta: { name: 'tblrole' } }
     /**
-     * Find zero or one Order that matches the filter.
-     * @param {orderFindUniqueArgs} args - Arguments to find a Order
+     * Find zero or one Tblrole that matches the filter.
+     * @param {tblroleFindUniqueArgs} args - Arguments to find a Tblrole
      * @example
-     * // Get one Order
-     * const order = await prisma.order.findUnique({
+     * // Get one Tblrole
+     * const tblrole = await prisma.tblrole.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends orderFindUniqueArgs>(args: SelectSubset<T, orderFindUniqueArgs<ExtArgs>>): Prisma__orderClient<$Result.GetResult<Prisma.$orderPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+    findUnique<T extends tblroleFindUniqueArgs>(args: SelectSubset<T, tblroleFindUniqueArgs<ExtArgs>>): Prisma__tblroleClient<$Result.GetResult<Prisma.$tblrolePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one Order that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one Tblrole that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {orderFindUniqueOrThrowArgs} args - Arguments to find a Order
+     * @param {tblroleFindUniqueOrThrowArgs} args - Arguments to find a Tblrole
      * @example
-     * // Get one Order
-     * const order = await prisma.order.findUniqueOrThrow({
+     * // Get one Tblrole
+     * const tblrole = await prisma.tblrole.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends orderFindUniqueOrThrowArgs>(args: SelectSubset<T, orderFindUniqueOrThrowArgs<ExtArgs>>): Prisma__orderClient<$Result.GetResult<Prisma.$orderPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+    findUniqueOrThrow<T extends tblroleFindUniqueOrThrowArgs>(args: SelectSubset<T, tblroleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tblroleClient<$Result.GetResult<Prisma.$tblrolePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
-     * Find the first Order that matches the filter.
+     * Find the first Tblrole that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {orderFindFirstArgs} args - Arguments to find a Order
+     * @param {tblroleFindFirstArgs} args - Arguments to find a Tblrole
      * @example
-     * // Get one Order
-     * const order = await prisma.order.findFirst({
+     * // Get one Tblrole
+     * const tblrole = await prisma.tblrole.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends orderFindFirstArgs>(args?: SelectSubset<T, orderFindFirstArgs<ExtArgs>>): Prisma__orderClient<$Result.GetResult<Prisma.$orderPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+    findFirst<T extends tblroleFindFirstArgs>(args?: SelectSubset<T, tblroleFindFirstArgs<ExtArgs>>): Prisma__tblroleClient<$Result.GetResult<Prisma.$tblrolePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
-     * Find the first Order that matches the filter or
+     * Find the first Tblrole that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {orderFindFirstOrThrowArgs} args - Arguments to find a Order
+     * @param {tblroleFindFirstOrThrowArgs} args - Arguments to find a Tblrole
      * @example
-     * // Get one Order
-     * const order = await prisma.order.findFirstOrThrow({
+     * // Get one Tblrole
+     * const tblrole = await prisma.tblrole.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends orderFindFirstOrThrowArgs>(args?: SelectSubset<T, orderFindFirstOrThrowArgs<ExtArgs>>): Prisma__orderClient<$Result.GetResult<Prisma.$orderPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+    findFirstOrThrow<T extends tblroleFindFirstOrThrowArgs>(args?: SelectSubset<T, tblroleFindFirstOrThrowArgs<ExtArgs>>): Prisma__tblroleClient<$Result.GetResult<Prisma.$tblrolePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
-     * Find zero or more Orders that matches the filter.
+     * Find zero or more Tblroles that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {orderFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {tblroleFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Orders
-     * const orders = await prisma.order.findMany()
+     * // Get all Tblroles
+     * const tblroles = await prisma.tblrole.findMany()
      * 
-     * // Get first 10 Orders
-     * const orders = await prisma.order.findMany({ take: 10 })
+     * // Get first 10 Tblroles
+     * const tblroles = await prisma.tblrole.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const orderWithIdOnly = await prisma.order.findMany({ select: { id: true } })
+     * const tblroleWithIdOnly = await prisma.tblrole.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends orderFindManyArgs>(args?: SelectSubset<T, orderFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$orderPayload<ExtArgs>, T, "findMany">>
+    findMany<T extends tblroleFindManyArgs>(args?: SelectSubset<T, tblroleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tblrolePayload<ExtArgs>, T, "findMany">>
 
     /**
-     * Create a Order.
-     * @param {orderCreateArgs} args - Arguments to create a Order.
+     * Create a Tblrole.
+     * @param {tblroleCreateArgs} args - Arguments to create a Tblrole.
      * @example
-     * // Create one Order
-     * const Order = await prisma.order.create({
+     * // Create one Tblrole
+     * const Tblrole = await prisma.tblrole.create({
      *   data: {
-     *     // ... data to create a Order
+     *     // ... data to create a Tblrole
      *   }
      * })
      * 
      */
-    create<T extends orderCreateArgs>(args: SelectSubset<T, orderCreateArgs<ExtArgs>>): Prisma__orderClient<$Result.GetResult<Prisma.$orderPayload<ExtArgs>, T, "create">, never, ExtArgs>
+    create<T extends tblroleCreateArgs>(args: SelectSubset<T, tblroleCreateArgs<ExtArgs>>): Prisma__tblroleClient<$Result.GetResult<Prisma.$tblrolePayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
-     * Create many Orders.
-     * @param {orderCreateManyArgs} args - Arguments to create many Orders.
+     * Create many Tblroles.
+     * @param {tblroleCreateManyArgs} args - Arguments to create many Tblroles.
      * @example
-     * // Create many Orders
-     * const order = await prisma.order.createMany({
+     * // Create many Tblroles
+     * const tblrole = await prisma.tblrole.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends orderCreateManyArgs>(args?: SelectSubset<T, orderCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends tblroleCreateManyArgs>(args?: SelectSubset<T, tblroleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Order.
-     * @param {orderDeleteArgs} args - Arguments to delete one Order.
+     * Delete a Tblrole.
+     * @param {tblroleDeleteArgs} args - Arguments to delete one Tblrole.
      * @example
-     * // Delete one Order
-     * const Order = await prisma.order.delete({
+     * // Delete one Tblrole
+     * const Tblrole = await prisma.tblrole.delete({
      *   where: {
-     *     // ... filter to delete one Order
+     *     // ... filter to delete one Tblrole
      *   }
      * })
      * 
      */
-    delete<T extends orderDeleteArgs>(args: SelectSubset<T, orderDeleteArgs<ExtArgs>>): Prisma__orderClient<$Result.GetResult<Prisma.$orderPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+    delete<T extends tblroleDeleteArgs>(args: SelectSubset<T, tblroleDeleteArgs<ExtArgs>>): Prisma__tblroleClient<$Result.GetResult<Prisma.$tblrolePayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
-     * Update one Order.
-     * @param {orderUpdateArgs} args - Arguments to update one Order.
+     * Update one Tblrole.
+     * @param {tblroleUpdateArgs} args - Arguments to update one Tblrole.
      * @example
-     * // Update one Order
-     * const order = await prisma.order.update({
+     * // Update one Tblrole
+     * const tblrole = await prisma.tblrole.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5288,30 +5781,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends orderUpdateArgs>(args: SelectSubset<T, orderUpdateArgs<ExtArgs>>): Prisma__orderClient<$Result.GetResult<Prisma.$orderPayload<ExtArgs>, T, "update">, never, ExtArgs>
+    update<T extends tblroleUpdateArgs>(args: SelectSubset<T, tblroleUpdateArgs<ExtArgs>>): Prisma__tblroleClient<$Result.GetResult<Prisma.$tblrolePayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
-     * Delete zero or more Orders.
-     * @param {orderDeleteManyArgs} args - Arguments to filter Orders to delete.
+     * Delete zero or more Tblroles.
+     * @param {tblroleDeleteManyArgs} args - Arguments to filter Tblroles to delete.
      * @example
-     * // Delete a few Orders
-     * const { count } = await prisma.order.deleteMany({
+     * // Delete a few Tblroles
+     * const { count } = await prisma.tblrole.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends orderDeleteManyArgs>(args?: SelectSubset<T, orderDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends tblroleDeleteManyArgs>(args?: SelectSubset<T, tblroleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Orders.
+     * Update zero or more Tblroles.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {orderUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {tblroleUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Orders
-     * const order = await prisma.order.updateMany({
+     * // Update many Tblroles
+     * const tblrole = await prisma.tblrole.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5321,56 +5814,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends orderUpdateManyArgs>(args: SelectSubset<T, orderUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends tblroleUpdateManyArgs>(args: SelectSubset<T, tblroleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Order.
-     * @param {orderUpsertArgs} args - Arguments to update or create a Order.
+     * Create or update one Tblrole.
+     * @param {tblroleUpsertArgs} args - Arguments to update or create a Tblrole.
      * @example
-     * // Update or create a Order
-     * const order = await prisma.order.upsert({
+     * // Update or create a Tblrole
+     * const tblrole = await prisma.tblrole.upsert({
      *   create: {
-     *     // ... data to create a Order
+     *     // ... data to create a Tblrole
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Order we want to update
+     *     // ... the filter for the Tblrole we want to update
      *   }
      * })
      */
-    upsert<T extends orderUpsertArgs>(args: SelectSubset<T, orderUpsertArgs<ExtArgs>>): Prisma__orderClient<$Result.GetResult<Prisma.$orderPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+    upsert<T extends tblroleUpsertArgs>(args: SelectSubset<T, tblroleUpsertArgs<ExtArgs>>): Prisma__tblroleClient<$Result.GetResult<Prisma.$tblrolePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
-     * Count the number of Orders.
+     * Count the number of Tblroles.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {orderCountArgs} args - Arguments to filter Orders to count.
+     * @param {tblroleCountArgs} args - Arguments to filter Tblroles to count.
      * @example
-     * // Count the number of Orders
-     * const count = await prisma.order.count({
+     * // Count the number of Tblroles
+     * const count = await prisma.tblrole.count({
      *   where: {
-     *     // ... the filter for the Orders we want to count
+     *     // ... the filter for the Tblroles we want to count
      *   }
      * })
     **/
-    count<T extends orderCountArgs>(
-      args?: Subset<T, orderCountArgs>,
+    count<T extends tblroleCountArgs>(
+      args?: Subset<T, tblroleCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], OrderCountAggregateOutputType>
+          : GetScalarType<T['select'], TblroleCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Order.
+     * Allows you to perform aggregations operations on a Tblrole.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OrderAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {TblroleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -5390,13 +5883,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends OrderAggregateArgs>(args: Subset<T, OrderAggregateArgs>): Prisma.PrismaPromise<GetOrderAggregateType<T>>
+    aggregate<T extends TblroleAggregateArgs>(args: Subset<T, TblroleAggregateArgs>): Prisma.PrismaPromise<GetTblroleAggregateType<T>>
 
     /**
-     * Group by Order.
+     * Group by Tblrole.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {orderGroupByArgs} args - Group by arguments.
+     * @param {tblroleGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -5411,14 +5904,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends orderGroupByArgs,
+      T extends tblroleGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: orderGroupByArgs['orderBy'] }
-        : { orderBy?: orderGroupByArgs['orderBy'] },
+        ? { orderBy: tblroleGroupByArgs['orderBy'] }
+        : { orderBy?: tblroleGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -5467,22 +5960,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, orderGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOrderGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, tblroleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTblroleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the order model
+   * Fields of the tblrole model
    */
-  readonly fields: orderFieldRefs;
+  readonly fields: tblroleFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for order.
+   * The delegate class that acts as a "Promise-like" for tblrole.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__orderClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__tblroleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends order$userArgs<ExtArgs> = {}>(args?: Subset<T, order$userArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findMany"> | Null>
+    subgroups<T extends tblrole$subgroupsArgs<ExtArgs> = {}>(args?: Subset<T, tblrole$subgroupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tbluserPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5509,380 +6002,371 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the order model
+   * Fields of the tblrole model
    */ 
-  interface orderFieldRefs {
-    readonly id: FieldRef<"order", 'Int'>
-    readonly userId: FieldRef<"order", 'Int'>
-    readonly productId: FieldRef<"order", 'Int'>
-    readonly quantity: FieldRef<"order", 'Int'>
-    readonly createdAt: FieldRef<"order", 'DateTime'>
-    readonly updatedAt: FieldRef<"order", 'DateTime'>
+  interface tblroleFieldRefs {
+    readonly id: FieldRef<"tblrole", 'Int'>
+    readonly role: FieldRef<"tblrole", 'String'>
+    readonly description: FieldRef<"tblrole", 'String'>
+    readonly image: FieldRef<"tblrole", 'String'>
+    readonly createdAt: FieldRef<"tblrole", 'DateTime'>
+    readonly updatedAt: FieldRef<"tblrole", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * order findUnique
+   * tblrole findUnique
    */
-  export type orderFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the order
+     * Select specific fields to fetch from the tblrole
      */
-    select?: orderSelect<ExtArgs> | null
+    select?: tblroleSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: orderInclude<ExtArgs> | null
+    include?: tblroleInclude<ExtArgs> | null
     /**
-     * Filter, which order to fetch.
+     * Filter, which tblrole to fetch.
      */
-    where: orderWhereUniqueInput
+    where: tblroleWhereUniqueInput
   }
 
   /**
-   * order findUniqueOrThrow
+   * tblrole findUniqueOrThrow
    */
-  export type orderFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the order
+     * Select specific fields to fetch from the tblrole
      */
-    select?: orderSelect<ExtArgs> | null
+    select?: tblroleSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: orderInclude<ExtArgs> | null
+    include?: tblroleInclude<ExtArgs> | null
     /**
-     * Filter, which order to fetch.
+     * Filter, which tblrole to fetch.
      */
-    where: orderWhereUniqueInput
+    where: tblroleWhereUniqueInput
   }
 
   /**
-   * order findFirst
+   * tblrole findFirst
    */
-  export type orderFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the order
+     * Select specific fields to fetch from the tblrole
      */
-    select?: orderSelect<ExtArgs> | null
+    select?: tblroleSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: orderInclude<ExtArgs> | null
+    include?: tblroleInclude<ExtArgs> | null
     /**
-     * Filter, which order to fetch.
+     * Filter, which tblrole to fetch.
      */
-    where?: orderWhereInput
+    where?: tblroleWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of orders to fetch.
+     * Determine the order of tblroles to fetch.
      */
-    orderBy?: orderOrderByWithRelationInput | orderOrderByWithRelationInput[]
+    orderBy?: tblroleOrderByWithRelationInput | tblroleOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for orders.
+     * Sets the position for searching for tblroles.
      */
-    cursor?: orderWhereUniqueInput
+    cursor?: tblroleWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` orders from the position of the cursor.
+     * Take `±n` tblroles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` orders.
+     * Skip the first `n` tblroles.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of orders.
+     * Filter by unique combinations of tblroles.
      */
-    distinct?: OrderScalarFieldEnum | OrderScalarFieldEnum[]
+    distinct?: TblroleScalarFieldEnum | TblroleScalarFieldEnum[]
   }
 
   /**
-   * order findFirstOrThrow
+   * tblrole findFirstOrThrow
    */
-  export type orderFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the order
+     * Select specific fields to fetch from the tblrole
      */
-    select?: orderSelect<ExtArgs> | null
+    select?: tblroleSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: orderInclude<ExtArgs> | null
+    include?: tblroleInclude<ExtArgs> | null
     /**
-     * Filter, which order to fetch.
+     * Filter, which tblrole to fetch.
      */
-    where?: orderWhereInput
+    where?: tblroleWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of orders to fetch.
+     * Determine the order of tblroles to fetch.
      */
-    orderBy?: orderOrderByWithRelationInput | orderOrderByWithRelationInput[]
+    orderBy?: tblroleOrderByWithRelationInput | tblroleOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for orders.
+     * Sets the position for searching for tblroles.
      */
-    cursor?: orderWhereUniqueInput
+    cursor?: tblroleWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` orders from the position of the cursor.
+     * Take `±n` tblroles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` orders.
+     * Skip the first `n` tblroles.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of orders.
+     * Filter by unique combinations of tblroles.
      */
-    distinct?: OrderScalarFieldEnum | OrderScalarFieldEnum[]
+    distinct?: TblroleScalarFieldEnum | TblroleScalarFieldEnum[]
   }
 
   /**
-   * order findMany
+   * tblrole findMany
    */
-  export type orderFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the order
+     * Select specific fields to fetch from the tblrole
      */
-    select?: orderSelect<ExtArgs> | null
+    select?: tblroleSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: orderInclude<ExtArgs> | null
+    include?: tblroleInclude<ExtArgs> | null
     /**
-     * Filter, which orders to fetch.
+     * Filter, which tblroles to fetch.
      */
-    where?: orderWhereInput
+    where?: tblroleWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of orders to fetch.
+     * Determine the order of tblroles to fetch.
      */
-    orderBy?: orderOrderByWithRelationInput | orderOrderByWithRelationInput[]
+    orderBy?: tblroleOrderByWithRelationInput | tblroleOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing orders.
+     * Sets the position for listing tblroles.
      */
-    cursor?: orderWhereUniqueInput
+    cursor?: tblroleWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` orders from the position of the cursor.
+     * Take `±n` tblroles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` orders.
+     * Skip the first `n` tblroles.
      */
     skip?: number
-    distinct?: OrderScalarFieldEnum | OrderScalarFieldEnum[]
+    distinct?: TblroleScalarFieldEnum | TblroleScalarFieldEnum[]
   }
 
   /**
-   * order create
+   * tblrole create
    */
-  export type orderCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the order
+     * Select specific fields to fetch from the tblrole
      */
-    select?: orderSelect<ExtArgs> | null
+    select?: tblroleSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: orderInclude<ExtArgs> | null
+    include?: tblroleInclude<ExtArgs> | null
     /**
-     * The data needed to create a order.
+     * The data needed to create a tblrole.
      */
-    data: XOR<orderCreateInput, orderUncheckedCreateInput>
+    data: XOR<tblroleCreateInput, tblroleUncheckedCreateInput>
   }
 
   /**
-   * order createMany
+   * tblrole createMany
    */
-  export type orderCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many orders.
+     * The data used to create many tblroles.
      */
-    data: orderCreateManyInput | orderCreateManyInput[]
+    data: tblroleCreateManyInput | tblroleCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * order update
+   * tblrole update
    */
-  export type orderUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the order
+     * Select specific fields to fetch from the tblrole
      */
-    select?: orderSelect<ExtArgs> | null
+    select?: tblroleSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: orderInclude<ExtArgs> | null
+    include?: tblroleInclude<ExtArgs> | null
     /**
-     * The data needed to update a order.
+     * The data needed to update a tblrole.
      */
-    data: XOR<orderUpdateInput, orderUncheckedUpdateInput>
+    data: XOR<tblroleUpdateInput, tblroleUncheckedUpdateInput>
     /**
-     * Choose, which order to update.
+     * Choose, which tblrole to update.
      */
-    where: orderWhereUniqueInput
+    where: tblroleWhereUniqueInput
   }
 
   /**
-   * order updateMany
+   * tblrole updateMany
    */
-  export type orderUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update orders.
+     * The data used to update tblroles.
      */
-    data: XOR<orderUpdateManyMutationInput, orderUncheckedUpdateManyInput>
+    data: XOR<tblroleUpdateManyMutationInput, tblroleUncheckedUpdateManyInput>
     /**
-     * Filter which orders to update
+     * Filter which tblroles to update
      */
-    where?: orderWhereInput
+    where?: tblroleWhereInput
   }
 
   /**
-   * order upsert
+   * tblrole upsert
    */
-  export type orderUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the order
+     * Select specific fields to fetch from the tblrole
      */
-    select?: orderSelect<ExtArgs> | null
+    select?: tblroleSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: orderInclude<ExtArgs> | null
+    include?: tblroleInclude<ExtArgs> | null
     /**
-     * The filter to search for the order to update in case it exists.
+     * The filter to search for the tblrole to update in case it exists.
      */
-    where: orderWhereUniqueInput
+    where: tblroleWhereUniqueInput
     /**
-     * In case the order found by the `where` argument doesn't exist, create a new order with this data.
+     * In case the tblrole found by the `where` argument doesn't exist, create a new tblrole with this data.
      */
-    create: XOR<orderCreateInput, orderUncheckedCreateInput>
+    create: XOR<tblroleCreateInput, tblroleUncheckedCreateInput>
     /**
-     * In case the order was found with the provided `where` argument, update it with this data.
+     * In case the tblrole was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<orderUpdateInput, orderUncheckedUpdateInput>
+    update: XOR<tblroleUpdateInput, tblroleUncheckedUpdateInput>
   }
 
   /**
-   * order delete
+   * tblrole delete
    */
-  export type orderDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the order
+     * Select specific fields to fetch from the tblrole
      */
-    select?: orderSelect<ExtArgs> | null
+    select?: tblroleSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: orderInclude<ExtArgs> | null
+    include?: tblroleInclude<ExtArgs> | null
     /**
-     * Filter which order to delete.
+     * Filter which tblrole to delete.
      */
-    where: orderWhereUniqueInput
+    where: tblroleWhereUniqueInput
   }
 
   /**
-   * order deleteMany
+   * tblrole deleteMany
    */
-  export type orderDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which orders to delete
+     * Filter which tblroles to delete
      */
-    where?: orderWhereInput
+    where?: tblroleWhereInput
   }
 
   /**
-   * order.user
+   * tblrole.subgroups
    */
-  export type order$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblrole$subgroupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user
+     * Select specific fields to fetch from the tbluser
      */
-    select?: userSelect<ExtArgs> | null
+    select?: tbluserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: userInclude<ExtArgs> | null
-    where?: userWhereInput
-    orderBy?: userOrderByWithRelationInput | userOrderByWithRelationInput[]
-    cursor?: userWhereUniqueInput
+    include?: tbluserInclude<ExtArgs> | null
+    where?: tbluserWhereInput
+    orderBy?: tbluserOrderByWithRelationInput | tbluserOrderByWithRelationInput[]
+    cursor?: tbluserWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: TbluserScalarFieldEnum | TbluserScalarFieldEnum[]
   }
 
   /**
-   * order without action
+   * tblrole without action
    */
-  export type orderDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tblroleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the order
+     * Select specific fields to fetch from the tblrole
      */
-    select?: orderSelect<ExtArgs> | null
+    select?: tblroleSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: orderInclude<ExtArgs> | null
+    include?: tblroleInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model user
+   * Model tbluser
    */
 
-  export type AggregateUser = {
-    _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
-    _min: UserMinAggregateOutputType | null
-    _max: UserMaxAggregateOutputType | null
+  export type AggregateTbluser = {
+    _count: TbluserCountAggregateOutputType | null
+    _avg: TbluserAvgAggregateOutputType | null
+    _sum: TbluserSumAggregateOutputType | null
+    _min: TbluserMinAggregateOutputType | null
+    _max: TbluserMaxAggregateOutputType | null
   }
 
-  export type UserAvgAggregateOutputType = {
+  export type TbluserAvgAggregateOutputType = {
     id: number | null
+    roleId: number | null
   }
 
-  export type UserSumAggregateOutputType = {
+  export type TbluserSumAggregateOutputType = {
     id: number | null
+    roleId: number | null
   }
 
-  export type UserMinAggregateOutputType = {
-    id: number | null
-    name: string | null
-    password: string | null
-    telefono: string | null
-    direccion: string | null
-    email: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type UserMaxAggregateOutputType = {
+  export type TbluserMinAggregateOutputType = {
     id: number | null
     name: string | null
     password: string | null
@@ -5891,9 +6375,22 @@ export namespace Prisma {
     email: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    roleId: number | null
   }
 
-  export type UserCountAggregateOutputType = {
+  export type TbluserMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    password: string | null
+    telefono: string | null
+    direccion: string | null
+    email: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    roleId: number | null
+  }
+
+  export type TbluserCountAggregateOutputType = {
     id: number
     name: number
     password: number
@@ -5902,19 +6399,22 @@ export namespace Prisma {
     email: number
     createdAt: number
     updatedAt: number
+    roleId: number
     _all: number
   }
 
 
-  export type UserAvgAggregateInputType = {
+  export type TbluserAvgAggregateInputType = {
     id?: true
+    roleId?: true
   }
 
-  export type UserSumAggregateInputType = {
+  export type TbluserSumAggregateInputType = {
     id?: true
+    roleId?: true
   }
 
-  export type UserMinAggregateInputType = {
+  export type TbluserMinAggregateInputType = {
     id?: true
     name?: true
     password?: true
@@ -5923,9 +6423,10 @@ export namespace Prisma {
     email?: true
     createdAt?: true
     updatedAt?: true
+    roleId?: true
   }
 
-  export type UserMaxAggregateInputType = {
+  export type TbluserMaxAggregateInputType = {
     id?: true
     name?: true
     password?: true
@@ -5934,9 +6435,10 @@ export namespace Prisma {
     email?: true
     createdAt?: true
     updatedAt?: true
+    roleId?: true
   }
 
-  export type UserCountAggregateInputType = {
+  export type TbluserCountAggregateInputType = {
     id?: true
     name?: true
     password?: true
@@ -5945,96 +6447,97 @@ export namespace Prisma {
     email?: true
     createdAt?: true
     updatedAt?: true
+    roleId?: true
     _all?: true
   }
 
-  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TbluserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which user to aggregate.
+     * Filter which tbluser to aggregate.
      */
-    where?: userWhereInput
+    where?: tbluserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of users to fetch.
+     * Determine the order of tblusers to fetch.
      */
-    orderBy?: userOrderByWithRelationInput | userOrderByWithRelationInput[]
+    orderBy?: tbluserOrderByWithRelationInput | tbluserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: userWhereUniqueInput
+    cursor?: tbluserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` users from the position of the cursor.
+     * Take `±n` tblusers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` users.
+     * Skip the first `n` tblusers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned users
+     * Count returned tblusers
     **/
-    _count?: true | UserCountAggregateInputType
+    _count?: true | TbluserCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: UserAvgAggregateInputType
+    _avg?: TbluserAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: UserSumAggregateInputType
+    _sum?: TbluserSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: UserMinAggregateInputType
+    _min?: TbluserMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: UserMaxAggregateInputType
+    _max?: TbluserMaxAggregateInputType
   }
 
-  export type GetUserAggregateType<T extends UserAggregateArgs> = {
-        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
+  export type GetTbluserAggregateType<T extends TbluserAggregateArgs> = {
+        [P in keyof T & keyof AggregateTbluser]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateUser[P]>
-      : GetScalarType<T[P], AggregateUser[P]>
+        : GetScalarType<T[P], AggregateTbluser[P]>
+      : GetScalarType<T[P], AggregateTbluser[P]>
   }
 
 
 
 
-  export type userGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: userWhereInput
-    orderBy?: userOrderByWithAggregationInput | userOrderByWithAggregationInput[]
-    by: UserScalarFieldEnum[] | UserScalarFieldEnum
-    having?: userScalarWhereWithAggregatesInput
+  export type tbluserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tbluserWhereInput
+    orderBy?: tbluserOrderByWithAggregationInput | tbluserOrderByWithAggregationInput[]
+    by: TbluserScalarFieldEnum[] | TbluserScalarFieldEnum
+    having?: tbluserScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: UserCountAggregateInputType | true
-    _avg?: UserAvgAggregateInputType
-    _sum?: UserSumAggregateInputType
-    _min?: UserMinAggregateInputType
-    _max?: UserMaxAggregateInputType
+    _count?: TbluserCountAggregateInputType | true
+    _avg?: TbluserAvgAggregateInputType
+    _sum?: TbluserSumAggregateInputType
+    _min?: TbluserMinAggregateInputType
+    _max?: TbluserMaxAggregateInputType
   }
 
-  export type UserGroupByOutputType = {
+  export type TbluserGroupByOutputType = {
     id: number
     name: string
     password: string
@@ -6043,28 +6546,29 @@ export namespace Prisma {
     email: string
     createdAt: Date
     updatedAt: Date
-    _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
-    _min: UserMinAggregateOutputType | null
-    _max: UserMaxAggregateOutputType | null
+    roleId: number
+    _count: TbluserCountAggregateOutputType | null
+    _avg: TbluserAvgAggregateOutputType | null
+    _sum: TbluserSumAggregateOutputType | null
+    _min: TbluserMinAggregateOutputType | null
+    _max: TbluserMaxAggregateOutputType | null
   }
 
-  type GetUserGroupByPayload<T extends userGroupByArgs> = Prisma.PrismaPromise<
+  type GetTbluserGroupByPayload<T extends tbluserGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<UserGroupByOutputType, T['by']> &
+      PickEnumerable<TbluserGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof TbluserGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], UserGroupByOutputType[P]>
-            : GetScalarType<T[P], UserGroupByOutputType[P]>
+              : GetScalarType<T[P], TbluserGroupByOutputType[P]>
+            : GetScalarType<T[P], TbluserGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type userSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type tbluserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     password?: boolean
@@ -6073,12 +6577,14 @@ export namespace Prisma {
     email?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    orders?: boolean | user$ordersArgs<ExtArgs>
-    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["user"]>
+    roleId?: boolean
+    role?: boolean | tblroleDefaultArgs<ExtArgs>
+    categories?: boolean | tbluser$categoriesArgs<ExtArgs>
+    _count?: boolean | TbluserCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tbluser"]>
 
 
-  export type userSelectScalar = {
+  export type tbluserSelectScalar = {
     id?: boolean
     name?: boolean
     password?: boolean
@@ -6087,17 +6593,20 @@ export namespace Prisma {
     email?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    roleId?: boolean
   }
 
-  export type userInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    orders?: boolean | user$ordersArgs<ExtArgs>
-    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  export type tbluserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    role?: boolean | tblroleDefaultArgs<ExtArgs>
+    categories?: boolean | tbluser$categoriesArgs<ExtArgs>
+    _count?: boolean | TbluserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
-  export type $userPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "user"
+  export type $tbluserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tbluser"
     objects: {
-      orders: Prisma.$orderPayload<ExtArgs>[]
+      role: Prisma.$tblrolePayload<ExtArgs>
+      categories: Prisma.$tblorderPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -6108,143 +6617,144 @@ export namespace Prisma {
       email: string
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["user"]>
+      roleId: number
+    }, ExtArgs["result"]["tbluser"]>
     composites: {}
   }
 
-  type userGetPayload<S extends boolean | null | undefined | userDefaultArgs> = $Result.GetResult<Prisma.$userPayload, S>
+  type tbluserGetPayload<S extends boolean | null | undefined | tbluserDefaultArgs> = $Result.GetResult<Prisma.$tbluserPayload, S>
 
-  type userCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<userFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: UserCountAggregateInputType | true
+  type tbluserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<tbluserFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TbluserCountAggregateInputType | true
     }
 
-  export interface userDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['user'], meta: { name: 'user' } }
+  export interface tbluserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tbluser'], meta: { name: 'tbluser' } }
     /**
-     * Find zero or one User that matches the filter.
-     * @param {userFindUniqueArgs} args - Arguments to find a User
+     * Find zero or one Tbluser that matches the filter.
+     * @param {tbluserFindUniqueArgs} args - Arguments to find a Tbluser
      * @example
-     * // Get one User
-     * const user = await prisma.user.findUnique({
+     * // Get one Tbluser
+     * const tbluser = await prisma.tbluser.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends userFindUniqueArgs>(args: SelectSubset<T, userFindUniqueArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+    findUnique<T extends tbluserFindUniqueArgs>(args: SelectSubset<T, tbluserFindUniqueArgs<ExtArgs>>): Prisma__tbluserClient<$Result.GetResult<Prisma.$tbluserPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one User that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one Tbluser that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {userFindUniqueOrThrowArgs} args - Arguments to find a User
+     * @param {tbluserFindUniqueOrThrowArgs} args - Arguments to find a Tbluser
      * @example
-     * // Get one User
-     * const user = await prisma.user.findUniqueOrThrow({
+     * // Get one Tbluser
+     * const tbluser = await prisma.tbluser.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends userFindUniqueOrThrowArgs>(args: SelectSubset<T, userFindUniqueOrThrowArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+    findUniqueOrThrow<T extends tbluserFindUniqueOrThrowArgs>(args: SelectSubset<T, tbluserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tbluserClient<$Result.GetResult<Prisma.$tbluserPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
-     * Find the first User that matches the filter.
+     * Find the first Tbluser that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {userFindFirstArgs} args - Arguments to find a User
+     * @param {tbluserFindFirstArgs} args - Arguments to find a Tbluser
      * @example
-     * // Get one User
-     * const user = await prisma.user.findFirst({
+     * // Get one Tbluser
+     * const tbluser = await prisma.tbluser.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends userFindFirstArgs>(args?: SelectSubset<T, userFindFirstArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+    findFirst<T extends tbluserFindFirstArgs>(args?: SelectSubset<T, tbluserFindFirstArgs<ExtArgs>>): Prisma__tbluserClient<$Result.GetResult<Prisma.$tbluserPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
-     * Find the first User that matches the filter or
+     * Find the first Tbluser that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {userFindFirstOrThrowArgs} args - Arguments to find a User
+     * @param {tbluserFindFirstOrThrowArgs} args - Arguments to find a Tbluser
      * @example
-     * // Get one User
-     * const user = await prisma.user.findFirstOrThrow({
+     * // Get one Tbluser
+     * const tbluser = await prisma.tbluser.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends userFindFirstOrThrowArgs>(args?: SelectSubset<T, userFindFirstOrThrowArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+    findFirstOrThrow<T extends tbluserFindFirstOrThrowArgs>(args?: SelectSubset<T, tbluserFindFirstOrThrowArgs<ExtArgs>>): Prisma__tbluserClient<$Result.GetResult<Prisma.$tbluserPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
-     * Find zero or more Users that matches the filter.
+     * Find zero or more Tblusers that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {userFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {tbluserFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Users
-     * const users = await prisma.user.findMany()
+     * // Get all Tblusers
+     * const tblusers = await prisma.tbluser.findMany()
      * 
-     * // Get first 10 Users
-     * const users = await prisma.user.findMany({ take: 10 })
+     * // Get first 10 Tblusers
+     * const tblusers = await prisma.tbluser.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
+     * const tbluserWithIdOnly = await prisma.tbluser.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends userFindManyArgs>(args?: SelectSubset<T, userFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findMany">>
+    findMany<T extends tbluserFindManyArgs>(args?: SelectSubset<T, tbluserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tbluserPayload<ExtArgs>, T, "findMany">>
 
     /**
-     * Create a User.
-     * @param {userCreateArgs} args - Arguments to create a User.
+     * Create a Tbluser.
+     * @param {tbluserCreateArgs} args - Arguments to create a Tbluser.
      * @example
-     * // Create one User
-     * const User = await prisma.user.create({
+     * // Create one Tbluser
+     * const Tbluser = await prisma.tbluser.create({
      *   data: {
-     *     // ... data to create a User
+     *     // ... data to create a Tbluser
      *   }
      * })
      * 
      */
-    create<T extends userCreateArgs>(args: SelectSubset<T, userCreateArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "create">, never, ExtArgs>
+    create<T extends tbluserCreateArgs>(args: SelectSubset<T, tbluserCreateArgs<ExtArgs>>): Prisma__tbluserClient<$Result.GetResult<Prisma.$tbluserPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
-     * Create many Users.
-     * @param {userCreateManyArgs} args - Arguments to create many Users.
+     * Create many Tblusers.
+     * @param {tbluserCreateManyArgs} args - Arguments to create many Tblusers.
      * @example
-     * // Create many Users
-     * const user = await prisma.user.createMany({
+     * // Create many Tblusers
+     * const tbluser = await prisma.tbluser.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends userCreateManyArgs>(args?: SelectSubset<T, userCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends tbluserCreateManyArgs>(args?: SelectSubset<T, tbluserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a User.
-     * @param {userDeleteArgs} args - Arguments to delete one User.
+     * Delete a Tbluser.
+     * @param {tbluserDeleteArgs} args - Arguments to delete one Tbluser.
      * @example
-     * // Delete one User
-     * const User = await prisma.user.delete({
+     * // Delete one Tbluser
+     * const Tbluser = await prisma.tbluser.delete({
      *   where: {
-     *     // ... filter to delete one User
+     *     // ... filter to delete one Tbluser
      *   }
      * })
      * 
      */
-    delete<T extends userDeleteArgs>(args: SelectSubset<T, userDeleteArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+    delete<T extends tbluserDeleteArgs>(args: SelectSubset<T, tbluserDeleteArgs<ExtArgs>>): Prisma__tbluserClient<$Result.GetResult<Prisma.$tbluserPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
-     * Update one User.
-     * @param {userUpdateArgs} args - Arguments to update one User.
+     * Update one Tbluser.
+     * @param {tbluserUpdateArgs} args - Arguments to update one Tbluser.
      * @example
-     * // Update one User
-     * const user = await prisma.user.update({
+     * // Update one Tbluser
+     * const tbluser = await prisma.tbluser.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6254,30 +6764,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends userUpdateArgs>(args: SelectSubset<T, userUpdateArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "update">, never, ExtArgs>
+    update<T extends tbluserUpdateArgs>(args: SelectSubset<T, tbluserUpdateArgs<ExtArgs>>): Prisma__tbluserClient<$Result.GetResult<Prisma.$tbluserPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
-     * Delete zero or more Users.
-     * @param {userDeleteManyArgs} args - Arguments to filter Users to delete.
+     * Delete zero or more Tblusers.
+     * @param {tbluserDeleteManyArgs} args - Arguments to filter Tblusers to delete.
      * @example
-     * // Delete a few Users
-     * const { count } = await prisma.user.deleteMany({
+     * // Delete a few Tblusers
+     * const { count } = await prisma.tbluser.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends userDeleteManyArgs>(args?: SelectSubset<T, userDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends tbluserDeleteManyArgs>(args?: SelectSubset<T, tbluserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Users.
+     * Update zero or more Tblusers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {userUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {tbluserUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Users
-     * const user = await prisma.user.updateMany({
+     * // Update many Tblusers
+     * const tbluser = await prisma.tbluser.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6287,56 +6797,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends userUpdateManyArgs>(args: SelectSubset<T, userUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends tbluserUpdateManyArgs>(args: SelectSubset<T, tbluserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one User.
-     * @param {userUpsertArgs} args - Arguments to update or create a User.
+     * Create or update one Tbluser.
+     * @param {tbluserUpsertArgs} args - Arguments to update or create a Tbluser.
      * @example
-     * // Update or create a User
-     * const user = await prisma.user.upsert({
+     * // Update or create a Tbluser
+     * const tbluser = await prisma.tbluser.upsert({
      *   create: {
-     *     // ... data to create a User
+     *     // ... data to create a Tbluser
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the User we want to update
+     *     // ... the filter for the Tbluser we want to update
      *   }
      * })
      */
-    upsert<T extends userUpsertArgs>(args: SelectSubset<T, userUpsertArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+    upsert<T extends tbluserUpsertArgs>(args: SelectSubset<T, tbluserUpsertArgs<ExtArgs>>): Prisma__tbluserClient<$Result.GetResult<Prisma.$tbluserPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
-     * Count the number of Users.
+     * Count the number of Tblusers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {userCountArgs} args - Arguments to filter Users to count.
+     * @param {tbluserCountArgs} args - Arguments to filter Tblusers to count.
      * @example
-     * // Count the number of Users
-     * const count = await prisma.user.count({
+     * // Count the number of Tblusers
+     * const count = await prisma.tbluser.count({
      *   where: {
-     *     // ... the filter for the Users we want to count
+     *     // ... the filter for the Tblusers we want to count
      *   }
      * })
     **/
-    count<T extends userCountArgs>(
-      args?: Subset<T, userCountArgs>,
+    count<T extends tbluserCountArgs>(
+      args?: Subset<T, tbluserCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], UserCountAggregateOutputType>
+          : GetScalarType<T['select'], TbluserCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a User.
+     * Allows you to perform aggregations operations on a Tbluser.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {TbluserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -6356,13 +6866,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
+    aggregate<T extends TbluserAggregateArgs>(args: Subset<T, TbluserAggregateArgs>): Prisma.PrismaPromise<GetTbluserAggregateType<T>>
 
     /**
-     * Group by User.
+     * Group by Tbluser.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {userGroupByArgs} args - Group by arguments.
+     * @param {tbluserGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -6377,14 +6887,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends userGroupByArgs,
+      T extends tbluserGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: userGroupByArgs['orderBy'] }
-        : { orderBy?: userGroupByArgs['orderBy'] },
+        ? { orderBy: tbluserGroupByArgs['orderBy'] }
+        : { orderBy?: tbluserGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -6433,22 +6943,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, userGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, tbluserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTbluserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the user model
+   * Fields of the tbluser model
    */
-  readonly fields: userFieldRefs;
+  readonly fields: tbluserFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for user.
+   * The delegate class that acts as a "Promise-like" for tbluser.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__userClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__tbluserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    orders<T extends user$ordersArgs<ExtArgs> = {}>(args?: Subset<T, user$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$orderPayload<ExtArgs>, T, "findMany"> | Null>
+    role<T extends tblroleDefaultArgs<ExtArgs> = {}>(args?: Subset<T, tblroleDefaultArgs<ExtArgs>>): Prisma__tblroleClient<$Result.GetResult<Prisma.$tblrolePayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    categories<T extends tbluser$categoriesArgs<ExtArgs> = {}>(args?: Subset<T, tbluser$categoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tblorderPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6475,347 +6986,1288 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the user model
+   * Fields of the tbluser model
    */ 
-  interface userFieldRefs {
-    readonly id: FieldRef<"user", 'Int'>
-    readonly name: FieldRef<"user", 'String'>
-    readonly password: FieldRef<"user", 'String'>
-    readonly telefono: FieldRef<"user", 'String'>
-    readonly direccion: FieldRef<"user", 'String'>
-    readonly email: FieldRef<"user", 'String'>
-    readonly createdAt: FieldRef<"user", 'DateTime'>
-    readonly updatedAt: FieldRef<"user", 'DateTime'>
+  interface tbluserFieldRefs {
+    readonly id: FieldRef<"tbluser", 'Int'>
+    readonly name: FieldRef<"tbluser", 'String'>
+    readonly password: FieldRef<"tbluser", 'String'>
+    readonly telefono: FieldRef<"tbluser", 'String'>
+    readonly direccion: FieldRef<"tbluser", 'String'>
+    readonly email: FieldRef<"tbluser", 'String'>
+    readonly createdAt: FieldRef<"tbluser", 'DateTime'>
+    readonly updatedAt: FieldRef<"tbluser", 'DateTime'>
+    readonly roleId: FieldRef<"tbluser", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * user findUnique
+   * tbluser findUnique
    */
-  export type userFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user
+     * Select specific fields to fetch from the tbluser
      */
-    select?: userSelect<ExtArgs> | null
+    select?: tbluserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: userInclude<ExtArgs> | null
+    include?: tbluserInclude<ExtArgs> | null
     /**
-     * Filter, which user to fetch.
+     * Filter, which tbluser to fetch.
      */
-    where: userWhereUniqueInput
+    where: tbluserWhereUniqueInput
   }
 
   /**
-   * user findUniqueOrThrow
+   * tbluser findUniqueOrThrow
    */
-  export type userFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user
+     * Select specific fields to fetch from the tbluser
      */
-    select?: userSelect<ExtArgs> | null
+    select?: tbluserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: userInclude<ExtArgs> | null
+    include?: tbluserInclude<ExtArgs> | null
     /**
-     * Filter, which user to fetch.
+     * Filter, which tbluser to fetch.
      */
-    where: userWhereUniqueInput
+    where: tbluserWhereUniqueInput
   }
 
   /**
-   * user findFirst
+   * tbluser findFirst
    */
-  export type userFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user
+     * Select specific fields to fetch from the tbluser
      */
-    select?: userSelect<ExtArgs> | null
+    select?: tbluserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: userInclude<ExtArgs> | null
+    include?: tbluserInclude<ExtArgs> | null
     /**
-     * Filter, which user to fetch.
+     * Filter, which tbluser to fetch.
      */
-    where?: userWhereInput
+    where?: tbluserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of users to fetch.
+     * Determine the order of tblusers to fetch.
      */
-    orderBy?: userOrderByWithRelationInput | userOrderByWithRelationInput[]
+    orderBy?: tbluserOrderByWithRelationInput | tbluserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for users.
+     * Sets the position for searching for tblusers.
      */
-    cursor?: userWhereUniqueInput
+    cursor?: tbluserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` users from the position of the cursor.
+     * Take `±n` tblusers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` users.
+     * Skip the first `n` tblusers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of users.
+     * Filter by unique combinations of tblusers.
      */
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: TbluserScalarFieldEnum | TbluserScalarFieldEnum[]
   }
 
   /**
-   * user findFirstOrThrow
+   * tbluser findFirstOrThrow
    */
-  export type userFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user
+     * Select specific fields to fetch from the tbluser
      */
-    select?: userSelect<ExtArgs> | null
+    select?: tbluserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: userInclude<ExtArgs> | null
+    include?: tbluserInclude<ExtArgs> | null
     /**
-     * Filter, which user to fetch.
+     * Filter, which tbluser to fetch.
      */
-    where?: userWhereInput
+    where?: tbluserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of users to fetch.
+     * Determine the order of tblusers to fetch.
      */
-    orderBy?: userOrderByWithRelationInput | userOrderByWithRelationInput[]
+    orderBy?: tbluserOrderByWithRelationInput | tbluserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for users.
+     * Sets the position for searching for tblusers.
      */
-    cursor?: userWhereUniqueInput
+    cursor?: tbluserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` users from the position of the cursor.
+     * Take `±n` tblusers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` users.
+     * Skip the first `n` tblusers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of users.
+     * Filter by unique combinations of tblusers.
      */
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: TbluserScalarFieldEnum | TbluserScalarFieldEnum[]
   }
 
   /**
-   * user findMany
+   * tbluser findMany
    */
-  export type userFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user
+     * Select specific fields to fetch from the tbluser
      */
-    select?: userSelect<ExtArgs> | null
+    select?: tbluserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: userInclude<ExtArgs> | null
+    include?: tbluserInclude<ExtArgs> | null
     /**
-     * Filter, which users to fetch.
+     * Filter, which tblusers to fetch.
      */
-    where?: userWhereInput
+    where?: tbluserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of users to fetch.
+     * Determine the order of tblusers to fetch.
      */
-    orderBy?: userOrderByWithRelationInput | userOrderByWithRelationInput[]
+    orderBy?: tbluserOrderByWithRelationInput | tbluserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing users.
+     * Sets the position for listing tblusers.
      */
-    cursor?: userWhereUniqueInput
+    cursor?: tbluserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` users from the position of the cursor.
+     * Take `±n` tblusers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` users.
+     * Skip the first `n` tblusers.
      */
     skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: TbluserScalarFieldEnum | TbluserScalarFieldEnum[]
   }
 
   /**
-   * user create
+   * tbluser create
    */
-  export type userCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user
+     * Select specific fields to fetch from the tbluser
      */
-    select?: userSelect<ExtArgs> | null
+    select?: tbluserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: userInclude<ExtArgs> | null
+    include?: tbluserInclude<ExtArgs> | null
     /**
-     * The data needed to create a user.
+     * The data needed to create a tbluser.
      */
-    data: XOR<userCreateInput, userUncheckedCreateInput>
+    data: XOR<tbluserCreateInput, tbluserUncheckedCreateInput>
   }
 
   /**
-   * user createMany
+   * tbluser createMany
    */
-  export type userCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many users.
+     * The data used to create many tblusers.
      */
-    data: userCreateManyInput | userCreateManyInput[]
+    data: tbluserCreateManyInput | tbluserCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * user update
+   * tbluser update
    */
-  export type userUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user
+     * Select specific fields to fetch from the tbluser
      */
-    select?: userSelect<ExtArgs> | null
+    select?: tbluserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: userInclude<ExtArgs> | null
+    include?: tbluserInclude<ExtArgs> | null
     /**
-     * The data needed to update a user.
+     * The data needed to update a tbluser.
      */
-    data: XOR<userUpdateInput, userUncheckedUpdateInput>
+    data: XOR<tbluserUpdateInput, tbluserUncheckedUpdateInput>
     /**
-     * Choose, which user to update.
+     * Choose, which tbluser to update.
      */
-    where: userWhereUniqueInput
+    where: tbluserWhereUniqueInput
   }
 
   /**
-   * user updateMany
+   * tbluser updateMany
    */
-  export type userUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update users.
+     * The data used to update tblusers.
      */
-    data: XOR<userUpdateManyMutationInput, userUncheckedUpdateManyInput>
+    data: XOR<tbluserUpdateManyMutationInput, tbluserUncheckedUpdateManyInput>
     /**
-     * Filter which users to update
+     * Filter which tblusers to update
      */
-    where?: userWhereInput
+    where?: tbluserWhereInput
   }
 
   /**
-   * user upsert
+   * tbluser upsert
    */
-  export type userUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user
+     * Select specific fields to fetch from the tbluser
      */
-    select?: userSelect<ExtArgs> | null
+    select?: tbluserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: userInclude<ExtArgs> | null
+    include?: tbluserInclude<ExtArgs> | null
     /**
-     * The filter to search for the user to update in case it exists.
+     * The filter to search for the tbluser to update in case it exists.
      */
-    where: userWhereUniqueInput
+    where: tbluserWhereUniqueInput
     /**
-     * In case the user found by the `where` argument doesn't exist, create a new user with this data.
+     * In case the tbluser found by the `where` argument doesn't exist, create a new tbluser with this data.
      */
-    create: XOR<userCreateInput, userUncheckedCreateInput>
+    create: XOR<tbluserCreateInput, tbluserUncheckedCreateInput>
     /**
-     * In case the user was found with the provided `where` argument, update it with this data.
+     * In case the tbluser was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<userUpdateInput, userUncheckedUpdateInput>
+    update: XOR<tbluserUpdateInput, tbluserUncheckedUpdateInput>
   }
 
   /**
-   * user delete
+   * tbluser delete
    */
-  export type userDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user
+     * Select specific fields to fetch from the tbluser
      */
-    select?: userSelect<ExtArgs> | null
+    select?: tbluserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: userInclude<ExtArgs> | null
+    include?: tbluserInclude<ExtArgs> | null
     /**
-     * Filter which user to delete.
+     * Filter which tbluser to delete.
      */
-    where: userWhereUniqueInput
+    where: tbluserWhereUniqueInput
   }
 
   /**
-   * user deleteMany
+   * tbluser deleteMany
    */
-  export type userDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which users to delete
+     * Filter which tblusers to delete
      */
-    where?: userWhereInput
+    where?: tbluserWhereInput
   }
 
   /**
-   * user.orders
+   * tbluser.categories
    */
-  export type user$ordersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluser$categoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the order
+     * Select specific fields to fetch from the tblorder
      */
-    select?: orderSelect<ExtArgs> | null
+    select?: tblorderSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: orderInclude<ExtArgs> | null
-    where?: orderWhereInput
-    orderBy?: orderOrderByWithRelationInput | orderOrderByWithRelationInput[]
-    cursor?: orderWhereUniqueInput
+    include?: tblorderInclude<ExtArgs> | null
+    where?: tblorderWhereInput
+    orderBy?: tblorderOrderByWithRelationInput | tblorderOrderByWithRelationInput[]
+    cursor?: tblorderWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: OrderScalarFieldEnum | OrderScalarFieldEnum[]
+    distinct?: TblorderScalarFieldEnum | TblorderScalarFieldEnum[]
   }
 
   /**
-   * user without action
+   * tbluser without action
    */
-  export type userDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbluserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user
+     * Select specific fields to fetch from the tbluser
      */
-    select?: userSelect<ExtArgs> | null
+    select?: tbluserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: userInclude<ExtArgs> | null
+    include?: tbluserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model tblorder
+   */
+
+  export type AggregateTblorder = {
+    _count: TblorderCountAggregateOutputType | null
+    _avg: TblorderAvgAggregateOutputType | null
+    _sum: TblorderSumAggregateOutputType | null
+    _min: TblorderMinAggregateOutputType | null
+    _max: TblorderMaxAggregateOutputType | null
+  }
+
+  export type TblorderAvgAggregateOutputType = {
+    id: number | null
+    quantity: number | null
+    userId: number | null
+    productId: number | null
+  }
+
+  export type TblorderSumAggregateOutputType = {
+    id: number | null
+    quantity: number | null
+    userId: number | null
+    productId: number | null
+  }
+
+  export type TblorderMinAggregateOutputType = {
+    id: number | null
+    quantity: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: number | null
+    productId: number | null
+  }
+
+  export type TblorderMaxAggregateOutputType = {
+    id: number | null
+    quantity: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: number | null
+    productId: number | null
+  }
+
+  export type TblorderCountAggregateOutputType = {
+    id: number
+    quantity: number
+    createdAt: number
+    updatedAt: number
+    userId: number
+    productId: number
+    _all: number
+  }
+
+
+  export type TblorderAvgAggregateInputType = {
+    id?: true
+    quantity?: true
+    userId?: true
+    productId?: true
+  }
+
+  export type TblorderSumAggregateInputType = {
+    id?: true
+    quantity?: true
+    userId?: true
+    productId?: true
+  }
+
+  export type TblorderMinAggregateInputType = {
+    id?: true
+    quantity?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    productId?: true
+  }
+
+  export type TblorderMaxAggregateInputType = {
+    id?: true
+    quantity?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    productId?: true
+  }
+
+  export type TblorderCountAggregateInputType = {
+    id?: true
+    quantity?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    productId?: true
+    _all?: true
+  }
+
+  export type TblorderAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tblorder to aggregate.
+     */
+    where?: tblorderWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tblorders to fetch.
+     */
+    orderBy?: tblorderOrderByWithRelationInput | tblorderOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: tblorderWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tblorders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tblorders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned tblorders
+    **/
+    _count?: true | TblorderCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TblorderAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TblorderSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TblorderMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TblorderMaxAggregateInputType
+  }
+
+  export type GetTblorderAggregateType<T extends TblorderAggregateArgs> = {
+        [P in keyof T & keyof AggregateTblorder]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTblorder[P]>
+      : GetScalarType<T[P], AggregateTblorder[P]>
+  }
+
+
+
+
+  export type tblorderGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tblorderWhereInput
+    orderBy?: tblorderOrderByWithAggregationInput | tblorderOrderByWithAggregationInput[]
+    by: TblorderScalarFieldEnum[] | TblorderScalarFieldEnum
+    having?: tblorderScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TblorderCountAggregateInputType | true
+    _avg?: TblorderAvgAggregateInputType
+    _sum?: TblorderSumAggregateInputType
+    _min?: TblorderMinAggregateInputType
+    _max?: TblorderMaxAggregateInputType
+  }
+
+  export type TblorderGroupByOutputType = {
+    id: number
+    quantity: number
+    createdAt: Date
+    updatedAt: Date
+    userId: number
+    productId: number
+    _count: TblorderCountAggregateOutputType | null
+    _avg: TblorderAvgAggregateOutputType | null
+    _sum: TblorderSumAggregateOutputType | null
+    _min: TblorderMinAggregateOutputType | null
+    _max: TblorderMaxAggregateOutputType | null
+  }
+
+  type GetTblorderGroupByPayload<T extends tblorderGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TblorderGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TblorderGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TblorderGroupByOutputType[P]>
+            : GetScalarType<T[P], TblorderGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type tblorderSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    quantity?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    productId?: boolean
+    user?: boolean | tbluserDefaultArgs<ExtArgs>
+    product?: boolean | tblproductDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tblorder"]>
+
+
+  export type tblorderSelectScalar = {
+    id?: boolean
+    quantity?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    productId?: boolean
+  }
+
+  export type tblorderInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | tbluserDefaultArgs<ExtArgs>
+    product?: boolean | tblproductDefaultArgs<ExtArgs>
+  }
+
+  export type $tblorderPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tblorder"
+    objects: {
+      user: Prisma.$tbluserPayload<ExtArgs>
+      product: Prisma.$tblproductPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      quantity: number
+      createdAt: Date
+      updatedAt: Date
+      userId: number
+      productId: number
+    }, ExtArgs["result"]["tblorder"]>
+    composites: {}
+  }
+
+  type tblorderGetPayload<S extends boolean | null | undefined | tblorderDefaultArgs> = $Result.GetResult<Prisma.$tblorderPayload, S>
+
+  type tblorderCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<tblorderFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TblorderCountAggregateInputType | true
+    }
+
+  export interface tblorderDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tblorder'], meta: { name: 'tblorder' } }
+    /**
+     * Find zero or one Tblorder that matches the filter.
+     * @param {tblorderFindUniqueArgs} args - Arguments to find a Tblorder
+     * @example
+     * // Get one Tblorder
+     * const tblorder = await prisma.tblorder.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends tblorderFindUniqueArgs>(args: SelectSubset<T, tblorderFindUniqueArgs<ExtArgs>>): Prisma__tblorderClient<$Result.GetResult<Prisma.$tblorderPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Tblorder that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {tblorderFindUniqueOrThrowArgs} args - Arguments to find a Tblorder
+     * @example
+     * // Get one Tblorder
+     * const tblorder = await prisma.tblorder.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends tblorderFindUniqueOrThrowArgs>(args: SelectSubset<T, tblorderFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tblorderClient<$Result.GetResult<Prisma.$tblorderPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Tblorder that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tblorderFindFirstArgs} args - Arguments to find a Tblorder
+     * @example
+     * // Get one Tblorder
+     * const tblorder = await prisma.tblorder.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends tblorderFindFirstArgs>(args?: SelectSubset<T, tblorderFindFirstArgs<ExtArgs>>): Prisma__tblorderClient<$Result.GetResult<Prisma.$tblorderPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Tblorder that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tblorderFindFirstOrThrowArgs} args - Arguments to find a Tblorder
+     * @example
+     * // Get one Tblorder
+     * const tblorder = await prisma.tblorder.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends tblorderFindFirstOrThrowArgs>(args?: SelectSubset<T, tblorderFindFirstOrThrowArgs<ExtArgs>>): Prisma__tblorderClient<$Result.GetResult<Prisma.$tblorderPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Tblorders that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tblorderFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tblorders
+     * const tblorders = await prisma.tblorder.findMany()
+     * 
+     * // Get first 10 Tblorders
+     * const tblorders = await prisma.tblorder.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tblorderWithIdOnly = await prisma.tblorder.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends tblorderFindManyArgs>(args?: SelectSubset<T, tblorderFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tblorderPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Tblorder.
+     * @param {tblorderCreateArgs} args - Arguments to create a Tblorder.
+     * @example
+     * // Create one Tblorder
+     * const Tblorder = await prisma.tblorder.create({
+     *   data: {
+     *     // ... data to create a Tblorder
+     *   }
+     * })
+     * 
+     */
+    create<T extends tblorderCreateArgs>(args: SelectSubset<T, tblorderCreateArgs<ExtArgs>>): Prisma__tblorderClient<$Result.GetResult<Prisma.$tblorderPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Tblorders.
+     * @param {tblorderCreateManyArgs} args - Arguments to create many Tblorders.
+     * @example
+     * // Create many Tblorders
+     * const tblorder = await prisma.tblorder.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends tblorderCreateManyArgs>(args?: SelectSubset<T, tblorderCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Tblorder.
+     * @param {tblorderDeleteArgs} args - Arguments to delete one Tblorder.
+     * @example
+     * // Delete one Tblorder
+     * const Tblorder = await prisma.tblorder.delete({
+     *   where: {
+     *     // ... filter to delete one Tblorder
+     *   }
+     * })
+     * 
+     */
+    delete<T extends tblorderDeleteArgs>(args: SelectSubset<T, tblorderDeleteArgs<ExtArgs>>): Prisma__tblorderClient<$Result.GetResult<Prisma.$tblorderPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Tblorder.
+     * @param {tblorderUpdateArgs} args - Arguments to update one Tblorder.
+     * @example
+     * // Update one Tblorder
+     * const tblorder = await prisma.tblorder.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends tblorderUpdateArgs>(args: SelectSubset<T, tblorderUpdateArgs<ExtArgs>>): Prisma__tblorderClient<$Result.GetResult<Prisma.$tblorderPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Tblorders.
+     * @param {tblorderDeleteManyArgs} args - Arguments to filter Tblorders to delete.
+     * @example
+     * // Delete a few Tblorders
+     * const { count } = await prisma.tblorder.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends tblorderDeleteManyArgs>(args?: SelectSubset<T, tblorderDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tblorders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tblorderUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tblorders
+     * const tblorder = await prisma.tblorder.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends tblorderUpdateManyArgs>(args: SelectSubset<T, tblorderUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Tblorder.
+     * @param {tblorderUpsertArgs} args - Arguments to update or create a Tblorder.
+     * @example
+     * // Update or create a Tblorder
+     * const tblorder = await prisma.tblorder.upsert({
+     *   create: {
+     *     // ... data to create a Tblorder
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Tblorder we want to update
+     *   }
+     * })
+     */
+    upsert<T extends tblorderUpsertArgs>(args: SelectSubset<T, tblorderUpsertArgs<ExtArgs>>): Prisma__tblorderClient<$Result.GetResult<Prisma.$tblorderPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Tblorders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tblorderCountArgs} args - Arguments to filter Tblorders to count.
+     * @example
+     * // Count the number of Tblorders
+     * const count = await prisma.tblorder.count({
+     *   where: {
+     *     // ... the filter for the Tblorders we want to count
+     *   }
+     * })
+    **/
+    count<T extends tblorderCountArgs>(
+      args?: Subset<T, tblorderCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TblorderCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Tblorder.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TblorderAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TblorderAggregateArgs>(args: Subset<T, TblorderAggregateArgs>): Prisma.PrismaPromise<GetTblorderAggregateType<T>>
+
+    /**
+     * Group by Tblorder.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tblorderGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends tblorderGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: tblorderGroupByArgs['orderBy'] }
+        : { orderBy?: tblorderGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, tblorderGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTblorderGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the tblorder model
+   */
+  readonly fields: tblorderFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for tblorder.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__tblorderClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends tbluserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, tbluserDefaultArgs<ExtArgs>>): Prisma__tbluserClient<$Result.GetResult<Prisma.$tbluserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    product<T extends tblproductDefaultArgs<ExtArgs> = {}>(args?: Subset<T, tblproductDefaultArgs<ExtArgs>>): Prisma__tblproductClient<$Result.GetResult<Prisma.$tblproductPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the tblorder model
+   */ 
+  interface tblorderFieldRefs {
+    readonly id: FieldRef<"tblorder", 'Int'>
+    readonly quantity: FieldRef<"tblorder", 'Int'>
+    readonly createdAt: FieldRef<"tblorder", 'DateTime'>
+    readonly updatedAt: FieldRef<"tblorder", 'DateTime'>
+    readonly userId: FieldRef<"tblorder", 'Int'>
+    readonly productId: FieldRef<"tblorder", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * tblorder findUnique
+   */
+  export type tblorderFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblorder
+     */
+    select?: tblorderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblorderInclude<ExtArgs> | null
+    /**
+     * Filter, which tblorder to fetch.
+     */
+    where: tblorderWhereUniqueInput
+  }
+
+  /**
+   * tblorder findUniqueOrThrow
+   */
+  export type tblorderFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblorder
+     */
+    select?: tblorderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblorderInclude<ExtArgs> | null
+    /**
+     * Filter, which tblorder to fetch.
+     */
+    where: tblorderWhereUniqueInput
+  }
+
+  /**
+   * tblorder findFirst
+   */
+  export type tblorderFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblorder
+     */
+    select?: tblorderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblorderInclude<ExtArgs> | null
+    /**
+     * Filter, which tblorder to fetch.
+     */
+    where?: tblorderWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tblorders to fetch.
+     */
+    orderBy?: tblorderOrderByWithRelationInput | tblorderOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tblorders.
+     */
+    cursor?: tblorderWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tblorders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tblorders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tblorders.
+     */
+    distinct?: TblorderScalarFieldEnum | TblorderScalarFieldEnum[]
+  }
+
+  /**
+   * tblorder findFirstOrThrow
+   */
+  export type tblorderFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblorder
+     */
+    select?: tblorderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblorderInclude<ExtArgs> | null
+    /**
+     * Filter, which tblorder to fetch.
+     */
+    where?: tblorderWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tblorders to fetch.
+     */
+    orderBy?: tblorderOrderByWithRelationInput | tblorderOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tblorders.
+     */
+    cursor?: tblorderWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tblorders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tblorders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tblorders.
+     */
+    distinct?: TblorderScalarFieldEnum | TblorderScalarFieldEnum[]
+  }
+
+  /**
+   * tblorder findMany
+   */
+  export type tblorderFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblorder
+     */
+    select?: tblorderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblorderInclude<ExtArgs> | null
+    /**
+     * Filter, which tblorders to fetch.
+     */
+    where?: tblorderWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tblorders to fetch.
+     */
+    orderBy?: tblorderOrderByWithRelationInput | tblorderOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing tblorders.
+     */
+    cursor?: tblorderWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tblorders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tblorders.
+     */
+    skip?: number
+    distinct?: TblorderScalarFieldEnum | TblorderScalarFieldEnum[]
+  }
+
+  /**
+   * tblorder create
+   */
+  export type tblorderCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblorder
+     */
+    select?: tblorderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblorderInclude<ExtArgs> | null
+    /**
+     * The data needed to create a tblorder.
+     */
+    data: XOR<tblorderCreateInput, tblorderUncheckedCreateInput>
+  }
+
+  /**
+   * tblorder createMany
+   */
+  export type tblorderCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many tblorders.
+     */
+    data: tblorderCreateManyInput | tblorderCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * tblorder update
+   */
+  export type tblorderUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblorder
+     */
+    select?: tblorderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblorderInclude<ExtArgs> | null
+    /**
+     * The data needed to update a tblorder.
+     */
+    data: XOR<tblorderUpdateInput, tblorderUncheckedUpdateInput>
+    /**
+     * Choose, which tblorder to update.
+     */
+    where: tblorderWhereUniqueInput
+  }
+
+  /**
+   * tblorder updateMany
+   */
+  export type tblorderUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update tblorders.
+     */
+    data: XOR<tblorderUpdateManyMutationInput, tblorderUncheckedUpdateManyInput>
+    /**
+     * Filter which tblorders to update
+     */
+    where?: tblorderWhereInput
+  }
+
+  /**
+   * tblorder upsert
+   */
+  export type tblorderUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblorder
+     */
+    select?: tblorderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblorderInclude<ExtArgs> | null
+    /**
+     * The filter to search for the tblorder to update in case it exists.
+     */
+    where: tblorderWhereUniqueInput
+    /**
+     * In case the tblorder found by the `where` argument doesn't exist, create a new tblorder with this data.
+     */
+    create: XOR<tblorderCreateInput, tblorderUncheckedCreateInput>
+    /**
+     * In case the tblorder was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<tblorderUpdateInput, tblorderUncheckedUpdateInput>
+  }
+
+  /**
+   * tblorder delete
+   */
+  export type tblorderDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblorder
+     */
+    select?: tblorderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblorderInclude<ExtArgs> | null
+    /**
+     * Filter which tblorder to delete.
+     */
+    where: tblorderWhereUniqueInput
+  }
+
+  /**
+   * tblorder deleteMany
+   */
+  export type tblorderDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tblorders to delete
+     */
+    where?: tblorderWhereInput
+  }
+
+  /**
+   * tblorder without action
+   */
+  export type tblorderDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tblorder
+     */
+    select?: tblorderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tblorderInclude<ExtArgs> | null
   }
 
 
@@ -6833,7 +8285,7 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const GroupScalarFieldEnum: {
+  export const TblgroupScalarFieldEnum: {
     id: 'id',
     group: 'group',
     description: 'description',
@@ -6842,10 +8294,10 @@ export namespace Prisma {
     updatedAt: 'updatedAt'
   };
 
-  export type GroupScalarFieldEnum = (typeof GroupScalarFieldEnum)[keyof typeof GroupScalarFieldEnum]
+  export type TblgroupScalarFieldEnum = (typeof TblgroupScalarFieldEnum)[keyof typeof TblgroupScalarFieldEnum]
 
 
-  export const SubgroupScalarFieldEnum: {
+  export const TblsubgroupScalarFieldEnum: {
     id: 'id',
     subgroup: 'subgroup',
     description: 'description',
@@ -6855,10 +8307,10 @@ export namespace Prisma {
     groupId: 'groupId'
   };
 
-  export type SubgroupScalarFieldEnum = (typeof SubgroupScalarFieldEnum)[keyof typeof SubgroupScalarFieldEnum]
+  export type TblsubgroupScalarFieldEnum = (typeof TblsubgroupScalarFieldEnum)[keyof typeof TblsubgroupScalarFieldEnum]
 
 
-  export const CategoryScalarFieldEnum: {
+  export const TblcategoryScalarFieldEnum: {
     id: 'id',
     category: 'category',
     description: 'description',
@@ -6868,12 +8320,13 @@ export namespace Prisma {
     subgroupId: 'subgroupId'
   };
 
-  export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
+  export type TblcategoryScalarFieldEnum = (typeof TblcategoryScalarFieldEnum)[keyof typeof TblcategoryScalarFieldEnum]
 
 
-  export const ProductScalarFieldEnum: {
+  export const TblproductScalarFieldEnum: {
     id: 'id',
     product: 'product',
+    description: 'description',
     price: 'price',
     stock: 'stock',
     unit: 'unit',
@@ -6883,22 +8336,22 @@ export namespace Prisma {
     categoryId: 'categoryId'
   };
 
-  export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
+  export type TblproductScalarFieldEnum = (typeof TblproductScalarFieldEnum)[keyof typeof TblproductScalarFieldEnum]
 
 
-  export const OrderScalarFieldEnum: {
+  export const TblroleScalarFieldEnum: {
     id: 'id',
-    userId: 'userId',
-    productId: 'productId',
-    quantity: 'quantity',
+    role: 'role',
+    description: 'description',
+    image: 'image',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
-  export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof OrderScalarFieldEnum]
+  export type TblroleScalarFieldEnum = (typeof TblroleScalarFieldEnum)[keyof typeof TblroleScalarFieldEnum]
 
 
-  export const UserScalarFieldEnum: {
+  export const TbluserScalarFieldEnum: {
     id: 'id',
     name: 'name',
     password: 'password',
@@ -6906,10 +8359,23 @@ export namespace Prisma {
     direccion: 'direccion',
     email: 'email',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    roleId: 'roleId'
   };
 
-  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+  export type TbluserScalarFieldEnum = (typeof TbluserScalarFieldEnum)[keyof typeof TbluserScalarFieldEnum]
+
+
+  export const TblorderScalarFieldEnum: {
+    id: 'id',
+    quantity: 'quantity',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    userId: 'userId',
+    productId: 'productId'
+  };
+
+  export type TblorderScalarFieldEnum = (typeof TblorderScalarFieldEnum)[keyof typeof TblorderScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -6918,6 +8384,14 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -6956,211 +8430,230 @@ export namespace Prisma {
    */
 
 
-  export type groupWhereInput = {
-    AND?: groupWhereInput | groupWhereInput[]
-    OR?: groupWhereInput[]
-    NOT?: groupWhereInput | groupWhereInput[]
-    id?: IntFilter<"group"> | number
-    group?: StringFilter<"group"> | string
-    description?: StringFilter<"group"> | string
-    image?: StringFilter<"group"> | string
-    createdAt?: DateTimeFilter<"group"> | Date | string
-    updatedAt?: DateTimeFilter<"group"> | Date | string
+  export type tblgroupWhereInput = {
+    AND?: tblgroupWhereInput | tblgroupWhereInput[]
+    OR?: tblgroupWhereInput[]
+    NOT?: tblgroupWhereInput | tblgroupWhereInput[]
+    id?: IntFilter<"tblgroup"> | number
+    group?: StringFilter<"tblgroup"> | string
+    description?: StringNullableFilter<"tblgroup"> | string | null
+    image?: StringFilter<"tblgroup"> | string
+    createdAt?: DateTimeFilter<"tblgroup"> | Date | string
+    updatedAt?: DateTimeFilter<"tblgroup"> | Date | string
+    subgroups?: TblsubgroupListRelationFilter
   }
 
-  export type groupOrderByWithRelationInput = {
+  export type tblgroupOrderByWithRelationInput = {
     id?: SortOrder
     group?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    subgroups?: tblsubgroupOrderByRelationAggregateInput
   }
 
-  export type groupWhereUniqueInput = Prisma.AtLeast<{
+  export type tblgroupWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: groupWhereInput | groupWhereInput[]
-    OR?: groupWhereInput[]
-    NOT?: groupWhereInput | groupWhereInput[]
-    group?: StringFilter<"group"> | string
-    description?: StringFilter<"group"> | string
-    image?: StringFilter<"group"> | string
-    createdAt?: DateTimeFilter<"group"> | Date | string
-    updatedAt?: DateTimeFilter<"group"> | Date | string
+    AND?: tblgroupWhereInput | tblgroupWhereInput[]
+    OR?: tblgroupWhereInput[]
+    NOT?: tblgroupWhereInput | tblgroupWhereInput[]
+    group?: StringFilter<"tblgroup"> | string
+    description?: StringNullableFilter<"tblgroup"> | string | null
+    image?: StringFilter<"tblgroup"> | string
+    createdAt?: DateTimeFilter<"tblgroup"> | Date | string
+    updatedAt?: DateTimeFilter<"tblgroup"> | Date | string
+    subgroups?: TblsubgroupListRelationFilter
   }, "id">
 
-  export type groupOrderByWithAggregationInput = {
+  export type tblgroupOrderByWithAggregationInput = {
     id?: SortOrder
     group?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: groupCountOrderByAggregateInput
-    _avg?: groupAvgOrderByAggregateInput
-    _max?: groupMaxOrderByAggregateInput
-    _min?: groupMinOrderByAggregateInput
-    _sum?: groupSumOrderByAggregateInput
+    _count?: tblgroupCountOrderByAggregateInput
+    _avg?: tblgroupAvgOrderByAggregateInput
+    _max?: tblgroupMaxOrderByAggregateInput
+    _min?: tblgroupMinOrderByAggregateInput
+    _sum?: tblgroupSumOrderByAggregateInput
   }
 
-  export type groupScalarWhereWithAggregatesInput = {
-    AND?: groupScalarWhereWithAggregatesInput | groupScalarWhereWithAggregatesInput[]
-    OR?: groupScalarWhereWithAggregatesInput[]
-    NOT?: groupScalarWhereWithAggregatesInput | groupScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"group"> | number
-    group?: StringWithAggregatesFilter<"group"> | string
-    description?: StringWithAggregatesFilter<"group"> | string
-    image?: StringWithAggregatesFilter<"group"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"group"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"group"> | Date | string
+  export type tblgroupScalarWhereWithAggregatesInput = {
+    AND?: tblgroupScalarWhereWithAggregatesInput | tblgroupScalarWhereWithAggregatesInput[]
+    OR?: tblgroupScalarWhereWithAggregatesInput[]
+    NOT?: tblgroupScalarWhereWithAggregatesInput | tblgroupScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tblgroup"> | number
+    group?: StringWithAggregatesFilter<"tblgroup"> | string
+    description?: StringNullableWithAggregatesFilter<"tblgroup"> | string | null
+    image?: StringWithAggregatesFilter<"tblgroup"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"tblgroup"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"tblgroup"> | Date | string
   }
 
-  export type subgroupWhereInput = {
-    AND?: subgroupWhereInput | subgroupWhereInput[]
-    OR?: subgroupWhereInput[]
-    NOT?: subgroupWhereInput | subgroupWhereInput[]
-    id?: IntFilter<"subgroup"> | number
-    subgroup?: StringFilter<"subgroup"> | string
-    description?: StringFilter<"subgroup"> | string
-    image?: StringFilter<"subgroup"> | string
-    createdAt?: DateTimeFilter<"subgroup"> | Date | string
-    updatedAt?: DateTimeFilter<"subgroup"> | Date | string
-    groupId?: IntFilter<"subgroup"> | number
+  export type tblsubgroupWhereInput = {
+    AND?: tblsubgroupWhereInput | tblsubgroupWhereInput[]
+    OR?: tblsubgroupWhereInput[]
+    NOT?: tblsubgroupWhereInput | tblsubgroupWhereInput[]
+    id?: IntFilter<"tblsubgroup"> | number
+    subgroup?: StringFilter<"tblsubgroup"> | string
+    description?: StringNullableFilter<"tblsubgroup"> | string | null
+    image?: StringFilter<"tblsubgroup"> | string
+    createdAt?: DateTimeFilter<"tblsubgroup"> | Date | string
+    updatedAt?: DateTimeFilter<"tblsubgroup"> | Date | string
+    groupId?: IntFilter<"tblsubgroup"> | number
+    group?: XOR<TblgroupRelationFilter, tblgroupWhereInput>
+    categories?: TblcategoryListRelationFilter
   }
 
-  export type subgroupOrderByWithRelationInput = {
+  export type tblsubgroupOrderByWithRelationInput = {
     id?: SortOrder
     subgroup?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     groupId?: SortOrder
+    group?: tblgroupOrderByWithRelationInput
+    categories?: tblcategoryOrderByRelationAggregateInput
   }
 
-  export type subgroupWhereUniqueInput = Prisma.AtLeast<{
+  export type tblsubgroupWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: subgroupWhereInput | subgroupWhereInput[]
-    OR?: subgroupWhereInput[]
-    NOT?: subgroupWhereInput | subgroupWhereInput[]
-    subgroup?: StringFilter<"subgroup"> | string
-    description?: StringFilter<"subgroup"> | string
-    image?: StringFilter<"subgroup"> | string
-    createdAt?: DateTimeFilter<"subgroup"> | Date | string
-    updatedAt?: DateTimeFilter<"subgroup"> | Date | string
-    groupId?: IntFilter<"subgroup"> | number
+    AND?: tblsubgroupWhereInput | tblsubgroupWhereInput[]
+    OR?: tblsubgroupWhereInput[]
+    NOT?: tblsubgroupWhereInput | tblsubgroupWhereInput[]
+    subgroup?: StringFilter<"tblsubgroup"> | string
+    description?: StringNullableFilter<"tblsubgroup"> | string | null
+    image?: StringFilter<"tblsubgroup"> | string
+    createdAt?: DateTimeFilter<"tblsubgroup"> | Date | string
+    updatedAt?: DateTimeFilter<"tblsubgroup"> | Date | string
+    groupId?: IntFilter<"tblsubgroup"> | number
+    group?: XOR<TblgroupRelationFilter, tblgroupWhereInput>
+    categories?: TblcategoryListRelationFilter
   }, "id">
 
-  export type subgroupOrderByWithAggregationInput = {
+  export type tblsubgroupOrderByWithAggregationInput = {
     id?: SortOrder
     subgroup?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     groupId?: SortOrder
-    _count?: subgroupCountOrderByAggregateInput
-    _avg?: subgroupAvgOrderByAggregateInput
-    _max?: subgroupMaxOrderByAggregateInput
-    _min?: subgroupMinOrderByAggregateInput
-    _sum?: subgroupSumOrderByAggregateInput
+    _count?: tblsubgroupCountOrderByAggregateInput
+    _avg?: tblsubgroupAvgOrderByAggregateInput
+    _max?: tblsubgroupMaxOrderByAggregateInput
+    _min?: tblsubgroupMinOrderByAggregateInput
+    _sum?: tblsubgroupSumOrderByAggregateInput
   }
 
-  export type subgroupScalarWhereWithAggregatesInput = {
-    AND?: subgroupScalarWhereWithAggregatesInput | subgroupScalarWhereWithAggregatesInput[]
-    OR?: subgroupScalarWhereWithAggregatesInput[]
-    NOT?: subgroupScalarWhereWithAggregatesInput | subgroupScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"subgroup"> | number
-    subgroup?: StringWithAggregatesFilter<"subgroup"> | string
-    description?: StringWithAggregatesFilter<"subgroup"> | string
-    image?: StringWithAggregatesFilter<"subgroup"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"subgroup"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"subgroup"> | Date | string
-    groupId?: IntWithAggregatesFilter<"subgroup"> | number
+  export type tblsubgroupScalarWhereWithAggregatesInput = {
+    AND?: tblsubgroupScalarWhereWithAggregatesInput | tblsubgroupScalarWhereWithAggregatesInput[]
+    OR?: tblsubgroupScalarWhereWithAggregatesInput[]
+    NOT?: tblsubgroupScalarWhereWithAggregatesInput | tblsubgroupScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tblsubgroup"> | number
+    subgroup?: StringWithAggregatesFilter<"tblsubgroup"> | string
+    description?: StringNullableWithAggregatesFilter<"tblsubgroup"> | string | null
+    image?: StringWithAggregatesFilter<"tblsubgroup"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"tblsubgroup"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"tblsubgroup"> | Date | string
+    groupId?: IntWithAggregatesFilter<"tblsubgroup"> | number
   }
 
-  export type categoryWhereInput = {
-    AND?: categoryWhereInput | categoryWhereInput[]
-    OR?: categoryWhereInput[]
-    NOT?: categoryWhereInput | categoryWhereInput[]
-    id?: IntFilter<"category"> | number
-    category?: StringFilter<"category"> | string
-    description?: StringFilter<"category"> | string
-    image?: StringFilter<"category"> | string
-    createdAt?: DateTimeFilter<"category"> | Date | string
-    updatedAt?: DateTimeFilter<"category"> | Date | string
-    subgroupId?: IntFilter<"category"> | number
+  export type tblcategoryWhereInput = {
+    AND?: tblcategoryWhereInput | tblcategoryWhereInput[]
+    OR?: tblcategoryWhereInput[]
+    NOT?: tblcategoryWhereInput | tblcategoryWhereInput[]
+    id?: IntFilter<"tblcategory"> | number
+    category?: StringFilter<"tblcategory"> | string
+    description?: StringNullableFilter<"tblcategory"> | string | null
+    image?: StringFilter<"tblcategory"> | string
+    createdAt?: DateTimeFilter<"tblcategory"> | Date | string
+    updatedAt?: DateTimeFilter<"tblcategory"> | Date | string
+    subgroupId?: IntFilter<"tblcategory"> | number
+    subgroup?: XOR<TblsubgroupRelationFilter, tblsubgroupWhereInput>
+    products?: TblproductListRelationFilter
   }
 
-  export type categoryOrderByWithRelationInput = {
+  export type tblcategoryOrderByWithRelationInput = {
     id?: SortOrder
     category?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     subgroupId?: SortOrder
+    subgroup?: tblsubgroupOrderByWithRelationInput
+    products?: tblproductOrderByRelationAggregateInput
   }
 
-  export type categoryWhereUniqueInput = Prisma.AtLeast<{
+  export type tblcategoryWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: categoryWhereInput | categoryWhereInput[]
-    OR?: categoryWhereInput[]
-    NOT?: categoryWhereInput | categoryWhereInput[]
-    category?: StringFilter<"category"> | string
-    description?: StringFilter<"category"> | string
-    image?: StringFilter<"category"> | string
-    createdAt?: DateTimeFilter<"category"> | Date | string
-    updatedAt?: DateTimeFilter<"category"> | Date | string
-    subgroupId?: IntFilter<"category"> | number
+    AND?: tblcategoryWhereInput | tblcategoryWhereInput[]
+    OR?: tblcategoryWhereInput[]
+    NOT?: tblcategoryWhereInput | tblcategoryWhereInput[]
+    category?: StringFilter<"tblcategory"> | string
+    description?: StringNullableFilter<"tblcategory"> | string | null
+    image?: StringFilter<"tblcategory"> | string
+    createdAt?: DateTimeFilter<"tblcategory"> | Date | string
+    updatedAt?: DateTimeFilter<"tblcategory"> | Date | string
+    subgroupId?: IntFilter<"tblcategory"> | number
+    subgroup?: XOR<TblsubgroupRelationFilter, tblsubgroupWhereInput>
+    products?: TblproductListRelationFilter
   }, "id">
 
-  export type categoryOrderByWithAggregationInput = {
+  export type tblcategoryOrderByWithAggregationInput = {
     id?: SortOrder
     category?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     subgroupId?: SortOrder
-    _count?: categoryCountOrderByAggregateInput
-    _avg?: categoryAvgOrderByAggregateInput
-    _max?: categoryMaxOrderByAggregateInput
-    _min?: categoryMinOrderByAggregateInput
-    _sum?: categorySumOrderByAggregateInput
+    _count?: tblcategoryCountOrderByAggregateInput
+    _avg?: tblcategoryAvgOrderByAggregateInput
+    _max?: tblcategoryMaxOrderByAggregateInput
+    _min?: tblcategoryMinOrderByAggregateInput
+    _sum?: tblcategorySumOrderByAggregateInput
   }
 
-  export type categoryScalarWhereWithAggregatesInput = {
-    AND?: categoryScalarWhereWithAggregatesInput | categoryScalarWhereWithAggregatesInput[]
-    OR?: categoryScalarWhereWithAggregatesInput[]
-    NOT?: categoryScalarWhereWithAggregatesInput | categoryScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"category"> | number
-    category?: StringWithAggregatesFilter<"category"> | string
-    description?: StringWithAggregatesFilter<"category"> | string
-    image?: StringWithAggregatesFilter<"category"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"category"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"category"> | Date | string
-    subgroupId?: IntWithAggregatesFilter<"category"> | number
+  export type tblcategoryScalarWhereWithAggregatesInput = {
+    AND?: tblcategoryScalarWhereWithAggregatesInput | tblcategoryScalarWhereWithAggregatesInput[]
+    OR?: tblcategoryScalarWhereWithAggregatesInput[]
+    NOT?: tblcategoryScalarWhereWithAggregatesInput | tblcategoryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tblcategory"> | number
+    category?: StringWithAggregatesFilter<"tblcategory"> | string
+    description?: StringNullableWithAggregatesFilter<"tblcategory"> | string | null
+    image?: StringWithAggregatesFilter<"tblcategory"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"tblcategory"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"tblcategory"> | Date | string
+    subgroupId?: IntWithAggregatesFilter<"tblcategory"> | number
   }
 
-  export type productWhereInput = {
-    AND?: productWhereInput | productWhereInput[]
-    OR?: productWhereInput[]
-    NOT?: productWhereInput | productWhereInput[]
-    id?: IntFilter<"product"> | number
-    product?: StringFilter<"product"> | string
-    price?: FloatFilter<"product"> | number
-    stock?: IntFilter<"product"> | number
-    unit?: StringFilter<"product"> | string
-    image?: StringFilter<"product"> | string
-    createdAt?: DateTimeFilter<"product"> | Date | string
-    updatedAt?: DateTimeFilter<"product"> | Date | string
-    categoryId?: IntFilter<"product"> | number
+  export type tblproductWhereInput = {
+    AND?: tblproductWhereInput | tblproductWhereInput[]
+    OR?: tblproductWhereInput[]
+    NOT?: tblproductWhereInput | tblproductWhereInput[]
+    id?: IntFilter<"tblproduct"> | number
+    product?: StringFilter<"tblproduct"> | string
+    description?: StringNullableFilter<"tblproduct"> | string | null
+    price?: FloatFilter<"tblproduct"> | number
+    stock?: IntFilter<"tblproduct"> | number
+    unit?: StringFilter<"tblproduct"> | string
+    image?: StringFilter<"tblproduct"> | string
+    createdAt?: DateTimeFilter<"tblproduct"> | Date | string
+    updatedAt?: DateTimeFilter<"tblproduct"> | Date | string
+    categoryId?: IntFilter<"tblproduct"> | number
+    category?: XOR<TblcategoryRelationFilter, tblcategoryWhereInput>
+    orders?: TblorderListRelationFilter
   }
 
-  export type productOrderByWithRelationInput = {
+  export type tblproductOrderByWithRelationInput = {
     id?: SortOrder
     product?: SortOrder
+    description?: SortOrderInput | SortOrder
     price?: SortOrder
     stock?: SortOrder
     unit?: SortOrder
@@ -7168,26 +8661,32 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     categoryId?: SortOrder
+    category?: tblcategoryOrderByWithRelationInput
+    orders?: tblorderOrderByRelationAggregateInput
   }
 
-  export type productWhereUniqueInput = Prisma.AtLeast<{
+  export type tblproductWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: productWhereInput | productWhereInput[]
-    OR?: productWhereInput[]
-    NOT?: productWhereInput | productWhereInput[]
-    product?: StringFilter<"product"> | string
-    price?: FloatFilter<"product"> | number
-    stock?: IntFilter<"product"> | number
-    unit?: StringFilter<"product"> | string
-    image?: StringFilter<"product"> | string
-    createdAt?: DateTimeFilter<"product"> | Date | string
-    updatedAt?: DateTimeFilter<"product"> | Date | string
-    categoryId?: IntFilter<"product"> | number
+    AND?: tblproductWhereInput | tblproductWhereInput[]
+    OR?: tblproductWhereInput[]
+    NOT?: tblproductWhereInput | tblproductWhereInput[]
+    product?: StringFilter<"tblproduct"> | string
+    description?: StringNullableFilter<"tblproduct"> | string | null
+    price?: FloatFilter<"tblproduct"> | number
+    stock?: IntFilter<"tblproduct"> | number
+    unit?: StringFilter<"tblproduct"> | string
+    image?: StringFilter<"tblproduct"> | string
+    createdAt?: DateTimeFilter<"tblproduct"> | Date | string
+    updatedAt?: DateTimeFilter<"tblproduct"> | Date | string
+    categoryId?: IntFilter<"tblproduct"> | number
+    category?: XOR<TblcategoryRelationFilter, tblcategoryWhereInput>
+    orders?: TblorderListRelationFilter
   }, "id">
 
-  export type productOrderByWithAggregationInput = {
+  export type tblproductOrderByWithAggregationInput = {
     id?: SortOrder
     product?: SortOrder
+    description?: SortOrderInput | SortOrder
     price?: SortOrder
     stock?: SortOrder
     unit?: SortOrder
@@ -7195,106 +8694,109 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     categoryId?: SortOrder
-    _count?: productCountOrderByAggregateInput
-    _avg?: productAvgOrderByAggregateInput
-    _max?: productMaxOrderByAggregateInput
-    _min?: productMinOrderByAggregateInput
-    _sum?: productSumOrderByAggregateInput
+    _count?: tblproductCountOrderByAggregateInput
+    _avg?: tblproductAvgOrderByAggregateInput
+    _max?: tblproductMaxOrderByAggregateInput
+    _min?: tblproductMinOrderByAggregateInput
+    _sum?: tblproductSumOrderByAggregateInput
   }
 
-  export type productScalarWhereWithAggregatesInput = {
-    AND?: productScalarWhereWithAggregatesInput | productScalarWhereWithAggregatesInput[]
-    OR?: productScalarWhereWithAggregatesInput[]
-    NOT?: productScalarWhereWithAggregatesInput | productScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"product"> | number
-    product?: StringWithAggregatesFilter<"product"> | string
-    price?: FloatWithAggregatesFilter<"product"> | number
-    stock?: IntWithAggregatesFilter<"product"> | number
-    unit?: StringWithAggregatesFilter<"product"> | string
-    image?: StringWithAggregatesFilter<"product"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"product"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"product"> | Date | string
-    categoryId?: IntWithAggregatesFilter<"product"> | number
+  export type tblproductScalarWhereWithAggregatesInput = {
+    AND?: tblproductScalarWhereWithAggregatesInput | tblproductScalarWhereWithAggregatesInput[]
+    OR?: tblproductScalarWhereWithAggregatesInput[]
+    NOT?: tblproductScalarWhereWithAggregatesInput | tblproductScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tblproduct"> | number
+    product?: StringWithAggregatesFilter<"tblproduct"> | string
+    description?: StringNullableWithAggregatesFilter<"tblproduct"> | string | null
+    price?: FloatWithAggregatesFilter<"tblproduct"> | number
+    stock?: IntWithAggregatesFilter<"tblproduct"> | number
+    unit?: StringWithAggregatesFilter<"tblproduct"> | string
+    image?: StringWithAggregatesFilter<"tblproduct"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"tblproduct"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"tblproduct"> | Date | string
+    categoryId?: IntWithAggregatesFilter<"tblproduct"> | number
   }
 
-  export type orderWhereInput = {
-    AND?: orderWhereInput | orderWhereInput[]
-    OR?: orderWhereInput[]
-    NOT?: orderWhereInput | orderWhereInput[]
-    id?: IntFilter<"order"> | number
-    userId?: IntFilter<"order"> | number
-    productId?: IntFilter<"order"> | number
-    quantity?: IntFilter<"order"> | number
-    createdAt?: DateTimeFilter<"order"> | Date | string
-    updatedAt?: DateTimeFilter<"order"> | Date | string
-    user?: UserListRelationFilter
+  export type tblroleWhereInput = {
+    AND?: tblroleWhereInput | tblroleWhereInput[]
+    OR?: tblroleWhereInput[]
+    NOT?: tblroleWhereInput | tblroleWhereInput[]
+    id?: IntFilter<"tblrole"> | number
+    role?: StringFilter<"tblrole"> | string
+    description?: StringFilter<"tblrole"> | string
+    image?: StringFilter<"tblrole"> | string
+    createdAt?: DateTimeFilter<"tblrole"> | Date | string
+    updatedAt?: DateTimeFilter<"tblrole"> | Date | string
+    subgroups?: TbluserListRelationFilter
   }
 
-  export type orderOrderByWithRelationInput = {
+  export type tblroleOrderByWithRelationInput = {
     id?: SortOrder
-    userId?: SortOrder
-    productId?: SortOrder
-    quantity?: SortOrder
+    role?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: userOrderByRelationAggregateInput
+    subgroups?: tbluserOrderByRelationAggregateInput
   }
 
-  export type orderWhereUniqueInput = Prisma.AtLeast<{
+  export type tblroleWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: orderWhereInput | orderWhereInput[]
-    OR?: orderWhereInput[]
-    NOT?: orderWhereInput | orderWhereInput[]
-    userId?: IntFilter<"order"> | number
-    productId?: IntFilter<"order"> | number
-    quantity?: IntFilter<"order"> | number
-    createdAt?: DateTimeFilter<"order"> | Date | string
-    updatedAt?: DateTimeFilter<"order"> | Date | string
-    user?: UserListRelationFilter
+    AND?: tblroleWhereInput | tblroleWhereInput[]
+    OR?: tblroleWhereInput[]
+    NOT?: tblroleWhereInput | tblroleWhereInput[]
+    role?: StringFilter<"tblrole"> | string
+    description?: StringFilter<"tblrole"> | string
+    image?: StringFilter<"tblrole"> | string
+    createdAt?: DateTimeFilter<"tblrole"> | Date | string
+    updatedAt?: DateTimeFilter<"tblrole"> | Date | string
+    subgroups?: TbluserListRelationFilter
   }, "id">
 
-  export type orderOrderByWithAggregationInput = {
+  export type tblroleOrderByWithAggregationInput = {
     id?: SortOrder
-    userId?: SortOrder
-    productId?: SortOrder
-    quantity?: SortOrder
+    role?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: orderCountOrderByAggregateInput
-    _avg?: orderAvgOrderByAggregateInput
-    _max?: orderMaxOrderByAggregateInput
-    _min?: orderMinOrderByAggregateInput
-    _sum?: orderSumOrderByAggregateInput
+    _count?: tblroleCountOrderByAggregateInput
+    _avg?: tblroleAvgOrderByAggregateInput
+    _max?: tblroleMaxOrderByAggregateInput
+    _min?: tblroleMinOrderByAggregateInput
+    _sum?: tblroleSumOrderByAggregateInput
   }
 
-  export type orderScalarWhereWithAggregatesInput = {
-    AND?: orderScalarWhereWithAggregatesInput | orderScalarWhereWithAggregatesInput[]
-    OR?: orderScalarWhereWithAggregatesInput[]
-    NOT?: orderScalarWhereWithAggregatesInput | orderScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"order"> | number
-    userId?: IntWithAggregatesFilter<"order"> | number
-    productId?: IntWithAggregatesFilter<"order"> | number
-    quantity?: IntWithAggregatesFilter<"order"> | number
-    createdAt?: DateTimeWithAggregatesFilter<"order"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"order"> | Date | string
+  export type tblroleScalarWhereWithAggregatesInput = {
+    AND?: tblroleScalarWhereWithAggregatesInput | tblroleScalarWhereWithAggregatesInput[]
+    OR?: tblroleScalarWhereWithAggregatesInput[]
+    NOT?: tblroleScalarWhereWithAggregatesInput | tblroleScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tblrole"> | number
+    role?: StringWithAggregatesFilter<"tblrole"> | string
+    description?: StringWithAggregatesFilter<"tblrole"> | string
+    image?: StringWithAggregatesFilter<"tblrole"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"tblrole"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"tblrole"> | Date | string
   }
 
-  export type userWhereInput = {
-    AND?: userWhereInput | userWhereInput[]
-    OR?: userWhereInput[]
-    NOT?: userWhereInput | userWhereInput[]
-    id?: IntFilter<"user"> | number
-    name?: StringFilter<"user"> | string
-    password?: StringFilter<"user"> | string
-    telefono?: StringFilter<"user"> | string
-    direccion?: StringFilter<"user"> | string
-    email?: StringFilter<"user"> | string
-    createdAt?: DateTimeFilter<"user"> | Date | string
-    updatedAt?: DateTimeFilter<"user"> | Date | string
-    orders?: OrderListRelationFilter
+  export type tbluserWhereInput = {
+    AND?: tbluserWhereInput | tbluserWhereInput[]
+    OR?: tbluserWhereInput[]
+    NOT?: tbluserWhereInput | tbluserWhereInput[]
+    id?: IntFilter<"tbluser"> | number
+    name?: StringFilter<"tbluser"> | string
+    password?: StringFilter<"tbluser"> | string
+    telefono?: StringFilter<"tbluser"> | string
+    direccion?: StringFilter<"tbluser"> | string
+    email?: StringFilter<"tbluser"> | string
+    createdAt?: DateTimeFilter<"tbluser"> | Date | string
+    updatedAt?: DateTimeFilter<"tbluser"> | Date | string
+    roleId?: IntFilter<"tbluser"> | number
+    role?: XOR<TblroleRelationFilter, tblroleWhereInput>
+    categories?: TblorderListRelationFilter
   }
 
-  export type userOrderByWithRelationInput = {
+  export type tbluserOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     password?: SortOrder
@@ -7303,25 +8805,29 @@ export namespace Prisma {
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    orders?: orderOrderByRelationAggregateInput
+    roleId?: SortOrder
+    role?: tblroleOrderByWithRelationInput
+    categories?: tblorderOrderByRelationAggregateInput
   }
 
-  export type userWhereUniqueInput = Prisma.AtLeast<{
+  export type tbluserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     email?: string
-    AND?: userWhereInput | userWhereInput[]
-    OR?: userWhereInput[]
-    NOT?: userWhereInput | userWhereInput[]
-    name?: StringFilter<"user"> | string
-    password?: StringFilter<"user"> | string
-    telefono?: StringFilter<"user"> | string
-    direccion?: StringFilter<"user"> | string
-    createdAt?: DateTimeFilter<"user"> | Date | string
-    updatedAt?: DateTimeFilter<"user"> | Date | string
-    orders?: OrderListRelationFilter
+    AND?: tbluserWhereInput | tbluserWhereInput[]
+    OR?: tbluserWhereInput[]
+    NOT?: tbluserWhereInput | tbluserWhereInput[]
+    name?: StringFilter<"tbluser"> | string
+    password?: StringFilter<"tbluser"> | string
+    telefono?: StringFilter<"tbluser"> | string
+    direccion?: StringFilter<"tbluser"> | string
+    createdAt?: DateTimeFilter<"tbluser"> | Date | string
+    updatedAt?: DateTimeFilter<"tbluser"> | Date | string
+    roleId?: IntFilter<"tbluser"> | number
+    role?: XOR<TblroleRelationFilter, tblroleWhereInput>
+    categories?: TblorderListRelationFilter
   }, "id" | "email">
 
-  export type userOrderByWithAggregationInput = {
+  export type tbluserOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     password?: SortOrder
@@ -7330,223 +8836,356 @@ export namespace Prisma {
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: userCountOrderByAggregateInput
-    _avg?: userAvgOrderByAggregateInput
-    _max?: userMaxOrderByAggregateInput
-    _min?: userMinOrderByAggregateInput
-    _sum?: userSumOrderByAggregateInput
+    roleId?: SortOrder
+    _count?: tbluserCountOrderByAggregateInput
+    _avg?: tbluserAvgOrderByAggregateInput
+    _max?: tbluserMaxOrderByAggregateInput
+    _min?: tbluserMinOrderByAggregateInput
+    _sum?: tbluserSumOrderByAggregateInput
   }
 
-  export type userScalarWhereWithAggregatesInput = {
-    AND?: userScalarWhereWithAggregatesInput | userScalarWhereWithAggregatesInput[]
-    OR?: userScalarWhereWithAggregatesInput[]
-    NOT?: userScalarWhereWithAggregatesInput | userScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"user"> | number
-    name?: StringWithAggregatesFilter<"user"> | string
-    password?: StringWithAggregatesFilter<"user"> | string
-    telefono?: StringWithAggregatesFilter<"user"> | string
-    direccion?: StringWithAggregatesFilter<"user"> | string
-    email?: StringWithAggregatesFilter<"user"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"user"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"user"> | Date | string
+  export type tbluserScalarWhereWithAggregatesInput = {
+    AND?: tbluserScalarWhereWithAggregatesInput | tbluserScalarWhereWithAggregatesInput[]
+    OR?: tbluserScalarWhereWithAggregatesInput[]
+    NOT?: tbluserScalarWhereWithAggregatesInput | tbluserScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tbluser"> | number
+    name?: StringWithAggregatesFilter<"tbluser"> | string
+    password?: StringWithAggregatesFilter<"tbluser"> | string
+    telefono?: StringWithAggregatesFilter<"tbluser"> | string
+    direccion?: StringWithAggregatesFilter<"tbluser"> | string
+    email?: StringWithAggregatesFilter<"tbluser"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"tbluser"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"tbluser"> | Date | string
+    roleId?: IntWithAggregatesFilter<"tbluser"> | number
   }
 
-  export type groupCreateInput = {
+  export type tblorderWhereInput = {
+    AND?: tblorderWhereInput | tblorderWhereInput[]
+    OR?: tblorderWhereInput[]
+    NOT?: tblorderWhereInput | tblorderWhereInput[]
+    id?: IntFilter<"tblorder"> | number
+    quantity?: IntFilter<"tblorder"> | number
+    createdAt?: DateTimeFilter<"tblorder"> | Date | string
+    updatedAt?: DateTimeFilter<"tblorder"> | Date | string
+    userId?: IntFilter<"tblorder"> | number
+    productId?: IntFilter<"tblorder"> | number
+    user?: XOR<TbluserRelationFilter, tbluserWhereInput>
+    product?: XOR<TblproductRelationFilter, tblproductWhereInput>
+  }
+
+  export type tblorderOrderByWithRelationInput = {
+    id?: SortOrder
+    quantity?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    productId?: SortOrder
+    user?: tbluserOrderByWithRelationInput
+    product?: tblproductOrderByWithRelationInput
+  }
+
+  export type tblorderWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: tblorderWhereInput | tblorderWhereInput[]
+    OR?: tblorderWhereInput[]
+    NOT?: tblorderWhereInput | tblorderWhereInput[]
+    quantity?: IntFilter<"tblorder"> | number
+    createdAt?: DateTimeFilter<"tblorder"> | Date | string
+    updatedAt?: DateTimeFilter<"tblorder"> | Date | string
+    userId?: IntFilter<"tblorder"> | number
+    productId?: IntFilter<"tblorder"> | number
+    user?: XOR<TbluserRelationFilter, tbluserWhereInput>
+    product?: XOR<TblproductRelationFilter, tblproductWhereInput>
+  }, "id">
+
+  export type tblorderOrderByWithAggregationInput = {
+    id?: SortOrder
+    quantity?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    productId?: SortOrder
+    _count?: tblorderCountOrderByAggregateInput
+    _avg?: tblorderAvgOrderByAggregateInput
+    _max?: tblorderMaxOrderByAggregateInput
+    _min?: tblorderMinOrderByAggregateInput
+    _sum?: tblorderSumOrderByAggregateInput
+  }
+
+  export type tblorderScalarWhereWithAggregatesInput = {
+    AND?: tblorderScalarWhereWithAggregatesInput | tblorderScalarWhereWithAggregatesInput[]
+    OR?: tblorderScalarWhereWithAggregatesInput[]
+    NOT?: tblorderScalarWhereWithAggregatesInput | tblorderScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tblorder"> | number
+    quantity?: IntWithAggregatesFilter<"tblorder"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"tblorder"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"tblorder"> | Date | string
+    userId?: IntWithAggregatesFilter<"tblorder"> | number
+    productId?: IntWithAggregatesFilter<"tblorder"> | number
+  }
+
+  export type tblgroupCreateInput = {
     group: string
-    description: string
+    description?: string | null
     image: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    subgroups?: tblsubgroupCreateNestedManyWithoutGroupInput
   }
 
-  export type groupUncheckedCreateInput = {
+  export type tblgroupUncheckedCreateInput = {
     id?: number
     group: string
-    description: string
+    description?: string | null
     image: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    subgroups?: tblsubgroupUncheckedCreateNestedManyWithoutGroupInput
   }
 
-  export type groupUpdateInput = {
+  export type tblgroupUpdateInput = {
     group?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subgroups?: tblsubgroupUpdateManyWithoutGroupNestedInput
   }
 
-  export type groupUncheckedUpdateInput = {
+  export type tblgroupUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     group?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subgroups?: tblsubgroupUncheckedUpdateManyWithoutGroupNestedInput
   }
 
-  export type groupCreateManyInput = {
+  export type tblgroupCreateManyInput = {
     id?: number
     group: string
-    description: string
+    description?: string | null
     image: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type groupUpdateManyMutationInput = {
+  export type tblgroupUpdateManyMutationInput = {
     group?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type groupUncheckedUpdateManyInput = {
+  export type tblgroupUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     group?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type subgroupCreateInput = {
+  export type tblsubgroupCreateInput = {
     subgroup: string
-    description: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    group: tblgroupCreateNestedOneWithoutSubgroupsInput
+    categories?: tblcategoryCreateNestedManyWithoutSubgroupInput
+  }
+
+  export type tblsubgroupUncheckedCreateInput = {
+    id?: number
+    subgroup: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    groupId: number
+    categories?: tblcategoryUncheckedCreateNestedManyWithoutSubgroupInput
+  }
+
+  export type tblsubgroupUpdateInput = {
+    subgroup?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    group?: tblgroupUpdateOneRequiredWithoutSubgroupsNestedInput
+    categories?: tblcategoryUpdateManyWithoutSubgroupNestedInput
+  }
+
+  export type tblsubgroupUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    subgroup?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    groupId?: IntFieldUpdateOperationsInput | number
+    categories?: tblcategoryUncheckedUpdateManyWithoutSubgroupNestedInput
+  }
+
+  export type tblsubgroupCreateManyInput = {
+    id?: number
+    subgroup: string
+    description?: string | null
     image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     groupId: number
   }
 
-  export type subgroupUncheckedCreateInput = {
-    id?: number
-    subgroup: string
-    description: string
-    image: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    groupId: number
-  }
-
-  export type subgroupUpdateInput = {
+  export type tblsubgroupUpdateManyMutationInput = {
     subgroup?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    groupId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type subgroupUncheckedUpdateInput = {
+  export type tblsubgroupUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     subgroup?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     groupId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type subgroupCreateManyInput = {
-    id?: number
-    subgroup: string
-    description: string
-    image: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    groupId: number
-  }
-
-  export type subgroupUpdateManyMutationInput = {
-    subgroup?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    groupId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type subgroupUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    subgroup?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    groupId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type categoryCreateInput = {
+  export type tblcategoryCreateInput = {
     category: string
-    description: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    subgroup: tblsubgroupCreateNestedOneWithoutCategoriesInput
+    products?: tblproductCreateNestedManyWithoutCategoryInput
+  }
+
+  export type tblcategoryUncheckedCreateInput = {
+    id?: number
+    category: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    subgroupId: number
+    products?: tblproductUncheckedCreateNestedManyWithoutCategoryInput
+  }
+
+  export type tblcategoryUpdateInput = {
+    category?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subgroup?: tblsubgroupUpdateOneRequiredWithoutCategoriesNestedInput
+    products?: tblproductUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type tblcategoryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subgroupId?: IntFieldUpdateOperationsInput | number
+    products?: tblproductUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type tblcategoryCreateManyInput = {
+    id?: number
+    category: string
+    description?: string | null
     image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     subgroupId: number
   }
 
-  export type categoryUncheckedCreateInput = {
-    id?: number
-    category: string
-    description: string
-    image: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    subgroupId: number
-  }
-
-  export type categoryUpdateInput = {
+  export type tblcategoryUpdateManyMutationInput = {
     category?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    subgroupId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type categoryUncheckedUpdateInput = {
+  export type tblcategoryUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     category?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subgroupId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type categoryCreateManyInput = {
-    id?: number
-    category: string
-    description: string
-    image: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    subgroupId: number
-  }
-
-  export type categoryUpdateManyMutationInput = {
-    category?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    subgroupId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type categoryUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    category?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    subgroupId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type productCreateInput = {
+  export type tblproductCreateInput = {
     product: string
+    description?: string | null
+    price: number
+    stock: number
+    unit: string
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    category: tblcategoryCreateNestedOneWithoutProductsInput
+    orders?: tblorderCreateNestedManyWithoutProductInput
+  }
+
+  export type tblproductUncheckedCreateInput = {
+    id?: number
+    product: string
+    description?: string | null
+    price: number
+    stock: number
+    unit: string
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    categoryId: number
+    orders?: tblorderUncheckedCreateNestedManyWithoutProductInput
+  }
+
+  export type tblproductUpdateInput = {
+    product?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: tblcategoryUpdateOneRequiredWithoutProductsNestedInput
+    orders?: tblorderUpdateManyWithoutProductNestedInput
+  }
+
+  export type tblproductUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    product?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoryId?: IntFieldUpdateOperationsInput | number
+    orders?: tblorderUncheckedUpdateManyWithoutProductNestedInput
+  }
+
+  export type tblproductCreateManyInput = {
+    id?: number
+    product: string
+    description?: string | null
     price: number
     stock: number
     unit: string
@@ -7556,141 +9195,95 @@ export namespace Prisma {
     categoryId: number
   }
 
-  export type productUncheckedCreateInput = {
-    id?: number
-    product: string
-    price: number
-    stock: number
-    unit: string
+  export type tblproductUpdateManyMutationInput = {
+    product?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tblproductUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    product?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoryId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type tblroleCreateInput = {
+    role: string
+    description: string
     image: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    categoryId: number
+    subgroups?: tbluserCreateNestedManyWithoutRoleInput
   }
 
-  export type productUpdateInput = {
-    product?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
-    unit?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    categoryId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type productUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    product?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
-    unit?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    categoryId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type productCreateManyInput = {
+  export type tblroleUncheckedCreateInput = {
     id?: number
-    product: string
-    price: number
-    stock: number
-    unit: string
+    role: string
+    description: string
     image: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    categoryId: number
+    subgroups?: tbluserUncheckedCreateNestedManyWithoutRoleInput
   }
 
-  export type productUpdateManyMutationInput = {
-    product?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
-    unit?: StringFieldUpdateOperationsInput | string
+  export type tblroleUpdateInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    categoryId?: IntFieldUpdateOperationsInput | number
+    subgroups?: tbluserUpdateManyWithoutRoleNestedInput
   }
 
-  export type productUncheckedUpdateManyInput = {
+  export type tblroleUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    product?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
-    unit?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    categoryId?: IntFieldUpdateOperationsInput | number
+    subgroups?: tbluserUncheckedUpdateManyWithoutRoleNestedInput
   }
 
-  export type orderCreateInput = {
-    userId: number
-    productId: number
-    quantity: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user?: userCreateNestedManyWithoutOrdersInput
-  }
-
-  export type orderUncheckedCreateInput = {
+  export type tblroleCreateManyInput = {
     id?: number
-    userId: number
-    productId: number
-    quantity: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user?: userUncheckedCreateNestedManyWithoutOrdersInput
-  }
-
-  export type orderUpdateInput = {
-    userId?: IntFieldUpdateOperationsInput | number
-    productId?: IntFieldUpdateOperationsInput | number
-    quantity?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: userUpdateManyWithoutOrdersNestedInput
-  }
-
-  export type orderUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    userId?: IntFieldUpdateOperationsInput | number
-    productId?: IntFieldUpdateOperationsInput | number
-    quantity?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: userUncheckedUpdateManyWithoutOrdersNestedInput
-  }
-
-  export type orderCreateManyInput = {
-    id?: number
-    userId: number
-    productId: number
-    quantity: number
+    role: string
+    description: string
+    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type orderUpdateManyMutationInput = {
-    userId?: IntFieldUpdateOperationsInput | number
-    productId?: IntFieldUpdateOperationsInput | number
-    quantity?: IntFieldUpdateOperationsInput | number
+  export type tblroleUpdateManyMutationInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type orderUncheckedUpdateManyInput = {
+  export type tblroleUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    userId?: IntFieldUpdateOperationsInput | number
-    productId?: IntFieldUpdateOperationsInput | number
-    quantity?: IntFieldUpdateOperationsInput | number
+    role?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type userCreateInput = {
+  export type tbluserCreateInput = {
     name: string
     password: string
     telefono: string
@@ -7698,10 +9291,11 @@ export namespace Prisma {
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    orders?: orderCreateNestedManyWithoutUserInput
+    role: tblroleCreateNestedOneWithoutSubgroupsInput
+    categories?: tblorderCreateNestedManyWithoutUserInput
   }
 
-  export type userUncheckedCreateInput = {
+  export type tbluserUncheckedCreateInput = {
     id?: number
     name: string
     password: string
@@ -7710,10 +9304,11 @@ export namespace Prisma {
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    orders?: orderUncheckedCreateNestedManyWithoutUserInput
+    roleId: number
+    categories?: tblorderUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type userUpdateInput = {
+  export type tbluserUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     telefono?: StringFieldUpdateOperationsInput | string
@@ -7721,10 +9316,11 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    orders?: orderUpdateManyWithoutUserNestedInput
+    role?: tblroleUpdateOneRequiredWithoutSubgroupsNestedInput
+    categories?: tblorderUpdateManyWithoutUserNestedInput
   }
 
-  export type userUncheckedUpdateInput = {
+  export type tbluserUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -7733,10 +9329,11 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    orders?: orderUncheckedUpdateManyWithoutUserNestedInput
+    roleId?: IntFieldUpdateOperationsInput | number
+    categories?: tblorderUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type userCreateManyInput = {
+  export type tbluserCreateManyInput = {
     id?: number
     name: string
     password: string
@@ -7745,9 +9342,10 @@ export namespace Prisma {
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    roleId: number
   }
 
-  export type userUpdateManyMutationInput = {
+  export type tbluserUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     telefono?: StringFieldUpdateOperationsInput | string
@@ -7757,7 +9355,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type userUncheckedUpdateManyInput = {
+  export type tbluserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -7766,6 +9364,65 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    roleId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type tblorderCreateInput = {
+    quantity: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: tbluserCreateNestedOneWithoutCategoriesInput
+    product: tblproductCreateNestedOneWithoutOrdersInput
+  }
+
+  export type tblorderUncheckedCreateInput = {
+    id?: number
+    quantity: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: number
+    productId: number
+  }
+
+  export type tblorderUpdateInput = {
+    quantity?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: tbluserUpdateOneRequiredWithoutCategoriesNestedInput
+    product?: tblproductUpdateOneRequiredWithoutOrdersNestedInput
+  }
+
+  export type tblorderUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: IntFieldUpdateOperationsInput | number
+    productId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type tblorderCreateManyInput = {
+    id?: number
+    quantity: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: number
+    productId: number
+  }
+
+  export type tblorderUpdateManyMutationInput = {
+    quantity?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tblorderUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: IntFieldUpdateOperationsInput | number
+    productId?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -7793,6 +9450,20 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -7804,7 +9475,22 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type groupCountOrderByAggregateInput = {
+  export type TblsubgroupListRelationFilter = {
+    every?: tblsubgroupWhereInput
+    some?: tblsubgroupWhereInput
+    none?: tblsubgroupWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type tblsubgroupOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type tblgroupCountOrderByAggregateInput = {
     id?: SortOrder
     group?: SortOrder
     description?: SortOrder
@@ -7813,20 +9499,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type groupAvgOrderByAggregateInput = {
+  export type tblgroupAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type groupMaxOrderByAggregateInput = {
-    id?: SortOrder
-    group?: SortOrder
-    description?: SortOrder
-    image?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type groupMinOrderByAggregateInput = {
+  export type tblgroupMaxOrderByAggregateInput = {
     id?: SortOrder
     group?: SortOrder
     description?: SortOrder
@@ -7835,7 +9512,16 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type groupSumOrderByAggregateInput = {
+  export type tblgroupMinOrderByAggregateInput = {
+    id?: SortOrder
+    group?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type tblgroupSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -7872,6 +9558,23 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -7886,7 +9589,22 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type subgroupCountOrderByAggregateInput = {
+  export type TblgroupRelationFilter = {
+    is?: tblgroupWhereInput
+    isNot?: tblgroupWhereInput
+  }
+
+  export type TblcategoryListRelationFilter = {
+    every?: tblcategoryWhereInput
+    some?: tblcategoryWhereInput
+    none?: tblcategoryWhereInput
+  }
+
+  export type tblcategoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type tblsubgroupCountOrderByAggregateInput = {
     id?: SortOrder
     subgroup?: SortOrder
     description?: SortOrder
@@ -7896,12 +9614,12 @@ export namespace Prisma {
     groupId?: SortOrder
   }
 
-  export type subgroupAvgOrderByAggregateInput = {
+  export type tblsubgroupAvgOrderByAggregateInput = {
     id?: SortOrder
     groupId?: SortOrder
   }
 
-  export type subgroupMaxOrderByAggregateInput = {
+  export type tblsubgroupMaxOrderByAggregateInput = {
     id?: SortOrder
     subgroup?: SortOrder
     description?: SortOrder
@@ -7911,7 +9629,7 @@ export namespace Prisma {
     groupId?: SortOrder
   }
 
-  export type subgroupMinOrderByAggregateInput = {
+  export type tblsubgroupMinOrderByAggregateInput = {
     id?: SortOrder
     subgroup?: SortOrder
     description?: SortOrder
@@ -7921,12 +9639,27 @@ export namespace Prisma {
     groupId?: SortOrder
   }
 
-  export type subgroupSumOrderByAggregateInput = {
+  export type tblsubgroupSumOrderByAggregateInput = {
     id?: SortOrder
     groupId?: SortOrder
   }
 
-  export type categoryCountOrderByAggregateInput = {
+  export type TblsubgroupRelationFilter = {
+    is?: tblsubgroupWhereInput
+    isNot?: tblsubgroupWhereInput
+  }
+
+  export type TblproductListRelationFilter = {
+    every?: tblproductWhereInput
+    some?: tblproductWhereInput
+    none?: tblproductWhereInput
+  }
+
+  export type tblproductOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type tblcategoryCountOrderByAggregateInput = {
     id?: SortOrder
     category?: SortOrder
     description?: SortOrder
@@ -7936,22 +9669,12 @@ export namespace Prisma {
     subgroupId?: SortOrder
   }
 
-  export type categoryAvgOrderByAggregateInput = {
+  export type tblcategoryAvgOrderByAggregateInput = {
     id?: SortOrder
     subgroupId?: SortOrder
   }
 
-  export type categoryMaxOrderByAggregateInput = {
-    id?: SortOrder
-    category?: SortOrder
-    description?: SortOrder
-    image?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    subgroupId?: SortOrder
-  }
-
-  export type categoryMinOrderByAggregateInput = {
+  export type tblcategoryMaxOrderByAggregateInput = {
     id?: SortOrder
     category?: SortOrder
     description?: SortOrder
@@ -7961,7 +9684,17 @@ export namespace Prisma {
     subgroupId?: SortOrder
   }
 
-  export type categorySumOrderByAggregateInput = {
+  export type tblcategoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    category?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    subgroupId?: SortOrder
+  }
+
+  export type tblcategorySumOrderByAggregateInput = {
     id?: SortOrder
     subgroupId?: SortOrder
   }
@@ -7977,9 +9710,25 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type productCountOrderByAggregateInput = {
+  export type TblcategoryRelationFilter = {
+    is?: tblcategoryWhereInput
+    isNot?: tblcategoryWhereInput
+  }
+
+  export type TblorderListRelationFilter = {
+    every?: tblorderWhereInput
+    some?: tblorderWhereInput
+    none?: tblorderWhereInput
+  }
+
+  export type tblorderOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type tblproductCountOrderByAggregateInput = {
     id?: SortOrder
     product?: SortOrder
+    description?: SortOrder
     price?: SortOrder
     stock?: SortOrder
     unit?: SortOrder
@@ -7989,16 +9738,17 @@ export namespace Prisma {
     categoryId?: SortOrder
   }
 
-  export type productAvgOrderByAggregateInput = {
+  export type tblproductAvgOrderByAggregateInput = {
     id?: SortOrder
     price?: SortOrder
     stock?: SortOrder
     categoryId?: SortOrder
   }
 
-  export type productMaxOrderByAggregateInput = {
+  export type tblproductMaxOrderByAggregateInput = {
     id?: SortOrder
     product?: SortOrder
+    description?: SortOrder
     price?: SortOrder
     stock?: SortOrder
     unit?: SortOrder
@@ -8008,9 +9758,10 @@ export namespace Prisma {
     categoryId?: SortOrder
   }
 
-  export type productMinOrderByAggregateInput = {
+  export type tblproductMinOrderByAggregateInput = {
     id?: SortOrder
     product?: SortOrder
+    description?: SortOrder
     price?: SortOrder
     stock?: SortOrder
     unit?: SortOrder
@@ -8020,7 +9771,7 @@ export namespace Prisma {
     categoryId?: SortOrder
   }
 
-  export type productSumOrderByAggregateInput = {
+  export type tblproductSumOrderByAggregateInput = {
     id?: SortOrder
     price?: SortOrder
     stock?: SortOrder
@@ -8043,68 +9794,57 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type UserListRelationFilter = {
-    every?: userWhereInput
-    some?: userWhereInput
-    none?: userWhereInput
+  export type TbluserListRelationFilter = {
+    every?: tbluserWhereInput
+    some?: tbluserWhereInput
+    none?: tbluserWhereInput
   }
 
-  export type userOrderByRelationAggregateInput = {
+  export type tbluserOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type orderCountOrderByAggregateInput = {
+  export type tblroleCountOrderByAggregateInput = {
     id?: SortOrder
-    userId?: SortOrder
-    productId?: SortOrder
-    quantity?: SortOrder
+    role?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type orderAvgOrderByAggregateInput = {
+  export type tblroleAvgOrderByAggregateInput = {
     id?: SortOrder
-    userId?: SortOrder
-    productId?: SortOrder
-    quantity?: SortOrder
   }
 
-  export type orderMaxOrderByAggregateInput = {
+  export type tblroleMaxOrderByAggregateInput = {
     id?: SortOrder
-    userId?: SortOrder
-    productId?: SortOrder
-    quantity?: SortOrder
+    role?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type orderMinOrderByAggregateInput = {
+  export type tblroleMinOrderByAggregateInput = {
     id?: SortOrder
-    userId?: SortOrder
-    productId?: SortOrder
-    quantity?: SortOrder
+    role?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type orderSumOrderByAggregateInput = {
+  export type tblroleSumOrderByAggregateInput = {
     id?: SortOrder
-    userId?: SortOrder
-    productId?: SortOrder
-    quantity?: SortOrder
   }
 
-  export type OrderListRelationFilter = {
-    every?: orderWhereInput
-    some?: orderWhereInput
-    none?: orderWhereInput
+  export type TblroleRelationFilter = {
+    is?: tblroleWhereInput
+    isNot?: tblroleWhereInput
   }
 
-  export type orderOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type userCountOrderByAggregateInput = {
+  export type tbluserCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     password?: SortOrder
@@ -8113,24 +9853,15 @@ export namespace Prisma {
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    roleId?: SortOrder
   }
 
-  export type userAvgOrderByAggregateInput = {
+  export type tbluserAvgOrderByAggregateInput = {
     id?: SortOrder
+    roleId?: SortOrder
   }
 
-  export type userMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    password?: SortOrder
-    telefono?: SortOrder
-    direccion?: SortOrder
-    email?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type userMinOrderByAggregateInput = {
+  export type tbluserMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     password?: SortOrder
@@ -8139,18 +9870,115 @@ export namespace Prisma {
     email?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    roleId?: SortOrder
   }
 
-  export type userSumOrderByAggregateInput = {
+  export type tbluserMinOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
+    password?: SortOrder
+    telefono?: SortOrder
+    direccion?: SortOrder
+    email?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    roleId?: SortOrder
+  }
+
+  export type tbluserSumOrderByAggregateInput = {
+    id?: SortOrder
+    roleId?: SortOrder
+  }
+
+  export type TbluserRelationFilter = {
+    is?: tbluserWhereInput
+    isNot?: tbluserWhereInput
+  }
+
+  export type TblproductRelationFilter = {
+    is?: tblproductWhereInput
+    isNot?: tblproductWhereInput
+  }
+
+  export type tblorderCountOrderByAggregateInput = {
+    id?: SortOrder
+    quantity?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    productId?: SortOrder
+  }
+
+  export type tblorderAvgOrderByAggregateInput = {
+    id?: SortOrder
+    quantity?: SortOrder
+    userId?: SortOrder
+    productId?: SortOrder
+  }
+
+  export type tblorderMaxOrderByAggregateInput = {
+    id?: SortOrder
+    quantity?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    productId?: SortOrder
+  }
+
+  export type tblorderMinOrderByAggregateInput = {
+    id?: SortOrder
+    quantity?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    productId?: SortOrder
+  }
+
+  export type tblorderSumOrderByAggregateInput = {
+    id?: SortOrder
+    quantity?: SortOrder
+    userId?: SortOrder
+    productId?: SortOrder
+  }
+
+  export type tblsubgroupCreateNestedManyWithoutGroupInput = {
+    create?: XOR<tblsubgroupCreateWithoutGroupInput, tblsubgroupUncheckedCreateWithoutGroupInput> | tblsubgroupCreateWithoutGroupInput[] | tblsubgroupUncheckedCreateWithoutGroupInput[]
+    connectOrCreate?: tblsubgroupCreateOrConnectWithoutGroupInput | tblsubgroupCreateOrConnectWithoutGroupInput[]
+    createMany?: tblsubgroupCreateManyGroupInputEnvelope
+    connect?: tblsubgroupWhereUniqueInput | tblsubgroupWhereUniqueInput[]
+  }
+
+  export type tblsubgroupUncheckedCreateNestedManyWithoutGroupInput = {
+    create?: XOR<tblsubgroupCreateWithoutGroupInput, tblsubgroupUncheckedCreateWithoutGroupInput> | tblsubgroupCreateWithoutGroupInput[] | tblsubgroupUncheckedCreateWithoutGroupInput[]
+    connectOrCreate?: tblsubgroupCreateOrConnectWithoutGroupInput | tblsubgroupCreateOrConnectWithoutGroupInput[]
+    createMany?: tblsubgroupCreateManyGroupInputEnvelope
+    connect?: tblsubgroupWhereUniqueInput | tblsubgroupWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type tblsubgroupUpdateManyWithoutGroupNestedInput = {
+    create?: XOR<tblsubgroupCreateWithoutGroupInput, tblsubgroupUncheckedCreateWithoutGroupInput> | tblsubgroupCreateWithoutGroupInput[] | tblsubgroupUncheckedCreateWithoutGroupInput[]
+    connectOrCreate?: tblsubgroupCreateOrConnectWithoutGroupInput | tblsubgroupCreateOrConnectWithoutGroupInput[]
+    upsert?: tblsubgroupUpsertWithWhereUniqueWithoutGroupInput | tblsubgroupUpsertWithWhereUniqueWithoutGroupInput[]
+    createMany?: tblsubgroupCreateManyGroupInputEnvelope
+    set?: tblsubgroupWhereUniqueInput | tblsubgroupWhereUniqueInput[]
+    disconnect?: tblsubgroupWhereUniqueInput | tblsubgroupWhereUniqueInput[]
+    delete?: tblsubgroupWhereUniqueInput | tblsubgroupWhereUniqueInput[]
+    connect?: tblsubgroupWhereUniqueInput | tblsubgroupWhereUniqueInput[]
+    update?: tblsubgroupUpdateWithWhereUniqueWithoutGroupInput | tblsubgroupUpdateWithWhereUniqueWithoutGroupInput[]
+    updateMany?: tblsubgroupUpdateManyWithWhereWithoutGroupInput | tblsubgroupUpdateManyWithWhereWithoutGroupInput[]
+    deleteMany?: tblsubgroupScalarWhereInput | tblsubgroupScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -8161,6 +9989,152 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type tblsubgroupUncheckedUpdateManyWithoutGroupNestedInput = {
+    create?: XOR<tblsubgroupCreateWithoutGroupInput, tblsubgroupUncheckedCreateWithoutGroupInput> | tblsubgroupCreateWithoutGroupInput[] | tblsubgroupUncheckedCreateWithoutGroupInput[]
+    connectOrCreate?: tblsubgroupCreateOrConnectWithoutGroupInput | tblsubgroupCreateOrConnectWithoutGroupInput[]
+    upsert?: tblsubgroupUpsertWithWhereUniqueWithoutGroupInput | tblsubgroupUpsertWithWhereUniqueWithoutGroupInput[]
+    createMany?: tblsubgroupCreateManyGroupInputEnvelope
+    set?: tblsubgroupWhereUniqueInput | tblsubgroupWhereUniqueInput[]
+    disconnect?: tblsubgroupWhereUniqueInput | tblsubgroupWhereUniqueInput[]
+    delete?: tblsubgroupWhereUniqueInput | tblsubgroupWhereUniqueInput[]
+    connect?: tblsubgroupWhereUniqueInput | tblsubgroupWhereUniqueInput[]
+    update?: tblsubgroupUpdateWithWhereUniqueWithoutGroupInput | tblsubgroupUpdateWithWhereUniqueWithoutGroupInput[]
+    updateMany?: tblsubgroupUpdateManyWithWhereWithoutGroupInput | tblsubgroupUpdateManyWithWhereWithoutGroupInput[]
+    deleteMany?: tblsubgroupScalarWhereInput | tblsubgroupScalarWhereInput[]
+  }
+
+  export type tblgroupCreateNestedOneWithoutSubgroupsInput = {
+    create?: XOR<tblgroupCreateWithoutSubgroupsInput, tblgroupUncheckedCreateWithoutSubgroupsInput>
+    connectOrCreate?: tblgroupCreateOrConnectWithoutSubgroupsInput
+    connect?: tblgroupWhereUniqueInput
+  }
+
+  export type tblcategoryCreateNestedManyWithoutSubgroupInput = {
+    create?: XOR<tblcategoryCreateWithoutSubgroupInput, tblcategoryUncheckedCreateWithoutSubgroupInput> | tblcategoryCreateWithoutSubgroupInput[] | tblcategoryUncheckedCreateWithoutSubgroupInput[]
+    connectOrCreate?: tblcategoryCreateOrConnectWithoutSubgroupInput | tblcategoryCreateOrConnectWithoutSubgroupInput[]
+    createMany?: tblcategoryCreateManySubgroupInputEnvelope
+    connect?: tblcategoryWhereUniqueInput | tblcategoryWhereUniqueInput[]
+  }
+
+  export type tblcategoryUncheckedCreateNestedManyWithoutSubgroupInput = {
+    create?: XOR<tblcategoryCreateWithoutSubgroupInput, tblcategoryUncheckedCreateWithoutSubgroupInput> | tblcategoryCreateWithoutSubgroupInput[] | tblcategoryUncheckedCreateWithoutSubgroupInput[]
+    connectOrCreate?: tblcategoryCreateOrConnectWithoutSubgroupInput | tblcategoryCreateOrConnectWithoutSubgroupInput[]
+    createMany?: tblcategoryCreateManySubgroupInputEnvelope
+    connect?: tblcategoryWhereUniqueInput | tblcategoryWhereUniqueInput[]
+  }
+
+  export type tblgroupUpdateOneRequiredWithoutSubgroupsNestedInput = {
+    create?: XOR<tblgroupCreateWithoutSubgroupsInput, tblgroupUncheckedCreateWithoutSubgroupsInput>
+    connectOrCreate?: tblgroupCreateOrConnectWithoutSubgroupsInput
+    upsert?: tblgroupUpsertWithoutSubgroupsInput
+    connect?: tblgroupWhereUniqueInput
+    update?: XOR<XOR<tblgroupUpdateToOneWithWhereWithoutSubgroupsInput, tblgroupUpdateWithoutSubgroupsInput>, tblgroupUncheckedUpdateWithoutSubgroupsInput>
+  }
+
+  export type tblcategoryUpdateManyWithoutSubgroupNestedInput = {
+    create?: XOR<tblcategoryCreateWithoutSubgroupInput, tblcategoryUncheckedCreateWithoutSubgroupInput> | tblcategoryCreateWithoutSubgroupInput[] | tblcategoryUncheckedCreateWithoutSubgroupInput[]
+    connectOrCreate?: tblcategoryCreateOrConnectWithoutSubgroupInput | tblcategoryCreateOrConnectWithoutSubgroupInput[]
+    upsert?: tblcategoryUpsertWithWhereUniqueWithoutSubgroupInput | tblcategoryUpsertWithWhereUniqueWithoutSubgroupInput[]
+    createMany?: tblcategoryCreateManySubgroupInputEnvelope
+    set?: tblcategoryWhereUniqueInput | tblcategoryWhereUniqueInput[]
+    disconnect?: tblcategoryWhereUniqueInput | tblcategoryWhereUniqueInput[]
+    delete?: tblcategoryWhereUniqueInput | tblcategoryWhereUniqueInput[]
+    connect?: tblcategoryWhereUniqueInput | tblcategoryWhereUniqueInput[]
+    update?: tblcategoryUpdateWithWhereUniqueWithoutSubgroupInput | tblcategoryUpdateWithWhereUniqueWithoutSubgroupInput[]
+    updateMany?: tblcategoryUpdateManyWithWhereWithoutSubgroupInput | tblcategoryUpdateManyWithWhereWithoutSubgroupInput[]
+    deleteMany?: tblcategoryScalarWhereInput | tblcategoryScalarWhereInput[]
+  }
+
+  export type tblcategoryUncheckedUpdateManyWithoutSubgroupNestedInput = {
+    create?: XOR<tblcategoryCreateWithoutSubgroupInput, tblcategoryUncheckedCreateWithoutSubgroupInput> | tblcategoryCreateWithoutSubgroupInput[] | tblcategoryUncheckedCreateWithoutSubgroupInput[]
+    connectOrCreate?: tblcategoryCreateOrConnectWithoutSubgroupInput | tblcategoryCreateOrConnectWithoutSubgroupInput[]
+    upsert?: tblcategoryUpsertWithWhereUniqueWithoutSubgroupInput | tblcategoryUpsertWithWhereUniqueWithoutSubgroupInput[]
+    createMany?: tblcategoryCreateManySubgroupInputEnvelope
+    set?: tblcategoryWhereUniqueInput | tblcategoryWhereUniqueInput[]
+    disconnect?: tblcategoryWhereUniqueInput | tblcategoryWhereUniqueInput[]
+    delete?: tblcategoryWhereUniqueInput | tblcategoryWhereUniqueInput[]
+    connect?: tblcategoryWhereUniqueInput | tblcategoryWhereUniqueInput[]
+    update?: tblcategoryUpdateWithWhereUniqueWithoutSubgroupInput | tblcategoryUpdateWithWhereUniqueWithoutSubgroupInput[]
+    updateMany?: tblcategoryUpdateManyWithWhereWithoutSubgroupInput | tblcategoryUpdateManyWithWhereWithoutSubgroupInput[]
+    deleteMany?: tblcategoryScalarWhereInput | tblcategoryScalarWhereInput[]
+  }
+
+  export type tblsubgroupCreateNestedOneWithoutCategoriesInput = {
+    create?: XOR<tblsubgroupCreateWithoutCategoriesInput, tblsubgroupUncheckedCreateWithoutCategoriesInput>
+    connectOrCreate?: tblsubgroupCreateOrConnectWithoutCategoriesInput
+    connect?: tblsubgroupWhereUniqueInput
+  }
+
+  export type tblproductCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<tblproductCreateWithoutCategoryInput, tblproductUncheckedCreateWithoutCategoryInput> | tblproductCreateWithoutCategoryInput[] | tblproductUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: tblproductCreateOrConnectWithoutCategoryInput | tblproductCreateOrConnectWithoutCategoryInput[]
+    createMany?: tblproductCreateManyCategoryInputEnvelope
+    connect?: tblproductWhereUniqueInput | tblproductWhereUniqueInput[]
+  }
+
+  export type tblproductUncheckedCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<tblproductCreateWithoutCategoryInput, tblproductUncheckedCreateWithoutCategoryInput> | tblproductCreateWithoutCategoryInput[] | tblproductUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: tblproductCreateOrConnectWithoutCategoryInput | tblproductCreateOrConnectWithoutCategoryInput[]
+    createMany?: tblproductCreateManyCategoryInputEnvelope
+    connect?: tblproductWhereUniqueInput | tblproductWhereUniqueInput[]
+  }
+
+  export type tblsubgroupUpdateOneRequiredWithoutCategoriesNestedInput = {
+    create?: XOR<tblsubgroupCreateWithoutCategoriesInput, tblsubgroupUncheckedCreateWithoutCategoriesInput>
+    connectOrCreate?: tblsubgroupCreateOrConnectWithoutCategoriesInput
+    upsert?: tblsubgroupUpsertWithoutCategoriesInput
+    connect?: tblsubgroupWhereUniqueInput
+    update?: XOR<XOR<tblsubgroupUpdateToOneWithWhereWithoutCategoriesInput, tblsubgroupUpdateWithoutCategoriesInput>, tblsubgroupUncheckedUpdateWithoutCategoriesInput>
+  }
+
+  export type tblproductUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<tblproductCreateWithoutCategoryInput, tblproductUncheckedCreateWithoutCategoryInput> | tblproductCreateWithoutCategoryInput[] | tblproductUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: tblproductCreateOrConnectWithoutCategoryInput | tblproductCreateOrConnectWithoutCategoryInput[]
+    upsert?: tblproductUpsertWithWhereUniqueWithoutCategoryInput | tblproductUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: tblproductCreateManyCategoryInputEnvelope
+    set?: tblproductWhereUniqueInput | tblproductWhereUniqueInput[]
+    disconnect?: tblproductWhereUniqueInput | tblproductWhereUniqueInput[]
+    delete?: tblproductWhereUniqueInput | tblproductWhereUniqueInput[]
+    connect?: tblproductWhereUniqueInput | tblproductWhereUniqueInput[]
+    update?: tblproductUpdateWithWhereUniqueWithoutCategoryInput | tblproductUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: tblproductUpdateManyWithWhereWithoutCategoryInput | tblproductUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: tblproductScalarWhereInput | tblproductScalarWhereInput[]
+  }
+
+  export type tblproductUncheckedUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<tblproductCreateWithoutCategoryInput, tblproductUncheckedCreateWithoutCategoryInput> | tblproductCreateWithoutCategoryInput[] | tblproductUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: tblproductCreateOrConnectWithoutCategoryInput | tblproductCreateOrConnectWithoutCategoryInput[]
+    upsert?: tblproductUpsertWithWhereUniqueWithoutCategoryInput | tblproductUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: tblproductCreateManyCategoryInputEnvelope
+    set?: tblproductWhereUniqueInput | tblproductWhereUniqueInput[]
+    disconnect?: tblproductWhereUniqueInput | tblproductWhereUniqueInput[]
+    delete?: tblproductWhereUniqueInput | tblproductWhereUniqueInput[]
+    connect?: tblproductWhereUniqueInput | tblproductWhereUniqueInput[]
+    update?: tblproductUpdateWithWhereUniqueWithoutCategoryInput | tblproductUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: tblproductUpdateManyWithWhereWithoutCategoryInput | tblproductUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: tblproductScalarWhereInput | tblproductScalarWhereInput[]
+  }
+
+  export type tblcategoryCreateNestedOneWithoutProductsInput = {
+    create?: XOR<tblcategoryCreateWithoutProductsInput, tblcategoryUncheckedCreateWithoutProductsInput>
+    connectOrCreate?: tblcategoryCreateOrConnectWithoutProductsInput
+    connect?: tblcategoryWhereUniqueInput
+  }
+
+  export type tblorderCreateNestedManyWithoutProductInput = {
+    create?: XOR<tblorderCreateWithoutProductInput, tblorderUncheckedCreateWithoutProductInput> | tblorderCreateWithoutProductInput[] | tblorderUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: tblorderCreateOrConnectWithoutProductInput | tblorderCreateOrConnectWithoutProductInput[]
+    createMany?: tblorderCreateManyProductInputEnvelope
+    connect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+  }
+
+  export type tblorderUncheckedCreateNestedManyWithoutProductInput = {
+    create?: XOR<tblorderCreateWithoutProductInput, tblorderUncheckedCreateWithoutProductInput> | tblorderCreateWithoutProductInput[] | tblorderUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: tblorderCreateOrConnectWithoutProductInput | tblorderCreateOrConnectWithoutProductInput[]
+    createMany?: tblorderCreateManyProductInputEnvelope
+    connect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+  }
+
   export type FloatFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -8169,80 +10143,166 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type userCreateNestedManyWithoutOrdersInput = {
-    create?: XOR<userCreateWithoutOrdersInput, userUncheckedCreateWithoutOrdersInput> | userCreateWithoutOrdersInput[] | userUncheckedCreateWithoutOrdersInput[]
-    connectOrCreate?: userCreateOrConnectWithoutOrdersInput | userCreateOrConnectWithoutOrdersInput[]
-    connect?: userWhereUniqueInput | userWhereUniqueInput[]
+  export type tblcategoryUpdateOneRequiredWithoutProductsNestedInput = {
+    create?: XOR<tblcategoryCreateWithoutProductsInput, tblcategoryUncheckedCreateWithoutProductsInput>
+    connectOrCreate?: tblcategoryCreateOrConnectWithoutProductsInput
+    upsert?: tblcategoryUpsertWithoutProductsInput
+    connect?: tblcategoryWhereUniqueInput
+    update?: XOR<XOR<tblcategoryUpdateToOneWithWhereWithoutProductsInput, tblcategoryUpdateWithoutProductsInput>, tblcategoryUncheckedUpdateWithoutProductsInput>
   }
 
-  export type userUncheckedCreateNestedManyWithoutOrdersInput = {
-    create?: XOR<userCreateWithoutOrdersInput, userUncheckedCreateWithoutOrdersInput> | userCreateWithoutOrdersInput[] | userUncheckedCreateWithoutOrdersInput[]
-    connectOrCreate?: userCreateOrConnectWithoutOrdersInput | userCreateOrConnectWithoutOrdersInput[]
-    connect?: userWhereUniqueInput | userWhereUniqueInput[]
+  export type tblorderUpdateManyWithoutProductNestedInput = {
+    create?: XOR<tblorderCreateWithoutProductInput, tblorderUncheckedCreateWithoutProductInput> | tblorderCreateWithoutProductInput[] | tblorderUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: tblorderCreateOrConnectWithoutProductInput | tblorderCreateOrConnectWithoutProductInput[]
+    upsert?: tblorderUpsertWithWhereUniqueWithoutProductInput | tblorderUpsertWithWhereUniqueWithoutProductInput[]
+    createMany?: tblorderCreateManyProductInputEnvelope
+    set?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    disconnect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    delete?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    connect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    update?: tblorderUpdateWithWhereUniqueWithoutProductInput | tblorderUpdateWithWhereUniqueWithoutProductInput[]
+    updateMany?: tblorderUpdateManyWithWhereWithoutProductInput | tblorderUpdateManyWithWhereWithoutProductInput[]
+    deleteMany?: tblorderScalarWhereInput | tblorderScalarWhereInput[]
   }
 
-  export type userUpdateManyWithoutOrdersNestedInput = {
-    create?: XOR<userCreateWithoutOrdersInput, userUncheckedCreateWithoutOrdersInput> | userCreateWithoutOrdersInput[] | userUncheckedCreateWithoutOrdersInput[]
-    connectOrCreate?: userCreateOrConnectWithoutOrdersInput | userCreateOrConnectWithoutOrdersInput[]
-    upsert?: userUpsertWithWhereUniqueWithoutOrdersInput | userUpsertWithWhereUniqueWithoutOrdersInput[]
-    set?: userWhereUniqueInput | userWhereUniqueInput[]
-    disconnect?: userWhereUniqueInput | userWhereUniqueInput[]
-    delete?: userWhereUniqueInput | userWhereUniqueInput[]
-    connect?: userWhereUniqueInput | userWhereUniqueInput[]
-    update?: userUpdateWithWhereUniqueWithoutOrdersInput | userUpdateWithWhereUniqueWithoutOrdersInput[]
-    updateMany?: userUpdateManyWithWhereWithoutOrdersInput | userUpdateManyWithWhereWithoutOrdersInput[]
-    deleteMany?: userScalarWhereInput | userScalarWhereInput[]
+  export type tblorderUncheckedUpdateManyWithoutProductNestedInput = {
+    create?: XOR<tblorderCreateWithoutProductInput, tblorderUncheckedCreateWithoutProductInput> | tblorderCreateWithoutProductInput[] | tblorderUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: tblorderCreateOrConnectWithoutProductInput | tblorderCreateOrConnectWithoutProductInput[]
+    upsert?: tblorderUpsertWithWhereUniqueWithoutProductInput | tblorderUpsertWithWhereUniqueWithoutProductInput[]
+    createMany?: tblorderCreateManyProductInputEnvelope
+    set?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    disconnect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    delete?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    connect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    update?: tblorderUpdateWithWhereUniqueWithoutProductInput | tblorderUpdateWithWhereUniqueWithoutProductInput[]
+    updateMany?: tblorderUpdateManyWithWhereWithoutProductInput | tblorderUpdateManyWithWhereWithoutProductInput[]
+    deleteMany?: tblorderScalarWhereInput | tblorderScalarWhereInput[]
   }
 
-  export type userUncheckedUpdateManyWithoutOrdersNestedInput = {
-    create?: XOR<userCreateWithoutOrdersInput, userUncheckedCreateWithoutOrdersInput> | userCreateWithoutOrdersInput[] | userUncheckedCreateWithoutOrdersInput[]
-    connectOrCreate?: userCreateOrConnectWithoutOrdersInput | userCreateOrConnectWithoutOrdersInput[]
-    upsert?: userUpsertWithWhereUniqueWithoutOrdersInput | userUpsertWithWhereUniqueWithoutOrdersInput[]
-    set?: userWhereUniqueInput | userWhereUniqueInput[]
-    disconnect?: userWhereUniqueInput | userWhereUniqueInput[]
-    delete?: userWhereUniqueInput | userWhereUniqueInput[]
-    connect?: userWhereUniqueInput | userWhereUniqueInput[]
-    update?: userUpdateWithWhereUniqueWithoutOrdersInput | userUpdateWithWhereUniqueWithoutOrdersInput[]
-    updateMany?: userUpdateManyWithWhereWithoutOrdersInput | userUpdateManyWithWhereWithoutOrdersInput[]
-    deleteMany?: userScalarWhereInput | userScalarWhereInput[]
+  export type tbluserCreateNestedManyWithoutRoleInput = {
+    create?: XOR<tbluserCreateWithoutRoleInput, tbluserUncheckedCreateWithoutRoleInput> | tbluserCreateWithoutRoleInput[] | tbluserUncheckedCreateWithoutRoleInput[]
+    connectOrCreate?: tbluserCreateOrConnectWithoutRoleInput | tbluserCreateOrConnectWithoutRoleInput[]
+    createMany?: tbluserCreateManyRoleInputEnvelope
+    connect?: tbluserWhereUniqueInput | tbluserWhereUniqueInput[]
   }
 
-  export type orderCreateNestedManyWithoutUserInput = {
-    create?: XOR<orderCreateWithoutUserInput, orderUncheckedCreateWithoutUserInput> | orderCreateWithoutUserInput[] | orderUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: orderCreateOrConnectWithoutUserInput | orderCreateOrConnectWithoutUserInput[]
-    connect?: orderWhereUniqueInput | orderWhereUniqueInput[]
+  export type tbluserUncheckedCreateNestedManyWithoutRoleInput = {
+    create?: XOR<tbluserCreateWithoutRoleInput, tbluserUncheckedCreateWithoutRoleInput> | tbluserCreateWithoutRoleInput[] | tbluserUncheckedCreateWithoutRoleInput[]
+    connectOrCreate?: tbluserCreateOrConnectWithoutRoleInput | tbluserCreateOrConnectWithoutRoleInput[]
+    createMany?: tbluserCreateManyRoleInputEnvelope
+    connect?: tbluserWhereUniqueInput | tbluserWhereUniqueInput[]
   }
 
-  export type orderUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<orderCreateWithoutUserInput, orderUncheckedCreateWithoutUserInput> | orderCreateWithoutUserInput[] | orderUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: orderCreateOrConnectWithoutUserInput | orderCreateOrConnectWithoutUserInput[]
-    connect?: orderWhereUniqueInput | orderWhereUniqueInput[]
+  export type tbluserUpdateManyWithoutRoleNestedInput = {
+    create?: XOR<tbluserCreateWithoutRoleInput, tbluserUncheckedCreateWithoutRoleInput> | tbluserCreateWithoutRoleInput[] | tbluserUncheckedCreateWithoutRoleInput[]
+    connectOrCreate?: tbluserCreateOrConnectWithoutRoleInput | tbluserCreateOrConnectWithoutRoleInput[]
+    upsert?: tbluserUpsertWithWhereUniqueWithoutRoleInput | tbluserUpsertWithWhereUniqueWithoutRoleInput[]
+    createMany?: tbluserCreateManyRoleInputEnvelope
+    set?: tbluserWhereUniqueInput | tbluserWhereUniqueInput[]
+    disconnect?: tbluserWhereUniqueInput | tbluserWhereUniqueInput[]
+    delete?: tbluserWhereUniqueInput | tbluserWhereUniqueInput[]
+    connect?: tbluserWhereUniqueInput | tbluserWhereUniqueInput[]
+    update?: tbluserUpdateWithWhereUniqueWithoutRoleInput | tbluserUpdateWithWhereUniqueWithoutRoleInput[]
+    updateMany?: tbluserUpdateManyWithWhereWithoutRoleInput | tbluserUpdateManyWithWhereWithoutRoleInput[]
+    deleteMany?: tbluserScalarWhereInput | tbluserScalarWhereInput[]
   }
 
-  export type orderUpdateManyWithoutUserNestedInput = {
-    create?: XOR<orderCreateWithoutUserInput, orderUncheckedCreateWithoutUserInput> | orderCreateWithoutUserInput[] | orderUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: orderCreateOrConnectWithoutUserInput | orderCreateOrConnectWithoutUserInput[]
-    upsert?: orderUpsertWithWhereUniqueWithoutUserInput | orderUpsertWithWhereUniqueWithoutUserInput[]
-    set?: orderWhereUniqueInput | orderWhereUniqueInput[]
-    disconnect?: orderWhereUniqueInput | orderWhereUniqueInput[]
-    delete?: orderWhereUniqueInput | orderWhereUniqueInput[]
-    connect?: orderWhereUniqueInput | orderWhereUniqueInput[]
-    update?: orderUpdateWithWhereUniqueWithoutUserInput | orderUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: orderUpdateManyWithWhereWithoutUserInput | orderUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: orderScalarWhereInput | orderScalarWhereInput[]
+  export type tbluserUncheckedUpdateManyWithoutRoleNestedInput = {
+    create?: XOR<tbluserCreateWithoutRoleInput, tbluserUncheckedCreateWithoutRoleInput> | tbluserCreateWithoutRoleInput[] | tbluserUncheckedCreateWithoutRoleInput[]
+    connectOrCreate?: tbluserCreateOrConnectWithoutRoleInput | tbluserCreateOrConnectWithoutRoleInput[]
+    upsert?: tbluserUpsertWithWhereUniqueWithoutRoleInput | tbluserUpsertWithWhereUniqueWithoutRoleInput[]
+    createMany?: tbluserCreateManyRoleInputEnvelope
+    set?: tbluserWhereUniqueInput | tbluserWhereUniqueInput[]
+    disconnect?: tbluserWhereUniqueInput | tbluserWhereUniqueInput[]
+    delete?: tbluserWhereUniqueInput | tbluserWhereUniqueInput[]
+    connect?: tbluserWhereUniqueInput | tbluserWhereUniqueInput[]
+    update?: tbluserUpdateWithWhereUniqueWithoutRoleInput | tbluserUpdateWithWhereUniqueWithoutRoleInput[]
+    updateMany?: tbluserUpdateManyWithWhereWithoutRoleInput | tbluserUpdateManyWithWhereWithoutRoleInput[]
+    deleteMany?: tbluserScalarWhereInput | tbluserScalarWhereInput[]
   }
 
-  export type orderUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<orderCreateWithoutUserInput, orderUncheckedCreateWithoutUserInput> | orderCreateWithoutUserInput[] | orderUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: orderCreateOrConnectWithoutUserInput | orderCreateOrConnectWithoutUserInput[]
-    upsert?: orderUpsertWithWhereUniqueWithoutUserInput | orderUpsertWithWhereUniqueWithoutUserInput[]
-    set?: orderWhereUniqueInput | orderWhereUniqueInput[]
-    disconnect?: orderWhereUniqueInput | orderWhereUniqueInput[]
-    delete?: orderWhereUniqueInput | orderWhereUniqueInput[]
-    connect?: orderWhereUniqueInput | orderWhereUniqueInput[]
-    update?: orderUpdateWithWhereUniqueWithoutUserInput | orderUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: orderUpdateManyWithWhereWithoutUserInput | orderUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: orderScalarWhereInput | orderScalarWhereInput[]
+  export type tblroleCreateNestedOneWithoutSubgroupsInput = {
+    create?: XOR<tblroleCreateWithoutSubgroupsInput, tblroleUncheckedCreateWithoutSubgroupsInput>
+    connectOrCreate?: tblroleCreateOrConnectWithoutSubgroupsInput
+    connect?: tblroleWhereUniqueInput
+  }
+
+  export type tblorderCreateNestedManyWithoutUserInput = {
+    create?: XOR<tblorderCreateWithoutUserInput, tblorderUncheckedCreateWithoutUserInput> | tblorderCreateWithoutUserInput[] | tblorderUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: tblorderCreateOrConnectWithoutUserInput | tblorderCreateOrConnectWithoutUserInput[]
+    createMany?: tblorderCreateManyUserInputEnvelope
+    connect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+  }
+
+  export type tblorderUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<tblorderCreateWithoutUserInput, tblorderUncheckedCreateWithoutUserInput> | tblorderCreateWithoutUserInput[] | tblorderUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: tblorderCreateOrConnectWithoutUserInput | tblorderCreateOrConnectWithoutUserInput[]
+    createMany?: tblorderCreateManyUserInputEnvelope
+    connect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+  }
+
+  export type tblroleUpdateOneRequiredWithoutSubgroupsNestedInput = {
+    create?: XOR<tblroleCreateWithoutSubgroupsInput, tblroleUncheckedCreateWithoutSubgroupsInput>
+    connectOrCreate?: tblroleCreateOrConnectWithoutSubgroupsInput
+    upsert?: tblroleUpsertWithoutSubgroupsInput
+    connect?: tblroleWhereUniqueInput
+    update?: XOR<XOR<tblroleUpdateToOneWithWhereWithoutSubgroupsInput, tblroleUpdateWithoutSubgroupsInput>, tblroleUncheckedUpdateWithoutSubgroupsInput>
+  }
+
+  export type tblorderUpdateManyWithoutUserNestedInput = {
+    create?: XOR<tblorderCreateWithoutUserInput, tblorderUncheckedCreateWithoutUserInput> | tblorderCreateWithoutUserInput[] | tblorderUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: tblorderCreateOrConnectWithoutUserInput | tblorderCreateOrConnectWithoutUserInput[]
+    upsert?: tblorderUpsertWithWhereUniqueWithoutUserInput | tblorderUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: tblorderCreateManyUserInputEnvelope
+    set?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    disconnect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    delete?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    connect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    update?: tblorderUpdateWithWhereUniqueWithoutUserInput | tblorderUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: tblorderUpdateManyWithWhereWithoutUserInput | tblorderUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: tblorderScalarWhereInput | tblorderScalarWhereInput[]
+  }
+
+  export type tblorderUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<tblorderCreateWithoutUserInput, tblorderUncheckedCreateWithoutUserInput> | tblorderCreateWithoutUserInput[] | tblorderUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: tblorderCreateOrConnectWithoutUserInput | tblorderCreateOrConnectWithoutUserInput[]
+    upsert?: tblorderUpsertWithWhereUniqueWithoutUserInput | tblorderUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: tblorderCreateManyUserInputEnvelope
+    set?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    disconnect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    delete?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    connect?: tblorderWhereUniqueInput | tblorderWhereUniqueInput[]
+    update?: tblorderUpdateWithWhereUniqueWithoutUserInput | tblorderUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: tblorderUpdateManyWithWhereWithoutUserInput | tblorderUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: tblorderScalarWhereInput | tblorderScalarWhereInput[]
+  }
+
+  export type tbluserCreateNestedOneWithoutCategoriesInput = {
+    create?: XOR<tbluserCreateWithoutCategoriesInput, tbluserUncheckedCreateWithoutCategoriesInput>
+    connectOrCreate?: tbluserCreateOrConnectWithoutCategoriesInput
+    connect?: tbluserWhereUniqueInput
+  }
+
+  export type tblproductCreateNestedOneWithoutOrdersInput = {
+    create?: XOR<tblproductCreateWithoutOrdersInput, tblproductUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: tblproductCreateOrConnectWithoutOrdersInput
+    connect?: tblproductWhereUniqueInput
+  }
+
+  export type tbluserUpdateOneRequiredWithoutCategoriesNestedInput = {
+    create?: XOR<tbluserCreateWithoutCategoriesInput, tbluserUncheckedCreateWithoutCategoriesInput>
+    connectOrCreate?: tbluserCreateOrConnectWithoutCategoriesInput
+    upsert?: tbluserUpsertWithoutCategoriesInput
+    connect?: tbluserWhereUniqueInput
+    update?: XOR<XOR<tbluserUpdateToOneWithWhereWithoutCategoriesInput, tbluserUpdateWithoutCategoriesInput>, tbluserUncheckedUpdateWithoutCategoriesInput>
+  }
+
+  export type tblproductUpdateOneRequiredWithoutOrdersNestedInput = {
+    create?: XOR<tblproductCreateWithoutOrdersInput, tblproductUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: tblproductCreateOrConnectWithoutOrdersInput
+    upsert?: tblproductUpsertWithoutOrdersInput
+    connect?: tblproductWhereUniqueInput
+    update?: XOR<XOR<tblproductUpdateToOneWithWhereWithoutOrdersInput, tblproductUpdateWithoutOrdersInput>, tblproductUncheckedUpdateWithoutOrdersInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -8268,6 +10328,20 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -8325,6 +10399,34 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -8355,7 +10457,401 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type userCreateWithoutOrdersInput = {
+  export type tblsubgroupCreateWithoutGroupInput = {
+    subgroup: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    categories?: tblcategoryCreateNestedManyWithoutSubgroupInput
+  }
+
+  export type tblsubgroupUncheckedCreateWithoutGroupInput = {
+    id?: number
+    subgroup: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    categories?: tblcategoryUncheckedCreateNestedManyWithoutSubgroupInput
+  }
+
+  export type tblsubgroupCreateOrConnectWithoutGroupInput = {
+    where: tblsubgroupWhereUniqueInput
+    create: XOR<tblsubgroupCreateWithoutGroupInput, tblsubgroupUncheckedCreateWithoutGroupInput>
+  }
+
+  export type tblsubgroupCreateManyGroupInputEnvelope = {
+    data: tblsubgroupCreateManyGroupInput | tblsubgroupCreateManyGroupInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tblsubgroupUpsertWithWhereUniqueWithoutGroupInput = {
+    where: tblsubgroupWhereUniqueInput
+    update: XOR<tblsubgroupUpdateWithoutGroupInput, tblsubgroupUncheckedUpdateWithoutGroupInput>
+    create: XOR<tblsubgroupCreateWithoutGroupInput, tblsubgroupUncheckedCreateWithoutGroupInput>
+  }
+
+  export type tblsubgroupUpdateWithWhereUniqueWithoutGroupInput = {
+    where: tblsubgroupWhereUniqueInput
+    data: XOR<tblsubgroupUpdateWithoutGroupInput, tblsubgroupUncheckedUpdateWithoutGroupInput>
+  }
+
+  export type tblsubgroupUpdateManyWithWhereWithoutGroupInput = {
+    where: tblsubgroupScalarWhereInput
+    data: XOR<tblsubgroupUpdateManyMutationInput, tblsubgroupUncheckedUpdateManyWithoutGroupInput>
+  }
+
+  export type tblsubgroupScalarWhereInput = {
+    AND?: tblsubgroupScalarWhereInput | tblsubgroupScalarWhereInput[]
+    OR?: tblsubgroupScalarWhereInput[]
+    NOT?: tblsubgroupScalarWhereInput | tblsubgroupScalarWhereInput[]
+    id?: IntFilter<"tblsubgroup"> | number
+    subgroup?: StringFilter<"tblsubgroup"> | string
+    description?: StringNullableFilter<"tblsubgroup"> | string | null
+    image?: StringFilter<"tblsubgroup"> | string
+    createdAt?: DateTimeFilter<"tblsubgroup"> | Date | string
+    updatedAt?: DateTimeFilter<"tblsubgroup"> | Date | string
+    groupId?: IntFilter<"tblsubgroup"> | number
+  }
+
+  export type tblgroupCreateWithoutSubgroupsInput = {
+    group: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type tblgroupUncheckedCreateWithoutSubgroupsInput = {
+    id?: number
+    group: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type tblgroupCreateOrConnectWithoutSubgroupsInput = {
+    where: tblgroupWhereUniqueInput
+    create: XOR<tblgroupCreateWithoutSubgroupsInput, tblgroupUncheckedCreateWithoutSubgroupsInput>
+  }
+
+  export type tblcategoryCreateWithoutSubgroupInput = {
+    category: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    products?: tblproductCreateNestedManyWithoutCategoryInput
+  }
+
+  export type tblcategoryUncheckedCreateWithoutSubgroupInput = {
+    id?: number
+    category: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    products?: tblproductUncheckedCreateNestedManyWithoutCategoryInput
+  }
+
+  export type tblcategoryCreateOrConnectWithoutSubgroupInput = {
+    where: tblcategoryWhereUniqueInput
+    create: XOR<tblcategoryCreateWithoutSubgroupInput, tblcategoryUncheckedCreateWithoutSubgroupInput>
+  }
+
+  export type tblcategoryCreateManySubgroupInputEnvelope = {
+    data: tblcategoryCreateManySubgroupInput | tblcategoryCreateManySubgroupInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tblgroupUpsertWithoutSubgroupsInput = {
+    update: XOR<tblgroupUpdateWithoutSubgroupsInput, tblgroupUncheckedUpdateWithoutSubgroupsInput>
+    create: XOR<tblgroupCreateWithoutSubgroupsInput, tblgroupUncheckedCreateWithoutSubgroupsInput>
+    where?: tblgroupWhereInput
+  }
+
+  export type tblgroupUpdateToOneWithWhereWithoutSubgroupsInput = {
+    where?: tblgroupWhereInput
+    data: XOR<tblgroupUpdateWithoutSubgroupsInput, tblgroupUncheckedUpdateWithoutSubgroupsInput>
+  }
+
+  export type tblgroupUpdateWithoutSubgroupsInput = {
+    group?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tblgroupUncheckedUpdateWithoutSubgroupsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    group?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tblcategoryUpsertWithWhereUniqueWithoutSubgroupInput = {
+    where: tblcategoryWhereUniqueInput
+    update: XOR<tblcategoryUpdateWithoutSubgroupInput, tblcategoryUncheckedUpdateWithoutSubgroupInput>
+    create: XOR<tblcategoryCreateWithoutSubgroupInput, tblcategoryUncheckedCreateWithoutSubgroupInput>
+  }
+
+  export type tblcategoryUpdateWithWhereUniqueWithoutSubgroupInput = {
+    where: tblcategoryWhereUniqueInput
+    data: XOR<tblcategoryUpdateWithoutSubgroupInput, tblcategoryUncheckedUpdateWithoutSubgroupInput>
+  }
+
+  export type tblcategoryUpdateManyWithWhereWithoutSubgroupInput = {
+    where: tblcategoryScalarWhereInput
+    data: XOR<tblcategoryUpdateManyMutationInput, tblcategoryUncheckedUpdateManyWithoutSubgroupInput>
+  }
+
+  export type tblcategoryScalarWhereInput = {
+    AND?: tblcategoryScalarWhereInput | tblcategoryScalarWhereInput[]
+    OR?: tblcategoryScalarWhereInput[]
+    NOT?: tblcategoryScalarWhereInput | tblcategoryScalarWhereInput[]
+    id?: IntFilter<"tblcategory"> | number
+    category?: StringFilter<"tblcategory"> | string
+    description?: StringNullableFilter<"tblcategory"> | string | null
+    image?: StringFilter<"tblcategory"> | string
+    createdAt?: DateTimeFilter<"tblcategory"> | Date | string
+    updatedAt?: DateTimeFilter<"tblcategory"> | Date | string
+    subgroupId?: IntFilter<"tblcategory"> | number
+  }
+
+  export type tblsubgroupCreateWithoutCategoriesInput = {
+    subgroup: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    group: tblgroupCreateNestedOneWithoutSubgroupsInput
+  }
+
+  export type tblsubgroupUncheckedCreateWithoutCategoriesInput = {
+    id?: number
+    subgroup: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    groupId: number
+  }
+
+  export type tblsubgroupCreateOrConnectWithoutCategoriesInput = {
+    where: tblsubgroupWhereUniqueInput
+    create: XOR<tblsubgroupCreateWithoutCategoriesInput, tblsubgroupUncheckedCreateWithoutCategoriesInput>
+  }
+
+  export type tblproductCreateWithoutCategoryInput = {
+    product: string
+    description?: string | null
+    price: number
+    stock: number
+    unit: string
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    orders?: tblorderCreateNestedManyWithoutProductInput
+  }
+
+  export type tblproductUncheckedCreateWithoutCategoryInput = {
+    id?: number
+    product: string
+    description?: string | null
+    price: number
+    stock: number
+    unit: string
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    orders?: tblorderUncheckedCreateNestedManyWithoutProductInput
+  }
+
+  export type tblproductCreateOrConnectWithoutCategoryInput = {
+    where: tblproductWhereUniqueInput
+    create: XOR<tblproductCreateWithoutCategoryInput, tblproductUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type tblproductCreateManyCategoryInputEnvelope = {
+    data: tblproductCreateManyCategoryInput | tblproductCreateManyCategoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tblsubgroupUpsertWithoutCategoriesInput = {
+    update: XOR<tblsubgroupUpdateWithoutCategoriesInput, tblsubgroupUncheckedUpdateWithoutCategoriesInput>
+    create: XOR<tblsubgroupCreateWithoutCategoriesInput, tblsubgroupUncheckedCreateWithoutCategoriesInput>
+    where?: tblsubgroupWhereInput
+  }
+
+  export type tblsubgroupUpdateToOneWithWhereWithoutCategoriesInput = {
+    where?: tblsubgroupWhereInput
+    data: XOR<tblsubgroupUpdateWithoutCategoriesInput, tblsubgroupUncheckedUpdateWithoutCategoriesInput>
+  }
+
+  export type tblsubgroupUpdateWithoutCategoriesInput = {
+    subgroup?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    group?: tblgroupUpdateOneRequiredWithoutSubgroupsNestedInput
+  }
+
+  export type tblsubgroupUncheckedUpdateWithoutCategoriesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    subgroup?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    groupId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type tblproductUpsertWithWhereUniqueWithoutCategoryInput = {
+    where: tblproductWhereUniqueInput
+    update: XOR<tblproductUpdateWithoutCategoryInput, tblproductUncheckedUpdateWithoutCategoryInput>
+    create: XOR<tblproductCreateWithoutCategoryInput, tblproductUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type tblproductUpdateWithWhereUniqueWithoutCategoryInput = {
+    where: tblproductWhereUniqueInput
+    data: XOR<tblproductUpdateWithoutCategoryInput, tblproductUncheckedUpdateWithoutCategoryInput>
+  }
+
+  export type tblproductUpdateManyWithWhereWithoutCategoryInput = {
+    where: tblproductScalarWhereInput
+    data: XOR<tblproductUpdateManyMutationInput, tblproductUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type tblproductScalarWhereInput = {
+    AND?: tblproductScalarWhereInput | tblproductScalarWhereInput[]
+    OR?: tblproductScalarWhereInput[]
+    NOT?: tblproductScalarWhereInput | tblproductScalarWhereInput[]
+    id?: IntFilter<"tblproduct"> | number
+    product?: StringFilter<"tblproduct"> | string
+    description?: StringNullableFilter<"tblproduct"> | string | null
+    price?: FloatFilter<"tblproduct"> | number
+    stock?: IntFilter<"tblproduct"> | number
+    unit?: StringFilter<"tblproduct"> | string
+    image?: StringFilter<"tblproduct"> | string
+    createdAt?: DateTimeFilter<"tblproduct"> | Date | string
+    updatedAt?: DateTimeFilter<"tblproduct"> | Date | string
+    categoryId?: IntFilter<"tblproduct"> | number
+  }
+
+  export type tblcategoryCreateWithoutProductsInput = {
+    category: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    subgroup: tblsubgroupCreateNestedOneWithoutCategoriesInput
+  }
+
+  export type tblcategoryUncheckedCreateWithoutProductsInput = {
+    id?: number
+    category: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    subgroupId: number
+  }
+
+  export type tblcategoryCreateOrConnectWithoutProductsInput = {
+    where: tblcategoryWhereUniqueInput
+    create: XOR<tblcategoryCreateWithoutProductsInput, tblcategoryUncheckedCreateWithoutProductsInput>
+  }
+
+  export type tblorderCreateWithoutProductInput = {
+    quantity: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: tbluserCreateNestedOneWithoutCategoriesInput
+  }
+
+  export type tblorderUncheckedCreateWithoutProductInput = {
+    id?: number
+    quantity: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: number
+  }
+
+  export type tblorderCreateOrConnectWithoutProductInput = {
+    where: tblorderWhereUniqueInput
+    create: XOR<tblorderCreateWithoutProductInput, tblorderUncheckedCreateWithoutProductInput>
+  }
+
+  export type tblorderCreateManyProductInputEnvelope = {
+    data: tblorderCreateManyProductInput | tblorderCreateManyProductInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tblcategoryUpsertWithoutProductsInput = {
+    update: XOR<tblcategoryUpdateWithoutProductsInput, tblcategoryUncheckedUpdateWithoutProductsInput>
+    create: XOR<tblcategoryCreateWithoutProductsInput, tblcategoryUncheckedCreateWithoutProductsInput>
+    where?: tblcategoryWhereInput
+  }
+
+  export type tblcategoryUpdateToOneWithWhereWithoutProductsInput = {
+    where?: tblcategoryWhereInput
+    data: XOR<tblcategoryUpdateWithoutProductsInput, tblcategoryUncheckedUpdateWithoutProductsInput>
+  }
+
+  export type tblcategoryUpdateWithoutProductsInput = {
+    category?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subgroup?: tblsubgroupUpdateOneRequiredWithoutCategoriesNestedInput
+  }
+
+  export type tblcategoryUncheckedUpdateWithoutProductsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subgroupId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type tblorderUpsertWithWhereUniqueWithoutProductInput = {
+    where: tblorderWhereUniqueInput
+    update: XOR<tblorderUpdateWithoutProductInput, tblorderUncheckedUpdateWithoutProductInput>
+    create: XOR<tblorderCreateWithoutProductInput, tblorderUncheckedCreateWithoutProductInput>
+  }
+
+  export type tblorderUpdateWithWhereUniqueWithoutProductInput = {
+    where: tblorderWhereUniqueInput
+    data: XOR<tblorderUpdateWithoutProductInput, tblorderUncheckedUpdateWithoutProductInput>
+  }
+
+  export type tblorderUpdateManyWithWhereWithoutProductInput = {
+    where: tblorderScalarWhereInput
+    data: XOR<tblorderUpdateManyMutationInput, tblorderUncheckedUpdateManyWithoutProductInput>
+  }
+
+  export type tblorderScalarWhereInput = {
+    AND?: tblorderScalarWhereInput | tblorderScalarWhereInput[]
+    OR?: tblorderScalarWhereInput[]
+    NOT?: tblorderScalarWhereInput | tblorderScalarWhereInput[]
+    id?: IntFilter<"tblorder"> | number
+    quantity?: IntFilter<"tblorder"> | number
+    createdAt?: DateTimeFilter<"tblorder"> | Date | string
+    updatedAt?: DateTimeFilter<"tblorder"> | Date | string
+    userId?: IntFilter<"tblorder"> | number
+    productId?: IntFilter<"tblorder"> | number
+  }
+
+  export type tbluserCreateWithoutRoleInput = {
     name: string
     password: string
     telefono: string
@@ -8363,9 +10859,436 @@ export namespace Prisma {
     email: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    categories?: tblorderCreateNestedManyWithoutUserInput
   }
 
-  export type userUncheckedCreateWithoutOrdersInput = {
+  export type tbluserUncheckedCreateWithoutRoleInput = {
+    id?: number
+    name: string
+    password: string
+    telefono: string
+    direccion: string
+    email: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    categories?: tblorderUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type tbluserCreateOrConnectWithoutRoleInput = {
+    where: tbluserWhereUniqueInput
+    create: XOR<tbluserCreateWithoutRoleInput, tbluserUncheckedCreateWithoutRoleInput>
+  }
+
+  export type tbluserCreateManyRoleInputEnvelope = {
+    data: tbluserCreateManyRoleInput | tbluserCreateManyRoleInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tbluserUpsertWithWhereUniqueWithoutRoleInput = {
+    where: tbluserWhereUniqueInput
+    update: XOR<tbluserUpdateWithoutRoleInput, tbluserUncheckedUpdateWithoutRoleInput>
+    create: XOR<tbluserCreateWithoutRoleInput, tbluserUncheckedCreateWithoutRoleInput>
+  }
+
+  export type tbluserUpdateWithWhereUniqueWithoutRoleInput = {
+    where: tbluserWhereUniqueInput
+    data: XOR<tbluserUpdateWithoutRoleInput, tbluserUncheckedUpdateWithoutRoleInput>
+  }
+
+  export type tbluserUpdateManyWithWhereWithoutRoleInput = {
+    where: tbluserScalarWhereInput
+    data: XOR<tbluserUpdateManyMutationInput, tbluserUncheckedUpdateManyWithoutRoleInput>
+  }
+
+  export type tbluserScalarWhereInput = {
+    AND?: tbluserScalarWhereInput | tbluserScalarWhereInput[]
+    OR?: tbluserScalarWhereInput[]
+    NOT?: tbluserScalarWhereInput | tbluserScalarWhereInput[]
+    id?: IntFilter<"tbluser"> | number
+    name?: StringFilter<"tbluser"> | string
+    password?: StringFilter<"tbluser"> | string
+    telefono?: StringFilter<"tbluser"> | string
+    direccion?: StringFilter<"tbluser"> | string
+    email?: StringFilter<"tbluser"> | string
+    createdAt?: DateTimeFilter<"tbluser"> | Date | string
+    updatedAt?: DateTimeFilter<"tbluser"> | Date | string
+    roleId?: IntFilter<"tbluser"> | number
+  }
+
+  export type tblroleCreateWithoutSubgroupsInput = {
+    role: string
+    description: string
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type tblroleUncheckedCreateWithoutSubgroupsInput = {
+    id?: number
+    role: string
+    description: string
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type tblroleCreateOrConnectWithoutSubgroupsInput = {
+    where: tblroleWhereUniqueInput
+    create: XOR<tblroleCreateWithoutSubgroupsInput, tblroleUncheckedCreateWithoutSubgroupsInput>
+  }
+
+  export type tblorderCreateWithoutUserInput = {
+    quantity: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    product: tblproductCreateNestedOneWithoutOrdersInput
+  }
+
+  export type tblorderUncheckedCreateWithoutUserInput = {
+    id?: number
+    quantity: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    productId: number
+  }
+
+  export type tblorderCreateOrConnectWithoutUserInput = {
+    where: tblorderWhereUniqueInput
+    create: XOR<tblorderCreateWithoutUserInput, tblorderUncheckedCreateWithoutUserInput>
+  }
+
+  export type tblorderCreateManyUserInputEnvelope = {
+    data: tblorderCreateManyUserInput | tblorderCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tblroleUpsertWithoutSubgroupsInput = {
+    update: XOR<tblroleUpdateWithoutSubgroupsInput, tblroleUncheckedUpdateWithoutSubgroupsInput>
+    create: XOR<tblroleCreateWithoutSubgroupsInput, tblroleUncheckedCreateWithoutSubgroupsInput>
+    where?: tblroleWhereInput
+  }
+
+  export type tblroleUpdateToOneWithWhereWithoutSubgroupsInput = {
+    where?: tblroleWhereInput
+    data: XOR<tblroleUpdateWithoutSubgroupsInput, tblroleUncheckedUpdateWithoutSubgroupsInput>
+  }
+
+  export type tblroleUpdateWithoutSubgroupsInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tblroleUncheckedUpdateWithoutSubgroupsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tblorderUpsertWithWhereUniqueWithoutUserInput = {
+    where: tblorderWhereUniqueInput
+    update: XOR<tblorderUpdateWithoutUserInput, tblorderUncheckedUpdateWithoutUserInput>
+    create: XOR<tblorderCreateWithoutUserInput, tblorderUncheckedCreateWithoutUserInput>
+  }
+
+  export type tblorderUpdateWithWhereUniqueWithoutUserInput = {
+    where: tblorderWhereUniqueInput
+    data: XOR<tblorderUpdateWithoutUserInput, tblorderUncheckedUpdateWithoutUserInput>
+  }
+
+  export type tblorderUpdateManyWithWhereWithoutUserInput = {
+    where: tblorderScalarWhereInput
+    data: XOR<tblorderUpdateManyMutationInput, tblorderUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type tbluserCreateWithoutCategoriesInput = {
+    name: string
+    password: string
+    telefono: string
+    direccion: string
+    email: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    role: tblroleCreateNestedOneWithoutSubgroupsInput
+  }
+
+  export type tbluserUncheckedCreateWithoutCategoriesInput = {
+    id?: number
+    name: string
+    password: string
+    telefono: string
+    direccion: string
+    email: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    roleId: number
+  }
+
+  export type tbluserCreateOrConnectWithoutCategoriesInput = {
+    where: tbluserWhereUniqueInput
+    create: XOR<tbluserCreateWithoutCategoriesInput, tbluserUncheckedCreateWithoutCategoriesInput>
+  }
+
+  export type tblproductCreateWithoutOrdersInput = {
+    product: string
+    description?: string | null
+    price: number
+    stock: number
+    unit: string
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    category: tblcategoryCreateNestedOneWithoutProductsInput
+  }
+
+  export type tblproductUncheckedCreateWithoutOrdersInput = {
+    id?: number
+    product: string
+    description?: string | null
+    price: number
+    stock: number
+    unit: string
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    categoryId: number
+  }
+
+  export type tblproductCreateOrConnectWithoutOrdersInput = {
+    where: tblproductWhereUniqueInput
+    create: XOR<tblproductCreateWithoutOrdersInput, tblproductUncheckedCreateWithoutOrdersInput>
+  }
+
+  export type tbluserUpsertWithoutCategoriesInput = {
+    update: XOR<tbluserUpdateWithoutCategoriesInput, tbluserUncheckedUpdateWithoutCategoriesInput>
+    create: XOR<tbluserCreateWithoutCategoriesInput, tbluserUncheckedCreateWithoutCategoriesInput>
+    where?: tbluserWhereInput
+  }
+
+  export type tbluserUpdateToOneWithWhereWithoutCategoriesInput = {
+    where?: tbluserWhereInput
+    data: XOR<tbluserUpdateWithoutCategoriesInput, tbluserUncheckedUpdateWithoutCategoriesInput>
+  }
+
+  export type tbluserUpdateWithoutCategoriesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telefono?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    role?: tblroleUpdateOneRequiredWithoutSubgroupsNestedInput
+  }
+
+  export type tbluserUncheckedUpdateWithoutCategoriesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telefono?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    roleId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type tblproductUpsertWithoutOrdersInput = {
+    update: XOR<tblproductUpdateWithoutOrdersInput, tblproductUncheckedUpdateWithoutOrdersInput>
+    create: XOR<tblproductCreateWithoutOrdersInput, tblproductUncheckedCreateWithoutOrdersInput>
+    where?: tblproductWhereInput
+  }
+
+  export type tblproductUpdateToOneWithWhereWithoutOrdersInput = {
+    where?: tblproductWhereInput
+    data: XOR<tblproductUpdateWithoutOrdersInput, tblproductUncheckedUpdateWithoutOrdersInput>
+  }
+
+  export type tblproductUpdateWithoutOrdersInput = {
+    product?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: tblcategoryUpdateOneRequiredWithoutProductsNestedInput
+  }
+
+  export type tblproductUncheckedUpdateWithoutOrdersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    product?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoryId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type tblsubgroupCreateManyGroupInput = {
+    id?: number
+    subgroup: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type tblsubgroupUpdateWithoutGroupInput = {
+    subgroup?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categories?: tblcategoryUpdateManyWithoutSubgroupNestedInput
+  }
+
+  export type tblsubgroupUncheckedUpdateWithoutGroupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    subgroup?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categories?: tblcategoryUncheckedUpdateManyWithoutSubgroupNestedInput
+  }
+
+  export type tblsubgroupUncheckedUpdateManyWithoutGroupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    subgroup?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tblcategoryCreateManySubgroupInput = {
+    id?: number
+    category: string
+    description?: string | null
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type tblcategoryUpdateWithoutSubgroupInput = {
+    category?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    products?: tblproductUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type tblcategoryUncheckedUpdateWithoutSubgroupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    products?: tblproductUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type tblcategoryUncheckedUpdateManyWithoutSubgroupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tblproductCreateManyCategoryInput = {
+    id?: number
+    product: string
+    description?: string | null
+    price: number
+    stock: number
+    unit: string
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type tblproductUpdateWithoutCategoryInput = {
+    product?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    orders?: tblorderUpdateManyWithoutProductNestedInput
+  }
+
+  export type tblproductUncheckedUpdateWithoutCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    product?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    orders?: tblorderUncheckedUpdateManyWithoutProductNestedInput
+  }
+
+  export type tblproductUncheckedUpdateManyWithoutCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    product?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: FloatFieldUpdateOperationsInput | number
+    stock?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tblorderCreateManyProductInput = {
+    id?: number
+    quantity: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: number
+  }
+
+  export type tblorderUpdateWithoutProductInput = {
+    quantity?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: tbluserUpdateOneRequiredWithoutCategoriesNestedInput
+  }
+
+  export type tblorderUncheckedUpdateWithoutProductInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type tblorderUncheckedUpdateManyWithoutProductInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type tbluserCreateManyRoleInput = {
     id?: number
     name: string
     password: string
@@ -8376,147 +11299,69 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type userCreateOrConnectWithoutOrdersInput = {
-    where: userWhereUniqueInput
-    create: XOR<userCreateWithoutOrdersInput, userUncheckedCreateWithoutOrdersInput>
+  export type tbluserUpdateWithoutRoleInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telefono?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categories?: tblorderUpdateManyWithoutUserNestedInput
   }
 
-  export type userUpsertWithWhereUniqueWithoutOrdersInput = {
-    where: userWhereUniqueInput
-    update: XOR<userUpdateWithoutOrdersInput, userUncheckedUpdateWithoutOrdersInput>
-    create: XOR<userCreateWithoutOrdersInput, userUncheckedCreateWithoutOrdersInput>
+  export type tbluserUncheckedUpdateWithoutRoleInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telefono?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categories?: tblorderUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type userUpdateWithWhereUniqueWithoutOrdersInput = {
-    where: userWhereUniqueInput
-    data: XOR<userUpdateWithoutOrdersInput, userUncheckedUpdateWithoutOrdersInput>
+  export type tbluserUncheckedUpdateManyWithoutRoleInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    telefono?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type userUpdateManyWithWhereWithoutOrdersInput = {
-    where: userScalarWhereInput
-    data: XOR<userUpdateManyMutationInput, userUncheckedUpdateManyWithoutOrdersInput>
-  }
-
-  export type userScalarWhereInput = {
-    AND?: userScalarWhereInput | userScalarWhereInput[]
-    OR?: userScalarWhereInput[]
-    NOT?: userScalarWhereInput | userScalarWhereInput[]
-    id?: IntFilter<"user"> | number
-    name?: StringFilter<"user"> | string
-    password?: StringFilter<"user"> | string
-    telefono?: StringFilter<"user"> | string
-    direccion?: StringFilter<"user"> | string
-    email?: StringFilter<"user"> | string
-    createdAt?: DateTimeFilter<"user"> | Date | string
-    updatedAt?: DateTimeFilter<"user"> | Date | string
-  }
-
-  export type orderCreateWithoutUserInput = {
-    userId: number
-    productId: number
-    quantity: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type orderUncheckedCreateWithoutUserInput = {
+  export type tblorderCreateManyUserInput = {
     id?: number
-    userId: number
-    productId: number
     quantity: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    productId: number
   }
 
-  export type orderCreateOrConnectWithoutUserInput = {
-    where: orderWhereUniqueInput
-    create: XOR<orderCreateWithoutUserInput, orderUncheckedCreateWithoutUserInput>
-  }
-
-  export type orderUpsertWithWhereUniqueWithoutUserInput = {
-    where: orderWhereUniqueInput
-    update: XOR<orderUpdateWithoutUserInput, orderUncheckedUpdateWithoutUserInput>
-    create: XOR<orderCreateWithoutUserInput, orderUncheckedCreateWithoutUserInput>
-  }
-
-  export type orderUpdateWithWhereUniqueWithoutUserInput = {
-    where: orderWhereUniqueInput
-    data: XOR<orderUpdateWithoutUserInput, orderUncheckedUpdateWithoutUserInput>
-  }
-
-  export type orderUpdateManyWithWhereWithoutUserInput = {
-    where: orderScalarWhereInput
-    data: XOR<orderUpdateManyMutationInput, orderUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type orderScalarWhereInput = {
-    AND?: orderScalarWhereInput | orderScalarWhereInput[]
-    OR?: orderScalarWhereInput[]
-    NOT?: orderScalarWhereInput | orderScalarWhereInput[]
-    id?: IntFilter<"order"> | number
-    userId?: IntFilter<"order"> | number
-    productId?: IntFilter<"order"> | number
-    quantity?: IntFilter<"order"> | number
-    createdAt?: DateTimeFilter<"order"> | Date | string
-    updatedAt?: DateTimeFilter<"order"> | Date | string
-  }
-
-  export type userUpdateWithoutOrdersInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    telefono?: StringFieldUpdateOperationsInput | string
-    direccion?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type userUncheckedUpdateWithoutOrdersInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    telefono?: StringFieldUpdateOperationsInput | string
-    direccion?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type userUncheckedUpdateManyWithoutOrdersInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    telefono?: StringFieldUpdateOperationsInput | string
-    direccion?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type orderUpdateWithoutUserInput = {
-    userId?: IntFieldUpdateOperationsInput | number
-    productId?: IntFieldUpdateOperationsInput | number
+  export type tblorderUpdateWithoutUserInput = {
     quantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    product?: tblproductUpdateOneRequiredWithoutOrdersNestedInput
   }
 
-  export type orderUncheckedUpdateWithoutUserInput = {
+  export type tblorderUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
-    userId?: IntFieldUpdateOperationsInput | number
-    productId?: IntFieldUpdateOperationsInput | number
     quantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    productId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type orderUncheckedUpdateManyWithoutUserInput = {
+  export type tblorderUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
-    userId?: IntFieldUpdateOperationsInput | number
-    productId?: IntFieldUpdateOperationsInput | number
     quantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    productId?: IntFieldUpdateOperationsInput | number
   }
 
 
@@ -8525,37 +11370,57 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
-     * @deprecated Use OrderCountOutputTypeDefaultArgs instead
+     * @deprecated Use TblgroupCountOutputTypeDefaultArgs instead
      */
-    export type OrderCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = OrderCountOutputTypeDefaultArgs<ExtArgs>
+    export type TblgroupCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TblgroupCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use UserCountOutputTypeDefaultArgs instead
+     * @deprecated Use TblsubgroupCountOutputTypeDefaultArgs instead
      */
-    export type UserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserCountOutputTypeDefaultArgs<ExtArgs>
+    export type TblsubgroupCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TblsubgroupCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use groupDefaultArgs instead
+     * @deprecated Use TblcategoryCountOutputTypeDefaultArgs instead
      */
-    export type groupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = groupDefaultArgs<ExtArgs>
+    export type TblcategoryCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TblcategoryCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use subgroupDefaultArgs instead
+     * @deprecated Use TblproductCountOutputTypeDefaultArgs instead
      */
-    export type subgroupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = subgroupDefaultArgs<ExtArgs>
+    export type TblproductCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TblproductCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use categoryDefaultArgs instead
+     * @deprecated Use TblroleCountOutputTypeDefaultArgs instead
      */
-    export type categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = categoryDefaultArgs<ExtArgs>
+    export type TblroleCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TblroleCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use productDefaultArgs instead
+     * @deprecated Use TbluserCountOutputTypeDefaultArgs instead
      */
-    export type productArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = productDefaultArgs<ExtArgs>
+    export type TbluserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TbluserCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use orderDefaultArgs instead
+     * @deprecated Use tblgroupDefaultArgs instead
      */
-    export type orderArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = orderDefaultArgs<ExtArgs>
+    export type tblgroupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tblgroupDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use userDefaultArgs instead
+     * @deprecated Use tblsubgroupDefaultArgs instead
      */
-    export type userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = userDefaultArgs<ExtArgs>
+    export type tblsubgroupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tblsubgroupDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use tblcategoryDefaultArgs instead
+     */
+    export type tblcategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tblcategoryDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use tblproductDefaultArgs instead
+     */
+    export type tblproductArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tblproductDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use tblroleDefaultArgs instead
+     */
+    export type tblroleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tblroleDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use tbluserDefaultArgs instead
+     */
+    export type tbluserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tbluserDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use tblorderDefaultArgs instead
+     */
+    export type tblorderArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tblorderDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

@@ -8,58 +8,74 @@ datasource db {
   url      = env("DATABASE_URL_MYSQL")
 }
 
-model group {
+model tblgroup {
   id          Int      @id @default(autoincrement())
   group       String
-  description String
+  description String?  @db.Text // Campo para la descripción larga
   image       String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  subgroups tblsubgroup[]
 }
 
-model subgroup {
+model tblsubgroup {
   id          Int      @id @default(autoincrement())
   subgroup    String
-  description String
+  description String?  @db.Text // Campo para la descripción larga
   image       String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  groupId     Int
+
+  groupId Int
+  group   tblgroup @relation(fields: [groupId], references: [id])
+
+  categories tblcategory[]
 }
 
-model category {
+model tblcategory {
   id          Int      @id @default(autoincrement())
   category    String
+  description String?  @db.Text // Campo para la descripción larga
+  image       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  subgroupId Int
+  subgroup   tblsubgroup @relation(fields: [subgroupId], references: [id])
+
+  products tblproduct[]
+}
+
+model tblproduct {
+  id          Int      @id @default(autoincrement())
+  product     String
+  description String?  @db.Text // Campo para la descripción larga
+  price       Float
+  stock       Int
+  unit        String
+  image       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  categoryId Int
+  category   tblcategory @relation(fields: [categoryId], references: [id])
+
+  orders tblorder[]
+}
+
+model tblrole {
+  id          Int      @id @default(autoincrement())
+  role        String
   description String
   image       String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  subgroupId  Int
+
+  subgroups tbluser[]
 }
 
-model product {
-  id         Int      @id @default(autoincrement())
-  product    String
-  price      Float
-  stock      Int
-  unit       String
-  image      String
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  categoryId Int
-}
-
-model order {
-  id        Int      @id @default(autoincrement())
-  userId    Int
-  productId Int
-  quantity  Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user      user[]
-}
-
-model user {
+model tbluser {
   id        Int      @id @default(autoincrement())
   name      String
   password  String
@@ -68,5 +84,21 @@ model user {
   email     String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  orders    order[]
+
+  roleId Int
+  role   tblrole @relation(fields: [roleId], references: [id])
+
+  categories tblorder[]
+}
+
+model tblorder {
+  id        Int      @id @default(autoincrement())
+  quantity  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId    Int
+  productId Int
+  user      tbluser    @relation(fields: [userId], references: [id])
+  product   tblproduct @relation(fields: [productId], references: [id])
 }

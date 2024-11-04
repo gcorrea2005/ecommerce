@@ -1,13 +1,12 @@
-import { PrismaClient as SqliteClient } from '../generated/sqlite-client';
-import { PrismaClient as MysqlClient } from '../generated/mysql-client';
-// Importa el cliente de DynamoDB si lo necesitas
+import { PrismaClient as SqliteClient } from '../../generated/sqlite-client';
+import { PrismaClient as MysqlClient } from '../../generated/mysql-client';
+// import { DynamoDBClient } from '@aws-sdk/client-dynamodb'; // Only if needed
 
 declare global {
   // allow global `var` declarations
-  // eslint-disable-next-line no-var
-  var sqlitePrisma: SqliteClient | undefined;
-  var mysqlPrisma: MysqlClient | undefined;
-  var dynamodbPrisma: DynamoDBClient | undefined; // Descomentar si usas DynamoDB
+  let sqlitePrisma: SqliteClient | undefined;
+  let mysqlPrisma:  MysqlClient  | undefined;
+  // var dynamodbPrisma: DynamoDBClient | undefined; // Descomentar si usas DynamoDB
 }
 
 export const sqlitePrisma = global.sqlitePrisma || new SqliteClient();
@@ -16,6 +15,6 @@ export const mysqlPrisma = global.mysqlPrisma || new MysqlClient();
 
 if (process.env.NODE_ENV !== 'production') {
   global.sqlitePrisma = sqlitePrisma;
-  global.mysqlPrisma = mysqlPrisma;
+  global.mysqlPrisma  = mysqlPrisma;
   // global.dynamodbPrisma = dynamodbPrisma; // Descomentar si usas DynamoDB
 }

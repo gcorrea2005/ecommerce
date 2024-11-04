@@ -10,27 +10,30 @@ import {
   MenuItem,
   TextField,
   useMediaQuery,
+  Switch,
+  FormControlLabel,
 } from "@mui/material";
 import {
-  Menu as MenuIcon,
   HomeRepairService as GeneralCleaningIcon,
   Bathroom as PersonalCleaningIcon,
   ShoppingCart as ShoppingCartIcon,
   AccountCircle as AccountCircleIcon,
   Search as SearchIcon,
   Category as CategoryIcon,
+  Menu as MenuIcon,
 } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
-import favicon from "@/app/assets/logo.png";
 import { useState } from "react";
+
+import favicon from "@/app/assets/logo.png";
 
 interface NavbarProps {
   toggleDrawer: () => void;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Navbar: React.FC<NavbarProps> = ({ toggleDrawer }) => {
-
   const isSmallScreen = useMediaQuery("(max-width:600px)");
   const [anchorElHamburger, setAnchorElHamburger] =
     useState<null | HTMLElement>(null);
@@ -41,6 +44,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDrawer }) => {
   const [disposablesMenuAnchorEl, setDisposablesMenuAnchorEl] =
     useState<null | HTMLElement>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isDbEnabled, setIsDbEnabled] = useState(false); // Estado para el toggle
 
   const handleHamburgerMenuClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElHamburger(event.currentTarget);
@@ -76,6 +80,13 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDrawer }) => {
   const handleSearchSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     console.log("Buscar:", searchQuery);
+  };
+
+  // Manejo del cambio de estado del toggle
+  const handleToggleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const isChecked = event.target.checked;
+    setIsDbEnabled(isChecked);
+    console.log("DB CRUD activado:", isChecked);
   };
 
   return (
@@ -123,9 +134,66 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDrawer }) => {
           </IconButton>
         </form>
 
+        {/* Menú Hamburguesa */}
+        {isSmallScreen && (
+          <>
+            <IconButton
+              edge="end"
+              color="inherit"
+              onClick={handleHamburgerMenuClick}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              anchorEl={anchorElHamburger}
+              open={Boolean(anchorElHamburger)}
+              onClose={handleMenuClose}
+            >
+              <MenuItem
+                component={Link}
+                href="/productos/aseo-general"
+                onClick={handleMenuClose}
+              >
+                <GeneralCleaningIcon sx={{ mr: 1 }} /> Aseo General
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                href="/productos/aseo-personal"
+                onClick={handleMenuClose}
+              >
+                <PersonalCleaningIcon sx={{ mr: 1 }} /> Aseo Personal
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                href="/productos/desechables"
+                onClick={handleMenuClose}
+              >
+                <CategoryIcon sx={{ mr: 1 }} /> Desechables
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                href="/account"
+                onClick={handleMenuClose}
+              >
+                <AccountCircleIcon sx={{ mr: 1 }} /> Cuenta
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                href="/carrito"
+                onClick={handleMenuClose}
+              >
+                <ShoppingCartIcon sx={{ mr: 1 }} /> Carrito
+              </MenuItem>
+            </Menu>
+          </>
+        )}
+
         {/* Menú de Aseo General */}
         {!isSmallScreen && (
-          <Link href="/productos/aseo-general" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link
+            href="/productos/aseo-general"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             <Button color="inherit" onClick={handleGeneralCleaningMenuClick}>
               <GeneralCleaningIcon sx={{ mr: 1 }} /> Aseo General
             </Button>
@@ -156,7 +224,10 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDrawer }) => {
 
         {/* Menú de Aseo Personal */}
         {!isSmallScreen && (
-          <Link href="/productos/aseo-personal" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link
+            href="/productos/aseo-personal"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             <Button color="inherit" onClick={handlePersonalCleaningMenuClick}>
               <PersonalCleaningIcon sx={{ mr: 1 }} /> Aseo Personal
             </Button>
@@ -194,10 +265,13 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDrawer }) => {
 
         {/* Menú de Desechables */}
         {!isSmallScreen && (
-          <Link href="/productos/desechables" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link
+            href="/productos/desechables"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             <Button color="inherit" onClick={handleDisposablesMenuClick}>
               <CategoryIcon sx={{ mr: 1 }} /> Desechables
-            </Button>            
+            </Button>
           </Link>
         )}
         <Menu
@@ -232,87 +306,61 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDrawer }) => {
 
         {/* Carrito y Cuenta */}
         <Box sx={{ display: "flex", alignItems: "center", ml: "auto" }}>
-          <IconButton color="inherit" component={Link} href="/carrito">
-            <ShoppingCartIcon />
-          </IconButton>
           <IconButton color="inherit" component={Link} href="/account">
             <AccountCircleIcon />
           </IconButton>
+          <IconButton color="inherit" component={Link} href="/carrito">
+            <ShoppingCartIcon />
+          </IconButton>
 
-          {/* Botón de menú para pantallas pequeñas */}
-          {isSmallScreen && (
-            <IconButton color="inherit" onClick={handleHamburgerMenuClick}>
-              <MenuIcon />
-            </IconButton>
+          {/* Toggle Switch */}
+          <FormControlLabel
+            control={
+              <Switch
+                checked={isDbEnabled}
+                onChange={handleToggleChange}
+                color="primary"
+                sx={{
+                  "& .MuiSwitch-thumb": {
+                    width: 20,
+                    height: 20,
+                    backgroundColor: isDbEnabled ? "#4caf50" : "#f44336",
+                  },
+                  "& .MuiSwitch-track": {
+                    backgroundColor: isDbEnabled ? "#c8e6c9" : "#ffcdd2",
+                  },
+                }}
+              />
+            }
+            label={isDbEnabled ? "ON" : "OFF"}
+            sx={{
+              ml: 2,
+              "& .MuiFormControlLabel-label": {
+                color: "inherit",
+                fontSize: "1rem",
+                fontWeight: "normal",
+              },
+            }}
+          />
+
+          {/* Enlace a /db-crud si el toggle está activado */}
+          {isDbEnabled && (
+            <Link href="/db-crud" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained" // Botón con fondo
+                color="primary" // Color primario del tema
+                sx={{
+                  ml: 2, // Margen a la izquierda para separación
+                  "&:hover": {
+                    backgroundColor: "#1976d2", // Color al pasar el mouse
+                  },
+                }}
+              >
+                Panel de Control
+              </Button>
+            </Link>
           )}
         </Box>
-
-        {/* Menú hamburguesa */}
-        <Menu
-          anchorEl={anchorElHamburger}
-          open={Boolean(anchorElHamburger)}
-          onClose={handleMenuClose}
-          anchorOrigin={{ vertical: "top", horizontal: "right" }}
-          transformOrigin={{ vertical: "top", horizontal: "right" }}
-        >
-          {/* Actualización del menú hamburguesa */}
-          <MenuItem
-            component={Link}
-            href="/productos/aseo-general/productos"
-            onClick={handleMenuClose}
-          >
-            Productos de Limpieza
-          </MenuItem>
-          <MenuItem
-            component={Link}
-            href="/productos/aseo-general/accesorios"
-            onClick={handleMenuClose}
-          >
-            Accesorios de Limpieza
-          </MenuItem>
-          <MenuItem
-            component={Link}
-            href="/productos/aseo-personal/productos"
-            onClick={handleMenuClose}
-          >
-            Productos de Uso Personal
-          </MenuItem>
-          <MenuItem
-            component={Link}
-            href="/productos/aseo-personal/accesorios"
-            onClick={handleMenuClose}
-          >
-            Accesorios Aseo Personal
-          </MenuItem>
-          <MenuItem
-            component={Link}
-            href="/productos/aseo-personal/dispensadores"
-            onClick={handleMenuClose}
-          >
-            Dispensadores Aseo Personal
-          </MenuItem>
-          <MenuItem
-            component={Link}
-            href="/productos/desechables/mesa"
-            onClick={handleMenuClose}
-          >
-            Desechables para la Mesa
-          </MenuItem>
-          <MenuItem
-            component={Link}
-            href="/productos/desechables/empaques"
-            onClick={handleMenuClose}
-          >
-            Desechables para Empacar
-          </MenuItem>
-          <MenuItem
-            component={Link}
-            href="/productos/desechables/envolver"
-            onClick={handleMenuClose}
-          >
-            Desechables para Envolver
-          </MenuItem>
-        </Menu>
       </Toolbar>
     </AppBar>
   );

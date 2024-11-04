@@ -1,12 +1,11 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../../generated/dynamodb-client"
 }
 
-datasource db {
-  provider = "dynamodb"
-  url      = env("DATABASE_URL_DYNAMODB")
-}
+// datasource db {
+//   provider = "dynamodb"
+//   url      = env("DATABASE_URL_DYNAMODB")
+// }
 
 model group {
   id          Int      @id @default(autoincrement())
