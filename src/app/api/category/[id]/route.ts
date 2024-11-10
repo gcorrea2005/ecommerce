@@ -1,212 +1,243 @@
-import { sqlitePrisma as sqlitePrisma } from "@/libs/prisma"; // Prisma para SQLite
-import { mysqlPrisma as mysqlPrisma } from "@/libs/prisma"; // Prisma para MySQL
-import { DynamoDBClient, PutItemCommand, DeleteItemCommand, GetItemCommand } from "@aws-sdk/client-dynamodb"; // AWS SDK para DynamoDB
+import { sqliteClient, mysqlClient } from "@/libs/prisma"; // Prisma para SQLite y MySQL
 import { NextResponse } from "next/server";
 
-// Cliente de DynamoDB
-const dynamoClient = new DynamoDBClient({ region: "us-west-2" });
+// import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb"; // AWS SDK para DynamoDB
+
+// Configuración de DynamoDB Client (descomenta si usas DynamoDB)
+// const dynamoClient = new DynamoDBClient({ region: "us-west-1" });
 
 // Función para seleccionar la base de datos
 function getDatabase(db: string | null) {
   switch (db) {
     case "sqlite":
-      return sqlitePrisma;
+      return sqliteClient;
     case "mysql":
-      return mysqlPrisma;
-    // case 'dynamodb':
+      return mysqlClient;
+    // case "dynamodb":
     //   return dynamoClient;
     default:
       throw new Error("Invalid database selection");
   }
 }
 
-// Método GET para obtener un solo registro por ID
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
+
+export async function GET(request: { url: string | URL }) {
+  const { searchParams, pathname } = new URL(request.url);
+
+  // Extraer los parámetros de búsqueda y el `subgroupId` de la URL
   const db = searchParams.get("db");
-  const id = searchParams.get("id");
+  const groupId = searchParams.get("groupId");
 
-  if (!id) {
-    return NextResponse.json({ message: "ID is required" }, { status: 400 });
+  // Extraer `subgroupId` desde el pathname
+  const pathSegments = pathname.split("/");
+  const subgroupId = pathSegments[pathSegments.length - 1]; // Último segmento en la ruta
+
+  console.log("GET(I): ---",db,groupId,subgroupId);
+
+  // Validación de parámetros
+  if (!db || !groupId || !subgroupId) {
+    return NextResponse.json(
+      { message: "Database type, groupId, and subgroupId are required" },
+      { status: 400 }
+    );
   }
 
-  try {
-    const database = getDatabase(db);
-    let group;
+  const groupIdInt = parseInt(groupId);
+  const subgroupIdInt = parseInt(subgroupId);
 
+  if (isNaN(groupIdInt) || isNaN(subgroupIdInt)) {
+    return NextResponse.json(
+      { message: "Invalid groupId or subgroupId format. Both must be numbers." },
+      { status: 400 }
+    );
+  }
+
+  const database = getDatabase(db); // Asegúrate de que esta función devuelve la conexión correcta
+
+  try {
     if (db === "dynamodb") {
-      const dynamoParams = {
-        TableName: "tblgroup",
-        Key: { id: { S: id } },
-      };
-      const result = await dynamoClient.send(new GetItemCommand(dynamoParams));
-      group = result.Item;
-      if (!group) {
-        return NextResponse.json({ message: "Item not found" }, { status: 404 });
-      }
-    } else {
-      group = await database.tblgroup.findUnique({
-        where: { id: parseInt(id) },
-      });
-      if (!group) {
-        return NextResponse.json({ message: "Item not found" }, { status: 404 });
-      }
+      // Implementación para DynamoDB si es necesario
+      return NextResponse.json(
+        { message: "DynamoDB GET not implemented yet" },
+        { status: 501 }
+      );
     }
 
-    return NextResponse.json(group);
+    // Consulta en Prisma para obtener un subgrupo específico
+    const subgroup = await database.tblsubgroup.findUnique({
+      where: {
+        id: subgroupIdInt,
+        groupId: groupIdInt,
+      },
+    });
+
+    // Verifica si el subgrupo no se encontró
+    if (!subgroup) {
+      return NextResponse.json(
+        { message: "Subgroup not found for the specified groupId and id" },
+        { status: 404 }
+      );
+    }
+
+    // Devuelve el subgrupo encontrado
+    return NextResponse.json({ subgroup });
   } catch (error) {
-    return handleError(error);
+    console.error("Error fetching subgroup:", error);
+    return NextResponse.json(
+      {
+        message: "Error fetching subgroup",
+        error: error instanceof Error ? error.message : String(error),
+      },
+      { status: 500 }
+    );
   }
 }
 
-// Método POST para crear un nuevo registro
-export async function POST(request: {
-  json: () =>
-    | PromiseLike<{ db: unknown; group: unknown; description: unknown; image: unknown }>
-    | { db: unknown; group: unknown; description: unknown; image: unknown };
-}) {
-  const { db, group, description, image } = await request.json();
 
-  if (!db || !group || !description || !image) {
-    return NextResponse.json({ message: "All fields are required" }, { status: 400 });
-  }
 
-  try {
-    const database = getDatabase(db);
+export async function DELETE(request: { url: string | URL }) {
+  const { searchParams, pathname } = new URL(request.url);
 
-    if (db === "dynamodb") {
-      const dynamoParams = {
-        TableName: "tblgroup",
-        Item: {
-          id: { S: `${Date.now()}` }, // Generar un ID único
-          group: { S: group },
-          description: { S: description },
-          image: { S: image },
-        },
-      };
-      await dynamoClient.send(new PutItemCommand(dynamoParams));
-      return NextResponse.json({ message: "Item added to DynamoDB" });
-    } else {
-      const newGroup = await database.tblgroup.create({
-        data: { group, description, image },
-      });
-      return NextResponse.json(newGroup);
-    }
-  } catch (error) {
-    return handleError(error);
-  }
-}
-
-// Método PUT para actualizar un registro existente
-export async function PUT(request: {
-  json: () =>
-    | PromiseLike<{ db: unknown; id: number; group: string; description: string; image: string }>
-    | { db: unknown; id: number; group: string; description: string; image: string };
-}) {
-  const { db, id, group, description, image } = await request.json();
-
-  if (!db || !id || !group || !description || !image) {
-    return NextResponse.json({ message: "All fields are required" }, { status: 400 });
-  }
-
-  try {
-    const database = getDatabase(db);
-
-    if (db === "dynamodb") {
-      const dynamoParams = {
-        TableName: "tblgroup",
-        Key: { id: { S: id.toString() } },
-      };
-      const existingItem = await dynamoClient.send(new GetItemCommand(dynamoParams));
-      if (!existingItem.Item) {
-        return NextResponse.json({ message: "Item not found" }, { status: 404 });
-      }
-
-      // Actualizar el item en DynamoDB
-      const updateParams = {
-        TableName: "tblgroup",
-        Key: { id: { S: id.toString() } },
-        UpdateExpression: "SET #group = :group, #description = :description, #image = :image",
-        ExpressionAttributeNames: {
-          "#group": "group",
-          "#description": "description",
-          "#image": "image",
-        },
-        ExpressionAttributeValues: {
-          ":group": { S: group },
-          ":description": { S: description },
-          ":image": { S: image },
-        },
-      };
-      await dynamoClient.send(new UpdateItemCommand(updateParams));
-      return NextResponse.json({ message: "Item updated in DynamoDB" });
-    } else {
-      const existingGroup = await database.tblgroup.findUnique({
-        where: { id: parseInt(id) },
-      });
-      if (!existingGroup) {
-        return NextResponse.json({ message: "Item not found" }, { status: 404 });
-      }
-
-      const updatedGroup = await database.tblgroup.update({
-        where: { id: parseInt(id) },
-        data: { group, description, image },
-      });
-      return NextResponse.json(updatedGroup);
-    }
-  } catch (error) {
-    return handleError(error);
-  }
-}
-
-// Método DELETE para eliminar un registro
-export async function DELETE(request: Request) {
-  const { searchParams } = new URL(request.url);
+  // Extraer los parámetros de búsqueda y el `subgroupId` de la URL
   const db = searchParams.get("db");
-  const id = searchParams.get("id");
+  const groupId = searchParams.get("groupId");
 
-  if (!id) {
-    return NextResponse.json({ message: "ID is required" }, { status: 400 });
+  // Extraer `subgroupId` desde el pathname
+  const pathSegments = pathname.split("/");
+  const subgroupId = pathSegments[pathSegments.length - 1]; // Último segmento en la ruta
+
+  console.log("GET(I): ---",db,groupId,subgroupId);
+
+  // Validación de parámetros
+  if (!db || !groupId || !subgroupId) {
+    return NextResponse.json(
+      { message: "Database type, groupId, and subgroupId are required" },
+      { status: 400 }
+    );
   }
+
+  const groupIdInt = parseInt(groupId);
+  const subgroupIdInt = parseInt(subgroupId);
+
+  if (isNaN(groupIdInt) || isNaN(subgroupIdInt)) {
+    return NextResponse.json(
+      { message: "Invalid groupId or subgroupId format. Both must be numbers." },
+      { status: 400 }
+    );
+  }
+
+  const database = getDatabase(db); // Asegúrate de que esta función devuelve la conexión correcta
 
   try {
-    const database = getDatabase(db);
-
     if (db === "dynamodb") {
-      // Comprobar si el item existe
-      const dynamoParams = {
-        TableName: "tblgroup",
-        Key: { id: { S: id } },
-      };
-      const existingItem = await dynamoClient.send(new GetItemCommand(dynamoParams));
-      if (!existingItem.Item) {
-        return NextResponse.json({ message: "Item not found" }, { status: 404 });
-      }
-
-      // Eliminar el item en DynamoDB
-      const deleteParams = {
-        TableName: "tblgroup",
-        Key: { id: { S: id } },
-      };
-      await dynamoClient.send(new DeleteItemCommand(deleteParams));
-    } else {
-      // Verificar si el grupo existe en SQLite o MySQL
-      const existingGroup = await database.tblgroup.findUnique({
-        where: { id: parseInt(id) },
-      });
-      if (!existingGroup) {
-        return NextResponse.json({ message: "Item not found" }, { status: 404 });
-      }
-
-      // Eliminar el grupo en SQLite o MySQL
-      await database.tblgroup.delete({ where: { id: parseInt(id) } });
+      // Implementación para DynamoDB si es necesario
+      return NextResponse.json(
+        { message: "DynamoDB DELETE not implemented yet" },
+        { status: 501 }
+      );
     }
 
-    return NextResponse.json({ message: "Item deleted successfully" });
+    // Consulta en Prisma para eliminar un subgrupo específico
+    const deletedSubgroup = await database.tblsubgroup.deleteMany({
+      where: {
+        id: subgroupIdInt,
+        groupId: groupIdInt,
+      },
+    });
+
+    // Verifica si se eliminó el subgrupo
+    if (deletedSubgroup.count === 0) {
+      return NextResponse.json(
+        { message: "Subgroup not found or already deleted" },
+        { status: 404 }
+      );
+    }
+
+    // Devuelve un mensaje de éxito
+    return NextResponse.json({ message: "Subgroup deleted successfully" });
   } catch (error) {
-    return handleError(error);
+    console.error("Error deleting subgroup:", error);
+    return NextResponse.json(
+      {
+        message: "Error deleting subgroup",
+        error: error instanceof Error ? error.message : String(error),
+      },
+      { status: 500 }
+    );
   }
 }
+
+
+
+export async function PUT(request: { url: string | URL, json: () => unknown }) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const db = searchParams.get("db");
+    const groupId = searchParams.get("groupId");
+    const id = parseInt(request.url.split("/").pop() || "");
+
+    if (!db || !groupId || isNaN(id)) {
+      return NextResponse.json(
+        { message: "Both 'db', 'groupId', and valid 'id' are required" },
+        { status: 400 }
+      );
+    }
+
+    const data = (await request.json()) as {
+      subgroup?: string;
+      description?: string;
+      image?: string;
+    };
+    const { subgroup, description, image } = data;
+
+    // Check for at least one field to update
+    if (!subgroup && !description && !image) {
+      return NextResponse.json(
+        { message: "At least one field (subgroup, description, image) must be provided" },
+        { status: 400 }
+      );
+    }
+
+    const database = getDatabase(db);
+    const groupIdInt = parseInt(groupId);
+
+    if (db === "dynamodb") {
+      // Implementación de DynamoDB si es necesario
+      return NextResponse.json(
+        { message: "DynamoDB PUT not implemented yet" },
+        { status: 501 }
+      );
+    }
+
+    // Update record in Prisma-compatible databases
+    const updatedSubGroup = await database.tblsubgroup.update({
+      where: { id: id },
+      data: {
+        subgroup: subgroup || undefined,
+        description: description || undefined,
+        image: image || undefined,
+        groupId: groupIdInt,
+      },
+    });
+
+    return NextResponse.json({
+      message: "Subgroup updated successfully",
+      updatedSubGroup,
+    });
+  } catch (error) {
+    console.error("Error updating subgroup:", error);
+    return NextResponse.json(
+      {
+        message: "Error updating subgroup",
+        error: error instanceof Error ? error.message : String(error),
+      },
+      { status: 500 }
+    );
+  }
+}
+
+
+
 
 // Función para manejar errores
 function handleError(error: unknown) {

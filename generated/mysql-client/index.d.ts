@@ -3453,7 +3453,6 @@ export namespace Prisma {
     id: number | null
     category: string | null
     description: string | null
-    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
     subgroupId: number | null
@@ -3463,7 +3462,6 @@ export namespace Prisma {
     id: number | null
     category: string | null
     description: string | null
-    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
     subgroupId: number | null
@@ -3473,7 +3471,6 @@ export namespace Prisma {
     id: number
     category: number
     description: number
-    image: number
     createdAt: number
     updatedAt: number
     subgroupId: number
@@ -3495,7 +3492,6 @@ export namespace Prisma {
     id?: true
     category?: true
     description?: true
-    image?: true
     createdAt?: true
     updatedAt?: true
     subgroupId?: true
@@ -3505,7 +3501,6 @@ export namespace Prisma {
     id?: true
     category?: true
     description?: true
-    image?: true
     createdAt?: true
     updatedAt?: true
     subgroupId?: true
@@ -3515,7 +3510,6 @@ export namespace Prisma {
     id?: true
     category?: true
     description?: true
-    image?: true
     createdAt?: true
     updatedAt?: true
     subgroupId?: true
@@ -3612,7 +3606,6 @@ export namespace Prisma {
     id: number
     category: string
     description: string | null
-    image: string
     createdAt: Date
     updatedAt: Date
     subgroupId: number
@@ -3641,7 +3634,6 @@ export namespace Prisma {
     id?: boolean
     category?: boolean
     description?: boolean
-    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     subgroupId?: boolean
@@ -3655,7 +3647,6 @@ export namespace Prisma {
     id?: boolean
     category?: boolean
     description?: boolean
-    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     subgroupId?: boolean
@@ -3677,7 +3668,6 @@ export namespace Prisma {
       id: number
       category: string
       description: string | null
-      image: string
       createdAt: Date
       updatedAt: Date
       subgroupId: number
@@ -4055,7 +4045,6 @@ export namespace Prisma {
     readonly id: FieldRef<"tblcategory", 'Int'>
     readonly category: FieldRef<"tblcategory", 'String'>
     readonly description: FieldRef<"tblcategory", 'String'>
-    readonly image: FieldRef<"tblcategory", 'String'>
     readonly createdAt: FieldRef<"tblcategory", 'DateTime'>
     readonly updatedAt: FieldRef<"tblcategory", 'DateTime'>
     readonly subgroupId: FieldRef<"tblcategory", 'Int'>
@@ -8314,7 +8303,6 @@ export namespace Prisma {
     id: 'id',
     category: 'category',
     description: 'description',
-    image: 'image',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     subgroupId: 'subgroupId'
@@ -8569,7 +8557,6 @@ export namespace Prisma {
     id?: IntFilter<"tblcategory"> | number
     category?: StringFilter<"tblcategory"> | string
     description?: StringNullableFilter<"tblcategory"> | string | null
-    image?: StringFilter<"tblcategory"> | string
     createdAt?: DateTimeFilter<"tblcategory"> | Date | string
     updatedAt?: DateTimeFilter<"tblcategory"> | Date | string
     subgroupId?: IntFilter<"tblcategory"> | number
@@ -8581,7 +8568,6 @@ export namespace Prisma {
     id?: SortOrder
     category?: SortOrder
     description?: SortOrderInput | SortOrder
-    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     subgroupId?: SortOrder
@@ -8596,7 +8582,6 @@ export namespace Prisma {
     NOT?: tblcategoryWhereInput | tblcategoryWhereInput[]
     category?: StringFilter<"tblcategory"> | string
     description?: StringNullableFilter<"tblcategory"> | string | null
-    image?: StringFilter<"tblcategory"> | string
     createdAt?: DateTimeFilter<"tblcategory"> | Date | string
     updatedAt?: DateTimeFilter<"tblcategory"> | Date | string
     subgroupId?: IntFilter<"tblcategory"> | number
@@ -8608,7 +8593,6 @@ export namespace Prisma {
     id?: SortOrder
     category?: SortOrder
     description?: SortOrderInput | SortOrder
-    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     subgroupId?: SortOrder
@@ -8626,7 +8610,6 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"tblcategory"> | number
     category?: StringWithAggregatesFilter<"tblcategory"> | string
     description?: StringNullableWithAggregatesFilter<"tblcategory"> | string | null
-    image?: StringWithAggregatesFilter<"tblcategory"> | string
     createdAt?: DateTimeWithAggregatesFilter<"tblcategory"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"tblcategory"> | Date | string
     subgroupId?: IntWithAggregatesFilter<"tblcategory"> | number
@@ -9061,7 +9044,6 @@ export namespace Prisma {
   export type tblcategoryCreateInput = {
     category: string
     description?: string | null
-    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     subgroup: tblsubgroupCreateNestedOneWithoutCategoriesInput
@@ -9072,7 +9054,6 @@ export namespace Prisma {
     id?: number
     category: string
     description?: string | null
-    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     subgroupId: number
@@ -9082,7 +9063,6 @@ export namespace Prisma {
   export type tblcategoryUpdateInput = {
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subgroup?: tblsubgroupUpdateOneRequiredWithoutCategoriesNestedInput
@@ -9093,7 +9073,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subgroupId?: IntFieldUpdateOperationsInput | number
@@ -9104,7 +9083,6 @@ export namespace Prisma {
     id?: number
     category: string
     description?: string | null
-    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     subgroupId: number
@@ -9113,7 +9091,6 @@ export namespace Prisma {
   export type tblcategoryUpdateManyMutationInput = {
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9122,7 +9099,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subgroupId?: IntFieldUpdateOperationsInput | number
@@ -9663,7 +9639,6 @@ export namespace Prisma {
     id?: SortOrder
     category?: SortOrder
     description?: SortOrder
-    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     subgroupId?: SortOrder
@@ -9678,7 +9653,6 @@ export namespace Prisma {
     id?: SortOrder
     category?: SortOrder
     description?: SortOrder
-    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     subgroupId?: SortOrder
@@ -9688,7 +9662,6 @@ export namespace Prisma {
     id?: SortOrder
     category?: SortOrder
     description?: SortOrder
-    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     subgroupId?: SortOrder
@@ -10540,7 +10513,6 @@ export namespace Prisma {
   export type tblcategoryCreateWithoutSubgroupInput = {
     category: string
     description?: string | null
-    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     products?: tblproductCreateNestedManyWithoutCategoryInput
@@ -10550,7 +10522,6 @@ export namespace Prisma {
     id?: number
     category: string
     description?: string | null
-    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     products?: tblproductUncheckedCreateNestedManyWithoutCategoryInput
@@ -10617,7 +10588,6 @@ export namespace Prisma {
     id?: IntFilter<"tblcategory"> | number
     category?: StringFilter<"tblcategory"> | string
     description?: StringNullableFilter<"tblcategory"> | string | null
-    image?: StringFilter<"tblcategory"> | string
     createdAt?: DateTimeFilter<"tblcategory"> | Date | string
     updatedAt?: DateTimeFilter<"tblcategory"> | Date | string
     subgroupId?: IntFilter<"tblcategory"> | number
@@ -10747,7 +10717,6 @@ export namespace Prisma {
   export type tblcategoryCreateWithoutProductsInput = {
     category: string
     description?: string | null
-    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     subgroup: tblsubgroupCreateNestedOneWithoutCategoriesInput
@@ -10757,7 +10726,6 @@ export namespace Prisma {
     id?: number
     category: string
     description?: string | null
-    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     subgroupId: number
@@ -10807,7 +10775,6 @@ export namespace Prisma {
   export type tblcategoryUpdateWithoutProductsInput = {
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subgroup?: tblsubgroupUpdateOneRequiredWithoutCategoriesNestedInput
@@ -10817,7 +10784,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subgroupId?: IntFieldUpdateOperationsInput | number
@@ -11175,7 +11141,6 @@ export namespace Prisma {
     id?: number
     category: string
     description?: string | null
-    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11183,7 +11148,6 @@ export namespace Prisma {
   export type tblcategoryUpdateWithoutSubgroupInput = {
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     products?: tblproductUpdateManyWithoutCategoryNestedInput
@@ -11193,7 +11157,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     products?: tblproductUncheckedUpdateManyWithoutCategoryNestedInput
@@ -11203,7 +11166,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

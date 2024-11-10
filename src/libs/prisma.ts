@@ -1,20 +1,27 @@
 import { PrismaClient as SqliteClient } from '../../generated/sqlite-client';
 import { PrismaClient as MysqlClient } from '../../generated/mysql-client';
-// import { DynamoDBClient } from '@aws-sdk/client-dynamodb'; // Only if needed
+// import { PrismaClient as DynamodbClient } from '../../generated/dynamodb-client';
 
-declare global {
-  // allow global `var` declarations
-  let sqlitePrisma: SqliteClient | undefined;
-  let mysqlPrisma:  MysqlClient  | undefined;
-  // var dynamodbPrisma: DynamoDBClient | undefined; // Descomentar si usas DynamoDB
-}
+const sqliteClientSingleton = () => new SqliteClient();
+const mysqlClientSingleton = () => new MysqlClient();
+// const dynamodbClientSingleton = () => new DynamodbClient();
 
-export const sqlitePrisma = global.sqlitePrisma || new SqliteClient();
-export const mysqlPrisma = global.mysqlPrisma || new MysqlClient();
-// export const dynamodbPrisma = global.dynamodbPrisma || new DynamoDBClient(); // Descomentar si usas DynamoDB
+declare const globalThis: {
+  sqliteGlobal?: ReturnType<typeof sqliteClientSingleton>;
+  mysqlGlobal?: ReturnType<typeof mysqlClientSingleton>;
+  // dynamodbGlobal?: ReturnType<typeof dynamodbClientSingleton>;
+} & typeof global;
 
+// Initialize clients with singleton pattern
+const sqliteClient = globalThis.sqliteGlobal ?? sqliteClientSingleton();
+const mysqlClient = globalThis.mysqlGlobal ?? mysqlClientSingleton();
+// const dynamodbClient = globalThis.dynamodbGlobal ?? dynamodbClientSingleton();
+
+// Set global instances for development mode
 if (process.env.NODE_ENV !== 'production') {
-  global.sqlitePrisma = sqlitePrisma;
-  global.mysqlPrisma  = mysqlPrisma;
-  // global.dynamodbPrisma = dynamodbPrisma; // Descomentar si usas DynamoDB
+  globalThis.sqliteGlobal = sqliteClient;
+  globalThis.mysqlGlobal = mysqlClient;
+  // globalThis.dynamodbGlobal = dynamodbClient;
 }
+
+export { sqliteClient, mysqlClient };

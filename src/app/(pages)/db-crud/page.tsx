@@ -1,5 +1,13 @@
 "use client";
+import useGlobalStore from "@/app/stores/useGlobalStore";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import GroupWorkIcon from "@mui/icons-material/GroupWork";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+
 import {
   Container,
   Typography,
@@ -15,7 +23,14 @@ import {
   RadioGroup,
   FormControlLabel,
   FormLabel,
-  Link,
+  ButtonGroup,
+  CardHeader,
+  CardContent,
+  FormControl,
+  Card,
+  Box,
+  Stack,
+  Grid,
 } from "@mui/material";
 
 interface Group {
@@ -29,8 +44,23 @@ export default function GroupTablePage() {
   const [groups, setGroups] = useState<Group[]>([]);
   const [form, setForm] = useState({ group: "", description: "", image: "" });
   const [editingGroupId, setEditingGroupId] = useState<string | null>(null);
-  const [selectedDB, setSelectedDB] = useState("mysql"); // Base de datos por defecto
   const [imagePreview, setImagePreview] = useState<string | null>(null); // Estado para la previsualización de la imagen
+  const {
+    idgroup,
+    idsubgroup,
+    idcategory,
+    nameGroup,
+    nameSubGroup,
+    nameCategory,
+    selectedDB,
+    setIdgroup,
+    setIdsubgroup,
+    setIdcategory,
+    setNameGroup,
+    setNameSubGroup,
+    setNameCategory,
+    setSelectedDB,
+  } = useGlobalStore();
 
   useEffect(() => {
     fetchGroups();
@@ -40,7 +70,6 @@ export default function GroupTablePage() {
     try {
       const response = await fetch(`/api/group?db=${selectedDB}`);
       if (!response.ok) throw new Error("Error al obtener los grupos");
-
       const data = await response.json();
       const groupsArray = Array.isArray(data.group) ? data.group : [];
       setGroups(groupsArray);
@@ -78,18 +107,18 @@ export default function GroupTablePage() {
     setForm({ group: "", description: "", image: "" });
     setEditingGroupId(null);
   };
-  
+
   const createGroup = async () => {
     try {
       const body = {
-        db: selectedDB,           // Base de datos seleccionada
-        group: form.group,        // Nombre del grupo
+        db: selectedDB, // Base de datos seleccionada
+        group: form.group, // Nombre del grupo
         description: form.description, // Descripción del grupo
-        image: form.image,        // Aquí asumo que `form.image` es una URL o string
+        image: form.image, // Aquí asumo que `form.image` es una URL o string
       };
-  
-      console.log("Datos a enviar:", JSON.stringify(body)); // Para depurar
-  
+
+      // console.log("Datos a enviar:", JSON.stringify(body)); // Para depurar
+
       const response = await fetch(`/api/group?db=${selectedDB}`, {
         method: "POST",
         headers: {
@@ -97,11 +126,11 @@ export default function GroupTablePage() {
         },
         body: JSON.stringify(body), // Convertir el objeto a JSON
       });
-  
+
       if (!response.ok) {
         throw new Error("Error en la respuesta del servidor");
       }
-  
+
       const result = await response.json(); // Si el servidor devuelve JSON
       console.log("Grupo creado:", result);
     } catch (error) {
@@ -111,53 +140,105 @@ export default function GroupTablePage() {
 
   const updateGroup = async (id: string) => {
     try {
-      const formData = new FormData();
-      formData.append("group", form.group);
-      formData.append("description", form.description);
-      formData.append("image", form.image); // Enviar el nombre de la imagen al backend
+      let body;
+      let headers = {};
 
-      await fetch(`/api/group/${id}?db=${selectedDB}`, {
+      if (typeof form.image === "string") {
+        // Send as JSON if `image` is a filename (not a file)
+        body = JSON.stringify({
+          group: form.group,
+          description: form.description,
+          image: form.image,
+        });
+        headers = { "Content-Type": "application/json" };
+      } else {
+        // If `image` is a file, use FormData
+        const formData = new FormData();
+        formData.append("group", form.group);
+        formData.append("description", form.description);
+        formData.append("image", form.image); // Assuming `form.image` is a File object
+        body = formData;
+      }
+
+      const response = await fetch(`/api/group/${id}?db=${selectedDB}`, {
         method: "PUT",
-        body: formData,
+        headers, // Only set headers for JSON; FormData automatically sets them
+        body,
       });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error en el servidor:", errorData.message);
+        return;
+      }
+
+      console.log("Grupo actualizado exitosamente");
     } catch (error) {
       console.error("Error al actualizar el grupo:", error);
     }
   };
 
   const handleEdit = (group: Group) => {
+    const imagePath = "/images/" + group.image;
+
     setForm({
       group: group.group,
       description: group.description,
       image: group.image, // Cargar el nombre de la imagen existente
     });
-    setImagePreview(group.image); // Establecer la imagen existente para la previsualización
+    setImagePreview(imagePath); // Establecer la imagen existente para la previsualización
     setEditingGroupId(group.id);
   };
 
   const handleDelete = async (id: string) => {
     try {
-      await fetch(`/api/group/${id}?db=${selectedDB}`, {
+      const response = await fetch(`/api/group/${id}?db=${selectedDB}`, {
         method: "DELETE",
       });
-      fetchGroups();
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error en el servidor:", errorData.message);
+        return;
+      }
+
+      console.log("Grupo eliminado exitosamente");
+      fetchGroups(); // Refreshes the groups after successful deletion
     } catch (error) {
       console.error("Error al eliminar el grupo:", error);
     }
   };
 
+
+  
+  // aca empieza el codigo HTML
   return (
     <Container>
       <Typography variant="h4" gutterBottom>
         Gestión de Grupos
       </Typography>
 
-      <FormLabel component="legend">Selecciona la base de datos:</FormLabel>
-      <RadioGroup row value={selectedDB} onChange={handleRadioChange}>
-        <FormControlLabel value="mysql" control={<Radio />} label="MySQL" />
-        <FormControlLabel value="sqlite" control={<Radio />} label="SQLite" />
-        <FormControlLabel value="dynamodb" control={<Radio />} label="DynamoDB" />
-      </RadioGroup>
+      <Card
+        variant="outlined"
+        sx={{ maxWidth: 400, margin: "20px auto", padding: 2 }}
+      >
+        <CardContent>
+          <FormLabel component="legend">Bases de datos disponibles</FormLabel>
+          <RadioGroup row value={selectedDB} onChange={handleRadioChange}>
+            <FormControlLabel value="mysql" control={<Radio />} label="MySQL" />
+            <FormControlLabel
+              value="sqlite"
+              control={<Radio />}
+              label="SQLite"
+            />
+            <FormControlLabel
+              value="dynamodb"
+              control={<Radio />}
+              label="DynamoDB"
+            />
+          </RadioGroup>
+        </CardContent>
+      </Card>
 
       <form onSubmit={handleSubmit}>
         <TextField
@@ -186,19 +267,57 @@ export default function GroupTablePage() {
           fullWidth
           margin="normal"
         />
-        <Button variant="contained" component="label" color="primary">
-          Seleccionar Imagen
-          <input type="file" hidden onChange={handleFileChange} accept="images/*" />
-        </Button>
-        {imagePreview && (
-          <div style={{ marginTop: '10px' }}>
-            <Typography variant="body1">Vista previa:</Typography>
-            <img src={imagePreview} alt="Vista previa" style={{ width: '100px', height: '100px', marginTop: '5px' }} />
-          </div>
-        )}
-        <Button type="submit" variant="contained" color="primary" style={{ marginTop: '20px' }}>
-          {editingGroupId ? "Actualizar" : "Crear"}
-        </Button>
+        <Box sx={{ mt: 2, p: 3, borderRadius: 2, boxShadow: 3 }}>
+          <Grid container spacing={2} alignItems="center">
+            {/* Columna 1: Botón de carga de imagen */}
+            <Grid item xs={12} sm={4}>
+              <Button
+                component="label"
+                variant="contained"
+                startIcon={<CloudUploadIcon />}
+                fullWidth
+              >
+                Subir Imagen
+                <input
+                  type="file"
+                  onChange={handleFileChange}
+                  multiple
+                  hidden
+                />
+              </Button>
+            </Grid>
+
+            {/* Columna 2: Vista previa de la imagen */}
+            <Grid item xs={12} sm={4} textAlign="center">
+              {imagePreview ? (
+                <Box>
+                  <Typography variant="body1">Vista previa:</Typography>
+                  <Image
+                    src={imagePreview}
+                    alt="Vista previa"
+                    width={150}
+                    height={150}
+                    style={{ marginTop: "5px" }}
+                  />
+                </Box>
+              ) : (
+                <Typography variant="body1">Sin vista previa</Typography>
+              )}
+            </Grid>
+
+            {/* Columna 3: Botón de envío */}
+            <Grid item xs={12} sm={4}>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                fullWidth
+              >
+                {editingGroupId ? "Actualizar" : "Crear"}
+              </Button>
+            </Grid>
+          </Grid>
+        </Box>
       </form>
 
       <Typography variant="h6" gutterBottom>
@@ -223,20 +342,46 @@ export default function GroupTablePage() {
                   <TableCell>{group.group}</TableCell>
                   <TableCell>{group.description}</TableCell>
                   <TableCell>
-                    <img src={"images/" + group.image} alt={group.group} width="50" height="50" />
+                    <Image
+                      src={`/images/${group.image}`}
+                      alt={group.group}
+                      width={150}
+                      height={150}
+                      style={{ marginTop: "5px" }}
+                    />
                   </TableCell>
                   <TableCell>
-                    <Button onClick={() => handleEdit(group)} variant="outlined" color="primary">
-                      Editar
-                    </Button>
-                    <Button onClick={() => handleDelete(group.id)} variant="outlined" color="secondary">
-                      Eliminar
-                    </Button>
-                    <Link href={`/db-crud/subgroup/id=${group.id}`} passHref>
-                      <Button variant="outlined" color="success">
-                        SubGroup
-                      </Button>
-                    </Link>
+                    <ButtonGroup
+                      variant="contained"
+                      aria-label="Basic button group"
+                    >
+                      <Button
+                        onClick={() => handleEdit(group)}
+                        variant="outlined"
+                        color="primary"
+                        startIcon={<EditIcon />}
+                      ></Button>
+                      <Button
+                        onClick={() => handleDelete(group.id)}
+                        variant="outlined"
+                        color="secondary"
+                        startIcon={<DeleteIcon />}
+                      ></Button>
+                      <Link
+                        href={`/db-crud/subgroup?db=${selectedDB}&&groupId=${group.id}`}
+                        passHref
+                      >
+                        <Button
+                          onClick={() => {
+                            setIdgroup(group.id);
+                            setNameGroup(group.group);
+                          }}
+                          variant="outlined"
+                          color="success"
+                          startIcon={<GroupWorkIcon />}
+                        ></Button>
+                      </Link>
+                    </ButtonGroup>
                   </TableCell>
                 </TableRow>
               ))

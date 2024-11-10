@@ -145,7 +145,6 @@ exports.Prisma.TblcategoryScalarFieldEnum = {
   id: 'id',
   category: 'category',
   description: 'description',
-  image: 'image',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   subgroupId: 'subgroupId'

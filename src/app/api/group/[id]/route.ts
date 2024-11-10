@@ -1,30 +1,32 @@
-import { sqlitePrisma as sqlitePrisma } from "@/libs/prisma"; // Prisma para SQLite
-import { mysqlPrisma as mysqlPrisma } from "@/libs/prisma"; // Prisma para MySQL
-import { DynamoDBClient, PutItemCommand, DeleteItemCommand, GetItemCommand } from "@aws-sdk/client-dynamodb"; // AWS SDK para DynamoDB
+import { sqliteClient, mysqlClient } from "@/libs/prisma"; // Prisma para SQLite y MySQL
 import { NextResponse } from "next/server";
+// import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb"; // AWS SDK para DynamoDB
 
-// Cliente de DynamoDB
-const dynamoClient = new DynamoDBClient({ region: "us-west-2" });
+// Configuración de DynamoDB Client (descomenta si usas DynamoDB)
+// const dynamoClient = new DynamoDBClient({ region: "us-west-1" });
 
 // Función para seleccionar la base de datos
 function getDatabase(db: string | null) {
   switch (db) {
     case "sqlite":
-      return sqlitePrisma;
+      return sqliteClient;
     case "mysql":
-      return mysqlPrisma;
-    // case 'dynamodb':
+      return mysqlClient;
+    // case "dynamodb":
     //   return dynamoClient;
     default:
       throw new Error("Invalid database selection");
   }
 }
 
-// Método GET para obtener un solo registro por ID
+// Método GET para obtener un registro por ID
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const db = searchParams.get("db");
-  const id = searchParams.get("id");
+
+  // Extract the `id` from the URL path `/group/:id`
+  const urlParts = request.url.split("/");
+  const id = urlParts[urlParts.length - 1];
 
   if (!id) {
     return NextResponse.json({ message: "ID is required" }, { status: 400 });
@@ -32,148 +34,160 @@ export async function GET(request: Request) {
 
   try {
     const database = getDatabase(db);
-    let group;
 
     if (db === "dynamodb") {
+      // Fetch the item from DynamoDB
       const dynamoParams = {
         TableName: "tblgroup",
         Key: { id: { S: id } },
       };
-      const result = await dynamoClient.send(new GetItemCommand(dynamoParams));
-      group = result.Item;
-      if (!group) {
+      const item = await dynamoClient.send(new GetItemCommand(dynamoParams));
+      if (!item.Item) {
         return NextResponse.json({ message: "Item not found" }, { status: 404 });
       }
-    } else {
-      group = await database.tblgroup.findUnique({
-        where: { id: parseInt(id) },
-      });
-      if (!group) {
-        return NextResponse.json({ message: "Item not found" }, { status: 404 });
-      }
-    }
 
-    return NextResponse.json(group);
-  } catch (error) {
-    return handleError(error);
-  }
-}
-
-// Método POST para crear un nuevo registro
-export async function POST(request: {
-  json: () =>
-    | PromiseLike<{ db: unknown; group: unknown; description: unknown; image: unknown }>
-    | { db: unknown; group: unknown; description: unknown; image: unknown };
-}) {
-  const { db, group, description, image } = await request.json();
-
-  if (!db || !group || !description || !image) {
-    return NextResponse.json({ message: "All fields are required" }, { status: 400 });
-  }
-
-  try {
-    const database = getDatabase(db);
-
-    if (db === "dynamodb") {
-      const dynamoParams = {
-        TableName: "tblgroup",
-        Item: {
-          id: { S: `${Date.now()}` }, // Generar un ID único
-          group: { S: group },
-          description: { S: description },
-          image: { S: image },
-        },
+      // Transform the DynamoDB item to a plain JavaScript object
+      const groupData = {
+        id: item.Item.id.S,
+        group: item.Item.group.S,
+        description: item.Item.description.S,
+        image: item.Item.image?.S || null,
       };
-      await dynamoClient.send(new PutItemCommand(dynamoParams));
-      return NextResponse.json({ message: "Item added to DynamoDB" });
+
+      return NextResponse.json(groupData);
     } else {
-      const newGroup = await database.tblgroup.create({
-        data: { group, description, image },
+      // Parse `id` as an integer for SQL-based databases
+      const groupId = parseInt(id);
+      if (isNaN(groupId)) {
+        return NextResponse.json({ message: "Invalid ID format" }, { status: 400 });
+      }
+
+      // Fetch the group from SQLite or MySQL
+      const group = await database.tblgroup.findUnique({
+        where: { id: groupId },
       });
-      return NextResponse.json(newGroup);
+
+      if (!group) {
+        return NextResponse.json({ message: "Item not found" }, { status: 404 });
+      }
+
+      return NextResponse.json(group);
     }
   } catch (error) {
-    return handleError(error);
+    console.error("Error fetching item:", error);
+    return NextResponse.json(
+      { message: "Failed to fetch item", error: error.message },
+      { status: 500 }
+    );
   }
 }
 
-// Método PUT para actualizar un registro existente
-export async function PUT(request: {
-  json: () =>
-    | PromiseLike<{ db: unknown; id: number; group: string; description: string; image: string }>
-    | { db: unknown; id: number; group: string; description: string; image: string };
-}) {
-  const { db, id, group, description, image } = await request.json();
 
-  if (!db || !id || !group || !description || !image) {
-    return NextResponse.json({ message: "All fields are required" }, { status: 400 });
+// Método PUT para actualizar un registro
+export async function PUT(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const db = searchParams.get("db");
+
+  // Extract the `id` from the URL path `/group/:id`
+  const urlParts = request.url.split("/");
+  const id = urlParts[urlParts.length - 1];
+
+  if (!id) {
+    return NextResponse.json({ message: "ID is required" }, { status: 400 });
+  }
+
+  const body = await request.json();
+  const { group, description, image } = body;
+
+  if (!group || !description) {
+    return NextResponse.json(
+      { message: "Group name and description are required" },
+      { status: 400 }
+    );
   }
 
   try {
     const database = getDatabase(db);
 
     if (db === "dynamodb") {
+      // Check if the item exists in DynamoDB
       const dynamoParams = {
         TableName: "tblgroup",
-        Key: { id: { S: id.toString() } },
+        Key: { id: { S: id } },
       };
       const existingItem = await dynamoClient.send(new GetItemCommand(dynamoParams));
       if (!existingItem.Item) {
         return NextResponse.json({ message: "Item not found" }, { status: 404 });
       }
 
-      // Actualizar el item en DynamoDB
+      // Update the item in DynamoDB
       const updateParams = {
         TableName: "tblgroup",
-        Key: { id: { S: id.toString() } },
-        UpdateExpression: "SET #group = :group, #description = :description, #image = :image",
-        ExpressionAttributeNames: {
-          "#group": "group",
-          "#description": "description",
-          "#image": "image",
-        },
+        Key: { id: { S: id } },
+        UpdateExpression: "SET #group = :group, description = :description, image = :image",
+        ExpressionAttributeNames: { "#group": "group" },
         ExpressionAttributeValues: {
           ":group": { S: group },
           ":description": { S: description },
-          ":image": { S: image },
+          ":image": { S: image ?? "" },
         },
       };
       await dynamoClient.send(new UpdateItemCommand(updateParams));
-      return NextResponse.json({ message: "Item updated in DynamoDB" });
     } else {
+      // Parse `id` as an integer for SQL-based databases
+      const groupId = parseInt(id);
+      if (isNaN(groupId)) {
+        return NextResponse.json({ message: "Invalid ID format" }, { status: 400 });
+      }
+
+      // Check if the group exists in SQLite or MySQL
       const existingGroup = await database.tblgroup.findUnique({
-        where: { id: parseInt(id) },
+        where: { id: groupId },
       });
       if (!existingGroup) {
         return NextResponse.json({ message: "Item not found" }, { status: 404 });
       }
 
-      const updatedGroup = await database.tblgroup.update({
-        where: { id: parseInt(id) },
+      // Update the group in SQLite or MySQL
+      await database.tblgroup.update({
+        where: { id: groupId },
         data: { group, description, image },
       });
-      return NextResponse.json(updatedGroup);
     }
+
+    // Return success response
+    return NextResponse.json({ message: "Item updated successfully" });
   } catch (error) {
-    return handleError(error);
+    console.error("Error updating item:", error);
+    return NextResponse.json(
+      { message: "Failed to update item", error: error.message },
+      { status: 500 }
+    );
   }
 }
+
 
 // Método DELETE para eliminar un registro
 export async function DELETE(request: Request) {
   const { searchParams } = new URL(request.url);
   const db = searchParams.get("db");
-  const id = searchParams.get("id");
+
+  // Extract the `id` from the URL path `/group/:id`
+  const urlParts = request.url.split("/");
+  const id = urlParts[urlParts.length - 1];
+
+  console.log("urlParts: ", urlParts);
 
   if (!id) {
     return NextResponse.json({ message: "ID is required" }, { status: 400 });
   }
+  console.log("Delete -- id: ", id);
 
   try {
     const database = getDatabase(db);
 
     if (db === "dynamodb") {
-      // Comprobar si el item existe
+      // Check if the item exists in DynamoDB
       const dynamoParams = {
         TableName: "tblgroup",
         Key: { id: { S: id } },
@@ -183,30 +197,39 @@ export async function DELETE(request: Request) {
         return NextResponse.json({ message: "Item not found" }, { status: 404 });
       }
 
-      // Eliminar el item en DynamoDB
+      // Delete the item in DynamoDB
       const deleteParams = {
         TableName: "tblgroup",
         Key: { id: { S: id } },
       };
       await dynamoClient.send(new DeleteItemCommand(deleteParams));
     } else {
-      // Verificar si el grupo existe en SQLite o MySQL
+      // Parse `id` as an integer for SQL-based databases
+      const groupId = parseInt(id);
+      if (isNaN(groupId)) {
+        return NextResponse.json({ message: "Invalid ID format" }, { status: 400 });
+      }
+
+      // Check if the group exists in SQLite or MySQL
       const existingGroup = await database.tblgroup.findUnique({
-        where: { id: parseInt(id) },
+        where: { id: groupId },
       });
       if (!existingGroup) {
         return NextResponse.json({ message: "Item not found" }, { status: 404 });
       }
 
-      // Eliminar el grupo en SQLite o MySQL
-      await database.tblgroup.delete({ where: { id: parseInt(id) } });
+      // Delete the group in SQLite or MySQL
+      await database.tblgroup.delete({ where: { id: groupId } });
     }
 
+    // Return success response
     return NextResponse.json({ message: "Item deleted successfully" });
   } catch (error) {
-    return handleError(error);
+    console.error("Error deleting item:", error);
+    return NextResponse.json({ message: "Failed to delete item", error: error.message }, { status: 500 });
   }
 }
+
 
 // Función para manejar errores
 function handleError(error: unknown) {
